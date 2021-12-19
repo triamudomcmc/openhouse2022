@@ -10,7 +10,7 @@
       "@types/*": ["src/@types/*"],
       "@modules/*": ["src/modules/*"],
       "@utils/*": ["src/utils/*"],
-      "@handlers/*": ["src/handlers/*"],
+      "@services/*": ["src/services/*"],
       "@config/*": ["src/config/*"],
       "@models/*": ["src/models/*"],
       "@lib/*": ["src/lib/*"]
