@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .color-slip-jeen {
+        background: linear-gradient(180deg, #000F30 0%, #072449 28.13%, #8496CD 100%);
+    }
+
+    .navbar-bg {
+        background: linear-gradient(269.81deg, rgba(249, 249, 249, 0.3) 1.29%, rgba(249, 249, 249, 0) 99.84%);
+    }
+
+    .color-gifted {
+        background: linear-gradient(180deg, #352A62 0%, #725695 41.67%, #988EC0 84.37%);
+    }
+}
