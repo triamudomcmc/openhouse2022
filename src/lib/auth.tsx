@@ -179,8 +179,8 @@ function useProvideAuth() {
       const tmpData: any = await getCurrentUserData(user.uid)
       setUserData({
         username: "",
-        password: "",
-        anonymous: true,
+        firstname: "",
+        lastname: "",
         ...tmpData,
       })
       setLoading(false)
@@ -254,7 +254,7 @@ function useProvideAuth() {
     const unsubscribe = onIdTokenChanged(auth, handleUser)
 
     return () => unsubscribe()
-  }, [handleUser])
+  }, [])
 
   return {
     user,
