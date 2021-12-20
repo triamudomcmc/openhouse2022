@@ -29,7 +29,7 @@ const validate = (values: any) => {
 
 const EmailForm: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => void }> = ({ auth, setPage }) => {
   return (
-    <>
+    <div>
       <a
         className="font-display text-white text-center pb-2 hover:opacity-80 transition-opacity cursor-pointer"
         onClick={() => setPage("all")}
@@ -100,7 +100,7 @@ const EmailForm: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => void
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   )
 }
 
@@ -119,7 +119,7 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
             fill="#1877F2"
           />
         </svg>
-        <p className="px-4">Sign up with Facebook</p>
+        <p className="px-4 text-black">Sign up with Facebook</p>
       </button>
       <button
         className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
@@ -150,7 +150,7 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
             </clipPath>
           </defs>
         </svg>
-        <p className="px-4">Sign up with Google</p>
+        <p className="px-4 text-black">Sign up with Google</p>
       </button>
       <button
         className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
@@ -166,7 +166,7 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
             fill="#1E002C"
           />
         </svg>
-        <p className="px-4">Sign up with Email</p>
+        <p className="px-4 text-black">Sign up with Email</p>
       </button>
     </div>
   )
@@ -178,7 +178,7 @@ const Signup = () => {
 
   return (
     <>
-      <main className="relative w-full min-h-screen bg-gray-900">
+      <main className="relative py-2 w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center justify-center h-screen">
           <div>
             <p className="font-display text-3xl text-white text-center font-extrabold py-2">Sign up / ลงทะเบียน</p>
