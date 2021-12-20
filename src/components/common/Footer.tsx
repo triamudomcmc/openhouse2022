@@ -39,7 +39,7 @@ export const Footer = () => {
           <div className="flex flex-col space-y-2 text-center sm:text-right mt-2 sm:mt-0 font-display">
             <span>สายการเรียน</span>
             <span>การสอบเข้า</span>
-            <span>เกมค้นหาดวงดาวของคุณ</span>
+            <span>การ์ดของคุณ</span>
             <span>การเดินทาง</span>
             <span>ติดต่อ</span>
           </div>
