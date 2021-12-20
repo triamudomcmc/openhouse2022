@@ -23,19 +23,20 @@ const Onboard: NextPage = () => {
             username: "",
             firstname: "",
             lastname: "",
-            status: "",
-            school: null,
-            grade: null,
+            status: "student",
+            school: "",
+            grade: "",
           }}
           validate={validate}
           onSubmit={(data) => {
-            const _data = filterNullProperties(data)
+            // remove fields
+            // const _data = filterNullProperties(data)
             // go to next page
           }}
           validateOnChange={false}
           validateOnBlur={false}
         >
-          {({ errors }) => (
+          {({ errors, values }) => (
             <Form className="py-4 text-sm w-[20rem] sm:w-[24rem] text-gray-700 font-display" noValidate>
               <>
                 <label className="block my-1 text-white" htmlFor="username">
@@ -118,18 +119,18 @@ const Onboard: NextPage = () => {
                       className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
                       name="status"
                       type="radio"
-                      value="parent"
+                      value="teacher"
                     />
-                    ผู้ปกครอง
+                    ครู / บุคลากรโรงเรียน
                   </label>
                   <label className="flex items-center my-1 font-display">
                     <Field
                       className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
                       name="status"
                       type="radio"
-                      value="teacher"
+                      value="parent"
                     />
-                    ครู / บุคลากรโรงเรียน
+                    ผู้ปกครอง
                   </label>
                   <label className="flex items-center my-1 font-display">
                     <Field
@@ -147,47 +148,53 @@ const Onboard: NextPage = () => {
                   <div className="h-6" aria-hidden></div>
                 )}
               </>
-              <hr className="text-white my-2 h-4" />
-              <>
-                <label className="block my-1 text-white" htmlFor="username">
-                  ชื่อผู้ใช้ (username)
-                </label>
-                <Field
-                  className={classNames(
-                    "border block w-full bg-white p-3 focus:outline-none rounded-md",
-                    errors.username ? "border-red-400" : "border-white"
+              {["student", "teacher"].includes(values.status) && (
+                <>
+                  <hr className="text-white my-2 h-4" />
+                  <>
+                    <label className="block my-1 text-white" htmlFor="school">
+                      โรงเรียน
+                    </label>
+                    <Field
+                      className={classNames(
+                        "border block w-full bg-white p-3 focus:outline-none rounded-md",
+                        errors.school ? "border-red-400" : "border-white"
+                      )}
+                      id="school"
+                      name="school"
+                      placeholder="โรงเรียนเตรียมอุดมศึกษา"
+                      type="text"
+                    />
+                    {errors.school ? (
+                      <p className="mt-1 text-red-400">{errors.school}</p>
+                    ) : (
+                      <div className="h-6" aria-hidden></div>
+                    )}
+                  </>
+                  {values.status === "student" && (
+                    <>
+                      <label className="block my-1 text-white" htmlFor="grade">
+                        ระดับชั้น
+                      </label>
+                      <Field
+                        className={classNames(
+                          "border block w-full bg-white p-3 focus:outline-none rounded-md",
+                          errors.grade ? "border-red-400" : "border-white"
+                        )}
+                        id="grade"
+                        name="grade"
+                        placeholder="ม.3"
+                        type="text"
+                      />
+                      {errors.grade ? (
+                        <p className="mt-1 text-red-400">{errors.grade}</p>
+                      ) : (
+                        <div className="h-6" aria-hidden></div>
+                      )}
+                    </>
                   )}
-                  id="username"
-                  name="username"
-                  placeholder="ความยาวไม่เกิน 32 ตัวอักษร"
-                  type="text"
-                />
-                {errors.username ? (
-                  <p className="mt-1 text-red-400">{errors.username}</p>
-                ) : (
-                  <div className="h-6" aria-hidden></div>
-                )}
-              </>
-              <>
-                <label className="block my-1 text-white" htmlFor="username">
-                  ชื่อผู้ใช้ (username)
-                </label>
-                <Field
-                  className={classNames(
-                    "border block w-full bg-white p-3 focus:outline-none rounded-md",
-                    errors.firstname ? "border-red-400" : "border-white"
-                  )}
-                  id="username"
-                  name="username"
-                  placeholder="ความยาวไม่เกิน 32 ตัวอักษร"
-                  type="text"
-                />
-                {errors.username ? (
-                  <p className="mt-1 text-red-400">{errors.username}</p>
-                ) : (
-                  <div className="h-6" aria-hidden></div>
-                )}
-              </>
+                </>
+              )}
               <hr className="text-white h-4" />
               {/* submit */}
               <div className="py-6 text-white">

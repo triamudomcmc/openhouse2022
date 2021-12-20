@@ -12,7 +12,7 @@ export const Nav = () => {
           </div>
         </div>
         <nav className="hidden lg:flex items-center space-x-12">
-          <span className="font-medium border-b border-white flex-shrink-0">หน้าแรก</span>
+          <span className="font-medium flex-shrink-0">หน้าแรก</span>
           <span className="flex-shrink-0">สายการเรียน</span>
           <span className="flex-shrink-0">ชมรม</span>
           <span className="flex-shrink-0">วิดีโอ</span>
