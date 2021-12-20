@@ -50,7 +50,7 @@ const EmailForm: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => void
         validateOnBlur={false}
       >
         {({ errors }) => (
-          <Form className="py-4 text-sm text-gray-700 font-display" noValidate>
+          <Form className="py-4 text-sm w-[20rem] sm:w-[24rem] text-gray-700 font-display" noValidate>
             <>
               <label className="block my-1 text-white" htmlFor="email">
                 อีเมล

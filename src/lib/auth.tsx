@@ -16,7 +16,7 @@ import {
 import { onSnapshot } from "firebase/firestore"
 import firebaseApp from "./firebase"
 import { createUser, getUserRef, getCurrentUserData } from "./db"
-import { Loading } from "@components/loading/Index"
+import { Loading } from "@components/common/Loading"
 
 export interface IUserData extends IInitialUserData {
   username: string

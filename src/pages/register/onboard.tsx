@@ -36,7 +36,7 @@ const Onboard: NextPage = () => {
           validateOnBlur={false}
         >
           {({ errors }) => (
-            <Form className="py-4 text-sm w-[20rem] sm:w-[36rem] text-gray-700 font-display" noValidate>
+            <Form className="py-4 text-sm w-[20rem] sm:w-[24rem] text-gray-700 font-display" noValidate>
               <>
                 <label className="block my-1 text-white" htmlFor="username">
                   ชื่อผู้ใช้ (username)
@@ -50,6 +50,7 @@ const Onboard: NextPage = () => {
                   name="username"
                   placeholder="ความยาวไม่เกิน 32 ตัวอักษร"
                   type="text"
+                  maxLength="32"
                 />
                 {errors.username ? (
                   <p className="mt-1 text-red-400">{errors.username}</p>
@@ -58,84 +59,86 @@ const Onboard: NextPage = () => {
                 )}
               </>
               <>
-                <label className="block my-1 text-white" htmlFor="username">
-                  ชื่อผู้ใช้ (username)
+                <label className="block my-1 text-white" htmlFor="firstname">
+                  ชื่อ (ไม่ต้องมีคำนำหน้า)
                 </label>
                 <Field
                   className={classNames(
                     "border block w-full bg-white p-3 focus:outline-none rounded-md",
                     errors.firstname ? "border-red-400" : "border-white"
                   )}
-                  id="username"
-                  name="username"
-                  placeholder="ความยาวไม่เกิน 32 ตัวอักษร"
+                  id="firstname"
+                  name="firstname"
+                  placeholder="เรียนเด่น"
                   type="text"
                 />
-                {errors.username ? (
-                  <p className="mt-1 text-red-400">{errors.username}</p>
+                {errors.firstname ? (
+                  <p className="mt-1 text-red-400">{errors.firstname}</p>
                 ) : (
                   <div className="h-6" aria-hidden></div>
                 )}
               </>
               <>
-                <label className="block my-1 text-white" htmlFor="username">
-                  ชื่อผู้ใช้ (username)
+                <label className="block my-1 text-white" htmlFor="lastname">
+                  นามสกุล
                 </label>
                 <Field
                   className={classNames(
                     "border block w-full bg-white p-3 focus:outline-none rounded-md",
-                    errors.firstname ? "border-red-400" : "border-white"
+                    errors.lastname ? "border-red-400" : "border-white"
                   )}
-                  id="username"
-                  name="username"
-                  placeholder="ความยาวไม่เกิน 32 ตัวอักษร"
+                  id="lastname"
+                  name="lastname"
+                  placeholder="เล่นดี"
                   type="text"
                 />
-                {errors.username ? (
-                  <p className="mt-1 text-red-400">{errors.username}</p>
+                {errors.lastname ? (
+                  <p className="mt-1 text-red-400">{errors.lastname}</p>
                 ) : (
                   <div className="h-6" aria-hidden></div>
                 )}
               </>
               <hr className="text-white my-2 h-4" />
               <>
-                <p className="w-full mb-4 text-white font-display">ขนาดเสื้อ</p>
-                <div className="text-white" role="group" aria-labelledby="my-radio-group">
+                <p className="w-full mb-4 text-white font-display" id="status-group">
+                  สถานภาพ
+                </p>
+                <div className="text-white flex flex-col space-y-4" role="group" aria-labelledby="status-group">
                   <label className="flex items-center my-1 font-display">
                     <Field
-                      className="inline mr-3 text-black font-display focus:outline-none unc"
-                      name="size"
+                      className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
+                      name="status"
                       type="radio"
-                      value="S"
+                      value="student"
                     />
-                    S (รอบอก 32 ความยาวตัว 25)
+                    นักเรียน
                   </label>
                   <label className="flex items-center my-1 font-display">
                     <Field
-                      className="inline mr-3 text-black font-display focus:outline-none unc"
-                      name="size"
+                      className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
+                      name="status"
                       type="radio"
-                      value="M"
+                      value="parent"
                     />
-                    M (รอบอก 36 ความยาวตัว 27)
+                    ผู้ปกครอง
                   </label>
                   <label className="flex items-center my-1 font-display">
                     <Field
-                      className="inline mr-3 text-black font-display focus:outline-none unc"
-                      name="size"
+                      className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
+                      name="status"
                       type="radio"
-                      value="L"
+                      value="teacher"
                     />
-                    L (รอบอก 40 ความยาวตัว 29)
+                    ครู / บุคลากรโรงเรียน
                   </label>
                   <label className="flex items-center my-1 font-display">
                     <Field
-                      className="inline mr-3 text-black font-display focus:outline-none unc"
-                      name="size"
+                      className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
+                      name="status"
                       type="radio"
-                      value="XL"
+                      value="other"
                     />
-                    XL (รอบอก 44 ความยาวตัว 31)
+                    อื่น ๆ
                   </label>
                 </div>
                 {errors.status ? (
