@@ -117,24 +117,24 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     if (auth.loading === false) {
       // register
-      if (pathname === "/signup") {
+      if (pathname === "/register") {
         if (registered) Router.push("/")
-        else if (authNoRegistered) Router.push("/signup/onboard")
+        else if (authNoRegistered) Router.push("/register/onboard")
       }
       // onboard
       else if (pathname === "/onboard") {
         if (registered) Router.push("/")
-        else if (noAuth) Router.push("/signup")
+        else if (noAuth) Router.push("/register")
       }
       // login
       else if (pathname === "/login") {
-        if (authNoRegistered) Router.push("/signup/onboard")
+        if (authNoRegistered) Router.push("/register/onboard")
         else if (registered) Router.push("/")
       }
       // mycard
       else if (pathname === "/mycard") {
-        if (noAuth) Router.push("/signup?redirect=mycard")
-        else if (authNoRegistered) Router.push("/signup/onboard?redirect=mycard")
+        if (noAuth) Router.push("/register?redirect=mycard")
+        else if (authNoRegistered) Router.push("/register/onboard?redirect=mycard")
       }
     }
   }, [pathname, auth])

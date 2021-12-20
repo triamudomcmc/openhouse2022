@@ -109,7 +109,7 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
     <div>
       <button
         className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
-        onClick={() => auth?.signinWithFacebook("/signup/onboard")}
+        onClick={() => auth?.signinWithFacebook("/register/onboard")}
       >
         <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -123,7 +123,7 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
       </button>
       <button
         className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
-        onClick={() => auth?.signinWithGoogle("/signup/onboard")}
+        onClick={() => auth?.signinWithGoogle("/register/onboard")}
       >
         <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_582:964)">
@@ -172,7 +172,7 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
   )
 }
 
-const Signup = () => {
+const Register = () => {
   const auth = useAuth()
   const [page, setPage] = useState<TPages>("all")
 
@@ -181,7 +181,7 @@ const Signup = () => {
       <main className="relative py-2 w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center justify-center h-screen">
           <div>
-            <p className="font-display text-3xl text-white text-center font-extrabold py-2">Sign up / ลงทะเบียน</p>
+            <p className="font-display text-3xl text-white text-center font-extrabold py-2">Register / ลงทะเบียน</p>
             <p className="font-display text-white text-center pb-8">
               Or{" "}
               <Link href="/login" passHref>
@@ -198,4 +198,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Register
