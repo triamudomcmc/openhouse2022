@@ -181,7 +181,7 @@ const Register = () => {
       <main className="relative py-2 w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center justify-center h-screen">
           <div>
-            <p className="font-display text-3xl text-white text-center font-extrabold py-2">Register / ลงทะเบียน</p>
+            <p className="font-display text-3xl text-white text-center font-medium py-2">Register / ลงทะเบียน</p>
             <p className="font-display text-white text-center pb-8">
               Or{" "}
               <Link href="/login" passHref>

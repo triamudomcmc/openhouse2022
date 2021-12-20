@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 @layer utilities {
-    .color-slip-jeen {
-        background: linear-gradient(180deg, #000F30 0%, #072449 28.13%, #8496CD 100%);
-    }
+  .color-slip-jeen {
+    background: linear-gradient(180deg, #000f30 0%, #072449 28.13%, #8496cd 100%);
+  }
 
-    .navbar-bg {
-        background: linear-gradient(269.81deg, rgba(249, 249, 249, 0.3) 1.29%, rgba(249, 249, 249, 0) 99.84%);
-    }
+  .navbar-bg {
+    background: linear-gradient(269.81deg, rgba(249, 249, 249, 0.3) 1.29%, rgba(249, 249, 249, 0) 99.84%);
+  }
 
-    .color-gifted {
-        background: linear-gradient(180deg, #352A62 0%, #725695 41.67%, #988EC0 84.37%);
-    }
+  .color-gifted {
+    background: linear-gradient(180deg, #352a62 0%, #725695 41.67%, #988ec0 84.37%);
+  }
+
+  .main-section {
+    @apply pt-[6.5rem] pb-4;
+  }
 }

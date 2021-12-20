@@ -122,7 +122,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         else if (authNoRegistered) Router.push("/register/onboard")
       }
       // onboard
-      else if (pathname === "/onboard") {
+      else if (pathname === "/register/onboard") {
         if (registered) Router.push("/")
         else if (noAuth) Router.push("/register")
       }

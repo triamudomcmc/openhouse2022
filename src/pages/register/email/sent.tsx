@@ -1,8 +1,8 @@
 const EmailSent = () => {
   return (
-    <div className="py-2">
+    <main className="main-section">
       <p>sent</p>
-    </div>
+    </main>
   )
 }
 

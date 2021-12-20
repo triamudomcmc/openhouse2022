@@ -74,7 +74,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggestion }) => {
   return (
-    <section className="color-slip-jeen min-h-screen py-2">
+    <section className="color-slip-jeen min-h-screen main-section">
       <div className="max-w-6xl px-8 mx-auto">
         <div
           onClick={() => {

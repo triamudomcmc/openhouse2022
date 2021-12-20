@@ -19,9 +19,9 @@ const ConfirmMail: NextPage = () => {
   }
 
   return (
-    <div className="py-2">
+    <main className="main-section">
       <p>done</p>
-    </div>
+    </main>
   )
 }
 

@@ -7,7 +7,7 @@ import { TUCMCLogo } from "./TUCMCLogo"
 export const Footer = () => {
   return (
     <footer className="bg-white w-full pt-10 px-8">
-      <div className="flex flex-col sm:flex-row sm:items-start items-center justify-between max-w-6xl mx-auto w-full">
+      <div className="flex flex-col sm:flex-row sm:items-start items-center px-0 sm:px-20 justify-between max-w-6xl mx-auto w-full">
         <div className="flex justify-center">
           <div className="sm:text-left text-center space-y-5">
             <div className="text-[#1D3662] font-semibold font-sans">
@@ -28,7 +28,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="text-[#6B7280] flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-20">
+        <div className="text-[#6B7280] flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28">
           <div className="flex flex-col space-y-2 text-center sm:text-right font-display">
             <span>หน้าแรก</span>
             <span>รายการสด</span>
