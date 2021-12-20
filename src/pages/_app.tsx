@@ -1,3 +1,4 @@
+import { MetaData } from "@components/common/Meta"
 import { AuthProvider } from "@lib/auth"
 import "@styles/tailwind.css"
 import type { AppProps } from "next/app"
@@ -8,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <AuthProvider>
+      <MetaData />
       <Component {...pageProps} />
     </AuthProvider>
   )

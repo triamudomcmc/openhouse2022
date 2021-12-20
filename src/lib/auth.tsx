@@ -16,7 +16,7 @@ import {
 import { onSnapshot } from "firebase/firestore"
 import firebaseApp from "./firebase"
 import { createUser, getUserRef, getCurrentUserData } from "./db"
-import { Loading } from "@components/Loading"
+import { Loading } from "@components/loading/Index"
 
 export interface IUserData extends IInitialUserData {
   username: string
@@ -117,24 +117,24 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     if (auth.loading === false) {
       // register
-      if (pathname === "/register") {
+      if (pathname === "/signup") {
         if (registered) Router.push("/")
-        else if (authNoRegistered) Router.push("/register/onboard")
+        else if (authNoRegistered) Router.push("/signup/onboard")
       }
       // onboard
       else if (pathname === "/onboard") {
         if (registered) Router.push("/")
-        else if (noAuth) Router.push("/register")
+        else if (noAuth) Router.push("/signup")
       }
       // login
       else if (pathname === "/login") {
-        if (authNoRegistered) Router.push("/register/onboard")
+        if (authNoRegistered) Router.push("/signup/onboard")
         else if (registered) Router.push("/")
       }
       // mycard
       else if (pathname === "/mycard") {
-        if (noAuth) Router.push("/register?redirect=mycard")
-        else if (authNoRegistered) Router.push("/register/onboard?redirect=mycard")
+        if (noAuth) Router.push("/signup?redirect=mycard")
+        else if (authNoRegistered) Router.push("/signup/onboard?redirect=mycard")
       }
     }
   }, [pathname, auth])

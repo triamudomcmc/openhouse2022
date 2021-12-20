@@ -1,11 +1,11 @@
 import Link from "next/link"
 import { IAuthContext, useAuth } from "@lib/auth"
-import { MetaData } from "@components/meta"
 import { FC, useState } from "react"
 import { Field, Form, Formik } from "formik"
 import classnames from "classnames"
 import { ArrowLeftIcon } from "@heroicons/react/outline"
 import { submitEmail } from "@services/submitEmail"
+import { TUCMCLogo } from "@components/common/TUCMCLogo"
 
 type TPages = "all" | "email"
 
@@ -30,13 +30,13 @@ const validate = (values: any) => {
 const EmailForm: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => void }> = ({ auth, setPage }) => {
   return (
     <>
-      <p className="font-display text-white text-center pb-8">
+      <a
+        className="font-display text-white text-center pb-2 hover:opacity-80 transition-opacity cursor-pointer"
+        onClick={() => setPage("all")}
+      >
         <ArrowLeftIcon className="w-4 h-4 text-white inline mr-2" />
-        Or{" "}
-        <a className="text-red-400 hover:underline cursor-pointer" onClick={() => setPage("all")}>
-          register by other methods
-        </a>
-      </p>
+        ย้อนกลับ
+      </a>
       <Formik
         initialValues={{
           email: "",
@@ -50,15 +50,15 @@ const EmailForm: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => void
         validateOnBlur={false}
       >
         {({ errors }) => (
-          <Form className="py-4 text-sm text-white font-display" noValidate>
+          <Form className="py-4 text-sm text-gray-700 font-display" noValidate>
             <>
-              <label className="block my-1" htmlFor="email">
+              <label className="block my-1 text-white" htmlFor="email">
                 อีเมล
               </label>
               <Field
                 className={classnames(
-                  "border block w-full bg-black p-3 focus:outline-none rounded-md",
-                  errors.email ? "border-red-400" : "border-black"
+                  "border block w-full bg-white p-3 focus:outline-none rounded-md",
+                  errors.email ? "border-red-400" : "border-white"
                 )}
                 id="email"
                 name="email"
@@ -72,13 +72,13 @@ const EmailForm: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => void
               )}
             </>
             <>
-              <label className="block my-1 font-display" htmlFor="verify">
+              <label className="block my-1 font-display text-white" htmlFor="verify">
                 ยืนยันอีเมล
               </label>
               <Field
                 className={classnames(
-                  "border block w-full bg-black p-3 focus:outline-none rounded-md",
-                  errors.verify ? "border-red-400" : "border-black"
+                  "border block w-full bg-white p-3 focus:outline-none rounded-md",
+                  errors.verify ? "border-red-400" : "border-white"
                 )}
                 id="verify"
                 name="verify"
@@ -109,7 +109,7 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
     <div>
       <button
         className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
-        onClick={() => auth?.signinWithFacebook("/register/onboard")}
+        onClick={() => auth?.signinWithFacebook("/signup/onboard")}
       >
         <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -123,7 +123,7 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
       </button>
       <button
         className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
-        onClick={() => auth?.signinWithGoogle("/register/onboard")}
+        onClick={() => auth?.signinWithGoogle("/signup/onboard")}
       >
         <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_582:964)">
@@ -172,17 +172,16 @@ const AllMethods: FC<{ auth: IAuthContext | null; setPage: (page: TPages) => voi
   )
 }
 
-const Register = () => {
+const Signup = () => {
   const auth = useAuth()
   const [page, setPage] = useState<TPages>("all")
 
   return (
     <>
-      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center justify-center h-screen">
           <div>
-            <p className="font-display text-3xl text-white text-center font-extrabold py-2">Register</p>
+            <p className="font-display text-3xl text-white text-center font-extrabold py-2">Sign up / ลงทะเบียน</p>
             <p className="font-display text-white text-center pb-8">
               Or{" "}
               <Link href="/login" passHref>
@@ -192,10 +191,11 @@ const Register = () => {
           </div>
 
           {page === "all" ? <AllMethods setPage={setPage} auth={auth} /> : <EmailForm auth={auth} setPage={setPage} />}
+          <TUCMCLogo className="mt-4" />
         </div>
       </main>
     </>
   )
 }
 
-export default Register
+export default Signup

@@ -75,8 +75,17 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-      display: ["Inter var", "SF Pro Display", "Sukhumvit Set", "Kanit", ...defaultTheme.fontFamily.sans],
+      display: [
+        "Inter var",
+        "Noto Sans Thai",
+        "SF Pro Display",
+        "Sukhumvit Set",
+        "Kanit",
+        ...defaultTheme.fontFamily.sans,
+      ],
+      game: ["Prompt", "Inter var", ...defaultTheme.fontFamily.sans],
     },
+    mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
   },
   plugins: [
     require("@tailwindcss/typography"),
