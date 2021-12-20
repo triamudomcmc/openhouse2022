@@ -254,7 +254,7 @@ function useProvideAuth() {
     const unsubscribe = onIdTokenChanged(auth, handleUser)
 
     return () => unsubscribe()
-  }, [])
+  }, [handleUser])
 
   return {
     user,
