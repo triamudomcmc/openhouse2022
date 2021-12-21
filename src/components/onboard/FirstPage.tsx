@@ -1,11 +1,63 @@
 import { IData, IFirstPage } from "@pages/register/onboard"
+import { filterNullProperties } from "@utils/filterNullObjProperties"
 import classNames from "classnames"
 import { Field, Form, Formik } from "formik"
 import { FC } from "react"
 
 const validate = (values: IFirstPage) => {
-  const errors = {}
+  const errors: any = {}
+
+  if (!values.username) {
+    errors.username = "จำเป็นต้องใส่"
+  } else if (values.username.length > 32) {
+    errors.username = "ความยาวต้องไม่เกิน 32 ตัวอักษร"
+  }
+
+  if (!values.firstname) {
+    errors.firstname = "จำเป็นต้องใส่"
+  } else if (values.lastname.length > 32) {
+    errors.firstname = "ความยาวต้องไม่เกิน 32 ตัวอักษร"
+  }
+
+  if (!values.lastname) {
+    errors.lastname = "จำเป็นต้องใส่"
+  } else if (values.lastname.length > 32) {
+    errors.lastname = "ความยาวต้องไม่เกิน 32 ตัวอักษร"
+  }
+
+  if (!values.status) {
+    errors.status = "จำเป็นต้องเลือกฐานะ"
+  }
+
+  if (["teacher", "student"].includes(values.status) && !values.school) {
+    errors.school = "จำเป็นต้องใส่"
+  }
+
+  if (values.status === "student" && !values.grade) {
+    errors.grade = "จำเป็นต้องใส่"
+  } else if (values.status === "student" && values.grade) {
+    if (values.grade.length > 16) {
+      errors.grade = "ความยาวต้องไม่เกิน 16 ตัวอักษร"
+    }
+  }
+
   return errors
+}
+
+export const formatData: (data: any) => IFirstPage = (data) => {
+  const _data: any = data
+
+  // not status that requires school
+  if (!["student", "teacher"].includes(data.status)) {
+    _data.school = null
+  }
+
+  // not student
+  if (data.status !== "student") {
+    _data.grade = null
+  }
+
+  return filterNullProperties(_data) as IFirstPage
 }
 
 export const FirstPage: FC<{
@@ -20,14 +72,12 @@ export const FirstPage: FC<{
         firstname: data.firstname,
         lastname: data.lastname,
         status: data.status,
-        school: data.school,
-        grade: data.grade,
+        school: data?.school ?? "",
+        grade: data?.grade ?? "",
       }}
       validate={validate}
       onSubmit={(data) => {
-        // remove fields
-        // const _data = filterNullProperties(data)
-        // go to next page
+        updateData(formatData(data))
         setPage(2)
       }}
       validateOnChange={false}
@@ -51,7 +101,7 @@ export const FirstPage: FC<{
               maxLength="32"
             />
             {errors.username ? (
-              <p className="mt-1 text-red-400">{errors.username}</p>
+              <p className="mt-1 text-red-400 mb-6">{errors.username}</p>
             ) : (
               <div className="h-6" aria-hidden></div>
             )}
@@ -71,7 +121,7 @@ export const FirstPage: FC<{
               type="text"
             />
             {errors.firstname ? (
-              <p className="mt-1 text-red-400">{errors.firstname}</p>
+              <p className="mt-1 text-red-400 mb-6">{errors.firstname}</p>
             ) : (
               <div className="h-6" aria-hidden></div>
             )}
@@ -91,12 +141,12 @@ export const FirstPage: FC<{
               type="text"
             />
             {errors.lastname ? (
-              <p className="mt-1 text-red-400">{errors.lastname}</p>
+              <p className="mt-1 text-red-400 mb-6">{errors.lastname}</p>
             ) : (
               <div className="h-6" aria-hidden></div>
             )}
           </>
-          <hr className="text-white my-2 h-4" />
+          {/* <hr className="text-white my-2 h-4" /> */}
           <>
             <p className="w-full mb-4 text-white font-display" id="status-group">
               สถานภาพ
@@ -104,7 +154,7 @@ export const FirstPage: FC<{
             <div className="text-white flex flex-col space-y-4" role="group" aria-labelledby="status-group">
               <label className="flex items-center my-1 font-display">
                 <Field
-                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
+                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                   name="status"
                   type="radio"
                   value="student"
@@ -113,7 +163,7 @@ export const FirstPage: FC<{
               </label>
               <label className="flex items-center my-1 font-display">
                 <Field
-                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
+                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                   name="status"
                   type="radio"
                   value="teacher"
@@ -122,7 +172,16 @@ export const FirstPage: FC<{
               </label>
               <label className="flex items-center my-1 font-display">
                 <Field
-                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
+                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
+                  name="status"
+                  type="radio"
+                  value="alumini"
+                />
+                นักเรียนเก่าโรงเรียนเตรียมฯ
+              </label>
+              <label className="flex items-center my-1 font-display">
+                <Field
+                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                   name="status"
                   type="radio"
                   value="parent"
@@ -131,7 +190,7 @@ export const FirstPage: FC<{
               </label>
               <label className="flex items-center my-1 font-display">
                 <Field
-                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none unc"
+                  className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                   name="status"
                   type="radio"
                   value="other"
@@ -140,14 +199,14 @@ export const FirstPage: FC<{
               </label>
             </div>
             {errors.status ? (
-              <p className="mt-1 text-red-400">{errors.status}</p>
+              <p className="mt-1 text-red-400 mb-6">{errors.status}</p>
             ) : (
               <div className="h-6" aria-hidden></div>
             )}
           </>
           {["student", "teacher"].includes(values.status) && (
             <>
-              <hr className="text-white my-2 h-4" />
+              {/* <hr className="text-white my-2 h-4" /> */}
               <>
                 <label className="block my-1 text-white" htmlFor="school">
                   โรงเรียน
@@ -163,7 +222,7 @@ export const FirstPage: FC<{
                   type="text"
                 />
                 {errors.school ? (
-                  <p className="mt-1 text-red-400">{errors.school}</p>
+                  <p className="mt-1 text-red-400 mb-6">{errors.school}</p>
                 ) : (
                   <div className="h-6" aria-hidden></div>
                 )}
@@ -192,9 +251,9 @@ export const FirstPage: FC<{
               )}
             </>
           )}
-          <hr className="text-white h-4" />
+          {/* <hr className="text-white h-4" /> */}
           {/* submit */}
-          <div className="py-6 text-white">
+          <div className="pt-8 pb-6 text-white">
             <button className="w-full p-3 mb-3 bg-red-400 rounded-full" type="submit">
               ถัดไป
             </button>

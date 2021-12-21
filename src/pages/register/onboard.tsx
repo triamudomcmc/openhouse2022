@@ -1,5 +1,7 @@
 import { FirstPage } from "@components/onboard/FirstPage"
 import { SecondPage } from "@components/onboard/SecondPage"
+import { useAuth } from "@lib/auth"
+import { submitRegister } from "@services/submitRegister"
 import { NextPage } from "next"
 import { useState } from "react"
 
@@ -7,7 +9,7 @@ export interface IFirstPage {
   username: string
   firstname: string
   lastname: string
-  status: "student" | "teacher" | "parent" | "other"
+  status: "student" | "teacher" | "parent" | "alumini" | "other"
   school?: string
   grade?: string
 }
@@ -31,6 +33,7 @@ const Onboard: NextPage = () => {
     purpose: [],
   })
   const [page, setPage] = useState<number>(1)
+  const auth = useAuth()
 
   return (
     <main className="relative main-section w-full min-h-screen bg-gray-900">
@@ -47,6 +50,7 @@ const Onboard: NextPage = () => {
         {page === 2 && (
           <SecondPage
             updateData={(_data: ISecondPage) => setData({ ...data, ..._data })}
+            submitData={(_data: ISecondPage) => submitRegister(auth, { ...data, ..._data } as IData)}
             setPage={setPage}
             data={data}
           />
