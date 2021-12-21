@@ -3,7 +3,7 @@ import { useAuth } from "@lib/auth"
 import { useState } from "react"
 import { TUCMCLogo } from "@components/common/TUCMCLogo"
 import { AllMethods } from "@components/register/AllMethods"
-import { EmailForm } from "@components/register/emailform"
+import {EmailForm} from "@components/register/EmailForm";
 
 export type TPages = "all" | "email"
 
