@@ -136,6 +136,12 @@ export const AuthProvider: React.FC = ({ children }) => {
         if (noAuth) Router.push("/register?redirect=mycard")
         else if (authNoRegistered) Router.push("/register/onboard?redirect=mycard")
       }
+
+      // game
+      else if (pathname === "/game") {
+        if (noAuth) Router.push("/register?redirect=game")
+        else if (authNoRegistered) Router.push("/register/onboard?redirect=game")
+      }
     }
   }, [pathname, auth])
 
