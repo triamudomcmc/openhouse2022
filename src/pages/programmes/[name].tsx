@@ -1,10 +1,12 @@
 import { Nav } from "@components/common/Nav"
 import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
 import { Footer } from "@components/common/Footer"
+import Image from "next/image"
 import Router from "next/router"
 import fs from "fs"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import markdownToHtml from "@lib/markdownToHTML"
+import classnames from "classnames"
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const file = fs.readFileSync(`./src/_data/_maps/programmesMap.json`, { encoding: "utf8", flag: "r" })
@@ -38,6 +40,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   })
 
   const content = {
+    isGifted: fname.includes("gifted"),
     thaiName: obj[fname].thaiName,
     englishName: obj[fname].englishName,
     count: obj[fname].count,
@@ -73,14 +76,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggestion }) => {
+
+  const loadPicture = (index: number) => {
+    return contents.pictures.length >= index + 1  ?
+      <div>
+        <Image src={contents.pictures[index].url} width={672} height={378} objectFit={"cover"}/>
+        <p className="text-center mt-2">{contents.pictures[index].description}</p>
+      </div>
+       : <></>
+  }
+
   return (
-    <section className="color-slip-jeen min-h-screen main-section">
+    <section className={classnames("min-h-screen main-section", contents.isGifted ? "color-gifted" : "color-slip-jeen")}>
       <div className="max-w-6xl px-8 mx-auto">
         <div
           onClick={() => {
             Router.back()
           }}
-          className="absolute flex items-center space-x-2 -mt-16 sm:mt-0"
+          className="absolute flex items-center space-x-2 -mt-16 sm:mt-0 cursor-pointer"
         >
           <ArrowCircleLeftIcon className="w-7 h-7" />
           <span className="text-lg">ย้อนกลับ</span>
@@ -91,82 +104,43 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             <p className="text-xl">สายการเรียน | {contents.count} คน</p>
           </div>
           <div className="mt-10 space-y-20">
+            {loadPicture(0)}
             <div>
-              <div className="bg-gray-400 w-full h-[400px]" />
-              <p className="text-center mt-2">ภาพบรรยากาศในชมรม</p>
+              <h1 className="text-4xl">การรับสมัครและการสอบเข้า</h1>
+              <article className="prose text-white mt-4 leading-[30px]" dangerouslySetInnerHTML={{ __html: contents.admission }}></article>
             </div>
+            {loadPicture(1)}
             <div>
-              <h1 className="text-4xl">สายนี้เรียนอะไร</h1>
-              <p className="mt-4 leading-[30px]">
-                มาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันแต่สาวกอาหารคลีนไม่ต้องห่วงว่าจะอดกินกะเพราวันนี้มาแนะนำเมนูกะเพราไก่ไข่ดาวแบบฉบับอาหารคลีนเตรียมตัวเข้าครัวกันได้เลย
-              </p>
+              <h1 className="text-4xl">วิชาหรือหลักสูตรเพิ่มเติมที่เรียน</h1>
+              <article className="prose text-white mt-4 leading-[30px]" dangerouslySetInnerHTML={{ __html: contents.exsubject }}></article>
             </div>
+            {loadPicture(2)}
             <div>
-              <div className="bg-gray-400 w-full h-[400px]" />
-              <p className="text-center mt-2">ภาพบรรยากาศในชมรม</p>
-            </div>
-            <div>
-              <h1 className="text-4xl">น่าสนใจอย่างไร</h1>
-              <p className="mt-4 leading-[30px]">
-                มาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันแต่สาวกอาหารคลีนไม่ต้องห่วงว่าจะอดกินกะเพราวันนี้มาแนะนำเมนูกะเพราไก่ไข่ดาวแบบฉบับอาหารคลีนเตรียมตัวเข้าครัวกันได้เลยมาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันแต่สาวกอาหารคลีนไม่ต้องห่วงว่าจะอดกินกะเพราวันนี้มาแนะนำเมนูกะเพราไก่ไข่ดาวแบบฉบับอาหารคลีนเตรียมตัวเข้าครัวกันได้เลย
-              </p>
+              <h1 className="text-4xl">ความน่าสนใจของสายการเรียน</h1>
+              <article className="prose text-white mt-4 leading-[30px]" dangerouslySetInnerHTML={{ __html: contents.interest }}></article>
             </div>
           </div>
         </div>
         <div className="mt-24 max-w-[50rem] mx-auto mb-24">
           <h1 className="text-4xl mb-14">รีวิวจากรุ่นพี่</h1>
           <div className="space-y-12">
-            <div className="flex flex-col-reverse sm:flex-row sm:space-x-3">
-              <div className="flex-shrink-0 flex sm:flex-col flex-row items-start sm:space-x-0 space-x-2 mt-4 sm:mt-0">
-                <img src="/images/placeholders/shawn.jpg" className="rounded-2xl" />
-                <div>
-                  <h1 className="text-white font-semibold text-2xl">ณอน</h1>
-                  <p className="text-xs">เตรียมอุดม 83</p>
-                  <p className="text-xs">IG: tucmc_official</p>
+            {contents.reviews.map((reviewItem: any, i: number) => (
+              <div key={`rev-${i}`} className="flex flex-col-reverse sm:flex-row sm:space-x-3">
+                <div className="flex-shrink-0 flex sm:flex-col flex-row items-start sm:space-x-0 space-x-2 mt-4 sm:mt-0">
+                  <Image width={85} height={85} src={reviewItem.profileURL} className="rounded-2xl" objectFit={"cover"}/>
+                  <div>
+                    <h1 className="text-white font-semibold text-2xl">{reviewItem.profileData.name}</h1>
+                    <p className="text-xs">เตรียมอุดม {reviewItem.profileData.year}</p>
+                    <p className="text-xs">IG: {reviewItem.profileData.contact}</p>
+                  </div>
+                </div>
+                <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
+                  <span className="w-full font-light text-8xl">“</span>
+                  <article className="prose text-white -mt-10 px-8" dangerouslySetInnerHTML={{ __html: reviewItem.content }}></article>
+                  <p className="w-full font-light text-8xl text-right -mb-10">”</p>
                 </div>
               </div>
-              <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
-                <span className="w-full font-light text-8xl">“</span>
-                <p className="-mt-10 px-8">
-                  มาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าาอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันมาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าาอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันแน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกาย
-                </p>
-                <p className="w-full font-light text-8xl text-right -mb-10">”</p>
-              </div>
-            </div>
-            <div className="flex flex-col-reverse sm:flex-row sm:space-x-3">
-              <div className="flex-shrink-0 flex sm:flex-col flex-row items-start sm:space-x-0 space-x-2 mt-4 sm:mt-0">
-                <img src="/images/placeholders/shawn.jpg" className="rounded-2xl" />
-                <div>
-                  <h1 className="text-white font-semibold text-2xl">ณอน</h1>
-                  <p className="text-xs">เตรียมอุดม 83</p>
-                  <p className="text-xs">IG: tucmc_official</p>
-                </div>
-              </div>
-              <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
-                <span className="w-full font-light text-8xl">“</span>
-                <p className="-mt-10 px-8">
-                  มาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าาอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันมาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าาอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันแน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกาย
-                </p>
-                <p className="w-full font-light text-8xl text-right -mb-10">”</p>
-              </div>
-            </div>
-            <div className="flex flex-col-reverse sm:flex-row sm:space-x-3">
-              <div className="flex-shrink-0 flex sm:flex-col flex-row items-start sm:space-x-0 space-x-2 mt-4 sm:mt-0">
-                <img src="/images/placeholders/shawn.jpg" className="rounded-2xl" />
-                <div>
-                  <h1 className="text-white font-semibold text-2xl">ณอน</h1>
-                  <p className="text-xs">เตรียมอุดม 83</p>
-                  <p className="text-xs">IG: tucmc_official</p>
-                </div>
-              </div>
-              <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
-                <span className="w-full font-light text-8xl">“</span>
-                <p className="-mt-10 px-8">
-                  มาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าาอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันมาบอกสูตรเด็ดของอาหารคลีนกันอีกแล้วจ้าาอาหารคลีนไม่มีวันเอาท์แน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกายแต่อะไรที่ไม่ดีต่อสุขภาพมักจะอร่อยอยู่เสมอๆอย่างเมนูผัดกะเพราที่ต้องเจอทุกมื้อกลางวันแน่นอนสำหรับสาวๆที่รักสุขภาพต้องการห่างไกลจากเมนูที่ทำร้ายร่างกาย
-                </p>
-                <p className="w-full font-light text-8xl text-right -mb-10">”</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
