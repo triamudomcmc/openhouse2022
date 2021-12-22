@@ -24,9 +24,9 @@ export interface IUserData extends IInitialUserData {
   lastname: string
   status: string
   school?: string
-  class?: string
-  newsSource: string
-  intention: string
+  grade?: string
+  news: string[]
+  purpose: string[]
 }
 
 interface IInitialUserData {
