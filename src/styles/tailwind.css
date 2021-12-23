@@ -15,6 +15,10 @@
     background: linear-gradient(180deg, #352a62 0%, #725695 41.67%, #988ec0 84.37%);
   }
 
+  .color-clubs {
+    background: linear-gradient(180deg, #3C2042 0%, #5D3465 8.33%, #6D387E 27.6%, #8F5889 68.23%, #C188BB 98.3%);
+  }
+
   .main-section {
     @apply pt-[6.5rem] pb-4;
   }

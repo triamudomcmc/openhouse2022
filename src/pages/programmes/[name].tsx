@@ -100,7 +100,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
         </div>
         <div className="mx-auto max-w-2xl mt-32 mb-24">
           <div className="flex flex-col items-center">
-            <h1 className="text-5xl">{contents.thaiName}</h1>
+            <h1 className="text-5xl text-center">{contents.thaiName}</h1>
             <p className="text-xl">สายการเรียน | {contents.count} คน</p>
           </div>
           <div className="mt-10 space-y-20">
