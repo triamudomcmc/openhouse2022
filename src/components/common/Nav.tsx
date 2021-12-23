@@ -23,7 +23,9 @@ export const Nav = () => {
             <span className="flex-shrink-0 cursor-pointer">ชมรม</span>
           </Link>
           <span className="flex-shrink-0 cursor-pointer">วิดีโอ</span>
-          <span className="flex-shrink-0 cursor-pointer">บทความ</span>
+          <Link href="/articles">
+            <span className="flex-shrink-0 cursor-pointer">บทความ</span>
+          </Link>
           <span className="flex-shrink-0 cursor-pointer">ข้อมูลเพิ่มเติม</span>
         </nav>
       </div>

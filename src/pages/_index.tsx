@@ -131,17 +131,11 @@ export default function Home() {
             </div>
           </div>
         </AdaptiveBg>
-        <div
-          style={{
-            background: "url('images/backgrounds/clubs-index.jpg')",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            minHeight: "1124px",
-            backgroundPosition: "center",
-          }}
-          className="overflow-x-hidden min-h-screen pb-20 text-white py-2 flex justify-center">
+        <AdaptiveBg primary={{background: "url('images/backgrounds/clubs-index.jpg')", height: "1124px"}}
+                    secondary={{background: "url('images/backgrounds/clubs-index-mobile.jpg')", height: "926px"}}
+                    mobile={{background: "url('images/backgrounds/clubs-index-mobile-default.jpg')", height: "926px"}}>
 
-        </div>
+        </AdaptiveBg>
       </div>
     </div>
   )

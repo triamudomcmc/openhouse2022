@@ -132,7 +132,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                   <div>
                     <h1 className="text-white font-semibold text-2xl">{reviewItem.profileData.name}</h1>
                     <p className="text-xs">เตรียมอุดม {reviewItem.profileData.year}</p>
-                    <p className="text-xs">IG: {reviewItem.profileData.contact}</p>
+                    <p className="text-xs max-w-[85px] break-all">IG: {reviewItem.profileData.contact}</p>
                   </div>
                 </div>
                 <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
