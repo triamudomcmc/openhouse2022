@@ -5,6 +5,7 @@ import Image from "next/image"
 import fs from "fs";
 import {GetStaticProps} from "next";
 import Link from "next/link"
+import {useWindowDimensions} from "@utils/useWindowDimensions";
 
 const Clube = ({data}: {data: any}) => {
 
