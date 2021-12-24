@@ -730,15 +730,15 @@
     ],
     "imageURL": [
       {
-        "url": "https://drive.google.com/open?id=1rGOKa1GtJYXqeBW8DYCrdB9iqHHmzIyd",
+        "url": "/assets/clubs/computerclub_image_1.jpg",
         "description": "แขกรับเชิญพิเศษ (Korakot Chaovavanich) พูดคุยในหัวข้อประสบการณ์การทำงานด้าน Data Science"
       },
       {
-        "url": "https://drive.google.com/open?id=13tUbdPghIVNpQSRA_7Tzwjm8nNzgWo_u",
+        "url": "/assets/clubs/computerclub_image_2.jpg",
         "description": "บรรยากาศการเรียนการสอนภายในชมรม"
       },
       {
-        "url": "/assets/clubs/computerclub_image_1.jpg",
+        "url": "/assets/clubs/computerclub_image_3.jpg",
         "description": "บรรยากาศการเรียนการสอนภายในชมรม"
       }
     ]
