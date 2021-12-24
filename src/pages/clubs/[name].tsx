@@ -108,17 +108,17 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             {loadPicture(0)}
             <div>
               <h1 className="text-4xl">ชมรมนี้ทำอะไร</h1>
-              <article className="prose text-white mt-4 leading-[30px]" dangerouslySetInnerHTML={{ __html: contents.activity }}></article>
+              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.activity }}></article>
             </div>
             {loadPicture(1)}
             <div>
               <h1 className="text-4xl">ประโยชน์ที่ได้รับจากการเข้าชมรม</h1>
-              <article className="prose text-white mt-4 leading-[30px]" dangerouslySetInnerHTML={{ __html: contents.benefit }}></article>
+              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.benefit }}></article>
             </div>
             {loadPicture(2)}
             <div>
               <h1 className="text-4xl">ผลงานของชมรม</h1>
-              <article className="prose text-white mt-4 leading-[30px]" dangerouslySetInnerHTML={{ __html: contents.portfolio }}></article>
+              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.portfolio }}></article>
             </div>
           </div>
         </div>
