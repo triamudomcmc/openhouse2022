@@ -88,7 +88,9 @@ const Page: NextPage<{ post: any }> = ({ post }) => {
             <h1 className="text-5xl text-left">{post.title}</h1>
             <p className="text-xl">{post.author}</p>
           </div>
-          <article className="prose text-white mt-4 leading-[30px]" dangerouslySetInnerHTML={{ __html: post.content }}></article>
+          <article className="prose text-white mt-4 leading-[30px] prose-invert article" dangerouslySetInnerHTML={{ __html: post.content }}>
+
+          </article>
         </div>
       </div>
     </section>

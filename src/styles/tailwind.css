@@ -7,6 +7,10 @@
     background: linear-gradient(180deg, #000f30 0%, #072449 28.13%, #8496cd 100%);
   }
 
+  .article {
+    --tw-prose-bullets: white;
+    --tw-prose-counters: white;
+  }
   .navbar-bg {
     background: linear-gradient(269.81deg, rgba(249, 249, 249, 0.3) 1.29%, rgba(249, 249, 249, 0) 99.84%);
   }

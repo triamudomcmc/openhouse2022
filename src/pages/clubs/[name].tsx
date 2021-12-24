@@ -137,7 +137,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                 </div>
                 <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
                   <span className="w-full font-light text-8xl">“</span>
-                  <article className="prose text-white -mt-10 px-8" dangerouslySetInnerHTML={{ __html: reviewItem.content }}></article>
+                  <article className="prose text-white -mt-10 px-8 article prose-inverted" dangerouslySetInnerHTML={{ __html: reviewItem.content }}></article>
                   <p className="w-full font-light text-8xl text-right -mb-10">”</p>
                 </div>
               </div>

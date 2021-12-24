@@ -5,10 +5,10 @@ import Image from "next/image"
 import {GetStaticProps} from "next";
 import Link from "next/link"
 import {getAllPosts} from "@lib/api";
+import {useEffect, useState} from "react";
+import {searchKeyword} from "@utils/text";
 
 const Club = ({data}: { data: any }) => {
-
-  console.log(data)
 
   return (
     <Link href={`articles/${data.slug}`}>
@@ -52,6 +52,27 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Page = ({contents}: { contents: any }) => {
 
+  const [sorted, setSorted] = useState(contents)
+  const [query, setQuery] = useState(setTimeout(() => {
+  }, 10))
+
+  const [searchContext, setSearchContext] = useState("")
+
+  useEffect(() => {
+    clearTimeout(query)
+
+    setQuery(setTimeout(() => {
+      const escaped = searchContext.replace("ชมรม", "")
+      if (escaped !== "") {
+        const searchResult = searchKeyword(contents, escaped, (obj) => (obj.title))
+        setSorted(searchResult)
+      } else {
+        setSorted(contents)
+      }
+
+    }, 900))
+  }, [searchContext, contents])
+
   return (
     <div
       style={{
@@ -81,13 +102,13 @@ const Page = ({contents}: { contents: any }) => {
                 <div className="absolute top-0 left-0 h-full flex items-center ml-6">
                   <SearchIcon className="w-6 h-6"/>
                 </div>
-                <input className="border bg-white bg-opacity-20 rounded-full placeholder:text-white py-2 pl-14 w-full border-opacity-40 pr-4"
+                <input onChange={(e) => {setSearchContext(e.target.value)}} className="border bg-white bg-opacity-20 rounded-full placeholder:text-white py-2 pl-14 w-full border-opacity-40 pr-4"
                        placeholder="ค้นหาบทความ..."/>
               </div>
             </div>
           </div>
           <div className="flex justify-center flex-wrap mt-14 ml-2">
-            {contents.map((e: any, i: number) => (
+            {sorted.map((e: any, i: number) => (
               <Club key={`article-${i}`} data={e}/>
             ))}
 
