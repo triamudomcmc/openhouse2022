@@ -7,6 +7,9 @@
     background: linear-gradient(180deg, #000f30 0%, #072449 28.13%, #8496cd 100%);
   }
 
+  .custom-pagination {
+    bottom: -40px !important;
+  }
   .article {
     --tw-prose-bullets: white;
     --tw-prose-counters: white;
