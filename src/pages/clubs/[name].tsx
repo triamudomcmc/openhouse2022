@@ -147,10 +147,12 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                     <h1 className="text-white font-semibold text-2xl">{reviewItem.profileData.name}</h1>
                     <p className="text-xs">เตรียมอุดม {reviewItem.profileData.year}</p>
                     <p className="text-xs max-w-[85px] break-all">
-                      IG:{" "}
-                      {reviewItem.profileData.contact.startsWith("IG: ")
-                        ? reviewItem.profileData.contact.slice(4, reviewItem.profileData.contact.length)
-                        : reviewItem.profileData.contact}
+                      {reviewItem.profileData.contact.startsWith("FB: ") ||
+                      reviewItem.profileData.contact.startsWith("Twitter: ")
+                        ? reviewItem.profileData.contact
+                        : reviewItem.profileData.contact.startsWith("IG: ")
+                        ? reviewItem.profileData.contact
+                        : `IG: ${reviewItem.profileData.contact}`}
                     </p>
                   </div>
                 </div>
