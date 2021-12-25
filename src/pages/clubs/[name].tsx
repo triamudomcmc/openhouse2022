@@ -85,7 +85,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
   }
 
   return (
-    <section className={classnames("min-h-screen main-section color-clubs")}>
+    <section className={classnames("min-h-screen py-2 color-clubs")}>
       <div className="max-w-6xl px-8 mx-auto">
         <div
           onClick={() => {

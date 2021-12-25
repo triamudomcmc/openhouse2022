@@ -127,7 +127,7 @@ const Page = ({ contents }: { contents: any }) => {
         minHeight: "2024px",
         backgroundPosition: "center",
       }}
-      className="overflow-x-hidden min-h-screen text-white main-section"
+      className="overflow-x-hidden min-h-screen text-white pt-8 pb-2"
     >
       <div className="max-w-6xl mx-auto">
         {/* <div
