@@ -3,12 +3,11 @@ import type { NextPage } from "next"
 import Link from "next/link"
 
 const Home: NextPage = () => {
-
   const auth = useAuth()
 
   return (
     <div className="main-section min-h-screen flex flex-col justify-center align-cente">
-      <Link href="/register">
+      {/* <Link href="/register">
         <button className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6">
           <p className="px-4 text-gray-700">Register</p>
         </button>
@@ -18,7 +17,7 @@ const Home: NextPage = () => {
         onClick={() => auth?.signout()}
       >
         <p className="px-4 text-gray-700">Sign out</p>
-      </button>
+      </button> */}
     </div>
   )
 }
