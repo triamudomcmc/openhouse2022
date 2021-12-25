@@ -281,7 +281,7 @@
         "profileContent": {
           "name": "ธาร",
           "year": "83",
-          "contact": "IG : tarnthamtarn"
+          "contact": "IG: tarnthamtarn"
         }
       }
     ],
@@ -552,7 +552,7 @@
         "profileContent": {
           "name": "กิ่ง",
           "year": "83",
-          "contact": "IG : gwtlr"
+          "contact": "IG: gwtlr"
         }
       },
       {
@@ -560,7 +560,7 @@
         "profileContent": {
           "name": "ผิงผิง",
           "year": "82",
-          "contact": "IG : pawarun.p"
+          "contact": "IG: pawarun.p"
         }
       }
     ],
@@ -685,7 +685,7 @@
         "profileContent": {
           "name": "น้ำ",
           "year": "80",
-          "contact": "twitter@seenum44350124"
+          "contact": "Twitter: @seenum44350124"
         }
       },
       {
@@ -693,7 +693,7 @@
         "profileContent": {
           "name": "มิจจี้",
           "year": "76",
-          "contact": "facebookมิจจี้คิระคิระ"
+          "contact": "FB: มิจจี้คิระคิระ"
         }
       }
     ],
@@ -949,7 +949,7 @@
         "profileContent": {
           "name": "ชนน",
           "year": "81",
-          "contact": "IG : chanon9945"
+          "contact": "IG: chanon9945"
         }
       },
       {
@@ -1172,7 +1172,7 @@
         "profileContent": {
           "name": "ข้าวปุ้น",
           "year": "83",
-          "contact": "IG : _kkaopoonn"
+          "contact": "IG: _kkaopoonn"
         }
       },
       {
@@ -1180,7 +1180,7 @@
         "profileContent": {
           "name": "นีโม่",
           "year": "82",
-          "contact": "IG : nemmooooooo"
+          "contact": "IG: nemmooooooo"
         }
       }
     ],
@@ -2059,7 +2059,7 @@
         "profileContent": {
           "name": "จอม",
           "year": "81",
-          "contact": "FB : @chonlatyn"
+          "contact": "FB: @chonlatyn"
         }
       },
       {
@@ -2067,7 +2067,7 @@
         "profileContent": {
           "name": "เบส",
           "year": "82",
-          "contact": "IG : @_chxtcha"
+          "contact": "IG: @_chxtcha"
         }
       },
       {
@@ -2075,11 +2075,15 @@
         "profileContent": {
           "name": "มิกซ์",
           "year": "82",
-          "contact": "IG : mixy_tarit"
+          "contact": "IG: mixy_tarit"
         }
       }
     ],
-    "reviewURL": ["/assets/clubs/literaryartclub_profile_1.jpg", "/assets/clubs/literaryartclub_profile_2.jpg", "/assets/clubs/literaryartclub_profile_3.jpg"],
+    "reviewURL": [
+      "/assets/clubs/literaryartclub_profile_1.jpg",
+      "/assets/clubs/literaryartclub_profile_2.jpg",
+      "/assets/clubs/literaryartclub_profile_3.jpg"
+    ],
     "imageURL": [
       {
         "url": "/assets/clubs/literaryartclub_image_1.jpg",
@@ -2497,7 +2501,7 @@
         "profileContent": {
           "name": "เอิร์น",
           "year": "82",
-          "contact": "IG : earnn___"
+          "contact": "IG: earnn___"
         }
       },
       {
@@ -2505,7 +2509,7 @@
         "profileContent": {
           "name": "น้ำ",
           "year": "83",
-          "contact": "IG : nnampani"
+          "contact": "IG: nnampani"
         }
       },
       {
@@ -2513,7 +2517,7 @@
         "profileContent": {
           "name": "เดียร์",
           "year": "84",
-          "contact": "IG : d.dear__"
+          "contact": "IG: d.dear__"
         }
       }
     ],

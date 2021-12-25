@@ -9,9 +9,9 @@ import markdownToHtml from "@lib/markdownToHTML"
 import classnames from "classnames"
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const file = fs.readFileSync('./src/_data/_maps/clubsMap.json', { encoding: 'utf8', flag: 'r' })
+  const file = fs.readFileSync("./src/_data/_maps/clubsMap.json", { encoding: "utf8", flag: "r" })
   const obj = JSON.parse(file)
-  const fname: string = params ? params.name as string : ""
+  const fname: string = params ? (params.name as string) : ""
   const keys = Object.keys(obj)
 
   const reviewItems = await Promise.all(
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       return {
         content: await markdownToHtml(item.description),
         profileData: item.profileContent,
-        profileURL: obj[fname].reviewURL.length >= index + 1 ? obj[fname].reviewURL[index] : ''
+        profileURL: obj[fname].reviewURL.length >= index + 1 ? obj[fname].reviewURL[index] : "",
       }
     })
   )
@@ -30,14 +30,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     if (random.indexOf(r) === -1 && r !== keys.indexOf(fname)) random.push(r)
   }
 
-  const suggestion = random.map(index => {
+  const suggestion = random.map((index) => {
     return {
       path: `/clubs/${obj[keys[index]].englishName}`,
-      thumbnail:
-        obj[keys[index]].imageURL.length >= 1
-          ? obj[keys[index]].imageURL[0].url
-          : '/assets/nok.png',
-      title: obj[keys[index]].thaiName
+      thumbnail: obj[keys[index]].imageURL.length >= 1 ? obj[keys[index]].imageURL[0].url : "/assets/nok.png",
+      title: obj[keys[index]].thaiName,
     }
   })
 
@@ -47,44 +44,44 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     count: obj[fname].count,
     activity: await markdownToHtml(obj[fname].activity),
     benefit: await markdownToHtml(obj[fname].benefit),
-    portfolio: await markdownToHtml(obj[fname].portfolio.replace(/ของชมรม\n\n/g, '')),
+    portfolio: await markdownToHtml(obj[fname].portfolio.replace(/ของชมรม\n\n/g, "")),
     pictures: obj[fname].imageURL,
-    reviews: reviewItems
+    reviews: reviewItems,
   }
 
   return {
     props: {
       contents: content,
-      suggestion: suggestion
-    }
+      suggestion: suggestion,
+    },
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const file = fs.readFileSync('./src/_data/_maps/clubsMap.json', { encoding: 'utf8', flag: 'r' })
+  const file = fs.readFileSync("./src/_data/_maps/clubsMap.json", { encoding: "utf8", flag: "r" })
   const obj = JSON.parse(file)
   return {
-    paths: Object.keys(obj).map(post => {
+    paths: Object.keys(obj).map((post) => {
       return {
         params: {
-          name: post
-        }
+          name: post,
+        },
       }
     }),
-    fallback: false
+    fallback: false,
   }
 }
 
-
 const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggestion }) => {
-
   const loadPicture = (index: number) => {
-    return contents.pictures.length >= index + 1  ?
+    return contents.pictures.length >= index + 1 ? (
       <div>
-        <Image src={contents.pictures[index].url} width={672} height={378} objectFit={"cover"}/>
+        <Image src={contents.pictures[index].url} width={672} height={378} objectFit={"cover"} />
         <p className="text-center mt-2">{contents.pictures[index].description}</p>
       </div>
-       : <></>
+    ) : (
+      <></>
+    )
   }
 
   return (
@@ -108,17 +105,26 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             {loadPicture(0)}
             <div>
               <h1 className="text-4xl">ชมรมนี้ทำอะไร</h1>
-              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.activity }}></article>
+              <article
+                className="prose text-white mt-4 leading-[30px] article prose-inverted"
+                dangerouslySetInnerHTML={{ __html: contents.activity }}
+              ></article>
             </div>
             {loadPicture(1)}
             <div>
               <h1 className="text-4xl">ประโยชน์ที่ได้รับจากการเข้าชมรม</h1>
-              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.benefit }}></article>
+              <article
+                className="prose text-white mt-4 leading-[30px] article prose-inverted"
+                dangerouslySetInnerHTML={{ __html: contents.benefit }}
+              ></article>
             </div>
             {loadPicture(2)}
             <div>
               <h1 className="text-4xl">ผลงานของชมรม</h1>
-              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.portfolio }}></article>
+              <article
+                className="prose text-white mt-4 leading-[30px] article prose-inverted"
+                dangerouslySetInnerHTML={{ __html: contents.portfolio }}
+              ></article>
             </div>
           </div>
         </div>
@@ -128,16 +134,32 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             {contents.reviews.map((reviewItem: any, i: number) => (
               <div key={`rev-${i}`} className="flex flex-col-reverse sm:flex-row sm:space-x-3">
                 <div className="flex-shrink-0 flex sm:flex-col flex-row items-start sm:space-x-0 space-x-2 mt-4 sm:mt-0">
-                  {reviewItem.profileURL && <Image width={85} height={85} src={reviewItem.profileURL} className="rounded-2xl" objectFit={"cover"}/>}
+                  {reviewItem.profileURL && (
+                    <Image
+                      width={85}
+                      height={85}
+                      src={reviewItem.profileURL}
+                      className="rounded-2xl"
+                      objectFit={"cover"}
+                    />
+                  )}
                   <div>
                     <h1 className="text-white font-semibold text-2xl">{reviewItem.profileData.name}</h1>
                     <p className="text-xs">เตรียมอุดม {reviewItem.profileData.year}</p>
-                    <p className="text-xs max-w-[85px] break-all">IG: {reviewItem.profileData.contact}</p>
+                    <p className="text-xs max-w-[85px] break-all">
+                      IG:{" "}
+                      {reviewItem.profileData.contact.startsWith("IG: ")
+                        ? reviewItem.profileData.contact.slice(4, reviewItem.profileData.contact.length)
+                        : reviewItem.profileData.contact}
+                    </p>
                   </div>
                 </div>
                 <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
                   <span className="w-full font-light text-8xl">“</span>
-                  <article className="prose text-white -mt-10 px-8 article prose-inverted" dangerouslySetInnerHTML={{ __html: reviewItem.content }}></article>
+                  <article
+                    className="prose text-white -mt-10 px-8 article prose-inverted"
+                    dangerouslySetInnerHTML={{ __html: reviewItem.content }}
+                  ></article>
                   <p className="w-full font-light text-8xl text-right -mb-10">”</p>
                 </div>
               </div>
