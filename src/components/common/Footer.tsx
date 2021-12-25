@@ -3,6 +3,7 @@ import { Instagram } from "@vectors/Instagram"
 import { Twitter } from "@vectors/Twitter"
 import { Youtube } from "@vectors/Youtube"
 import { TUCMCLogo } from "./TUCMCLogo"
+import Link from "next/link"
 
 export const Footer = () => {
   return (
@@ -30,18 +31,38 @@ export const Footer = () => {
         </div>
         <div className="text-[#6B7280] flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28">
           <div className="flex flex-col space-y-2 text-center sm:text-right font-display">
-            <span>หน้าแรก</span>
-            <span>รายการสด</span>
-            <span>บทความ</span>
-            <span>คลิปวิดีโอ</span>
-            <span>ชมรม</span>
+            <Link href="/">
+              <a>หน้าแรก</a>
+            </Link>
+            <Link href="/live">
+              <a>รายการสด</a>
+            </Link>
+            <Link href="/articles">
+              <a>บทความ</a>
+            </Link>
+            <Link href="/videos">
+              <a>คลิปวิดีโอ</a>
+            </Link>
+            <Link href="/clubs">
+              <a>ชมรม</a>
+            </Link>
           </div>
           <div className="flex flex-col space-y-2 text-center sm:text-right mt-2 sm:mt-0 font-display">
-            <span>สายการเรียน</span>
-            <span>การสอบเข้า</span>
-            <span>การ์ดของคุณ</span>
-            <span>การเดินทาง</span>
-            <span>ติดต่อ</span>
+            <Link href="/programmes">
+              <a>สายการเรียน</a>
+            </Link>
+            <Link href="/admission">
+              <a>การสอบเข้า</a>
+            </Link>
+            <Link href="/mycard">
+              <a>การ์ดของคุณ</a>
+            </Link>
+            <Link href="/info">
+              <a>ข้อมูลเกี่ยวกับโรงเรียน</a>
+            </Link>
+            <Link href="/contact">
+              <a>ติดต่อ</a>
+            </Link>
           </div>
         </div>
       </div>

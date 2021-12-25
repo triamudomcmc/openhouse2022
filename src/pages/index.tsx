@@ -7,8 +7,6 @@ const Home: NextPage = () => {
   const auth = useAuth()
   const router = useRouter()
 
-  router.push("/clubs")
-
   return (
     <div className="main-section min-h-screen flex flex-col justify-center align-center">
       {/* <Link href="/register">

@@ -1,4 +1,4 @@
-import Router from "next/router"
+import Router, { useRouter } from "next/router"
 import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
 import { SearchIcon, UserIcon } from "@heroicons/react/solid"
 import Image from "next/image"
@@ -99,6 +99,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const Page = ({ contents }: { contents: any }) => {
   const [sorted, setSorted] = useState(contents)
   const [query, setQuery] = useState(setTimeout(() => {}, 10))
+  const router = useRouter()
 
   const [searchContext, setSearchContext] = useState("")
 
@@ -130,15 +131,15 @@ const Page = ({ contents }: { contents: any }) => {
       className="overflow-x-hidden min-h-screen text-white main-section"
     >
       <div className="max-w-6xl mx-auto">
-        {/* <div
+        <div
           onClick={() => {
-            Router.back()
+            router.push("/")
           }}
           className="absolute flex items-center space-x-2 -mt-16 ml-6 sm:mt-0 cursor-pointer"
         >
           <ArrowCircleLeftIcon className="w-7 h-7" />
           <span className="text-lg">ย้อนกลับ</span>
-        </div> */}
+        </div>
         <div className="mx-auto max-w-5xl mt-16 mb-24">
           <div className="flex flex-col items-center">
             <h1 className="text-5xl">ชมรม</h1>
