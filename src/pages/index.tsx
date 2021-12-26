@@ -19,7 +19,7 @@ const Blog = ({data}: {data: any}) => {
   return (
     <Link  href={`articles/${data.slug}`}>
       <div style={{background: "linear-gradient(265.95deg, rgba(255, 255, 255, 0.3) 33.14%, rgba(255, 255, 255, 0) 100%)"}}
-           className="border border-white rounded-lg border-opacity-40 flex justify-between backdrop-filter backdrop-blur-lg snap-center">
+           className="border border-white rounded-lg border-opacity-40 flex justify-between backdrop-filter backdrop-blur-lg snap-center cursor-pointer">
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
             <h1 className="text-lg">{data.title}</h1>
@@ -448,6 +448,23 @@ export default function Home({articles}: any) {
                 {articles.map((data: any, index: number) => (
                   <Blog key={`blog-${index}`} data={data}/>
                 ))}
+              </div>
+            </div>
+          </div>
+        </AdaptiveBg>
+        <AdaptiveBg primary={{background: "url('images/backgrounds/additional.jpg')", height: "1124px"}}
+                    secondary={{background: "url('images/backgrounds/additional-mobile.jpg')", height: "926px"}}
+                    mobile={{background: "url('images/backgrounds/additional-mobile-default.jpg')", height: "926px"}}
+        classname="flex items-center">
+          <div className="mx-auto">
+            <h1 className="font-black text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h1>
+            <p className="text-[26px] font-light text-center mt-2">มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ<br/>หรือถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !</p>
+            <div className="flex justify-center space-x-4 mt-16">
+              <div className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md">
+                การสอบเข้า
+              </div>
+              <div className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md">
+                เกี่ยวกับโรงเรียนเตรียมฯ
               </div>
             </div>
           </div>
