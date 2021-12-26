@@ -4,6 +4,7 @@ import { Twitter } from "@vectors/Twitter"
 import { Youtube } from "@vectors/Youtube"
 import { TUCMCLogo } from "./TUCMCLogo"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export const Footer = () => {
   return (
@@ -16,52 +17,65 @@ export const Footer = () => {
               <p className="-mt-1">OPEN HOUSE 2022</p>
             </div>
             <div className="flex space-x-3">
-              <Facebook />
-              <Instagram />
-              <Twitter />
-              <Youtube />
+              <motion.a href="https://www.facebook.com/TriamUdomOPH" target="_blank" whileHover={{ scale: 1.05 }}>
+                <Facebook />
+              </motion.a>
+              <motion.a href="https://www.instagram.com/triamudom.oph/" target="_blank" whileHover={{ scale: 1.05 }}>
+                <Instagram />
+              </motion.a>
+              <motion.a href="https://twitter.com/triamudomoph" target="_blank" whileHover={{ scale: 1.05 }}>
+                <Twitter />
+              </motion.a>
+              <motion.a
+                href="https://www.youtube.com/c/TriamUdomOpenHouse"
+                target="_blank"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Youtube />
+              </motion.a>
             </div>
-            <div
+            <motion.button
               style={{ background: "linear-gradient(97.19deg, #C898CC 0.83%, #666EAD 43.54%, #112D55 99.62%)" }}
               className="px-8 py-2 rounded-full inline-flex font-medium font-display text-white"
+              whileHover={{ scale: 1.1 }}
             >
               เข้าสู่ระบบ
-            </div>
+            </motion.button>
           </div>
         </div>
         <div className="text-[#6B7280] flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28">
           <div className="flex flex-col space-y-2 text-center sm:text-right font-display">
             <Link href="/">
-              <a>หน้าแรก</a>
+              <a className="hover:underline">หน้าแรก</a>
             </Link>
             <Link href="/live">
-              <a>รายการสด</a>
+              <a className="hover:underline">รายการสด</a>
             </Link>
             <Link href="/articles">
-              <a>บทความ</a>
+              <a className="hover:underline">บทความ</a>
             </Link>
             <Link href="/videos">
-              <a>คลิปวิดีโอ</a>
+              <a className="hover:underline">คลิปวิดีโอ</a>
             </Link>
             <Link href="/clubs">
-              <a>ชมรม</a>
+              <a className="hover:underline">ชมรม</a>
             </Link>
           </div>
           <div className="flex flex-col space-y-2 text-center sm:text-right mt-2 sm:mt-0 font-display">
             <Link href="/programmes">
-              <a>สายการเรียน</a>
+              <a className="hover:underline">สายการเรียน</a>
             </Link>
             <Link href="/admission">
-              <a>การสอบเข้า</a>
+              <a className="hover:underline">การสอบเข้า</a>
             </Link>
             <Link href="/mycard">
-              <a>การ์ดของคุณ</a>
+              <a className="hover:underline">การ์ดของคุณ</a>
             </Link>
             <Link href="/info">
-              <a>ข้อมูลเกี่ยวกับโรงเรียน</a>
+              <a className="hover:underline">ข้อมูลเกี่ยวกับโรงเรียน</a>
             </Link>
             <Link href="/contact">
-              <a>ติดต่อ</a>
+              <a className="hover:underline">ติดต่อ</a>
             </Link>
           </div>
         </div>

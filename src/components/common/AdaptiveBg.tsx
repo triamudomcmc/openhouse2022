@@ -1,15 +1,20 @@
-import {useWindowDimensions} from "@utils/useWindowDimensions";
-import {useEffect, useRef} from "react";
+import { useWindowDimensions } from "@utils/useWindowDimensions"
+import { useEffect, useRef } from "react"
 
 export const AdaptiveBg = ({
-                             children,
-                             primary,
-                             secondary,
-                             mobile,
-                             classname
-                           }: { children: any, primary: { background: string, height: string }, secondary: { background: string, height: string }, mobile: { background: string, height: string }, classname?: string }) => {
-
-  const {width} = useWindowDimensions()
+  children,
+  primary,
+  secondary,
+  mobile,
+  classname,
+}: {
+  children: any
+  primary: { background: string; height: string }
+  secondary: { background: string; height: string }
+  mobile: { background: string; height: string }
+  classname?: string
+}) => {
+  const { width } = useWindowDimensions()
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -41,7 +46,6 @@ export const AdaptiveBg = ({
   }, [width])
 
   return (
-
     <div
       ref={ref}
       style={{
