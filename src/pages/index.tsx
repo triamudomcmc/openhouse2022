@@ -3,6 +3,51 @@ import { motion } from "framer-motion"
 import { Flask, Math } from "@vectors/index/gifted"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import Image from "next/image"
+import { LogoWhite } from "@vectors/Logo"
+import { ArrowCircleRightIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
+import Link from "next/link"
+import { UserIcon } from "@heroicons/react/solid"
+import { Splide, SplideSlide } from "@splidejs/react-splide"
+import "@splidejs/splide/dist/css/splide.min.css"
+import { useEffect, useRef } from "react"
+
+const Video = () => {
+  return (
+    <Link href={"/"}>
+      <div
+        style={{
+          background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
+        }}
+        className="w-[170px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+      >
+        <div>
+          <div className="relative">
+            <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">
+              12.10
+            </span>
+            <Image
+              src={"/images/placeholders/clubs.jpg"}
+              objectFit={"cover"}
+              width={170}
+              height={98}
+              priority={true}
+              className="rounded-t-lg"
+            />
+          </div>
+          <div className="px-2">
+            <h1 className="break-all text-[12px] h-[56px] font-light text-ellipsis">
+              ชื่อวิดีโอยาววววววววววววววววววววววววววววววววววว
+            </h1>
+            <div className="flex items-center space-x-1">
+              <UserIcon className="w-4 h-4 flex-shrink-0" />
+              <h1 className="text-[10px] font-light truncate">งานกิจกรรมพัฒนาผู้เรียน</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
 
 const Programme = ({ name, thainame }: { name: string; thainame: string }) => {
   return (
@@ -23,9 +68,110 @@ const Programme = ({ name, thainame }: { name: string; thainame: string }) => {
 }
 
 export default function Home() {
+  const videoLeft = useRef(null)
+  const videoRight = useRef(null)
+
   return (
     <div className="font-display">
       <div>
+        <AdaptiveBg
+          primary={{ background: "url('images/backgrounds/landing.jpg')", height: "1024px" }}
+          secondary={{ background: "url('images/backgrounds/landing-mobile.jpg')", height: "926px" }}
+          mobile={{ background: "url('images/backgrounds/landing-mobile-default.jpg')", height: "926px" }}
+          classname="flex items-center"
+        >
+          <div className="flex flex-col items-center w-full">
+            <h1 className="text-[116px] font-black tracking-[30px]">TRIAM UDOM</h1>
+            <h1 className="text-[70px] tracking-[13px] font-light mt-[-26px]">ONLINE OPEN HOUSE 2022</h1>
+            <h1 className="text-[30px] font-thin tracking-[10px] mt-10">14-15 JANUARY</h1>
+            <div
+              className="text-xl font-thin px-16 rounded-full py-3 mt-[80px]"
+              style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+            >
+              <h1>เข้าสู่ระบบ</h1>
+            </div>
+            <LogoWhite className="w-[174px] mt-16" />
+          </div>
+        </AdaptiveBg>
+        <AdaptiveBg
+          primary={{ background: "url('images/backgrounds/live.jpg')", height: "1024px" }}
+          secondary={{ background: "url('images/backgrounds/live-mobile.jpg')", height: "926px" }}
+          mobile={{ background: "url('images/backgrounds/live-mobile-default.jpg')", height: "926px" }}
+          classname="flex items-center"
+        >
+          <div className="flex mx-auto space-x-8 pt-[30px]">
+            <div className="my-auto">
+              <div className="mb-4">
+                <div className="flex items-center space-x-3">
+                  <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] rounded-sm px-[3px]">
+                    LIVE
+                  </span>{" "}
+                  <span className="text-3xl">ร้องเพลงปิ่นหทัย</span>
+                </div>
+                <div>
+                  <span className="font-light">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>
+                </div>
+              </div>
+              <div className="bg-black w-[841px] h-[483px] border border-white border-opacity-50 rounded-xl"></div>
+            </div>
+            <div>
+              <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
+                <h1 className="font-light text-sm">LIVE SCHEDULE</h1>
+                <h1 className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</h1>
+              </div>
+              <div className="min-w-[380px] space-y-4">
+                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                  <div className="w-[60px]">
+                    <h1 className="font-semibold text-2xl">10.00</h1>
+                  </div>
+                  <div>
+                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                  </div>
+                </div>
+                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                  <div className="w-[60px]">
+                    <h1 className="font-semibold text-2xl">10.00</h1>
+                  </div>
+                  <div>
+                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                  </div>
+                </div>
+                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                  <div className="w-[60px]">
+                    <h1 className="font-semibold text-2xl">10.00</h1>
+                  </div>
+                  <div>
+                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                  </div>
+                </div>
+                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                  <div className="w-[60px]">
+                    <h1 className="font-semibold text-2xl">10.00</h1>
+                  </div>
+                  <div>
+                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                  </div>
+                </div>
+                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                  <div className="w-[60px]">
+                    <h1 className="font-semibold text-2xl">10.00</h1>
+                  </div>
+                  <div>
+                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                  </div>
+                </div>
+                <div className="border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]">
+                  <h1 className="underline text-lg">ดูตารางรายการสดทั้งหมด</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AdaptiveBg>
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/branches.jpg')", height: "1771px" }}
           secondary={{ background: "url('images/backgrounds/branches-mobile.jpg')", height: "1385px" }}
@@ -181,8 +327,155 @@ export default function Home() {
           primary={{ background: "url('images/backgrounds/clubs-index.jpg')", height: "1124px" }}
           secondary={{ background: "url('images/backgrounds/clubs-index-mobile.jpg')", height: "926px" }}
           mobile={{ background: "url('images/backgrounds/clubs-index-mobile-default.jpg')", height: "926px" }}
+          classname="flex flex-col justify-center items-center"
         >
-          <></>
+          <div className="flex space-x-12">
+            <div className="relative w-max">
+              <div>
+                <Image src="/images/clubs/clubs-circle.png" width={381} height={381} />
+              </div>
+              <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
+                <h1 className="text-[84px] font-black">ชมรม</h1>
+              </div>
+            </div>
+            <div className="flex flex-col items-end space-y-8 mt-[100px]">
+              <h1 className="text-[34px] leading-[48px] text-right font-medium">
+                เราจะพาทุกคนไปทำความรู้จัก
+                <br />
+                กับชมรมของโรงเรียนเรา
+                <br />
+                ที่มีมากกว่า 60 ชมรมกัน !
+              </h1>
+              <div className="text-[#112D55] bg-white px-12 rounded-full text-lg py-2.5">ดูชมรมทั้งหมด</div>
+            </div>
+          </div>
+        </AdaptiveBg>
+        <AdaptiveBg
+          primary={{ background: "url('images/backgrounds/clubs.jpg')", height: "2048px" }}
+          secondary={{ background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px" }}
+          mobile={{ background: "url('images/backgrounds/clubs-mobile-default.jpg')", height: "926px" }}
+        >
+          <div className="max-w-[900px] mx-auto">
+            <div className="mt-[200px] mb-8">
+              <div className="flex items-center justify-between mb-6">
+                <h1 className="text-5xl">วิดีโอ</h1>
+                <div className="flex space-x-1 mr-10">
+                  <span className="font-light">ดูทั้งหมด</span>
+                  <ArrowCircleRightIcon className="w-6 h-6" />
+                </div>
+              </div>
+              <p className="font-light text-lg leading-[24px]">
+                วิดีโอจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br /> ที่ทางเราจะนำมานำเสนอให้ทุกคนได้รับชมอย่างเต็มที่ !
+              </p>
+            </div>
+            <div className="relative">
+              <Splide
+                options={{
+                  perPage: 5,
+                  perMove: 1,
+                  arrows: false,
+                  classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },
+                }}
+                onMounted={() => {
+                  if (document && document.getElementsByClassName("splide__track").length >= 1) {
+                    // @ts-ignore
+                    document.getElementsByClassName("splide__track")[0].style["z-index"] = 2
+                  }
+                }}
+                renderControls={() => {
+                  return (
+                    <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
+                      <div
+                        style={{ left: "-50px" }}
+                        className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
+                      >
+                        <ChevronRightIcon className="w-6 h-6" />
+                      </div>
+                      <div
+                        style={{ right: "-40px" }}
+                        className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
+                      >
+                        <ChevronRightIcon className="w-6 h-6" />
+                      </div>
+                    </div>
+                  )
+                }}
+              >
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video />
+                    <Video />
+                  </div>
+                </SplideSlide>
+              </Splide>
+            </div>
+          </div>
         </AdaptiveBg>
       </div>
     </div>
