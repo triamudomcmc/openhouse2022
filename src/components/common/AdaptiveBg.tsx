@@ -1,5 +1,6 @@
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { useEffect, useRef } from "react"
+import classnames from "classnames"
 
 export const AdaptiveBg = ({
   children,
@@ -55,7 +56,7 @@ export const AdaptiveBg = ({
         minHeight: primary.height,
         backgroundPosition: "center",
       }}
-      className="overflow-x-hidden min-h-screen pb-20 text-white py-2"
+      className={classnames("overflow-x-hidden min-h-screen pb-20 text-white py-2", classname)}
     >
       {children}
     </div>

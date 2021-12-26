@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
+    "@splidejs/react-splide": "^0.6.17",
+    "@splidejs/splide-extension-grid": "^0.3.18",
     "classnames": "^2.3.1",
     "firebase": "^9.6.1",
     "firebase-admin": "^10.0.1",
