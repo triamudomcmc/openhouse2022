@@ -190,9 +190,11 @@ export default function Home({articles}: any) {
                     <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
                   </div>
                 </div>
-                <div className="border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]">
-                  <h1 className="underline text-md sm:text-lg">ดูตารางรายการสดทั้งหมด</h1>
-                </div>
+                <Link href="/schedule">
+                  <div className="border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]">
+                    <h1 className="underline text-md sm:text-lg">ดูตารางรายการสดทั้งหมด</h1>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -546,9 +548,9 @@ export default function Home({articles}: any) {
                     mobile={{background: "url('images/backgrounds/additional-mobile-default.jpg')", height: "926px"}}
         classname="flex items-center">
           <div className="mx-auto">
-            <h1 className="font-black text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h1>
-            <p className="text-[26px] font-light text-center mt-2">มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ<br/>หรือถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !</p>
-            <div className="flex justify-center space-x-4 mt-16">
+            <h1 className="font-black text-[46px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h1>
+            <p className="text-[20px] md:text-[26px] font-light text-center mt-2">มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ<br/>หรือถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !</p>
+            <div className="flex flex-col md:flex-row justify-center items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0 mt-16">
               <div className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md">
                 การสอบเข้า
               </div>
