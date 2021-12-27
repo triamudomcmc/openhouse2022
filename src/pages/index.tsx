@@ -19,7 +19,7 @@ const Blog = ({data}: {data: any}) => {
   return (
     <Link  href={`articles/${data.slug}`}>
       <div style={{background: "linear-gradient(265.95deg, rgba(255, 255, 255, 0.3) 33.14%, rgba(255, 255, 255, 0) 100%)"}}
-           className="border border-white rounded-lg border-opacity-40 flex justify-between backdrop-filter backdrop-blur-lg snap-center cursor-pointer">
+           className="border h-[198px] border-white rounded-lg border-opacity-40 flex justify-between backdrop-filter backdrop-blur-lg snap-center cursor-pointer">
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
             <h1 className="text-lg">{data.title}</h1>
@@ -28,7 +28,7 @@ const Blog = ({data}: {data: any}) => {
           <span className="text-sm font-light">{data.author}</span>
         </div>
         <div className="flex-shrink-0">
-          <Image width={317} height={189} objectFit={"cover"} src={data.thumbnail} className="flex-shrink-0 rounded-r-lg"/>
+          <Image width={317} height={197} objectFit={"cover"} src={data.thumbnail} className="flex-shrink-0 rounded-r-lg"/>
         </div>
       </div>
     </Link>
@@ -40,7 +40,7 @@ const Video = () => {
   return (
     <Link href={"/"}>
       <div style={{background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)"}}
-           className="w-[170px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20">
+           className="w-[170px] rounded-lg mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20">
         <div>
           <div className="relative">
             <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">12.10</span>
@@ -337,7 +337,7 @@ export default function Home({articles}: any) {
         <AdaptiveBg primary={{background: "url('images/backgrounds/clubs.jpg')", height: "2048px"}}
                     secondary={{background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px"}}
                     mobile={{background: "url('images/backgrounds/clubs-mobile-default.jpg')", height: "926px"}}>
-          <div className="max-w-[900px] mx-auto">
+          <div className="max-w-[900px] mx-auto px-6">
             <div className="mt-[200px] mb-8">
               <div className="flex items-center justify-between mb-6">
                 <h1 className="text-5xl">วิดีโอ</h1>
@@ -349,7 +349,7 @@ export default function Home({articles}: any) {
               <p className="font-light text-lg leading-[24px]">วิดีโอจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br/> ที่ทางเราจะนำมานำเสนอให้ทุกคนได้รับชมอย่างเต็มที่ !</p>
             </div>
             <div className="relative">
-              <Splide options={{perPage: 5,perMove:1, arrows: false, classes:{pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]"}}} onMounted={() => {
+              <Splide options={{fixedWidth: 170,gap: 12,perMove:1, arrows: false, classes:{pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]"}}} onMounted={() => {
                 if (document && document.getElementsByClassName("splide__track").length >= 1) {
                   // @ts-ignore
                   document.getElementsByClassName("splide__track")[0].style["z-index"] = 2
@@ -445,7 +445,94 @@ export default function Home({articles}: any) {
               </div>
               <p className="font-light text-lg leading-[24px]">บทความจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br/>ที่ทางเราจะนำมานำเสนอให้ทุกคนได้อ่านอย่างเต็มที่ !</p>
             </div>
-            <div>
+            <div className="block lg:hidden relative">
+              <Splide options={{fixedWidth: 170,gap: 12,perMove:1, arrows: false, classes:{pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]"}}} onMounted={() => {
+                if (document && document.getElementsByClassName("splide__track").length >= 1) {
+                  // @ts-ignore
+                  document.getElementsByClassName("splide__track")[0].style["z-index"] = 2
+                }
+              }
+              } renderControls={() => {
+                return(
+                  <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
+                    <div style={{left: "-50px"}} className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"><ChevronRightIcon className="w-6 h-6"/></div>
+                    <div style={{right: "-40px"}} className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"><ChevronRightIcon className="w-6 h-6"/></div>
+                  </div>)
+              }
+              }>
+                <SplideSlide>
+                  <div>
+                    <Video/>
+                    <Video/>
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video/>
+                    <Video/>
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video/>
+                    <Video/>
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video/>
+                    <Video/>
+                  </div>
+                </SplideSlide><SplideSlide>
+                <div>
+                  <Video/>
+                  <Video/>
+                </div>
+              </SplideSlide><SplideSlide>
+                <div>
+                  <Video/>
+                  <Video/>
+                </div>
+              </SplideSlide><SplideSlide>
+                <div>
+                  <Video/>
+                  <Video/>
+                </div>
+              </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video/>
+                    <Video/>
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video/>
+                    <Video/>
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video/>
+                    <Video/>
+                  </div>
+                </SplideSlide><SplideSlide>
+                <div>
+                  <Video/>
+                  <Video/>
+                </div>
+              </SplideSlide>
+                <SplideSlide>
+                  <div>
+                    <Video/>
+                    <Video/>
+                  </div>
+                </SplideSlide>
+
+
+              </Splide>
+            </div>
+            <div className="lg:block hidden">
               <div className={classnames("relative space-y-6 max-h-[621px] overflow-y-scroll snap-y scroll")}>
                 {articles.map((data: any, index: number) => (
                   <Blog key={`blog-${index}`} data={data}/>
