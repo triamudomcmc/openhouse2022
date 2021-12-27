@@ -89,6 +89,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
+    require('tailwind-scrollbar'),
     plugin(function ({ addBase }) {
       addBase({
         "@font-face": {
@@ -124,4 +125,7 @@ module.exports = {
       })
     }),
   ],
+  variants: {
+    scrollbar: ['rounded']
+  }
 }

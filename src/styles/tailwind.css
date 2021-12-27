@@ -18,6 +18,24 @@
     background: linear-gradient(269.81deg, rgba(249, 249, 249, 0.3) 1.29%, rgba(249, 249, 249, 0) 99.84%);
   }
 
+  .scroll {
+    @apply pr-6
+  }
+  .scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  .scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.5);
+    @apply rounded-full
+  }
+
+  /* Handle */
+  .scroll::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-white
+  }
+
   .color-gifted {
     background: linear-gradient(180deg, #352a62 0%, #725695 41.67%, #988ec0 84.37%);
   }
