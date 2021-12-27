@@ -11,8 +11,6 @@ export default class Document extends NextDocument {
       <Html lang="th">
         <Head>
           <meta charSet="utf-8" />
-        </Head>
-        <body>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
@@ -30,6 +28,8 @@ export default class Document extends NextDocument {
             name="keywords"
             content="Triam Udom, TUOPH, Triam Udom Online Open House, Triam Udom Open House 2022, Triam Udom Online Open House 2022, TriamOPH2022, triam, tu85, Triamudom85, เตรียมอุดม, เตรียมอุดมฯ, triamOPH"
           />
+        </Head>
+        <body>
           <Main />
           <NextScript />
         </body>

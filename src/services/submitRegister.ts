@@ -7,7 +7,8 @@ export const submitRegister: (auth: IAuthContext | null, data: IData) => void = 
   auth?.setLoading(true)
 
   if (auth?.user?.uid) {
-    await updateUser(auth?.user?.uid, { ...auth, card: null })
+    console.log({ ...data, card: null })
+    await updateUser(auth?.user?.uid, { ...data, card: null })
     Router.push("/game")
   }
   auth?.setLoading(false)

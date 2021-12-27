@@ -84,12 +84,15 @@ export default function Home() {
             <h1 className="text-[116px] font-black tracking-[30px]">TRIAM UDOM</h1>
             <h1 className="text-[70px] tracking-[13px] font-light mt-[-26px]">ONLINE OPEN HOUSE 2022</h1>
             <h1 className="text-[30px] font-thin tracking-[10px] mt-10">14-15 JANUARY</h1>
-            <div
-              className="text-xl font-thin px-16 rounded-full py-3 mt-[80px]"
-              style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
-            >
-              <h1>เข้าสู่ระบบ</h1>
-            </div>
+            <Link href="/register">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                className="text-xl cursor-pointer font-thin px-16 rounded-full py-3 mt-[80px]"
+                style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+              >
+                <p>เข้าสู่ระบบ</p>
+              </motion.a>
+            </Link>
             <LogoWhite className="w-[174px] mt-16" />
           </div>
         </AdaptiveBg>
