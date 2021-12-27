@@ -38,7 +38,7 @@ const formatData: (data: any) => ISecondPage = (data) => {
 
   if (data.news.includes("other")) {
     _data.news = _data.news.filter((d: string) => d !== "other")
-    _data.news = [..._data.news, data.ßotherNews]
+    _data.news = [..._data.news, data.otherNews]
     _data.otherNews = null
   }
 
