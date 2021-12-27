@@ -110,86 +110,88 @@ export default function Home({articles}: any) {
                     secondary={{background: "url('images/backgrounds/landing-mobile.jpg')", height: "926px"}}
                     mobile={{background: "url('images/backgrounds/landing-mobile-default.jpg')", height: "926px"}}
                     classname="flex items-center">
-          <div className="flex flex-col items-center w-full">
-            <h1 className="text-[116px] font-black tracking-[30px]">TRIAM UDOM</h1>
-            <h1 className="text-[70px] tracking-[13px] font-light mt-[-26px]">ONLINE OPEN HOUSE 2022</h1>
-            <h1 className="text-[30px] font-thin tracking-[10px] mt-10">14-15 JANUARY</h1>
-            <div className="text-xl font-thin px-16 rounded-full py-3 mt-[80px]" style={{background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)"}}>
-              <h1>เข้าสู่ระบบ</h1>
+          <div className="flex flex-col items-start sm:items-center w-full px-8">
+            <h1 className="text-[64px] xl:text-[116px] leading-[64px] xl:leading-[156px] font-black tracking-[14px] xl:tracking-[30px]">TRIAM UDOM</h1>
+            <h1 className="text-[40px] xl:text-[70px] tracking-[8px] xl:tracking-[13px] font-light mt-[10px] xl:mt-[-26px]">ONLINE OPEN HOUSE 2022</h1>
+            <h1 className="text-[20px] md:text-[30px] font-thin tracking-[8px] md:tracking-[10px] mt-10">14-15 JANUARY</h1>
+            <div className="flex flex-col items-center">
+              <div className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]" style={{background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)"}}>
+                <h1>เข้าสู่ระบบ</h1>
+              </div>
+              <LogoWhite className="w-[174px] mt-6 md:mt-16"/>
             </div>
-            <LogoWhite className="w-[174px] mt-16"/>
           </div>
         </AdaptiveBg>
         <AdaptiveBg primary={{background: "url('images/backgrounds/live.jpg')", height: "1024px"}}
                     secondary={{background: "url('images/backgrounds/live-mobile.jpg')", height: "926px"}}
                     mobile={{background: "url('images/backgrounds/live-mobile-default.jpg')", height: "926px"}}
                     classname="flex items-center">
-          <div className="flex mx-auto space-x-8 pt-[30px]">
+          <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
             <div className="my-auto">
               <div className="mb-4">
-                <div className="flex items-center space-x-3"><span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] rounded-sm px-[3px]">LIVE</span> <span
-                  className="text-3xl">ร้องเพลงปิ่นหทัย</span></div>
+                <div className="flex items-center space-x-3"><span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">LIVE</span> <span
+                  className="text-2xl sm:text-3xl">ร้องเพลงปิ่นหทัย</span></div>
                 <div>
-                  <span className="font-light">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>
+                  <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>
                 </div>
               </div>
-              <div className="bg-black w-[841px] h-[483px] border border-white border-opacity-50 rounded-xl">
+              <div className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl">
 
               </div>
             </div>
-            <div>
+            <div className="xl:block md:hidden block">
               <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
                 <h1 className="font-light text-sm">LIVE SCHEDULE</h1>
                 <h1 className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</h1>
               </div>
-              <div className="min-w-[380px] space-y-4">
+              <div className="min-w-[300px] sm:min-w-[380px] space-y-4 mx-auto">
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-2xl">10.00</h1>
+                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
                   </div>
                   <div>
-                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-2xl">10.00</h1>
+                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
                   </div>
                   <div>
-                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-2xl">10.00</h1>
+                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
                   </div>
                   <div>
-                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-2xl">10.00</h1>
+                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
                   </div>
                   <div>
-                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-2xl">10.00</h1>
+                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
                   </div>
                   <div>
-                    <h1 className="text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
+                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]">
-                  <h1 className="underline text-lg">ดูตารางรายการสดทั้งหมด</h1>
+                  <h1 className="underline text-md sm:text-lg">ดูตารางรายการสดทั้งหมด</h1>
                 </div>
               </div>
             </div>
@@ -313,17 +315,17 @@ export default function Home({articles}: any) {
                     secondary={{background: "url('images/backgrounds/clubs-index-mobile.jpg')", height: "926px"}}
                     mobile={{background: "url('images/backgrounds/clubs-index-mobile-default.jpg')", height: "926px"}}
                     classname="flex flex-col justify-center items-center">
-          <div className="flex space-x-12">
-            <div className="relative w-max">
-              <div>
+          <div className="flex items-center md:flex-row flex-col space-x-4 lg:space-x-12">
+            <div className="relative w-max flex-shrink-0">
+              <div className="w-[300px] sm:w-[381px]">
                 <Image src="/images/clubs/clubs-circle.png" width={381} height={381}/>
               </div>
               <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
-                <h1 className="text-[84px] font-black">ชมรม</h1>
+                <h1 className="text-[70px] sm:text-[84px] font-black">ชมรม</h1>
               </div>
             </div>
-            <div className="flex flex-col items-end space-y-8 mt-[100px]">
-              <h1 className="text-[34px] leading-[48px] text-right font-medium">เราจะพาทุกคนไปทำความรู้จัก<br/>
+            <div className="flex flex-col items-center md:items-end space-y-8 mt-[30px] md:mt-[100px]">
+              <h1 className="text-[30px] lg:text-[34px] leading-[40px] lg:leading-[48px] text-center md:text-right font-medium">เราจะพาทุกคนไปทำความรู้จัก<br/>
                 กับชมรมของโรงเรียนเรา<br/>
                 ที่มีมากกว่า 60 ชมรมกัน !</h1>
               <div className="text-[#112D55] bg-white px-12 rounded-full text-lg py-2.5">
