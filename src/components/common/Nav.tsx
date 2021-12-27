@@ -14,7 +14,7 @@ export const Nav = () => {
           </div>
         </div>
         <nav className="hidden lg:flex items-center space-x-12">
-          <Link href="/index">
+          <Link href="/">
             <a className="font-light hover:border-white border-b border-transparent">หน้าแรก</a>
           </Link>
           <Link href="/programmes">
