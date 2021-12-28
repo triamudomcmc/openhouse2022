@@ -8,6 +8,7 @@ import Link from "next/link"
 import { AnimateSharedLayout } from "framer-motion"
 import { useEffect, useState } from "react"
 import { searchKeyword } from "@utils/text"
+import {AdaptiveBg} from "@components/common/AdaptiveBg";
 
 const Clube = ({ data }: { data: any }) => {
   return (
@@ -120,17 +121,10 @@ const Page = ({ contents }: { contents: any }) => {
   }, [searchContext, contents])
 
   return (
-    <div
-      style={{
-        background: "url('images/backgrounds/clubs.jpg')  #C188BB",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        minHeight: "2024px",
-        backgroundPosition: "center",
-      }}
-      className="overflow-x-hidden min-h-screen text-white main-section"
-    >
-      <div className="max-w-6xl mx-auto">
+    <AdaptiveBg primary={{background: "url('images/backgrounds/clubs.jpg')", height: "2048px"}}
+                secondary={{background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px"}}
+                mobile={{background: "url('images/backgrounds/clubs-mobile-default.jpg')", height: "926px"}}>
+      <div className="max-w-6xl mx-auto mt-40">
         <div
           onClick={() => {
             router.push("/")
@@ -167,7 +161,7 @@ const Page = ({ contents }: { contents: any }) => {
           </div>
         </div>
       </div>
-    </div>
+    </AdaptiveBg>
   )
 }
 
