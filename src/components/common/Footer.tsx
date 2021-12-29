@@ -17,13 +17,28 @@ export const Footer = () => {
               <p className="-mt-1">OPEN HOUSE 2022</p>
             </div>
             <div className="flex space-x-3">
-              <motion.a href="https://www.facebook.com/TriamUdomOPH" target="_blank" whileHover={{ scale: 1.05 }}>
+              <motion.a
+                href="https://www.facebook.com/TriamUdomOPH"
+                target="_blank"
+                rel="noreferrer"
+                whileHover={{ scale: 1.05 }}
+              >
                 <Facebook />
               </motion.a>
-              <motion.a href="https://www.instagram.com/triamudom.oph/" target="_blank" whileHover={{ scale: 1.05 }}>
+              <motion.a
+                href="https://www.instagram.com/triamudom.oph/"
+                target="_blank"
+                rel="noreferrer"
+                whileHover={{ scale: 1.05 }}
+              >
                 <Instagram />
               </motion.a>
-              <motion.a href="https://twitter.com/triamudomoph" target="_blank" whileHover={{ scale: 1.05 }}>
+              <motion.a
+                href="https://twitter.com/triamudomoph"
+                target="_blank"
+                rel="noreferrer"
+                whileHover={{ scale: 1.05 }}
+              >
                 <Twitter />
               </motion.a>
               <motion.a

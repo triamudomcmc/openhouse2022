@@ -84,12 +84,12 @@ module.exports = {
         ...defaultTheme.fontFamily.sans,
       ],
       game: ["Prompt", "Inter var", ...defaultTheme.fontFamily.sans],
+      mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
     },
-    mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require('tailwind-scrollbar'),
+    require("tailwind-scrollbar"),
     plugin(function ({ addBase }) {
       addBase({
         "@font-face": {
@@ -126,6 +126,6 @@ module.exports = {
     }),
   ],
   variants: {
-    scrollbar: ['rounded']
-  }
+    scrollbar: ["rounded"],
+  },
 }

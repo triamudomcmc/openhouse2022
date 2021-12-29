@@ -14,7 +14,8 @@
       "@config/*": ["src/config/*"],
       "@models/*": ["src/models/*"],
       "@lib/*": ["src/lib/*"],
-      "@vectors/*": ["src/vectors/*"]
+      "@vectors/*": ["src/vectors/*"],
+      "@map/*": ["src/_data/_maps/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

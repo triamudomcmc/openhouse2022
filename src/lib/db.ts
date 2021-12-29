@@ -29,7 +29,7 @@ export const createUser = (uid: string, data: DocumentData): Promise<void> => {
   return setDoc(userRef, data, { merge: true })
 }
 
-export const getCurrentUserData = async (uid: string): Promise<null | DocumentData> => {
+export const getUserData = async (uid: string): Promise<null | DocumentData> => {
   const userRef = getUserRef(uid)
   const doc = await getDoc(userRef)
 

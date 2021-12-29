@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   ) : (
     <AuthProvider>
       <MetaData />
-      {router.pathname !== "/game" ? (
+      {!(router.pathname === "/game" || router.pathname === "/_ticket") ? (
         <Layout>
           <Component {...pageProps} />
         </Layout>

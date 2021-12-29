@@ -1,0 +1,24 @@
+.background {
+  height: calc(var(--width) * (1920 / 1080));
+  width: var(--width);
+}
+
+.overlay {
+  width: calc(var(--width) * (3 / 5));
+}
+
+.vertical {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > .ticket-number {
+    writing-mode: vertical-rl;
+    height: calc(var(--width) * (3 / 5));
+    @apply text-white;
+    @apply font-mono;
+  }
+}

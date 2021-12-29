@@ -15,7 +15,7 @@ import {
 } from "firebase/auth"
 import { onSnapshot } from "firebase/firestore"
 import firebaseApp from "./firebase"
-import { createUser, getUserRef, getCurrentUserData } from "./db"
+import { createUser, getUserRef, getUserData } from "./db"
 import { Loading } from "@components/common/Loading"
 
 export interface IUserData extends IInitialUserData {
@@ -133,9 +133,9 @@ export const AuthProvider: React.FC = ({ children }) => {
         else if (registered) Router.push("/")
       }
       // mycard
-      else if (pathname === "/mycard") {
-        if (noAuth) Router.push("/register?redirect=mycard")
-        else if (authNoRegistered) Router.push("/register/onboard?redirect=mycard")
+      else if (pathname === "/ticket") {
+        if (noAuth) Router.push("/register?redirect=ticket")
+        else if (authNoRegistered) Router.push("/register/onboard?redirect=ticket")
       }
 
       // game
@@ -183,7 +183,7 @@ function useProvideAuth() {
       await createUser(user.uid, user)
 
       setUser(rawUser)
-      const tmpData: any = await getCurrentUserData(user.uid)
+      const tmpData: any = await getUserData(user.uid)
       setUserData({
         username: "",
         firstname: "",
