@@ -1,21 +1,21 @@
 .background {
   position: relative;
-  height: calc(var(--width) * (1920 / 1080));
+  height: var(--width);
   width: var(--width);
 }
 
 .overlay {
   position: relative;
   width: calc(var(--width) * (4 / 5));
-  height: calc((var(--width) * (1920 / 1080)) * (4 / 5));
+  height: calc(var(--width) * (4 / 5));
   padding: calc(var(--width) / 26) calc(var(--width) / 18);
   border-radius: calc(var(--width) / 1080 * 50);
 }
 
 .to {
   font-size: calc(var(--width) / 25);
-  margin-top: calc(var(--width) / 5);
-  margin-bottom: calc(var(--width) / 10);
+  margin-top: calc(var(--width) / 25);
+  margin-bottom: calc(var(--width) / 30);
 }
 
 .header {
@@ -31,13 +31,13 @@
 
 .content {
   > .name {
-    font-size: calc(var(--width) / 15);
+    font-size: calc(var(--width) / 20);
     margin-bottom: calc(var(--width) / 35);
   }
 
   > .text {
-    font-size: calc(var(--width) / 35);
-    margin-left: calc(var(--width) / 35);
+    font-size: calc(var(--width) / 42.5);
+    margin-left: calc(var(--width) / 40);
     color: #ddd;
   }
 }

@@ -1,4 +1,5 @@
 import { PortraitTicket } from "@components/ticket/Portrait"
+import { SquareTicket } from "@components/ticket/Square"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 
@@ -42,7 +43,7 @@ const TicketImage: NextPage = () => {
   //     )
   //   }
 
-  return <PortraitTicket width={1024} />
+  return <SquareTicket width={1024} />
 }
 
 export default TicketImage

@@ -1,8 +1,15 @@
 import { FC } from "react"
 
-export const Youtube: FC<{ fill?: string }> = ({ fill = "#6670AD" }) => {
+export const Youtube: FC<{ fill?: string; className?: string }> = ({ fill = "#6670AD", className }) => {
   return (
-    <svg width="39" height="41" viewBox="0 0 39 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="39"
+      height="41"
+      viewBox="0 0 39 41"
+      fill="none"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
