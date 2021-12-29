@@ -23,7 +23,7 @@ const Blog = ({data}: {data: any}) => {
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
             <h1 className="text-lg">{data.title}</h1>
-            <p dangerouslySetInnerHTML={{__html: `${data.content.substr(0, 120)}...`}} className="font-light"></p>
+            <p dangerouslySetInnerHTML={{__html: `${data.content}...`}} className="font-light"></p>
           </div>
           <span className="text-sm font-light">{data.author}</span>
         </div>
@@ -88,7 +88,8 @@ export const getStaticProps: GetStaticProps = async () => {
   let mapped = []
 
   for (let i of cleaned) {
-    mapped.push({...i, content: await markdownToHtml(i.content.replace(/\!.+?\)/g, "").replace(/\[.+?\)/g, "").replace(new RegExp("\n> ", "g"), "").replace(/\n/g, " ") || "")})
+    const e = await markdownToHtml(i.content.replace(/\!.+?\)/g, "").replace(/\[.+?\)/g, "").replace(new RegExp("\n> ", "g"), "").replace(/\n/g, " ") || "")
+    mapped.push({...i, content: e.substr(0, 120)})
   }
 
   return {
@@ -554,7 +555,7 @@ export default function Home({articles}: any) {
               <div className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md">
                 การสอบเข้า
               </div>
-              <div className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md">
+              <div onClick={() => {Router.push("/directions")}} className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer">
                 เกี่ยวกับโรงเรียนเตรียมฯ
               </div>
             </div>

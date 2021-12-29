@@ -4,7 +4,7 @@ import classnames from "classnames";
 const Directions = () => {
 
   const [currentTab, setCurrentTab] = useState<'bus' | 'bts' | 'mrt'>('bts')
-  const [map, setMap] = useState(<object data="/images/directions/bts.svg" className="w-[100%] lg:w-[700px]"/>)
+  const [map, setMap] = useState(<object key={"b"} data="/images/directions/bts.svg" className="w-[100%] h-[404px] lg:w-[700px] lg:h-[884px]"/>)
 
   const des = {
     bus:             <div className="space-y-10 mt-10">
@@ -74,13 +74,13 @@ const Directions = () => {
   useEffect(() => {
     switch (currentTab) {
       case "bts":
-        setMap(<object key={"b"} data="/images/directions/bts.svg" className="w-[100%] lg:w-[700px]"/>)
+        setMap(<object key={"b"} data="/images/directions/bts.svg" className="w-[100%] h-[404px] lg:w-[700px] lg:h-[884px]"/>)
         break
       case "bus":
-        setMap(<object key={"a"} data="/images/directions/bus.svg" className="w-[100%] lg:w-[700px]"/>)
+        setMap(<object key={"a"} data="/images/directions/bus.svg" className="w-[100%] h-[404px] lg:w-[700px] lg:h-[884px]"/>)
         break
       case "mrt":
-        setMap(<object key={"d"} data="/images/directions/mrt.svg" className="w-[100%] lg:w-[700px]"/>)
+        setMap(<object key={"d"} data="/images/directions/mrt.svg" className="w-[100%] h-[404px] lg:w-[700px] lg:h-[876px]"/>)
     }
   }, [currentTab])
 
