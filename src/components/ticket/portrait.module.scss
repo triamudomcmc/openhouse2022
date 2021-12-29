@@ -42,6 +42,22 @@
   }
 }
 
+.contact {
+  > .method {
+    font-size: calc(var(--width) / 35);
+
+    .vector {
+      width: calc(var(--width) / 27);
+      height: calc(var(--width) / 27);
+    }
+  }
+}
+
+.qr-text {
+  font-size: calc(var(--width) / 35);
+  margin-top: calc(var(--width) / 35);
+}
+
 .vertical {
   position: absolute;
   top: calc(var(--width) / 26);

@@ -84,29 +84,30 @@ export const PortraitTicket: FC<TicketProps> = ({
               renderAs="svg"
               bgColor="none"
               fgColor="#ffffff"
-              excavate={true}
+              excavate="true"
+              size={width / 8}
             />
-            <p className="font-display text-xl text-white mt-4">ดูบัตรได้ที่นี่เลย !</p>
+            <p className={classNames(css["qr-text"], "font-display text-white")}>ดูบัตรได้ที่นี่เลย !</p>
           </div>
-          <div className="flex flex-col text-white text-2xl font-semibold font-display">
-            <div className="flex justify-end my-1">
+          <div className={classNames(css["contact"], "flex flex-col text-white font-semibold font-display")}>
+            <div className={classNames(css["method"], "flex justify-end my-1")}>
               <a href="https://twitter.com/triamudomoph" target="_blank" rel="noreferrer">
-                triamudomoph <Twitter fill="#fff" className="inline" />
+                triamudomoph <Twitter fill="#fff" className={classNames(css["vector"], "inline")} />
               </a>
             </div>
-            <div className="flex justify-end my-1">
+            <div className={classNames(css["method"], "flex justify-end my-1")}>
               <a href="https://www.instagram.com/triamudom.oph/" target="_blank" rel="noreferrer">
-                triamudom.oph <Instagram fill="#fff" className="inline" />
+                triamudom.oph <Instagram fill="#fff" className={classNames(css["vector"], "inline")} />
               </a>
             </div>
-            <div className="flex justify-end my-1">
+            <div className={classNames(css["method"], "flex justify-end my-1")}>
               <a href="https://www.youtube.com/c/TriamUdomOpenHouse" target="_blank" rel="noreferrer">
-                Triam Udom Open House <Youtube fill="#fff" className="inline" />
+                Triam Udom Open House <Youtube fill="#fff" className={classNames(css["vector"], "inline")} />
               </a>
             </div>
-            <div className="flex justify-end my-1">
+            <div className={classNames(css["method"], "flex justify-end my-1")}>
               <a href="https://www.instagram.com/triamudom.oph/" target="_blank" rel="noreferrer">
-                Triam Udom Open House <Facebook fill="#fff" className="inline" />
+                Triam Udom Open House <Facebook fill="#fff" className={classNames(css["vector"], "inline")} />
               </a>
             </div>
           </div>
