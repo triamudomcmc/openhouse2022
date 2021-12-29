@@ -76,18 +76,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggestion }) => {
-
   const loadPicture = (index: number) => {
-    return contents.pictures.length >= index + 1  ?
+    return contents.pictures.length >= index + 1 ? (
       <div>
-        <Image src={contents.pictures[index].url} width={672} height={378} objectFit={"cover"}/>
+        <Image src={contents.pictures[index].url} width={672} height={378} objectFit={"cover"} />
         <p className="text-center mt-2">{contents.pictures[index].description}</p>
       </div>
-       : <></>
+    ) : (
+      <></>
+    )
   }
 
   return (
-    <section className={classnames("min-h-screen main-section", contents.isGifted ? "color-gifted" : "color-slip-jeen")}>
+    <section
+      className={classnames("min-h-screen main-section", contents.isGifted ? "color-gifted" : "color-slip-jeen")}
+    >
       <div className="max-w-6xl px-8 mx-auto">
         <div
           onClick={() => {
@@ -107,17 +110,26 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             {loadPicture(0)}
             <div>
               <h1 className="text-4xl">การรับสมัครและการสอบเข้า</h1>
-              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.admission }}></article>
+              <article
+                className="prose text-white mt-4 leading-[30px] article prose-inverted"
+                dangerouslySetInnerHTML={{ __html: contents.admission }}
+              ></article>
             </div>
             {loadPicture(1)}
             <div>
               <h1 className="text-4xl">วิชาหรือหลักสูตรเพิ่มเติมที่เรียน</h1>
-              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.exsubject }}></article>
+              <article
+                className="prose text-white mt-4 leading-[30px] article prose-inverted"
+                dangerouslySetInnerHTML={{ __html: contents.exsubject }}
+              ></article>
             </div>
             {loadPicture(2)}
             <div>
               <h1 className="text-4xl">ความน่าสนใจของสายการเรียน</h1>
-              <article className="prose text-white mt-4 leading-[30px] article prose-inverted" dangerouslySetInnerHTML={{ __html: contents.interest }}></article>
+              <article
+                className="prose text-white mt-4 leading-[30px] article prose-inverted"
+                dangerouslySetInnerHTML={{ __html: contents.interest }}
+              ></article>
             </div>
           </div>
         </div>
@@ -127,7 +139,13 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             {contents.reviews.map((reviewItem: any, i: number) => (
               <div key={`rev-${i}`} className="flex flex-col-reverse sm:flex-row sm:space-x-3">
                 <div className="flex-shrink-0 flex sm:flex-col flex-row items-start sm:space-x-0 space-x-2 mt-4 sm:mt-0">
-                  <Image width={85} height={85} src={reviewItem.profileURL} className="rounded-2xl" objectFit={"cover"}/>
+                  <Image
+                    width={85}
+                    height={85}
+                    src={reviewItem.profileURL}
+                    className="rounded-2xl"
+                    objectFit={"cover"}
+                  />
                   <div>
                     <h1 className="text-white font-semibold text-2xl">{reviewItem.profileData.name}</h1>
                     <p className="text-xs">เตรียมอุดม {reviewItem.profileData.year}</p>
@@ -136,7 +154,10 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                 </div>
                 <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
                   <span className="w-full font-light text-8xl">“</span>
-                  <article className="prose text-white -mt-10 px-8 article prose-inverted" dangerouslySetInnerHTML={{ __html: reviewItem.content }}></article>
+                  <article
+                    className="prose text-white -mt-10 px-8 article prose-inverted"
+                    dangerouslySetInnerHTML={{ __html: reviewItem.content }}
+                  ></article>
                   <p className="w-full font-light text-8xl text-right -mb-10">”</p>
                 </div>
               </div>
