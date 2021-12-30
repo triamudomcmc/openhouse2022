@@ -7,6 +7,7 @@ import { Instagram } from "@vectors/Instagram"
 import { Twitter } from "@vectors/Twitter"
 import { Youtube } from "@vectors/Youtube"
 import { ticketTypes } from "@types"
+import { SITE_URL } from "@utils/constants"
 
 export type TicketProps = {
   width: number
@@ -89,7 +90,7 @@ export const SquareTicket: FC<TicketProps> = ({
         <div className="flex justify-between items-end">
           <div className="flex flex-col items-start">
             <QRCode
-              value={`${window.location.host}/ticket/${uid}`}
+              value={`${SITE_URL}/ticket/${uid}`}
               renderAs="svg"
               bgColor="none"
               fgColor="#ffffff"

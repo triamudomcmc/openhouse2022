@@ -23,7 +23,7 @@
   }
 
   .scroll {
-    @apply pr-6
+    @apply pr-6;
   }
   .scroll::-webkit-scrollbar {
     width: 8px;
@@ -32,12 +32,12 @@
   /* Track */
   .scroll::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.5);
-    @apply rounded-full
+    @apply rounded-full;
   }
 
   /* Handle */
   .scroll::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-white
+    @apply rounded-full bg-white;
   }
 
   .color-gifted {
@@ -45,10 +45,10 @@
   }
 
   .color-clubs {
-    background: linear-gradient(180deg, #3C2042 0%, #5D3465 8.33%, #6D387E 27.6%, #8F5889 68.23%, #C188BB 98.3%);
+    background: linear-gradient(180deg, #3c2042 0%, #5d3465 8.33%, #6d387e 27.6%, #8f5889 68.23%, #c188bb 98.3%);
   }
 
   .main-section {
-    @apply pt-[6.5rem] pb-4;
+    @apply pt-[6.5rem] pb-[2rem];
   }
 }
