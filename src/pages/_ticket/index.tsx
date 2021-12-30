@@ -1,10 +1,14 @@
 import { PortraitTicket } from "@components/ticket/Portrait"
 import { SquareTicket } from "@components/ticket/Square"
-import { NextPage } from "next"
+import { ticketTypes } from "@types"
+import { GetStaticProps, NextPage } from "next"
 import { useRouter } from "next/router"
 
-const TicketImage: NextPage = () => {
-  const { query } = useRouter()
+const TicketImage: NextPage<{ name: string; type: ticketTypes; uid: string }> = ({ name, type, uid }) => {
+  const router = useRouter()
+  const query = router?.query
+  const data = JSON.parse(query?.data as string) ?? { name: "nark", type: "brave", uid: "5tZbV8PSzLf5Uxt4kyzu0rg9AFW2" }
+
   //   if (query.type === 'pot') {
   //     return (
   //       <Portrait
@@ -43,7 +47,7 @@ const TicketImage: NextPage = () => {
   //     )
   //   }
 
-  return <PortraitTicket width={256} />
+  return <PortraitTicket width={256} name={data.name} uid={data.uid} type={data.type} />
 }
 
 export default TicketImage

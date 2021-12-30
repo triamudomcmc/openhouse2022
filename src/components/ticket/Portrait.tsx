@@ -35,7 +35,6 @@ export const PortraitTicket: FC<TicketProps> = ({
   name = "nark",
   type = "strong",
   uid = "4tZbV8PSzLf5Uxt4kyzu0rg9AFW2",
-  order = 123,
 }) => {
   const data = _data.find((d) => d.id === type) ?? {
     id: "strong",
@@ -62,7 +61,7 @@ export const PortraitTicket: FC<TicketProps> = ({
         )}
       >
         <div className={css["vertical"]}>
-          <p className={css["ticket-number"]}>Passport No. {order}</p>
+          <p className={css["ticket-number"]}>Passport No. {uid.slice(0, 5)}</p>
         </div>
         <div>
           <div className={css["header"]}>
