@@ -2,6 +2,7 @@ import { Layout } from "@components/common/Layout"
 import { Loading } from "@components/common/Loading"
 import { MetaData } from "@components/common/Meta"
 import { AuthProvider } from "@lib/auth"
+import { ToastProvider } from "@lib/toast"
 import "@styles/tailwind.css"
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router"
@@ -31,14 +32,16 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Loading />
   ) : (
     <AuthProvider>
-      <MetaData />
-      {!(router.pathname === "/game" || router.pathname === "/_ticket") ? (
-        <Layout>
+      <ToastProvider>
+        <MetaData />
+        {!(router.pathname === "/game" || router.pathname === "/_ticket") ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : (
           <Component {...pageProps} />
-        </Layout>
-      ) : (
-        <Component {...pageProps} />
-      )}
+        )}
+      </ToastProvider>
     </AuthProvider>
   )
 }
