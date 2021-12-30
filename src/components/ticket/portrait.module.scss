@@ -45,6 +45,7 @@
 .contact {
   > .method {
     font-size: calc(var(--width) / 35);
+    margin-top: calc(var(--width) / 50);
 
     .vector {
       width: calc(var(--width) / 27);

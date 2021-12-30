@@ -90,22 +90,22 @@ export const PortraitTicket: FC<TicketProps> = ({
             <p className={classNames(css["qr-text"], "font-display text-white")}>ดูบัตรได้ที่นี่เลย !</p>
           </div>
           <div className={classNames(css["contact"], "flex flex-col text-white font-semibold font-display")}>
-            <div className={classNames(css["method"], "flex justify-end my-1")}>
+            <div className={classNames(css["method"], "flex justify-end")}>
               <a href="https://twitter.com/triamudomoph" target="_blank" rel="noreferrer">
                 triamudomoph <Twitter fill="#fff" className={classNames(css["vector"], "inline")} />
               </a>
             </div>
-            <div className={classNames(css["method"], "flex justify-end my-1")}>
+            <div className={classNames(css["method"], "flex justify-end")}>
               <a href="https://www.instagram.com/triamudom.oph/" target="_blank" rel="noreferrer">
                 triamudom.oph <Instagram fill="#fff" className={classNames(css["vector"], "inline")} />
               </a>
             </div>
-            <div className={classNames(css["method"], "flex justify-end my-1")}>
+            <div className={classNames(css["method"], "flex justify-end")}>
               <a href="https://www.youtube.com/c/TriamUdomOpenHouse" target="_blank" rel="noreferrer">
                 Triam Udom Open House <Youtube fill="#fff" className={classNames(css["vector"], "inline")} />
               </a>
             </div>
-            <div className={classNames(css["method"], "flex justify-end my-1")}>
+            <div className={classNames(css["method"], "flex justify-end")}>
               <a href="https://www.instagram.com/triamudom.oph/" target="_blank" rel="noreferrer">
                 Triam Udom Open House <Facebook fill="#fff" className={classNames(css["vector"], "inline")} />
               </a>

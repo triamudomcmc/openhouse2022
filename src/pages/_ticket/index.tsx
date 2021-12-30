@@ -43,7 +43,7 @@ const TicketImage: NextPage = () => {
   //     )
   //   }
 
-  return <SquareTicket width={512} />
+  return <PortraitTicket width={256} />
 }
 
 export default TicketImage
