@@ -80,21 +80,25 @@ export const SquareTicket: FC<TicketProps> = ({
             <div className={css["to"]}>
               <p className="font-game font-light text-white">To: {name}</p>
             </div>
-            <p className={classNames(css["name"], "font-game drop-shadow-md font-semibold text-white")}>{data.name}</p>
-            <p className={classNames(css["text"], "font-game font-light leading-loose")}>{data.text}</p>
+            <div className={css["story"]}>
+              <p className={classNames(css["name"], "font-game drop-shadow-md font-semibold text-white")}>
+                {data.name}
+              </p>
+              <p className={classNames(css["text"], "font-game font-light leading-loose")}>{data.text}</p>
+            </div>
           </div>
         </div>
         <div className="flex justify-between items-end">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
             <QRCode
               value={`${window.location.host}/ticket/${uid}`}
               renderAs="svg"
               bgColor="none"
               fgColor="#ffffff"
               excavate="true"
-              size={width / 8}
+              size={width / 12}
             />
-            <p className={classNames(css["qr-text"], "font-display text-white mt-4")}>ดูบัตรได้ที่นี่เลย !</p>
+            <p className={classNames(css["qr-text"], "font-display text-white font-light")}>ดูบัตรได้ที่นี่เลย !</p>
           </div>
           <div className={classNames(css["contact"], "flex flex-col text-white font-semibold font-display")}>
             <div className={classNames(css["method"], "flex justify-end")}>

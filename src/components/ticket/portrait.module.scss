@@ -44,18 +44,18 @@
 
 .contact {
   > .method {
-    font-size: calc(var(--width) / 35);
-    margin-top: calc(var(--width) / 50);
+    font-size: calc(var(--width) / 40);
+    margin-top: calc(var(--width) / 75);
 
     .vector {
-      width: calc(var(--width) / 27);
-      height: calc(var(--width) / 27);
+      width: calc(var(--width) / 35);
+      height: calc(var(--width) / 35);
     }
   }
 }
 
 .qr-text {
-  font-size: calc(var(--width) / 35);
+  font-size: calc(var(--width) / 50);
   margin-top: calc(var(--width) / 35);
 }
 

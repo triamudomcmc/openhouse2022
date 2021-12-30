@@ -78,7 +78,7 @@ export const PortraitTicket: FC<TicketProps> = ({
           </div>
         </div>
         <div className="flex justify-between items-end">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
             <QRCode
               value={`${window.location.host}/ticket/${uid}`}
               renderAs="svg"
@@ -87,7 +87,7 @@ export const PortraitTicket: FC<TicketProps> = ({
               excavate="true"
               size={width / 8}
             />
-            <p className={classNames(css["qr-text"], "font-display text-white")}>ดูบัตรได้ที่นี่เลย !</p>
+            <p className={classNames(css["qr-text"], "font-display font-light text-white")}>ดูบัตรได้ที่นี่เลย !</p>
           </div>
           <div className={classNames(css["contact"], "flex flex-col text-white font-semibold font-display")}>
             <div className={classNames(css["method"], "flex justify-end")}>

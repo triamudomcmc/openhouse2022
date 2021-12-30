@@ -13,9 +13,9 @@
 }
 
 .to {
-  font-size: calc(var(--width) / 25);
-  margin-top: calc(var(--width) / 25);
-  margin-bottom: calc(var(--width) / 30);
+  font-size: calc(var(--width) / 30);
+  margin-top: calc(var(--width) / 20);
+  margin-bottom: calc(var(--width) / 25);
 }
 
 .header {
@@ -29,7 +29,9 @@
   }
 }
 
-.content {
+.content > .story {
+  margin-left: calc(var(--width) / 40);
+
   > .name {
     font-size: calc(var(--width) / 20);
     margin-bottom: calc(var(--width) / 35);
@@ -37,26 +39,25 @@
 
   > .text {
     font-size: calc(var(--width) / 42.5);
-    margin-left: calc(var(--width) / 40);
     color: #ddd;
   }
 }
 
 .contact {
   > .method {
-    font-size: calc(var(--width) / 42.5);
-    margin-top: calc(var(--width) / 50);
+    font-size: calc(var(--width) / 55);
+    margin-top: calc(var(--width) / 80);
 
     .vector {
-      width: calc(var(--width) / 27);
-      height: calc(var(--width) / 27);
+      width: calc(var(--width) / 40);
+      height: calc(var(--width) / 40);
     }
   }
 }
 
 .qr-text {
-  font-size: calc(var(--width) / 42.5);
-  margin-top: calc(var(--width) / 42.5);
+  font-size: calc(var(--width) / 65);
+  margin-top: calc(var(--width) / 75);
 }
 
 .vertical {
@@ -70,7 +71,7 @@
   > .ticket-number {
     writing-mode: vertical-rl;
     height: calc(var(--width) * (3 / 5));
-    font-size: calc(var(--width) / 40);
+    font-size: calc(var(--width) / 50);
     color: #eee;
     @apply font-mono;
     @apply tracking-wider;
