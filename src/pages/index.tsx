@@ -305,7 +305,7 @@ export default function Home({ articles }: any) {
               <div className="w-[214px] h-[67px] absolute border-[3.6px] border-[#DD598F] rounded-[50%] rotate-[-8deg] top-[100px] left-[-10px] z-[2]" />
             </div>
             <div className="space-y-16 lg:mt-0 mt-20">
-              <div className="flex flex-row md:space-x-16 space-x-4 items-center md: items-start">
+              <div className="flex flex-row md:space-x-16 space-x-4 items-center md:items-start">
                 <div
                   onClick={() => {
                     Router.push("/programmes/gifted-science")
@@ -349,7 +349,7 @@ export default function Home({ articles }: any) {
                   </h1>
                 </div>
               </div>
-              <div className="flex flex-row md:space-x-16 space-x-4 items-center md: items-start">
+              <div className="flex flex-row md:space-x-16 space-x-4 items-center md:items-start">
                 <div
                   onClick={() => {
                     Router.push("/programmes/gifted-english")
