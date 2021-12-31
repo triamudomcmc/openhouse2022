@@ -28,12 +28,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     router.events.on("routeChangeError", handleComplete)
   }, [router])
 
+  console.log(router.pathname)
+
   return loading ? (
     <Loading />
   ) : (
     <AuthProvider>
       <ToastProvider>
-        <MetaData />
+        {!(router.pathname === "/ticket/[uid]") && <MetaData />}
         {!(router.pathname === "/game" || router.pathname === "/_ticket") ? (
           <Layout>
             <Component {...pageProps} />

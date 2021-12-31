@@ -4,15 +4,16 @@ import { SquareTicket } from "@components/ticket/Square"
 import { ClipboardCopyIcon } from "@heroicons/react/solid"
 import { useAuth } from "@lib/auth"
 import { useToast } from "@lib/toast"
+import { ticketTypes } from "@types"
 import { SITE_URL } from "@utils/constants"
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import classNames from "classnames"
 import { NextPage } from "next"
 import { useEffect, useRef, useState } from "react"
+const InApp = require("detect-inapp")
 
 const TicketPage: NextPage = () => {
   const [isSquare, setSquareDisplay] = useState(false)
-  const [imgReady, setImgReady] = useState(false)
   const [imgLoading, setImgLoading] = useState(false)
   const auth = useAuth()
   const { width } = useWindowDimensions()
@@ -20,31 +21,52 @@ const TicketPage: NextPage = () => {
 
   const toast = useToast()
 
-  const downloadLink = useRef<HTMLAnchorElement>()
   const link = `${SITE_URL}/ticket/${auth?.userData?.uid}`
   const permalink = encodeURIComponent(link)
 
-  const downloadUrl = `/api/ticket/${auth?.userData?.uid}?type=${encodeURIComponent("nice")}`
-
-  const text = encodeURIComponent(`#TriamUdomOnlineOpenHouse2022`)
-  const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=triamudomoph&text=${text}`
+  const text = encodeURIComponent(
+    `🚏Get ready for Triam Udom Online Open House 2022 ⟢\n— Interstellar Odyssey 🪐🪄✨\n#TriamUdomOnlineOpenHouse2022 #triamOPH2022\n`
+  )
+  const tweetUrl = `https://twitter.com/intent/tweet?url=https://${permalink}&via=triamudomoph&text=${text}`
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${permalink}`
 
-  useEffect(() => {
-    setImgReady(false)
+  const downloadImg = async () => {
+    if (imgLoading) return
+    const imgUrl = `/api/ticket?type=${auth?.userData?.ticket}&name=${encodeURIComponent(
+      auth?.userData?.username as string
+    )}&uid=${encodeURIComponent(auth?.user?.uid as string)}&size=${isSquare ? "square" : "portrait"}`
 
-    const img = new Image()
+    setImgLoading(true)
 
-    img.src = downloadUrl
-    img.onload = () => {
-      setImgReady(true)
-      setImgLoading(false)
-      if (downloadLink.current) {
-        downloadLink.current.click()
-        downloadLink.current = undefined
+    const res = await fetch(imgUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+
+    if (res.ok) {
+      const inapp = new InApp(navigator.userAgent || navigator.vendor)
+      if (inapp.browser === "line" || inapp.browser === "messenger" || inapp.browser === "facebook") {
+        const a = document.createElement("a")
+        a.href = imgUrl
+        a.download = `ticket.jpg`
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+      } else {
+        const a = document.createElement("a")
+        a.href = window.URL.createObjectURL(await res.blob())
+        a.download = `ticket.jpg`
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
       }
     }
-  }, [downloadUrl])
+
+    setImgLoading(false)
+  }
 
   const switchToSquare = () => {
     setSquareDisplay(true)
@@ -62,7 +84,7 @@ const TicketPage: NextPage = () => {
       classname="main-section"
     >
       <div className="flex flex-col items-center space-y-4">
-        <h1 className="text-center text-white font-display text-4xl font-semibold">ดวงดาวของคุณคือ...</h1>
+        <h2 className="text-center text-white font-display text-4xl font-semibold">ตั๋วการเดินทางของคุณ</h2>
         <div className="flex flex-row mb-10 space-x-8">
           <div onClick={switchToSquare} className="flex flex-col items-center">
             <div
@@ -97,7 +119,21 @@ const TicketPage: NextPage = () => {
             <p className="mt-2 text-sm font-medium text-white md:text-base">Portrait</p>
           </div>
         </div>
-        {isSquare ? <SquareTicket width={cardWidth} /> : <PortraitTicket width={cardWidth} />}
+        {isSquare ? (
+          <SquareTicket
+            width={cardWidth}
+            type={auth?.userData?.ticket as ticketTypes}
+            name={auth?.userData?.username as string}
+            uid={auth?.user?.uid as string}
+          />
+        ) : (
+          <PortraitTicket
+            width={cardWidth}
+            type={auth?.userData?.ticket as ticketTypes}
+            name={auth?.userData?.username as string}
+            uid={auth?.user?.uid as string}
+          />
+        )}
         <div style={{ width: cardWidth }} className="flex flex-row mt-6 mb-10 space-x-2">
           <a
             className="flex flex-col items-center justify-center w-1/3 py-2 px-1 font-medium text-center text-gray-400 bg-white shadow-lg hover:bg-gray-100 text-xxs md:text-base md:py-4 rounded-xl"
@@ -147,18 +183,9 @@ const TicketPage: NextPage = () => {
             </svg>
             <span className="leading-tight mt-2">Share to Facebook</span>
           </a>
-          <a
+          <button
             className="flex flex-col items-center justify-center w-1/3 py-2 px-1 font-medium text-center text-gray-400 bg-white shadow-lg hover:bg-gray-100 md:justify-between text-xxs md:text-base md:py-4 rounded-xl"
-            href={imgLoading ? undefined : downloadUrl}
-            onClick={(e) => {
-              if (imgReady) return
-
-              e.preventDefault()
-              downloadLink.current = e.currentTarget
-              // Wait for the image download to finish
-              setImgLoading(true)
-            }}
-            download="ticket.png"
+            onClick={downloadImg}
           >
             <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -168,8 +195,8 @@ const TicketPage: NextPage = () => {
                 fill="#F8B1BF"
               />
             </svg>
-            <span className="leading-tight mt-2">Download</span>
-          </a>
+            <span className="leading-tight mt-2">{imgLoading ? "Loading..." : "Download"}</span>
+          </button>
         </div>
         <div style={{ width: cardWidth }} className="flex flex-col mt-8 mb-4 space-y-2">
           <p className="text-white mt-4 mb-1 font-display text-xl">แชร์การ์ดต่อ</p>

@@ -1,61 +1,28 @@
 import { PortraitTicket } from "@components/ticket/Portrait"
 import { SquareTicket } from "@components/ticket/Square"
+import { ticketProps } from "@pages/ticket/[uid]"
 import { ticketTypes } from "@types"
 import { GetStaticProps, NextPage } from "next"
 import { useRouter } from "next/router"
 
+interface ticketParsedData extends ticketProps {
+  size: "portrait" | "square"
+}
+
 const TicketImage: NextPage = () => {
   const router = useRouter()
   const query = router?.query
-  const data = JSON.parse(query?.data as string) ?? {
-    name: "nark",
-    type: "brave",
-    uid: "5tZbV8PSzLf5Uxt4kyzu0rg9AFW2",
-    orientation: "portriat",
-  }
 
-  //   if (query.type === 'pot') {
-  //     return (
-  //       <Portrait
-  //         width={1080}
-  //         nickname={query.nickname ? query.nickname.toString() : undefined}
-  //         wishes={query.wishes ? query.wishes.toString() : undefined}
-  //       />
-  //     )
-  //   }
+  const data: ticketParsedData = { name: "nark", type: "brave", uid: "5tZbV8PSzLf5Uxt4kyzu0rg9AFW2", size: "portrait" }
+  data.name = query?.name as string
+  data.type = query?.type as ticketTypes
+  data.uid = query?.uid as string
+  data.size = query?.size as "portrait" | "square"
 
-  //   if (query.type === 'sq') {
-  //     return (
-  //       <Square
-  //         width={1080}
-  //         nickname={query.nickname ? query.nickname.toString() : undefined}
-  //         wishes={query.wishes ? query.wishes.toString() : undefined}
-  //       />
-  //     )
-  //   }
-
-  //   if (query.type === 'nwsq') {
-  //     return (
-  //       <SimpleSquare
-  //         width={1080}
-  //         nickname={query.nickname ? query.nickname.toString() : undefined}
-  //       />
-  //     )
-  //   }
-
-  //   if (query.type === 'nwpot') {
-  //     return (
-  //       <SimplePortrait
-  //         width={1080}
-  //         nickname={query.nickname ? query.nickname.toString() : undefined}
-  //       />
-  //     )
-  //   }
-
-  return data.orientation === "portriat" ? (
-    <PortraitTicket width={1024} name={data.name} uid={data.uid} type={data.type} />
+  return data.size === "portrait" ? (
+    <PortraitTicket width={1080} name={data.name} uid={data.uid} type={data.type} />
   ) : (
-    <SquareTicket width={1024} name={data.name} uid={data.uid} type={data.type} />
+    <SquareTicket width={1080} name={data.name} uid={data.uid} type={data.type} />
   )
 }
 

@@ -28,26 +28,6 @@ export default class Document extends NextDocument {
             name="keywords"
             content="Triam Udom, TUOPH, Triam Udom Online Open House, Triam Udom Open House 2022, Triam Udom Online Open House 2022, TriamOPH2022, triam, tu85, Triamudom85, เตรียมอุดม, เตรียมอุดมฯ, triamOPH"
           />
-
-          {/* Open Graph / Facebook  */}
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://openhouse.triamudom.ac.th/" />
-          <meta property="og:title" content="Triam Udom Online Open House 2022" />
-          <meta
-            property="og:description"
-            content="งานนิทรรศการประจำปีของโรงเรียนเตรียมอุดมศึกษา พบกับกิจกรรมที่น่าสนใจจากนักเรียนโรงเรียนเตรียมอุดมศึกษา อาทิ แนะแนวการศึกษาต่อ แนะนำสายการเรียน และกิจกรรมจากชมรมต่าง ๆ"
-          />
-          <meta property="og:image" content="/meta/preview.png" />
-
-          {/* Twitter  */}
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://openhouse.triamudom.ac.th/" />
-          <meta property="twitter:title" content="Triam Udom Online Open House 2022" />
-          <meta
-            property="twitter:description"
-            content="งานนิทรรศการประจำปีของโรงเรียนเตรียมอุดมศึกษา พบกับกิจกรรมที่น่าสนใจจากนักเรียนโรงเรียนเตรียมอุดมศึกษา อาทิ แนะแนวการศึกษาต่อ แนะนำสายการเรียน และกิจกรรมจากชมรมต่าง ๆ"
-          />
-          <meta property="twitter:image" content="/meta/preview.png" />
         </Head>
         <body>
           <Main />

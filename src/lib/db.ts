@@ -40,6 +40,20 @@ export const getUserData = async (uid: string): Promise<null | DocumentData> => 
   }
 }
 
+// export const getTicketData = async (uid: string): Promise<null | DocumentData> => {
+//   const userRef = doc(db, "users", uid)
+//   const docObj = await getDoc(userRef)
+//   const data = docObj.data()
+
+//   if (!data) return null
+
+//   return {
+//     type: data.ticket,
+//     uid: uid,
+//     name: data.nickname,
+//   }
+// }
+
 // export const getDonatorsRef = () => {
 //   return collection(db, "donators")
 // }

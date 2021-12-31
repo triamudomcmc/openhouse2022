@@ -27,7 +27,7 @@ export interface IUserData extends IInitialUserData {
   grade?: string
   news: string[]
   purpose: string[]
-  card: string | null
+  ticket: string | null
 }
 
 interface IInitialUserData {
