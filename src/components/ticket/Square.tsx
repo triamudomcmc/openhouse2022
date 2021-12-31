@@ -88,14 +88,14 @@ export const SquareTicket: FC<TicketProps> = ({
           </div>
         </div>
         <div className="flex justify-between items-end">
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-center">
             <QRCode
               value={`${SITE_URL}/ticket/${uid}`}
               renderAs="svg"
               bgColor="none"
               fgColor="#ffffff"
               excavate="true"
-              size={width / 12}
+              size={width / 10.5}
             />
             <p className={classNames(css["qr-text"], "font-display text-white font-light")}>ดูบัตรได้ที่นี่เลย !</p>
           </div>
