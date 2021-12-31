@@ -56,74 +56,93 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
   }
 
   return (
-    <AdaptiveBg
-      primary={{ background: "url('/images/backgrounds/ticket.jpg')", height: "1224px" }}
-      secondary={{ background: "url('/images/backgrounds/ticket-mobile.jpg')", height: "926px" }}
-      mobile={{ background: "url('/images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
-      classname="main-section"
-    >
-      <Head>
-        <title>ตั๋วของ {name}</title>
-        <meta name="description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <>
+      <AdaptiveBg
+        primary={{ background: "url('/images/backgrounds/ticket.jpg')", height: "1224px" }}
+        secondary={{ background: "url('/images/backgrounds/ticket-mobile.jpg')", height: "926px" }}
+        mobile={{ background: "url('/images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
+        classname="main-section"
+      >
+        <Head>
+          <title>ตั๋วของ {name}</title>
+          <meta name="description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Open Graph / Facebook  */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://openhouse.triamudom.ac.th/" />
-        <meta property="og:title" content={`ตั๋วของ ${name}`} />
-        <meta property="og:description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
-        <meta property="og:image" content={`/meta/ticket/${type}.png`} />
+          {/* Open Graph / Facebook  */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://openhouse.triamudom.ac.th/" />
+          <meta property="og:title" content={`ตั๋วของ ${name}`} />
+          <meta property="og:description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
+          <meta property="og:image" content={`/meta/ticket/${type}.png`} />
 
-        {/* Twitter  */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://openhouse.triamudom.ac.th/" />
-        <meta property="twitter:title" content={`ตั๋วของ ${name}`} />
-        <meta property="twitter:description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
-        <meta property="twitter:image" content={`/meta/ticket/${type}.png`} />
-      </Head>
-      <div className="flex flex-col items-center space-y-4">
-        <h2 className="text-center text-white font-display text-4xl font-semibold">ตั๋วการเดินทางของ {name}</h2>
-        <div className="flex flex-row mb-10 space-x-8">
-          <div onClick={switchToSquare} className="flex flex-col items-center">
-            <div
-              className={classNames(
-                isSquare ? "bg-pink-200" : "bg-white hover:bg-gray-100",
-                "transition-colors flex flex-row items-center justify-center rounded-lg shadow-md cursor-pointer w-20 h-20 md:w-24 md:h-24"
-              )}
-            >
+          {/* Twitter  */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://openhouse.triamudom.ac.th/" />
+          <meta property="twitter:title" content={`ตั๋วของ ${name}`} />
+          <meta property="twitter:description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
+          <meta property="twitter:image" content={`/meta/ticket/${type}.png`} />
+        </Head>
+        <div className="flex flex-col items-center space-y-4">
+          <h2 className="text-center text-white font-display text-4xl font-semibold">ตั๋วการเดินทางของ {name}</h2>
+          <div className="flex flex-row mb-10 space-x-8">
+            <div onClick={switchToSquare} className="flex flex-col items-center">
               <div
                 className={classNames(
-                  isSquare ? "border-white" : "border-gray-400",
-                  "w-12 h-12 border-2 rounded md:w-16 md:h-16 md:rounded-lg"
+                  isSquare ? "bg-pink-200" : "bg-white hover:bg-gray-100",
+                  "transition-colors flex flex-row items-center justify-center rounded-lg shadow-md cursor-pointer w-20 h-20 md:w-24 md:h-24"
                 )}
-              ></div>
+              >
+                <div
+                  className={classNames(
+                    isSquare ? "border-white" : "border-gray-400",
+                    "w-12 h-12 border-2 rounded md:w-16 md:h-16 md:rounded-lg"
+                  )}
+                ></div>
+              </div>
+              <p className="mt-2 text-sm font-medium text-white md:text-base">Square</p>
             </div>
-            <p className="mt-2 text-sm font-medium text-white md:text-base">Square</p>
+            <div onClick={switchToPortrait} className="flex flex-col items-center">
+              <div
+                className={classNames(
+                  !isSquare ? "bg-pink-200" : "bg-white hover:bg-gray-100",
+                  "transition-colors flex flex-row items-center justify-center rounded-lg shadow-md cursor-pointer w-20 h-20 md:w-24 md:h-24"
+                )}
+              >
+                <div
+                  className={classNames(
+                    !isSquare ? "border-white" : "border-gray-400",
+                    "w-8 h-12 border-2 rounded-lg md:w-10 md:h-16"
+                  )}
+                ></div>
+              </div>
+              <p className="mt-2 text-sm font-medium text-white md:text-base">Portrait</p>
+            </div>
           </div>
-          <div onClick={switchToPortrait} className="flex flex-col items-center">
-            <div
-              className={classNames(
-                !isSquare ? "bg-pink-200" : "bg-white hover:bg-gray-100",
-                "transition-colors flex flex-row items-center justify-center rounded-lg shadow-md cursor-pointer w-20 h-20 md:w-24 md:h-24"
-              )}
-            >
-              <div
-                className={classNames(
-                  !isSquare ? "border-white" : "border-gray-400",
-                  "w-8 h-12 border-2 rounded-lg md:w-10 md:h-16"
-                )}
-              ></div>
+          {isSquare ? (
+            <SquareTicket width={cardWidth} type={type} name={name} uid={uid} />
+          ) : (
+            <PortraitTicket width={cardWidth} type={type} name={name} uid={uid} />
+          )}
+        </div>
+        <div className="mt-4">
+          <div className="flex flex-row justify-center">
+            <div className="flex flex-col items-center justify-between w-10/12 p-5 sm:w-1/2 md:w-4/12 md:p-6 bg-white shadow-lg rounded-3xl">
+              <div className="pb-4 text-lg font-semibold md:pb-5">
+                <p className="text-base text-center text-pink-900">ลงทะเบียนเข้าร่วมงาน</p>
+                <p className="text-base text-center text-pink-900">เพื่อรับการ์ดของคุณ</p>
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="text-xl font-thin px-16 rounded-full py-3"
+                style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+              >
+                <span className="text-white">ลงทะเบียน</span>
+              </motion.button>
             </div>
-            <p className="mt-2 text-sm font-medium text-white md:text-base">Portrait</p>
           </div>
         </div>
-        {isSquare ? (
-          <SquareTicket width={cardWidth} type={type} name={name} uid={uid} />
-        ) : (
-          <PortraitTicket width={cardWidth} type={type} name={name} uid={uid} />
-        )}
-      </div>
-    </AdaptiveBg>
+      </AdaptiveBg>
+    </>
   )
 }
 

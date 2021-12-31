@@ -2,7 +2,7 @@ import { PortraitTicket } from "@components/ticket/Portrait"
 import { SquareTicket } from "@components/ticket/Square"
 import { ticketProps } from "@pages/ticket/[uid]"
 import { ticketTypes } from "@types"
-import { GetStaticProps, NextPage } from "next"
+import { NextPage } from "next"
 import { useRouter } from "next/router"
 
 interface ticketParsedData extends ticketProps {
