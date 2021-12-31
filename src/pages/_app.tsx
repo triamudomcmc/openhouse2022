@@ -28,10 +28,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     router.events.on("routeChangeError", handleComplete)
   }, [router])
 
-  console.log(router.pathname)
-
   return loading ? (
-    <Loading />
+    <>
+      <MetaData />
+      <Loading />
+    </>
   ) : (
     <AuthProvider>
       <ToastProvider>

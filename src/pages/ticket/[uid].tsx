@@ -1,17 +1,16 @@
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
+import { MetaData } from "@components/common/Meta"
 import { PortraitTicket } from "@components/ticket/Portrait"
 import { SquareTicket, TicketProps } from "@components/ticket/Square"
-import { ClipboardCopyIcon } from "@heroicons/react/outline"
 import { getTicketData } from "@lib/db-admin"
-import { useToast } from "@lib/toast"
 import { ticketTypes } from "@types"
-import { SITE_URL } from "@utils/constants"
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import classNames from "classnames"
 import { motion } from "framer-motion"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import Link from "next/link"
 import { useState } from "react"
+import Head from "next/head"
 
 export interface ticketProps {
   name: string | null
@@ -33,6 +32,7 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
         mobile={{ background: "url('/images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
         classname="py-2"
       >
+        <MetaData />
         <div className="w-screen h-screen flex flex-col justify-center items-center">
           <p className="font-display font-regular text-md text-white">ไม่พบตั๋วการเดินทางดังกล่าว</p>
           <Link href="/">
@@ -62,6 +62,25 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
       mobile={{ background: "url('/images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
       classname="main-section"
     >
+      <Head>
+        <title>ตั๋วของ {name}</title>
+        <meta name="description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Open Graph / Facebook  */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://openhouse.triamudom.ac.th/" />
+        <meta property="og:title" content={`ตั๋วของ ${name}`} />
+        <meta property="og:description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
+        <meta property="og:image" content={`/meta/ticket/${type}.png`} />
+
+        {/* Twitter  */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://openhouse.triamudom.ac.th/" />
+        <meta property="twitter:title" content={`ตั๋วของ ${name}`} />
+        <meta property="twitter:description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
+        <meta property="twitter:image" content={`/meta/ticket/${type}.png`} />
+      </Head>
       <div className="flex flex-col items-center space-y-4">
         <h2 className="text-center text-white font-display text-4xl font-semibold">ตั๋วการเดินทางของ {name}</h2>
         <div className="flex flex-row mb-10 space-x-8">
