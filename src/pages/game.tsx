@@ -23,7 +23,7 @@ const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
   return ""
 }
 
-const GameBg: FC<{ scene: string; skey: number }> = ({ children, scene, skey }) => {
+const GameBg: FC<{ scene: string; skey: string }> = ({ children, scene, skey }) => {
   const primary = { background: getBg(scene, "primary"), height: "1224px" }
   const secondary = { background: getBg(scene, "secondary"), height: "926px" }
   const mobile = { background: getBg(scene, "mobile"), height: "926px" }
@@ -74,7 +74,7 @@ const GameBg: FC<{ scene: string; skey: number }> = ({ children, scene, skey }) 
         backgroundPosition: "center",
       }}
       className={classNames(
-        "flex font-game font-medium flex-col space-y-12 items-center text-center justify-center text-lg px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white"
+        "relative flex font-game font-medium flex-col space-y-12 items-center text-center justify-center text-lg px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white"
       )}
     >
       {children}
@@ -96,18 +96,23 @@ const Game: NextPage = () => {
 
   return (
     <AnimatePresence>
-      <GameBg scene={gameDialogue[page].scene} skey={page}>
+      <GameBg
+        scene={gameDialogue[page].scene}
+        skey={`${gameDialogue[page].scene}${gameDialogue[page].type}${gameDialogue[page]?.text ?? "-"}`}
+      >
         <div>
           {/* <NewlineText>{`“${gameDialogue[page]?.text}”`}</NewlineText> */}
           <p className="whitespace-pre-line">“{gameDialogue[page]?.text}”</p>
         </div>
-        {page === 0 && (
+        {gameDialogue[page].type === "opening" && (
           <>
             <p className="font-light mt-6 md:mt-12">
               กดเพื่อข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-5 h-5" />
             </p>
-            <LogoWhite className="w-[174px] mt-12 md:mt-16" />
           </>
+        )}
+        {["opening", "finale"].some((e) => e === gameDialogue[page].type) && (
+          <LogoWhite className="absolute bottom-[3.5rem] md:bottom-[5rem] w-[174px]" />
         )}
       </GameBg>
     </AnimatePresence>
