@@ -54,6 +54,12 @@ export const gameDialogue = [
       "เป็นดาวที่มีอาณานิคมตั้งอยู่ก่อนแล้ว เต็มไปด้วยการต้อนรับและมิตรภาพ",
       "ไม่มั่นใจด้วยซ้ำว่าจะเจอดาวดวงใหม่ที่หวังมั้ย",
     ],
+    score: [
+      { strong: 3, cheerful: 2 },
+      { restoration: 3, passion: 2, strategist: 1 },
+      { friendship: 3 },
+      { brave: 3 },
+    ],
     type: "choice",
     scene: "question",
   },
@@ -69,6 +75,12 @@ export const gameDialogue = [
       "กินอาหารสำรองจากในคลังไปก่อน เดี๋ยวค่อยไปหาใหม่ข้างหน้า",
       "ทำอาหารจากเศษอาหารในถังขยะ",
       "พยายามส่งสัญญาณขอความช่วยเหลือไปในอวกาศ",
+    ],
+    score: [
+      { determination: 3, strong: 2, friendship: 1 },
+      { cheerful: 3 },
+      { passion: 3 },
+      { strategist: 3, restoration: 1, passion: 1 },
     ],
     type: "choice",
     scene: "question",
@@ -90,6 +102,12 @@ export const gameDialogue = [
       "เสี่ยงชีวิตเพื่อเข้าไปช่วยคนที่ยังติดอยู๋ในห้องโดยสารนั้น ถึงแม้จะมีโอกาสทำให้ผู้โดยสารในยานทั้งลำเสียชีวิตไปด้วย",
       "พิจารณา วางแผนและหาหนทางทำให้คนรอดทั้งลำ แม้จะใช้เวลานานและอาจจะทำไม่ได้จริง",
       "เอาชีวิตตัวเองให้รอดก่อน เพราะยังมีหนทางอีกยาวไกลรอคุณอยู่",
+    ],
+    score: [
+      { strong: 3 },
+      { cheerful: 3, brave: 2 },
+      { strategist: 3, friendship: 2 },
+      { determination: 2 },
     ],
     type: "choice",
     scene: "dawn",
@@ -132,6 +150,10 @@ export const gameDialogue = [
   {
     text: "ระหว่างที่คุณซ่อมระบบควบคุมความดันอากาศอยู่ คุณเหลือบไปเห็นอีกส่วนของยานที่ดูเหมือนจะชำรุด คุณจะทำอย่างไร ?",
     choices: ["เข้าไปซ่อมส่วนนั้นทันที", "ปล่อยผ่านไปแล้วไปซ่อมส่วนที่คุณตั้งใจว่าจะมาซ่อม"],
+    score: [
+      { brave: 3, restoration: 2, cheerful: 1 },
+      { passion: 3, determination: 2 },
+    ],
     type: "choice",
     scene: "red",
   },
@@ -163,6 +185,10 @@ export const gameDialogue = [
     choices: [
       "รีบตรงไปที่ห้องควบคุมเพื่อรีบบังคับยานให้ออกไปจากจุดนี้ให้เร็วที่สุด",
       "ใช้ยานนิรภัยเพื่ออพยพคนออกไปโดยทิ้งสำภาระทั้งหมดให้จมหายไปกับหลุมดำ",
+    ],
+    score: [
+      { restoration: 3, determination: 2, strong: 1, brave: 1 },
+      { friendship: 3, strategist: 2 },
     ],
     type: "choice",
     scene: "hero",
