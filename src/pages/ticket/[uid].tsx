@@ -131,13 +131,15 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
                 <p className="text-base text-center text-pink-900">ลงทะเบียนเข้าร่วมงาน</p>
                 <p className="text-base text-center text-pink-900">เพื่อรับการ์ดของคุณ</p>
               </div>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="text-xl font-thin px-16 rounded-full py-3"
-                style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
-              >
-                <span className="text-white">ลงทะเบียน</span>
-              </motion.button>
+              <Link href="/register">
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  className="text-xl font-thin px-16 rounded-full py-3"
+                  style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+                >
+                  <span className="text-white">ลงทะเบียน</span>
+                </motion.a>
+              </Link>
             </div>
           </div>
         </div>

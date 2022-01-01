@@ -9,8 +9,8 @@ const validate = (values: IFirstPage) => {
 
   if (!values.username) {
     errors.username = "จำเป็นต้องใส่"
-  } else if (values.username.length > 32) {
-    errors.username = "ความยาวต้องไม่เกิน 32 ตัวอักษร"
+  } else if (values.username.length > 24) {
+    errors.username = "ความยาวต้องไม่เกิน 24 ตัวอักษร"
   }
 
   if (!values.firstname) {

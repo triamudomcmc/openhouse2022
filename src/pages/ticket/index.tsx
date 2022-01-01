@@ -25,7 +25,9 @@ const TicketPage: NextPage = () => {
   const permalink = encodeURIComponent(link)
 
   const text = encodeURIComponent(
-    `🚏Get ready for Triam Udom Online Open House 2022 ⟢\n— Interstellar Odyssey 🪐🪄✨\n#TriamUdomOnlineOpenHouse2022 #triamOPH2022\n`
+    `🚏Get ready for Triam Udom Online Open House 2022 ⟢\n— Interstellar Odyssey 🪐🪄✨\n\nꔚ แพ็กกระเป๋าแล้วขึ้นยานอวกาศกับ ${
+      auth?.userData?.username ?? "ฉัน"
+    } ไปด้วยกัน🕵🏻𓏭\n\n#TriamUdomOnlineOpenHouse2022 #triamOPH2022 #TU85 #TU86\n`
   )
   const tweetUrl = `https://twitter.com/intent/tweet?url=https://${permalink}&via=triamudomoph&text=${text}`
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${permalink}`
