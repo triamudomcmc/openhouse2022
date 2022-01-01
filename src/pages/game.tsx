@@ -1,5 +1,7 @@
+import { ArrowCircleRightIcon } from "@heroicons/react/outline"
 import { gameDialogue } from "@map/gameMap"
 import { useWindowDimensions } from "@utils/useWindowDimensions"
+import { LogoWhite } from "@vectors/Logo"
 import classNames from "classnames"
 import { AnimatePresence, motion } from "framer-motion"
 import { NextPage } from "next"
@@ -34,20 +36,17 @@ const GameBg: FC<{ scene: string; skey: number }> = ({ children, scene, skey }) 
       if (width > 0) {
         if (width > 640) {
           ref.current.style.background = primary.background
-          ref.current.style.minHeight = primary.height
           ref.current.style.backgroundPosition = "center"
           ref.current.style.backgroundSize = "cover"
           ref.current.style.backgroundRepeat = "no-repeat"
         } else {
           if (width > 428) {
             ref.current.style.background = secondary.background
-            ref.current.style.minHeight = secondary.height
             ref.current.style.backgroundPosition = "center"
             ref.current.style.backgroundSize = "cover"
             ref.current.style.backgroundRepeat = "no-repeat"
           } else {
             ref.current.style.background = mobile.background
-            ref.current.style.minHeight = mobile.height
             ref.current.style.backgroundPosition = "center"
             ref.current.style.backgroundSize = "cover"
             ref.current.style.backgroundRepeat = "no-repeat"
@@ -72,16 +71,22 @@ const GameBg: FC<{ scene: string; skey: number }> = ({ children, scene, skey }) 
         background: primary.background,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        minHeight: primary.height,
         backgroundPosition: "center",
       }}
       className={classNames(
-        "flex font-game flex-col items-center justify-center text-lg px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white"
+        "flex font-game font-medium flex-col space-y-12 items-center text-center justify-center text-lg px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white"
       )}
     >
       {children}
     </motion.div>
   )
+}
+
+const NewlineText: FC = ({ children }) => {
+  const text = children as string
+  const newText = text.split("\n").map((str, i) => <p key={i}>{str ?? <br />}</p>)
+
+  return <>{newText}</>
 }
 
 const maxPage = gameDialogue.length - 1
@@ -92,7 +97,18 @@ const Game: NextPage = () => {
   return (
     <AnimatePresence>
       <GameBg scene={gameDialogue[page].scene} skey={page}>
-        <p>{gameDialogue[page]?.text}</p>
+        <div>
+          {/* <NewlineText>{`“${gameDialogue[page]?.text}”`}</NewlineText> */}
+          <p className="whitespace-pre-line">“{gameDialogue[page]?.text}”</p>
+        </div>
+        {page === 0 && (
+          <>
+            <p className="font-light mt-6 md:mt-12">
+              กดเพื่อข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-5 h-5" />
+            </p>
+            <LogoWhite className="w-[174px] mt-12 md:mt-16" />
+          </>
+        )}
       </GameBg>
     </AnimatePresence>
   )
