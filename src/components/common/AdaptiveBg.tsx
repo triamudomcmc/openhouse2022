@@ -44,7 +44,15 @@ export const AdaptiveBg = ({
         }
       }
     }
-  }, [width])
+  }, [
+    width,
+    secondary.background,
+    secondary.height,
+    primary.background,
+    primary.height,
+    mobile.background,
+    mobile.height,
+  ])
 
   return (
     <div
