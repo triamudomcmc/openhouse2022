@@ -67,6 +67,7 @@ const GameBg: FC<{ scene: string; skey: string }> = ({ children, scene, skey }) 
   return (
     <motion.div
       key={skey}
+      onClick={() => {}}
       style={{
         background: primary.background,
         backgroundRepeat: "no-repeat",
@@ -82,13 +83,6 @@ const GameBg: FC<{ scene: string; skey: string }> = ({ children, scene, skey }) 
   )
 }
 
-const NewlineText: FC = ({ children }) => {
-  const text = children as string
-  const newText = text.split("\n").map((str, i) => <p key={i}>{str ?? <br />}</p>)
-
-  return <>{newText}</>
-}
-
 const maxPage = gameDialogue.length - 1
 
 const Game: NextPage = () => {
@@ -101,13 +95,18 @@ const Game: NextPage = () => {
         skey={`${gameDialogue[page].scene}${gameDialogue[page].type}${gameDialogue[page]?.text ?? "-"}`}
       >
         <div>
-          {/* <NewlineText>{`“${gameDialogue[page]?.text}”`}</NewlineText> */}
-          <p className="whitespace-pre-line">“{gameDialogue[page]?.text}”</p>
+          <p className="whitespace-pre-line leading-loose">“{gameDialogue[page]?.text}”</p>
         </div>
         {gameDialogue[page].type === "opening" && (
           <>
-            <p className="font-light mt-6 md:mt-12">
+            <p
+              className="font-light text-sm mt-20 md:mt-36 cursor-pointer opacity-90"
+              onClick={(e) => {
+                e.stopPropagation() // stops the main div from triggering
+              }}
+            >
               กดเพื่อข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-5 h-5" />
+              {/* need a modal here */}
             </p>
           </>
         )}
