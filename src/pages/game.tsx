@@ -5,10 +5,26 @@ import { AnimatePresence, motion } from "framer-motion"
 import { NextPage } from "next"
 import { FC, useEffect, useRef, useState } from "react"
 
-const GameBg: FC<{ scene: string; key: number }> = ({ children, scene, key }) => {
-  const primary = { background: `url('/images/backgrounds/${scene}.jpg')`, height: "1224px" }
-  const secondary = { background: `url('/images/backgrounds/${scene}-mobile.jpg')`, height: "926px" }
-  const mobile = { background: `url('/images/backgrounds/${scene}-mobile-default.jpg')`, height: "926px" }
+const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
+  if (["black", "white"].some((s) => s === scene)) {
+    if (scene === "black") {
+      return "#081A35"
+    } else if (scene === "white") {
+      return "#fff"
+    }
+  } else {
+    return `url('/images/backgrounds/${scene}${
+      type === "mobile" ? "-mobile" : type === "secondary" ? "-mobile-default" : ""
+    }.jpg')`
+  }
+
+  return ""
+}
+
+const GameBg: FC<{ scene: string; skey: number }> = ({ children, scene, skey }) => {
+  const primary = { background: getBg(scene, "primary"), height: "1224px" }
+  const secondary = { background: getBg(scene, "secondary"), height: "926px" }
+  const mobile = { background: getBg(scene, "mobile"), height: "926px" }
 
   const { width } = useWindowDimensions()
   const ref = useRef<HTMLDivElement>(null)
@@ -51,7 +67,7 @@ const GameBg: FC<{ scene: string; key: number }> = ({ children, scene, key }) =>
 
   return (
     <motion.div
-      key={key}
+      key={skey}
       style={{
         background: primary.background,
         backgroundRepeat: "no-repeat",
@@ -59,7 +75,9 @@ const GameBg: FC<{ scene: string; key: number }> = ({ children, scene, key }) =>
         minHeight: primary.height,
         backgroundPosition: "center",
       }}
-      className={classNames("overflow-x-hidden min-h-screen pb-20 text-white py-2")}
+      className={classNames(
+        "flex font-game flex-col items-center justify-center text-lg px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white"
+      )}
     >
       {children}
     </motion.div>
@@ -71,7 +89,13 @@ const maxPage = gameDialogue.length - 1
 const Game: NextPage = () => {
   const [page, setPage] = useState(0)
 
-  return <AnimatePresence></AnimatePresence>
+  return (
+    <AnimatePresence>
+      <GameBg scene={gameDialogue[page].scene} skey={page}>
+        <p>{gameDialogue[page]?.text}</p>
+      </GameBg>
+    </AnimatePresence>
+  )
 }
 
 export default Game
