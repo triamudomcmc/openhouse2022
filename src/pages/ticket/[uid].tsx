@@ -64,21 +64,21 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
         classname="main-section"
       >
         <Head>
-          <title>ตั๋วของ {name}</title>
+          <title>{name}&apos;s ticket</title>
           <meta name="description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
           {/* Open Graph / Facebook  */}
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://openhouse.triamudom.ac.th/" />
-          <meta property="og:title" content={`ตั๋วของ ${name}`} />
+          <meta property="og:title" content={`${name}'s ticket'`} />
           <meta property="og:description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
           <meta property="og:image" content={`/meta/ticket/${type}.png`} />
 
           {/* Twitter  */}
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="https://openhouse.triamudom.ac.th/" />
-          <meta property="twitter:title" content={`ตั๋วของ ${name}`} />
+          <meta property="twitter:title" content={`${name}'s ticket`} />
           <meta property="twitter:description" content="ลงทะเบียนเพื่อรับตั๋วของคุณเลย !" />
           <meta property="twitter:image" content={`/meta/ticket/${type}.png`} />
         </Head>
