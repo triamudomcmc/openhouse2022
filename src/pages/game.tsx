@@ -39,7 +39,15 @@ const GameBg: FC<{ scene: string; key: number }> = ({ children, scene, key }) =>
         }
       }
     }
-  }, [width])
+  }, [
+    width,
+    secondary.background,
+    secondary.height,
+    primary.background,
+    primary.height,
+    mobile.background,
+    mobile.height,
+  ])
 
   return (
     <motion.div
