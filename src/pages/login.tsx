@@ -2,7 +2,7 @@ import Link from "next/link"
 import { useAuth } from "@lib/auth"
 import { useState } from "react"
 import { TUCMCLogo } from "@components/common/TUCMCLogo"
-import { AllMethods } from "@components/register/AllMethods"
+import { AllMethods } from "@components/login/AllMethods"
 import { EmailForm } from "@components/register/EmailForm"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 
