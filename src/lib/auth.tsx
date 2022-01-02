@@ -123,16 +123,21 @@ export const AuthProvider: React.FC = ({ children }) => {
       if (pathname === "/register") {
         if (registered) Router.push("/")
         else if (authNoRegistered) Router.push("/register/onboard")
+        else if (registeredNoGame) Router.push("/game")
+        else if (playedGame) Router.push("/ticket")
       }
       // onboard
       else if (pathname === "/register/onboard") {
-        if (registered) Router.push("/")
-        else if (noAuth) Router.push("/register")
+        if (noAuth) Router.push("/register")
+        else if (registeredNoGame) Router.push("/game")
+        else if (playedGame) Router.push("/ticket")
       }
       // login
       else if (pathname === "/login") {
         if (authNoRegistered) Router.push("/register/onboard")
         else if (registered) Router.push("/")
+        else if (registeredNoGame) Router.push("/game")
+        else if (playedGame) Router.push("/ticket")
       }
       // ticket
       else if (pathname === "/ticket") {
