@@ -101,11 +101,11 @@ const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<boolean>> }
       <AnimatePresence>
         {isOpen && (
           <>
-            <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[100] px-12 py-8 -translate-y-1/2 bg-white rounded-xl shadow-lg font-game">
+            <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[100] px-12 py-8 w-3/4 sm:w-1/2 -translate-y-1/2 bg-white rounded-xl shadow-lg font-game">
               <button onClick={() => setModal(false)} className="absolute top-4 right-4">
                 <XIcon className="text-gray-400 w-5 h-5" />
               </button>
-              <div className="flex flex-col items-center justify-center text-center space-y-4">
+              <div className="flex flex-col items-center justify-center w-full text-center space-y-4">
                 <div className="flex flex-col space-y-2">
                   <p className="text-lg text-pink-400">ข้ามเนื้อเรื่อง</p>
                   <p className="font-light text-gray-400 leading-tight">
@@ -197,7 +197,7 @@ const Game: NextPage = () => {
         <GameBg
           onClick={(e) => {
             e.stopPropagation() // stops the main modal from triggering
-            if (modalOpen) return
+            if (modalOpen) return setModal(false)
 
             if (["text", "opening", "determined", "blank"].some((e) => e === currPage.type)) setPage(page + 1)
           }}
