@@ -1,5 +1,8 @@
 import { ArrowCircleRightIcon, XIcon } from "@heroicons/react/outline"
+import { useAuth } from "@lib/auth"
 import { gameDialogue } from "@map/gameMap"
+import { submitGame, submitSkipGame } from "@services/submitGame"
+import { ticketTypes } from "@types"
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { LogoWhite } from "@vectors/Logo"
 import classNames from "classnames"
@@ -91,10 +94,11 @@ const GameBg: FC<{ scene: string; skey: string; onClick: MouseEventHandler<HTMLD
   )
 }
 
-const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<boolean>> }> = ({
+const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<boolean>>; onDone: () => void }> = ({
   children,
   isOpen,
   setModal,
+  onDone,
 }) => {
   return (
     <>
@@ -122,7 +126,7 @@ const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<boolean>> }
                     ย้อนกลับ
                   </button>
                   <button
-                    onClick={() => console.log("hi!")}
+                    onClick={() => onDone()}
                     className="font-light rounded-lg shadow-md bg-pink-400 text-white transition-colors hover:bg-pink-500 font-game px-4 py-2"
                   >
                     ตกลง
@@ -151,8 +155,6 @@ const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<boolean>> }
   )
 }
 
-const maxPage = gameDialogue.length - 1
-
 interface IScore {
   strong: number
   brave: number
@@ -164,14 +166,24 @@ interface IScore {
   determination: number
 }
 
-const validate = (values: any) => {
-  const errors: any = {}
-  // if (
-  //   !values.feedback
-  // )
-  //   errors.feedback = ""
+export interface IGameData {
+  score: IScore
+  ticket: ticketTypes
+  choices: { choice: string; index: number }[]
+  feedback: string
+}
 
-  return errors
+const calculateTicket: (score: IScore) => ticketTypes = (score) => {
+  const sorted: [string, number][] = Object.entries(score).sort((a, b) => b[1] - a[1])
+  const max = sorted[0][1]
+
+  const result = sorted.filter((s) => s[1] === max).map((s) => s[0])
+
+  if (result.length > 1) {
+    return result[Math.floor(Math.random() * result.length)] as ticketTypes
+  } else {
+    return result[0] as ticketTypes
+  }
 }
 
 const Game: NextPage = () => {
@@ -190,9 +202,16 @@ const Game: NextPage = () => {
   const [choices, setChoices] = useState<{ choice: string; index: number }[]>([])
   const [feedback, setFeedback] = useState("")
   const currPage = gameDialogue[page]
+  const auth = useAuth()
 
   return (
-    <Modal isOpen={modalOpen} setModal={setModal}>
+    <Modal
+      isOpen={modalOpen}
+      setModal={setModal}
+      onDone={() => {
+        submitSkipGame(auth)
+      }}
+    >
       <AnimatePresence>
         <GameBg
           onClick={(e) => {
@@ -223,7 +242,14 @@ const Game: NextPage = () => {
                 initialValues={{
                   feedback: "",
                 }}
-                validate={validate}
+                validate={(values: any) => {
+                  const errors: any = {}
+                  // if (
+                  //   !values.feedback
+                  // )
+                  //   errors.feedback = ""
+                  return errors
+                }}
                 onSubmit={(data) => {
                   setFeedback(data.feedback)
                   setPage(page + 1)
@@ -288,6 +314,13 @@ const Game: NextPage = () => {
                 onClick={(e) => {
                   e.stopPropagation() // stops the main div from triggering
                   if (modalOpen) return
+
+                  submitGame(auth, {
+                    score,
+                    ticket: calculateTicket(score),
+                    choices,
+                    feedback,
+                  })
                 }}
               >
                 ดูผลลัพธ์ <ArrowCircleRightIcon className="inline text-white w-5 h-5" />
