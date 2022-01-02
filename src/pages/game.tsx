@@ -231,7 +231,7 @@ const Game: NextPage = () => {
             <p className="whitespace-pre-line leading-loose drop-shadow-md">
               {currPage.type === "determined" &&
                 currPage?.outcomes &&
-                currPage?.outcomes[choices[choices.length - 1].index]}
+                `“${currPage?.outcomes[choices[choices.length - 1].index]}”`}
               {["text", "opening", "choice", "textInput"].some((e) => e === currPage.type) && `“${currPage?.text}”`}
               {currPage.type === "finale" && currPage?.text}
             </p>
