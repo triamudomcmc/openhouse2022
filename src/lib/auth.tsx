@@ -115,6 +115,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     const noAuth = auth.user === null
     const authNoRegistered = auth.user && !(auth?.userData?.username !== "")
     const registered = auth.user && auth?.userData?.username !== ""
+    const registeredNoGame = auth.user && auth?.userData?.username !== "" && !auth.userData?.ticket
+    const playedGame = auth.user && auth?.userData?.username !== "" && auth.userData?.ticket
 
     if (auth.loading === false) {
       // register
@@ -132,16 +134,17 @@ export const AuthProvider: React.FC = ({ children }) => {
         if (authNoRegistered) Router.push("/register/onboard")
         else if (registered) Router.push("/")
       }
-      // mycard
+      // ticket
       else if (pathname === "/ticket") {
         if (noAuth) Router.push("/register?redirect=ticket")
         else if (authNoRegistered) Router.push("/register/onboard?redirect=ticket")
+        else if (registeredNoGame) Router.push("/game")
       }
-
       // game
       else if (pathname === "/game") {
         if (noAuth) Router.push("/register?redirect=game")
         else if (authNoRegistered) Router.push("/register/onboard?redirect=game")
+        else if (playedGame) Router.push("/ticket")
       }
     }
   }, [pathname, auth])
