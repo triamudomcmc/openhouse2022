@@ -52,13 +52,22 @@ export const Footer = () => {
                 <Youtube />
               </motion.a>
             </div>
-            {!auth?.user && (
+            {!auth?.user ? (
               <motion.button
                 style={{ background: "linear-gradient(97.19deg, #C898CC 0.83%, #666EAD 43.54%, #112D55 99.62%)" }}
                 className="px-8 py-2 rounded-full inline-flex font-medium font-display text-white"
                 whileHover={{ scale: 1.1 }}
               >
                 เข้าสู่ระบบ
+              </motion.button>
+            ) : (
+              <motion.button
+                style={{ background: "linear-gradient(97.19deg, #C898CC 0.83%, #666EAD 43.54%, #112D55 99.62%)" }}
+                className="px-8 py-2 rounded-full inline-flex font-medium font-display text-white"
+                whileHover={{ scale: 1.1 }}
+                onClick={() => auth.signout()}
+              >
+                ออกจากระบบ
               </motion.button>
             )}
           </div>
