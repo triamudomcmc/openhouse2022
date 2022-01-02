@@ -54,12 +54,7 @@ export const gameDialogue = [
       "เป็นดาวที่มีอาณานิคมตั้งอยู่ก่อนแล้ว เต็มไปด้วยการต้อนรับและมิตรภาพ",
       "ไม่มั่นใจด้วยซ้ำว่าจะเจอดาวดวงใหม่ที่หวังมั้ย",
     ],
-    score: [
-      { strong: 3, cheerful: 2 },
-      { restoration: 3, passion: 2, strategist: 1 },
-      { friendship: 3 },
-      { brave: 3 },
-    ],
+    score: [{ strong: 3, cheerful: 2 }, { restoration: 3, passion: 2, strategist: 1 }, { friendship: 3 }, { brave: 3 }],
     type: "choice",
     scene: "question",
   },
@@ -103,12 +98,7 @@ export const gameDialogue = [
       "พิจารณา วางแผนและหาหนทางทำให้คนรอดทั้งลำ แม้จะใช้เวลานานและอาจจะทำไม่ได้จริง",
       "เอาชีวิตตัวเองให้รอดก่อน เพราะยังมีหนทางอีกยาวไกลรอคุณอยู่",
     ],
-    score: [
-      { strong: 3 },
-      { cheerful: 3, brave: 2 },
-      { strategist: 3, friendship: 2 },
-      { determination: 2 },
-    ],
+    score: [{ strong: 3 }, { cheerful: 3, brave: 2 }, { strategist: 3, friendship: 2 }, { determination: 2 }],
     type: "choice",
     scene: "dawn",
   },
@@ -158,15 +148,15 @@ export const gameDialogue = [
     scene: "red",
   },
   {
-    text: [
+    outcomes: [
       "หลังคุณพยายามซ่อมยานไปสักพัก\nหลาย ๆ อย่างก็ดูแย่ไปกว่าเดิม ดูเหมือนว่าคุณจะด่วนตัดสินใจมากเกินไป\nทั้ง ๆ ที่ไม่ได้ศึกษามันมาดีพอ",
-      "หลังจากคุณซ่อมเสร็จและได้กลับเข้ามาในยานแล้ว ระบบเตือนภัยได้แจ้งว่าระบบนำทางของยานเกิดความเสีย",
+      "หลังจากคุณซ่อมเสร็จและได้กลับเข้ามาในยานแล้ว ระบบเตือนภัยได้แจ้งว่าระบบนำทางของยานเกิดความเสียหาย",
     ],
     type: "determined",
     scene: "red",
   },
   {
-    text: ["คุณทำมันพังอีกครั้งหนึ่ง", "นั่นก็คือส่วนที่คุณได้ละเลยมันไป"],
+    outcomes: ["คุณทำมันพังอีกครั้งหนึ่ง", "นั่นก็คือส่วนที่คุณได้ละเลยมันไป"],
     type: "determined",
     scene: "red",
   },
@@ -229,8 +219,8 @@ export const gameDialogue = [
   },
   {
     text: "ตลอดการเดินทางที่ผ่านมาคุณรู้สึกอย่างไร ?",
-    type: "text",
-    scene: "textInput",
+    type: "textInput",
+    scene: "finale",
   },
   {
     text: "ตลอดการเดินทางอันยาวไกล\nมีเรื่องราวเกิดขึ้นมากมาย ทั้งเรื่องดีและเรื่องร้าย",

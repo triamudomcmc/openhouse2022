@@ -3,6 +3,7 @@ import { gameDialogue } from "@map/gameMap"
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { LogoWhite } from "@vectors/Logo"
 import classNames from "classnames"
+import { Field, Form, Formik } from "formik"
 import { AnimatePresence, motion } from "framer-motion"
 import { NextPage } from "next"
 import { Dispatch, FC, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from "react"
@@ -15,7 +16,7 @@ const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
       return "#fff"
     }
   } else {
-    return `url('/images/backgrounds/${scene}${
+    return `url('/images/backgrounds/${scene.replace("-up", "")}${
       type === "mobile" ? "-mobile" : type === "secondary" ? "-mobile-default" : ""
     }.jpg')`
   }
@@ -23,11 +24,12 @@ const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
   return ""
 }
 
-const GameBg: FC<{ scene: string; skey: string; onClick: MouseEventHandler<HTMLDivElement> }> = ({
+const GameBg: FC<{ scene: string; skey: string; onClick: MouseEventHandler<HTMLDivElement>; className?: string }> = ({
   children,
   scene,
   skey,
   onClick,
+  className,
 }) => {
   const primary = { background: getBg(scene, "primary"), height: "1224px" }
   const secondary = { background: getBg(scene, "secondary"), height: "926px" }
@@ -80,7 +82,8 @@ const GameBg: FC<{ scene: string; skey: string; onClick: MouseEventHandler<HTMLD
         backgroundPosition: "center",
       }}
       className={classNames(
-        "relative flex font-game cursor-pointer font-medium flex-col space-y-12 items-center text-center justify-center text-lg px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white"
+        "relative flex font-game font-medium flex-col items-center text-center justify-center text-lg px-4 md:px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white",
+        className
       )}
     >
       {children}
@@ -150,9 +153,43 @@ const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<boolean>> }
 
 const maxPage = gameDialogue.length - 1
 
+interface IScore {
+  strong: number
+  brave: number
+  cheerful: number
+  friendship: number
+  passion: number
+  strategist: number
+  restoration: number
+  determination: number
+}
+
+const validate = (values: any) => {
+  const errors: any = {}
+  // if (
+  //   !values.feedback
+  // )
+  //   errors.feedback = ""
+
+  return errors
+}
+
 const Game: NextPage = () => {
   const [page, setPage] = useState(0)
   const [modalOpen, setModal] = useState(false)
+  const [score, setScore] = useState<IScore>({
+    strong: 0,
+    brave: 0,
+    cheerful: 0,
+    friendship: 0,
+    passion: 0,
+    strategist: 0,
+    restoration: 0,
+    determination: 0,
+  })
+  const [choices, setChoices] = useState<{ choice: string; index: number }[]>([])
+  const [feedback, setFeedback] = useState("")
+  const currPage = gameDialogue[page]
 
   return (
     <Modal isOpen={modalOpen} setModal={setModal}>
@@ -162,16 +199,78 @@ const Game: NextPage = () => {
             e.stopPropagation() // stops the main modal from triggering
             if (modalOpen) return
 
-            setPage(page + 1)
+            if (["text", "opening", "determined", "blank"].some((e) => e === currPage.type)) setPage(page + 1)
           }}
-          scene={gameDialogue[page].scene}
-          skey={`${gameDialogue[page].scene}${gameDialogue[page].type}${gameDialogue[page]?.text ?? "-"}`}
+          scene={currPage.scene}
+          skey={`${currPage.scene}${currPage.type}${currPage?.text ?? "-"}`}
+          className={classNames(
+            ["text", "opening", "determined", "blank"].some((e) => e === currPage.type) && "cursor-pointer",
+            currPage.type === "opening" ? "space-y-12" : "space-y-2"
+          )}
         >
           <div>
-            <p className="whitespace-pre-line leading-loose">“{gameDialogue[page]?.text}”</p>
+            <p className="whitespace-pre-line leading-loose drop-shadow-md">
+              {currPage.type === "determined" &&
+                currPage?.outcomes &&
+                currPage?.outcomes[choices[choices.length - 1].index]}
+              {["text", "opening", "choice", "textInput"].some((e) => e === currPage.type) && `“${currPage?.text}”`}
+              {currPage.type === "finale" && currPage?.text}
+            </p>
           </div>
-          <div className="flex flex-col space-y-4 mt-20 md:mt-36">
-            {gameDialogue[page].type === "opening" && (
+          <div>
+            {currPage.type === "textInput" && (
+              <Formik
+                initialValues={{
+                  feedback: "",
+                }}
+                validate={validate}
+                onSubmit={(data) => {
+                  setFeedback(data.feedback)
+                  setPage(page + 1)
+                }}
+                validateOnChange={false}
+                validateOnBlur={false}
+              >
+                {({ errors }) => (
+                  <Form className="flex flex-col py-4 text-sm w-[20rem] sm:w-[24rem] font-display" noValidate>
+                    <>
+                      <Field
+                        className={classNames(
+                          "border block shadow-sm w-full bg-transparent p-4 focus:outline-none rounded-xl placeholder-white placeholder-opacity-75",
+                          errors.feedback ? "border-red-400" : "border-white"
+                        )}
+                        id="feedback"
+                        name="feedback"
+                        placeholder="ความรู้สึกของคุณ..."
+                        type="text"
+                      />
+                      {errors.feedback ? (
+                        <p className="mt-1 text-red-400">{errors.feedback}</p>
+                      ) : (
+                        <div className="h-6" aria-hidden></div>
+                      )}
+                    </>
+                    {/* submit */}
+                    <div className="">
+                      <button
+                        className="px-10 py-3 mb-3 shadow-sm border transition-colors hover:bg-white hover:text-gray-600 font-game font-light text-white-300 border-white rounded-full"
+                        type="submit"
+                      >
+                        ไปต่อ
+                      </button>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            )}
+          </div>
+          <div
+            className={classNames(
+              "flex flex-col space-y-4 mt-20 md:mt-36",
+              currPage.type === "choice" && "w-[20rem] md:w-[25rem]"
+            )}
+          >
+            {currPage.type === "opening" && (
               <p
                 className="font-light text-sm cursor-pointer transition-opacity hover:opacity-100 opacity-90"
                 onClick={(e) => {
@@ -183,9 +282,49 @@ const Game: NextPage = () => {
                 ข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-5 h-5" />
               </p>
             )}
-            <p className="font-light text-sm text-gray-400 animate-pulse">กดที่หน้าจอเพื่อไปต่อ</p>
+            {currPage.type === "finale" && (
+              <p
+                className="font-light text-sm cursor-pointer transition-opacity hover:opacity-100 opacity-90"
+                onClick={(e) => {
+                  e.stopPropagation() // stops the main div from triggering
+                  if (modalOpen) return
+                }}
+              >
+                ดูผลลัพธ์ <ArrowCircleRightIcon className="inline text-white w-5 h-5" />
+              </p>
+            )}
+            {["text", "opening", "determined"].some((e) => e === currPage.type) && (
+              <p className="font-light text-sm text-gray-100 animate-pulse">กดที่หน้าจอเพื่อไปต่อ</p>
+            )}
+            {currPage.type === "choice" &&
+              currPage?.choices &&
+              currPage?.choices.map((c, i) => (
+                <button
+                  onClick={() => {
+                    setChoices((prevChoices) => [...prevChoices, { choice: c, index: i }])
+                    setScore((prevScore) => {
+                      const temp = { ...prevScore }
+                      const score = currPage.score[i]
+
+                      Object.keys(score).forEach((s) => {
+                        // @ts-ignore
+                        temp[s] = temp[s] + score[s]
+                      })
+
+                      return temp
+                    })
+
+                    setPage(page + 1)
+                  }}
+                  className="text-sm backdrop-blur-md shadow-md font-light transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
+                  key={c}
+                >
+                  {c}
+                </button>
+              ))}
           </div>
-          {["opening", "finale"].some((e) => e === gameDialogue[page].type) && (
+
+          {["opening", "finale"].some((e) => e === currPage.type) && (
             <LogoWhite className="absolute bottom-[3.5rem] md:bottom-[5rem] w-[174px]" />
           )}
         </GameBg>
