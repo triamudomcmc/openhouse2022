@@ -9,14 +9,14 @@ const ConfirmMail: NextPage = () => {
   const email = window.localStorage.getItem("emailForSignIn")
   if (!email)
     router.push({
-      pathname: "/signup",
+      pathname: "/register",
       query: {
         method: "email",
       },
     })
   else {
     auth?.signinWithEmail(email)
-    router.push("/signup/onboard")
+    router.push("/register/onboard")
   }
 
   return (
