@@ -12,7 +12,7 @@ import { NextPage } from "next"
 import { Dispatch, FC, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from "react"
 
 const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
-  if (["black", "white"].some((s) => s === scene)) {
+  if (["black", "white"].includes(scene)) {
     if (scene === "black") {
       return "#081A35"
     } else if (scene === "white") {
@@ -97,8 +97,7 @@ const GameBg: FC<{ scene: string; skey: string; onClick: MouseEventHandler<HTMLD
 const GameSection: FC<{ type: string | string[]; currType: string }> = ({ children, type, currType }) => {
   return (
     <>
-      {((typeof type === "string" && type === currType) ||
-        (typeof type === "object" && type.some((t) => t === currType))) &&
+      {((typeof type === "string" && type === currType) || (typeof type === "object" && type.includes(currType))) &&
         children}
     </>
   )
@@ -228,12 +227,12 @@ const Game: NextPage = () => {
             e.stopPropagation() // stops the main modal from triggering
             if (modalOpen) return setModal(false)
 
-            if (["text", "opening", "determined", "blank"].some((e) => e === currPage.type)) setPage(page + 1)
+            if (["text", "opening", "determined", "blank"].includes(currPage.type)) setPage(page + 1)
           }}
           scene={currPage.scene}
           skey={`${currPage.scene}${currPage.type}${currPage?.text ?? "-"}`}
           className={classNames(
-            ["text", "opening", "determined", "blank"].some((e) => e === currPage.type) && "cursor-pointer",
+            ["text", "opening", "determined", "blank"].includes(currPage.type) && "cursor-pointer",
             currPage.type === "opening" ? "space-y-12" : "space-y-2"
           )}
         >
