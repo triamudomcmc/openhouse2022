@@ -253,7 +253,7 @@ export const SecondPage: FC<{
           {/* submit */}
           <div className="py-6 text-white flex justify-center space-x-2">
             <button
-              className="w-36 p-3 mb-3 bg-transparent border border-white rounded-full transition-colors hover:bg-gray-800"
+              className="w-36 p-3 mb-3 bg-transparent border border-white rounded-full transition-colors hover:bg-white hover:text-gray-600"
               onClick={() => {
                 updateData(formatData(values))
                 setPage(1)

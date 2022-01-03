@@ -1,3 +1,4 @@
+import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import { FirstPage } from "@components/onboard/FirstPage"
 import { SecondPage } from "@components/onboard/SecondPage"
 import { useAuth } from "@lib/auth"
@@ -36,7 +37,13 @@ const Onboard: NextPage = () => {
   const auth = useAuth()
 
   return (
-    <main className="relative main-section w-full min-h-screen bg-gray-900">
+    <AdaptiveBg
+      primary={{ background: "url('/images/backgrounds/register.jpg')", height: "1024px" }}
+      secondary={{ background: "url('/images/backgrounds/register-mobile.jpg')", height: "926px" }}
+      mobile={{ background: "url('/images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
+      classname="relative main-section w-full min-h-screen"
+      element="main"
+    >
       <div className="flex flex-col items-center justify-center">
         <div className="mb-4">
           <p className="font-display text-6xl text-white text-center font-medium py-2">ลงทะเบียน</p>
@@ -56,7 +63,7 @@ const Onboard: NextPage = () => {
           />
         )}
       </div>
-    </main>
+    </AdaptiveBg>
   )
 }
 

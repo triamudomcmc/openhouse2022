@@ -96,7 +96,7 @@ export const FirstPage: FC<{
               )}
               id="username"
               name="username"
-              placeholder="ความยาวไม่เกิน 32 ตัวอักษร"
+              placeholder="ความยาวไม่เกิน 24 ตัวอักษร"
               type="text"
               maxLength="32"
             />

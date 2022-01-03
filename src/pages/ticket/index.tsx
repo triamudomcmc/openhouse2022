@@ -84,6 +84,7 @@ const TicketPage: NextPage = () => {
       secondary={{ background: "url('images/backgrounds/ticket-mobile.jpg')", height: "926px" }}
       mobile={{ background: "url('images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
       classname="main-section"
+      element="main"
     >
       <div className="flex flex-col items-center space-y-4">
         <h2 className="text-center text-white font-display text-4xl font-semibold">ตั๋วการเดินทางของคุณ</h2>

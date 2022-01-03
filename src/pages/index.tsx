@@ -142,6 +142,7 @@ export default function Home({ articles }: any) {
           secondary={{ background: "url('images/backgrounds/landing-mobile.jpg')", height: "926px" }}
           mobile={{ background: "url('images/backgrounds/landing-mobile-default.jpg')", height: "926px" }}
           classname="flex items-center"
+          element="main"
         >
           <div className="flex flex-col items-start sm:items-center w-full px-8">
             <h1 className="text-[64px] xl:text-[116px] leading-[64px] xl:leading-[156px] font-black tracking-[14px] xl:tracking-[30px]">
@@ -169,6 +170,7 @@ export default function Home({ articles }: any) {
           secondary={{ background: "url('images/backgrounds/live-mobile.jpg')", height: "926px" }}
           mobile={{ background: "url('images/backgrounds/live-mobile-default.jpg')", height: "926px" }}
           classname="flex items-center"
+          element="section"
         >
           <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
             <div className="my-auto">
@@ -249,6 +251,7 @@ export default function Home({ articles }: any) {
           primary={{ background: "url('images/backgrounds/branches.jpg')", height: "1771px" }}
           secondary={{ background: "url('images/backgrounds/branches-mobile.jpg')", height: "1385px" }}
           mobile={{ background: "url('images/backgrounds/branches-mobile-default.jpg')", height: "926px" }}
+          element="section"
         >
           <div className="pl-0 sm:pl-[200px] mx-auto w-max sm:h-[680px]">
             <div className="mt-[130px] sm:mt-[300px] relative w-max">
@@ -290,6 +293,7 @@ export default function Home({ articles }: any) {
           primary={{ background: "url('images/backgrounds/gifted.jpg')", height: "1124px" }}
           secondary={{ background: "url('images/backgrounds/gifted-mobile.jpg')", height: "926px" }}
           mobile={{ background: "url('images/backgrounds/gifted-mobile-default.jpg')", height: "926px" }}
+          element="section"
         >
           <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center space-x-2 lg:mt-[340px] mt-20">
             <div className="relative">
@@ -401,6 +405,7 @@ export default function Home({ articles }: any) {
           secondary={{ background: "url('images/backgrounds/clubs-index-mobile.jpg')", height: "926px" }}
           mobile={{ background: "url('images/backgrounds/clubs-index-mobile-default.jpg')", height: "926px" }}
           classname="flex flex-col justify-center items-center"
+          element="section"
         >
           <div className="flex items-center md:flex-row flex-col space-x-4 lg:space-x-12">
             <div className="relative w-max flex-shrink-0">
@@ -696,6 +701,7 @@ export default function Home({ articles }: any) {
           secondary={{ background: "url('images/backgrounds/additional-mobile.jpg')", height: "926px" }}
           mobile={{ background: "url('images/backgrounds/additional-mobile-default.jpg')", height: "926px" }}
           classname="flex items-center"
+          element="section"
         >
           <div className="mx-auto">
             <h1 className="font-black text-[46px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h1>
