@@ -8,7 +8,7 @@ import Link from "next/link"
 import { AnimateSharedLayout } from "framer-motion"
 import { useEffect, useState } from "react"
 import { searchKeyword } from "@utils/text"
-import {AdaptiveBg} from "@components/common/AdaptiveBg";
+import { AdaptiveBg } from "@components/common/AdaptiveBg"
 
 const Clube = ({ data }: { data: any }) => {
   return (
@@ -120,9 +120,11 @@ const Page = ({ contents }: { contents: any }) => {
   }, [searchContext, contents])
 
   return (
-    <AdaptiveBg primary={{background: "url('images/backgrounds/clubs.jpg')", height: "2048px"}}
-                secondary={{background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px"}}
-                mobile={{background: "url('images/backgrounds/clubs-mobile-default.jpg')", height: "926px"}}>
+    <AdaptiveBg
+      primary={{ background: "url('images/backgrounds/clubs.jpg')", height: "2048px" }}
+      secondary={{ background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px" }}
+      mobile={{ background: "url('images/backgrounds/clubs-mobile-default.jpg')", height: "926px" }}
+    >
       <div className="max-w-6xl mx-auto mt-40">
         <div
           onClick={() => {
@@ -143,7 +145,7 @@ const Page = ({ contents }: { contents: any }) => {
                 </div>
                 <input
                   onChange={(e) => {
-                    setSearchContext(e.target.value)
+                    setTimeout(() => setSearchContext(e.target.value))
                   }}
                   className="border bg-white bg-opacity-20 rounded-full placeholder:text-white py-2 pl-14 w-full border-opacity-40 pr-4"
                   placeholder="ค้นหาชมรม..."
