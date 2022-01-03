@@ -83,6 +83,7 @@ module.exports = {
         "Kanit",
         ...defaultTheme.fontFamily.sans,
       ],
+      texts: ["Bai Jamjuree"],
       game: ["Prompt", "Inter var", ...defaultTheme.fontFamily.sans],
       mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
     },

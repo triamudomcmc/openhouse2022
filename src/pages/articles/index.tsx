@@ -42,8 +42,6 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   }
 
-  console.log(cleaned)
-
   return {
     props: {
       contents: cleaned

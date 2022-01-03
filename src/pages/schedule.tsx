@@ -8,7 +8,7 @@ const Schedule = () => {
       <AdaptiveBg primary={{background: "url('images/backgrounds/live.jpg')", height: "1024px"}}
                   secondary={{background: "url('images/backgrounds/live-mobile.jpg')", height: "926px"}}
                   mobile={{background: "url('images/backgrounds/live-mobile-default.jpg')", height: "926px"}}>
-        <div className="mt-32 mx-auto max-w-6xl px-6">
+        <div className="mt-32 mx-auto max-w-6xl px-6 min-h-screen">
           <div>
             <div
               onClick={() => {

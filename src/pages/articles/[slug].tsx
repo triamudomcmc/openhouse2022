@@ -72,7 +72,7 @@ const Page: NextPage<{ post: any }> = ({ post }) => {
 
 
   return (
-    <section className={classnames("min-h-screen main-section color-slip-jeen")}>
+    <section className={classnames("min-h-screen main-section color-slip-jeen-top")}>
       <div className="max-w-6xl px-8 mx-auto">
         <div
           onClick={() => {
@@ -83,12 +83,12 @@ const Page: NextPage<{ post: any }> = ({ post }) => {
           <ArrowCircleLeftIcon className="w-7 h-7" />
           <span className="text-lg">ย้อนกลับ</span>
         </div>
-        <div className="mx-auto max-w-2xl mt-32 mb-24">
-          <div className="flex flex-col items-start">
+        <div className="mx-auto max-w-2xl mt-12 mb-24">
+          <div className="flex flex-col items-start border-b pb-5">
             <h1 className="text-5xl text-left">{post.title}</h1>
             <p className="text-xl">{post.author}</p>
           </div>
-          <article className="prose text-white mt-4 leading-[30px] prose-invert article" dangerouslySetInnerHTML={{ __html: post.content }}>
+          <article className="prose text-white mt-6 leading-[30px] font-texts prose-invert article" dangerouslySetInnerHTML={{ __html: post.content }}>
 
           </article>
         </div>

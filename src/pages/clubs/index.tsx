@@ -65,8 +65,7 @@ const Club = ({ data }: { data: any }) => {
           </div>
           <div className="px-2">
             <div className="flex items-start space-x-1">
-              <UserIcon className="w-4 h-4 flex-shrink-0" />
-              <h1 className="text-[14px] font-light h-[60px]">{data.title}</h1>
+              <h1 className="text-[15px] font-light h-[60px]">{data.title}</h1>
             </div>
           </div>
         </div>

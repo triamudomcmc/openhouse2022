@@ -86,7 +86,7 @@ const Directions = () => {
 
 
   return (
-    <div className="min-h-screen" style={{background: "linear-gradient(180deg, #9078B4 0%, #CB83C3 25.77%, #E68F9D 49.02%, #DC867D 61.53%, #DF8770 70.78%)"}}>
+    <div className="min-h-screen" style={{background: "linear-gradient(rgb(144, 120, 180) 0%, rgb(203, 131, 195) 65.77%)"}}>
       <div className="pt-32 pb-24">
         <h1 className="text-5xl font-semibold text-center">การเดินทาง</h1>
         <div className="flex lg:flex-row flex-col">
