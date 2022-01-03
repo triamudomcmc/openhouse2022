@@ -22,10 +22,11 @@ export const fixGrammar = (text: string) => {
 export const searchKeyword = (arr: any, keyword: string, keySelector: (obj: any) => string) => {
   let topPrimary: any = [], topSecondary: any = [], bottom: any = []
   const keyLength = keyword.length
+  const fixedSearchKey = fixGrammar(keyword.toLowerCase())
 
   arr.forEach((val: any) => {
-    if (fixGrammar(keyword.toLowerCase()) === fixGrammar(keySelector(val).substring(4).slice(0, keyLength).toLowerCase())) return topPrimary.push(val)
-    if (fixGrammar(keySelector(val).substring(4).toLowerCase()).includes(fixGrammar(keyword.toLowerCase()))) return topSecondary.push(val)
+    if (fixGrammar(keySelector(val).slice(4, 4 + keyLength).toLowerCase()) === fixedSearchKey) return topPrimary.push(val)
+    if (fixGrammar(keySelector(val).substring(4).toLowerCase()).includes(fixedSearchKey)) return topSecondary.push(val)
     return bottom.push(val)
   })
 
