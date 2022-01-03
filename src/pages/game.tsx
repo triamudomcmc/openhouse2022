@@ -1,168 +1,17 @@
-import { ArrowCircleRightIcon, XIcon } from "@heroicons/react/outline"
+import { GameBg } from "@components/game/GameBg"
+import { GameSection } from "@components/game/GameSection"
+import { Modal } from "@components/game/Modal"
+import { ArrowCircleRightIcon } from "@heroicons/react/outline"
 import { useAuth } from "@lib/auth"
 import { gameDialogue } from "@map/gameMap"
 import { submitGame, submitSkipGame } from "@services/submitGame"
 import { ticketTypes } from "@types"
-import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { LogoWhite } from "@vectors/Logo"
 import classNames from "classnames"
 import { Field, Form, Formik } from "formik"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
 import { NextPage } from "next"
-import { Dispatch, FC, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from "react"
-
-const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
-  if (["black", "white"].includes(scene)) {
-    if (scene === "black") {
-      return "#081A35"
-    } else if (scene === "white") {
-      return "#fff"
-    }
-  } else {
-    return `url('/images/backgrounds/${scene.replace("-up", "")}${
-      type === "mobile" ? "-mobile" : type === "secondary" ? "-mobile-default" : ""
-    }.jpg')`
-  }
-
-  return ""
-}
-
-const GameBg: FC<{ scene: string; skey: string; onClick: MouseEventHandler<HTMLDivElement>; className?: string }> = ({
-  children,
-  scene,
-  skey,
-  onClick,
-  className,
-}) => {
-  const primary = { background: getBg(scene, "primary"), height: "1224px" }
-  const secondary = { background: getBg(scene, "secondary"), height: "926px" }
-  const mobile = { background: getBg(scene, "mobile"), height: "926px" }
-
-  const { width } = useWindowDimensions()
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (ref.current) {
-      if (width > 0) {
-        if (width > 640) {
-          ref.current.style.background = primary.background
-          ref.current.style.backgroundPosition = "center"
-          ref.current.style.backgroundSize = "cover"
-          ref.current.style.backgroundRepeat = "no-repeat"
-        } else {
-          if (width > 428) {
-            ref.current.style.background = secondary.background
-            ref.current.style.backgroundPosition = "center"
-            ref.current.style.backgroundSize = "cover"
-            ref.current.style.backgroundRepeat = "no-repeat"
-          } else {
-            ref.current.style.background = mobile.background
-            ref.current.style.backgroundPosition = "center"
-            ref.current.style.backgroundSize = "cover"
-            ref.current.style.backgroundRepeat = "no-repeat"
-          }
-        }
-      }
-    }
-  }, [
-    width,
-    secondary.background,
-    secondary.height,
-    primary.background,
-    primary.height,
-    mobile.background,
-    mobile.height,
-  ])
-
-  return (
-    <motion.main
-      key={skey}
-      onClick={onClick}
-      style={{
-        background: primary.background,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className={classNames(
-        "relative flex font-game font-medium flex-col items-center text-center justify-center text-lg px-4 md:px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white",
-        className
-      )}
-    >
-      {children}
-    </motion.main>
-  )
-}
-
-const GameSection: FC<{ type: string | string[]; currType: string }> = ({ children, type, currType }) => {
-  return (
-    <>
-      {((typeof type === "string" && type === currType) || (typeof type === "object" && type.includes(currType))) &&
-        children}
-    </>
-  )
-}
-
-const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<boolean>>; onDone: () => void }> = ({
-  children,
-  isOpen,
-  setModal,
-  onDone,
-}) => {
-  return (
-    <>
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[100] px-12 py-8 w-3/4 sm:w-1/2 -translate-y-1/2 bg-white rounded-xl shadow-lg font-game">
-              <button onClick={() => setModal(false)} className="absolute top-4 right-4">
-                <XIcon className="text-gray-400 w-5 h-5" />
-              </button>
-              <div className="flex flex-col items-center justify-center w-full text-center space-y-4">
-                <div className="flex flex-col space-y-2">
-                  <p className="text-lg text-pink-400">ข้ามเนื้อเรื่อง</p>
-                  <p className="font-light text-gray-400 leading-tight">
-                    ระบบจะทำการสุ่มตั๋วเดินทาง
-                    <br />
-                    แทนตั๋วที่จะได้รับจากการเล่นเกมต้อนรับสำเร็จ
-                  </p>
-                </div>
-                <div className="flex space-x-4 mt-4">
-                  <button
-                    onClick={() => setModal(false)}
-                    className="font-light rounded-lg border border-gray-100 shadow-md bg-white text-gray-400 font-game px-4 py-2 transition-colors hover:bg-gray-100 hover:text-gray-500"
-                  >
-                    ย้อนกลับ
-                  </button>
-                  <button
-                    onClick={() => onDone()}
-                    className="font-light rounded-lg shadow-md bg-pink-400 text-white transition-colors hover:bg-pink-500 font-game px-4 py-2"
-                  >
-                    ตกลง
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {isOpen ? (
-          <motion.div
-            className={"w-full h-full blur-sm bg-opacity-40 bg-black"}
-            onClick={() => {
-              setModal(false)
-            }}
-          >
-            {children}
-          </motion.div>
-        ) : (
-          <>{children}</>
-        )}
-      </AnimatePresence>
-    </>
-  )
-}
+import { useState } from "react"
 
 interface IScore {
   strong: number
