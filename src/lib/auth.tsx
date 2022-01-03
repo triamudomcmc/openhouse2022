@@ -117,35 +117,24 @@ export const AuthProvider: React.FC = ({ children }) => {
     const registeredNoGame = auth.user && auth?.userData?.username !== "" && !auth.userData?.ticket
     const playedGame = auth.user && auth?.userData?.username !== "" && auth.userData?.ticket
 
-    console.log(`pathname: ${pathname}`)
-    console.log(auth)
-
     if (auth.loading === false) {
       if (pathname === "/register") {
-        if (!isAuth) {}
-        else if (!isRegistered) Router.push("/register/onboard")
+        if (!isAuth) {
+        } else if (!isRegistered) Router.push("/register/onboard")
         else Router.push("/")
-      }
-
-      else if (pathname === "/register/onboard") {
+      } else if (pathname === "/register/onboard") {
         if (!isAuth) Router.push("/register")
-        else if (!isRegistered) {}
+        else if (!isRegistered) {
+        } else Router.push("/")
+      } else if (pathname === "/login") {
+        if (!isAuth) {
+        } else if (!isRegistered) Router.push("/register/onboard")
         else Router.push("/")
-      }
-
-      else if (pathname === "/login") {
-        if (!isAuth) {}
-        else if (!isRegistered) Router.push("/register/onboard")
-        else Router.push("/")
-      }
-
-      else if (pathname === "/ticket") {
+      } else if (pathname === "/ticket") {
         if (!isAuth) Router.push("/register?redirect=ticket")
         else if (!isRegistered) Router.push("/register/onboard?redirect=ticket")
         else if (registeredNoGame) Router.push("/game")
-      }
-
-      else if (pathname === "/game") {
+      } else if (pathname === "/game") {
         if (!isAuth) Router.push("/register?redirect=game")
         else if (!isRegistered) Router.push("/register/onboard?redirect=game")
         else if (playedGame) Router.push("/ticket")
