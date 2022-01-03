@@ -25,6 +25,7 @@ const ConfirmMail: NextPage = () => {
       secondary={{ background: "url('/images/backgrounds/register-mobile.jpg')", height: "926px" }}
       mobile={{ background: "url('/images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
       classname="relative w-full min-h-screen"
+      element="main"
     >
       <div className="flex flex-col items-center h-screen justify-center py-8 px-4 space-y-4 text-center">
         <p className="text-xl">เข้าสู่ระบบด้วยอีเมลสำเร็จ</p>
