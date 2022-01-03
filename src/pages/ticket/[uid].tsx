@@ -31,6 +31,7 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
         secondary={{ background: "url('/images/backgrounds/ticket-mobile.jpg')", height: "926px" }}
         mobile={{ background: "url('/images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
         classname="py-2"
+        element="main"
       >
         <MetaData />
         <div className="w-screen h-screen flex flex-col justify-center items-center">

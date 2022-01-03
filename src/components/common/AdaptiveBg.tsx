@@ -1,20 +1,14 @@
 import { useWindowDimensions } from "@utils/useWindowDimensions"
-import { useEffect, useRef } from "react"
+import { FC, useEffect, useRef } from "react"
 import classnames from "classnames"
 
-export const AdaptiveBg = ({
-  children,
-  primary,
-  secondary,
-  mobile,
-  classname,
-}: {
-  children: any
+export const AdaptiveBg: FC<{
   primary: { background: string; height: string }
   secondary: { background: string; height: string }
   mobile: { background: string; height: string }
   classname?: string
-}) => {
+  element?: "main" | "section" | "article"
+}> = ({ children, primary, secondary, mobile, classname, element }) => {
   const { width } = useWindowDimensions()
   const ref = useRef<HTMLDivElement>(null)
 
@@ -54,19 +48,26 @@ export const AdaptiveBg = ({
     mobile.height,
   ])
 
-  return (
-    <div
-      ref={ref}
-      style={{
+  const getProps = () => {
+    return {
+      ref: ref,
+      style: {
         background: primary.background,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         minHeight: primary.height,
         backgroundPosition: "center",
-      }}
-      className={classnames("overflow-x-hidden min-h-screen pb-20 text-white py-2", classname)}
-    >
-      {children}
-    </div>
-  )
+      },
+      className: classnames("overflow-x-hidden min-h-screen pb-20 text-white py-2", classname),
+    }
+  }
+
+  const getElement = () => {
+    if (element === "main") return <main {...getProps()}>{children}</main>
+    else if (element === "article") return <article {...getProps()}>{children}</article>
+    else if (element === "section") return <section {...getProps()}>{children}</section>
+    else return <div {...getProps()}>{children}</div>
+  }
+
+  return <>{getElement()}</>
 }

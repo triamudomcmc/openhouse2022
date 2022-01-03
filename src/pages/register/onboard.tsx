@@ -42,6 +42,7 @@ const Onboard: NextPage = () => {
       secondary={{ background: "url('/images/backgrounds/register-mobile.jpg')", height: "926px" }}
       mobile={{ background: "url('/images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
       classname="relative main-section w-full min-h-screen"
+      element="main"
     >
       <div className="flex flex-col items-center justify-center">
         <div className="mb-4">

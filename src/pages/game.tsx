@@ -75,7 +75,7 @@ const GameBg: FC<{ scene: string; skey: string; onClick: MouseEventHandler<HTMLD
   ])
 
   return (
-    <motion.div
+    <motion.main
       key={skey}
       onClick={onClick}
       style={{
@@ -90,7 +90,7 @@ const GameBg: FC<{ scene: string; skey: string; onClick: MouseEventHandler<HTMLD
       )}
     >
       {children}
-    </motion.div>
+    </motion.main>
   )
 }
 
