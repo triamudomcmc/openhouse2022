@@ -2,11 +2,11 @@ import { PaperAirplaneIcon } from "@heroicons/react/solid"
 
 const Stream = () => {
   return (
-    <main
+    <div
       style={{ background: "linear-gradient(180deg, #0D0835 0%, #33103F 21.35%, #1C174D 48.96%, #2B2353 72.4%)" }}
       className="min-h-screen pt-24"
     >
-      <div className="mx-auto w-[90vw] max-w-[975px]">
+      <main className="mx-auto w-[90vw] max-w-[975px]">
         <div className="bg-black w-[90vw] h-[48vw] max-w-[975px] max-h-[548px]"></div>
         <div className="flex lg:flex-row flex-col mt-6 lg:space-x-10">
           <div className="lg:w-7/12">
@@ -51,8 +51,8 @@ const Stream = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="w-[98vw] mx-auto border-t mt-24 md:mt-32 pt-20 pb-32">
+      </main>
+      <section className="w-[98vw] mx-auto border-t mt-24 md:mt-32 pt-20 pb-32">
         <h1 className="text-5xl font-light text-center">ตารางรายการสด</h1>
         <div className="flex flex-wrap justify-between max-w-xl mx-auto">
           <div className="mx-auto sm:mx-0 mt-20 px-2">
@@ -326,8 +326,8 @@ const Stream = () => {
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </section>
+    </div>
   )
 }
 

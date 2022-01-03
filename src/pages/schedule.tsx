@@ -4,7 +4,7 @@ import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
 
 const Schedule = () => {
   return (
-    <div>
+    <>
       <AdaptiveBg
         primary={{ background: "url('images/backgrounds/live.jpg')", height: "1024px" }}
         secondary={{ background: "url('images/backgrounds/live-mobile.jpg')", height: "926px" }}
@@ -298,7 +298,7 @@ const Schedule = () => {
           </div>
         </div>
       </AdaptiveBg>
-    </div>
+    </>
   )
 }
 
