@@ -201,9 +201,9 @@ export default function Home({ articles }: any) {
     <div className="font-display">
       <div>
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/landing.jpg')", height: "1024px", expandTo: "100vh" }}
-          secondary={{ background: "url('images/backgrounds/landing-mobile.jpg')", height: "926px" }}
-          mobile={{ background: "url('images/backgrounds/landing-mobile-default.jpg')", height: "926px" }}
+          primary={{ background: "/images/backgrounds/landing.jpg", height: "1024px", expandTo: "100vh" }}
+          secondary={{ background: "/images/backgrounds/landing-mobile.jpg", height: "926px" }}
+          mobile={{ background: "/images/backgrounds/landing-mobile-default.jpg", height: "926px" }}
           classname="flex items-center"
           element="main"
         >
@@ -231,9 +231,9 @@ export default function Home({ articles }: any) {
           className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
         />
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/live.jpg')", height: "1024px" }}
-          secondary={{ background: "url('images/backgrounds/live-mobile.jpg')", height: "926px" }}
-          mobile={{ background: "url('images/backgrounds/live-mobile-default.jpg')", height: "926px" }}
+          primary={{ background: "/images/backgrounds/live.jpg", height: "1024px" }}
+          secondary={{ background: "/images/backgrounds/live-mobile.jpg", height: "926px" }}
+          mobile={{ background: "/images/backgrounds/live-mobile-default.jpg", height: "926px" }}
           classname="flex items-center"
           element="section"
         >
@@ -323,9 +323,9 @@ export default function Home({ articles }: any) {
           className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
         />
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/branches.jpg')", height: "1771px" }}
-          secondary={{ background: "url('images/backgrounds/branches-mobile.jpg')", height: "1385px" }}
-          mobile={{ background: "url('images/backgrounds/branches-mobile-default.jpg')", height: "926px" }}
+          primary={{ background: "/images/backgrounds/branches.jpg", height: "1771px" }}
+          secondary={{ background: "/images/backgrounds/branches-mobile.jpg", height: "1385px" }}
+          mobile={{ background: "/images/backgrounds/branches-mobile-default.jpg", height: "926px" }}
           element="section"
         >
           <div className="pl-0 sm:pl-[200px] mx-auto w-max sm:h-[680px]">
@@ -372,9 +372,9 @@ export default function Home({ articles }: any) {
           className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
         />
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/gifted.jpg')", height: "1124px" }}
-          secondary={{ background: "url('images/backgrounds/gifted-mobile.jpg')", height: "926px" }}
-          mobile={{ background: "url('images/backgrounds/gifted-mobile-default.jpg')", height: "926px" }}
+          primary={{ background: "/images/backgrounds/gifted.jpg", height: "1124px" }}
+          secondary={{ background: "/images/backgrounds/gifted-mobile.jpg", height: "926px" }}
+          mobile={{ background: "/images/backgrounds/gifted-mobile-default.jpg", height: "926px" }}
           element="section"
         >
           <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center space-x-2 lg:mt-[340px] mt-20">
@@ -492,9 +492,9 @@ export default function Home({ articles }: any) {
           className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
         />
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/clubs-index.jpg')", height: "1124px" }}
-          secondary={{ background: "url('images/backgrounds/clubs-index-mobile.jpg')", height: "926px" }}
-          mobile={{ background: "url('images/backgrounds/clubs-index-mobile-default.jpg')", height: "926px" }}
+          primary={{ background: "/images/backgrounds/clubs-index.jpg", height: "1124px" }}
+          secondary={{ background: "/images/backgrounds/clubs-index-mobile.jpg", height: "926px" }}
+          mobile={{ background: "/images/backgrounds/clubs-index-mobile-default.jpg", height: "926px" }}
           classname="flex flex-col justify-center items-center"
           element="section"
         >
@@ -536,9 +536,9 @@ export default function Home({ articles }: any) {
           className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
         />
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/clubs.jpg')", height: "2048px" }}
-          secondary={{ background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px" }}
-          mobile={{ background: "url('images/backgrounds/clubs-mobile-default.jpg')", height: "926px" }}
+          primary={{ background: "/images/backgrounds/clubs.jpg", height: "2048px" }}
+          secondary={{ background: "/images/backgrounds/clubs-mobile.jpg", height: "926px" }}
+          mobile={{ background: "/images/backgrounds/clubs-mobile-default.jpg", height: "926px" }}
         >
           <div className="max-w-[900px] mx-auto px-6">
             <div className="mt-[200px] mb-8">
@@ -701,9 +701,9 @@ export default function Home({ articles }: any) {
           className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
         />
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/additional.jpg')", height: "1124px" }}
-          secondary={{ background: "url('images/backgrounds/additional-mobile.jpg')", height: "926px" }}
-          mobile={{ background: "url('images/backgrounds/additional-mobile-default.jpg')", height: "926px" }}
+          primary={{ background: "/images/backgrounds/additional.jpg", height: "1124px" }}
+          secondary={{ background: "/images/backgrounds/additional-mobile.jpg", height: "926px" }}
+          mobile={{ background: "/images/backgrounds/additional-mobile-default.jpg", height: "926px" }}
           classname="flex items-center"
           element="section"
         >

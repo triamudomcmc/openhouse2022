@@ -6,9 +6,9 @@ const Schedule = () => {
   return (
     <>
       <AdaptiveBg
-        primary={{ background: "url('images/backgrounds/live.jpg')", height: "1024px" }}
-        secondary={{ background: "url('images/backgrounds/live-mobile.jpg')", height: "926px" }}
-        mobile={{ background: "url('images/backgrounds/live-mobile-default.jpg')", height: "926px" }}
+        primary={{ background: "/images/backgrounds/live.jpg", height: "1024px" }}
+        secondary={{ background: "/images/backgrounds/live-mobile.jpg", height: "926px" }}
+        mobile={{ background: "/images/backgrounds/live-mobile-default.jpg", height: "926px" }}
         element="main"
       >
         <div className="mt-32 mx-auto max-w-6xl px-6">

@@ -7,9 +7,9 @@ const Page = () => {
   return (
     <div>
       <AdaptiveBg
-        primary={{ background: "url('images/backgrounds/branches.jpg')", height: "1771px" }}
-        secondary={{ background: "url('images/backgrounds/branches-mobile.jpg')", height: "1385px" }}
-        mobile={{ background: "url('images/backgrounds/branches-mobile-default.jpg')", height: "926px" }}
+        primary={{ background: "/images/backgrounds/branches.jpg", height: "1771px" }}
+        secondary={{ background: "/images/backgrounds/branches-mobile.jpg", height: "1385px" }}
+        mobile={{ background: "/images/backgrounds/branches-mobile-default.jpg", height: "926px" }}
         element="section"
       >
         <div className="pl-0 sm:pl-[200px] mx-auto w-max sm:h-[680px]">
@@ -56,9 +56,9 @@ const Page = () => {
         className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
       />
       <AdaptiveBg
-        primary={{ background: "url('images/backgrounds/gifted.jpg')", height: "1124px" }}
-        secondary={{ background: "url('images/backgrounds/gifted-mobile.jpg')", height: "926px" }}
-        mobile={{ background: "url('images/backgrounds/gifted-mobile-default.jpg')", height: "926px" }}
+        primary={{ background: "/images/backgrounds/gifted.jpg", height: "1124px" }}
+        secondary={{ background: "/images/backgrounds/gifted-mobile.jpg", height: "926px" }}
+        mobile={{ background: "/images/backgrounds/gifted-mobile-default.jpg", height: "926px" }}
         element="section"
       >
         <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center space-x-2 lg:mt-[340px] mt-20">

@@ -18,7 +18,7 @@ export const AdaptiveBg: FC<{
       className="absolute top-0 right-0 h-full w-full z-[-1]"
     >
       <Image
-        src={`/${primary.background.replace("url('", "").replace("')", "")}`}
+        src={primary.background}
         layout={"fill"}
         objectFit={"cover"}
         objectPosition={"center"}
@@ -40,7 +40,7 @@ export const AdaptiveBg: FC<{
           >
             <Image
               alt="background image"
-              src={`/${primary.background.replace("url('", "").replace("')", "")}`}
+              src={primary.background}
               layout={"fill"}
               objectFit={"cover"}
               objectPosition={"center"}
@@ -55,7 +55,7 @@ export const AdaptiveBg: FC<{
             <div style={{ minHeight: secondary.height }} className="absolute top-0 right-0 h-full w-full z-[-1]">
               <Image
                 alt="background image"
-                src={`/${secondary.background.replace("url('", "").replace("')", "")}`}
+                src={secondary.background}
                 layout={"fill"}
                 objectFit={"cover"}
                 objectPosition={"center"}
@@ -69,7 +69,7 @@ export const AdaptiveBg: FC<{
             <div style={{ minHeight: mobile.height }} className="absolute top-0 right-0 h-full w-full z-[-1]">
               <Image
                 alt="background image"
-                src={`/${mobile.background.replace("url('", "").replace("')", "")}`}
+                src={mobile.background}
                 layout={"fill"}
                 objectFit={"cover"}
                 objectPosition={"center"}

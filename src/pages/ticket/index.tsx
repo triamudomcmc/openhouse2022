@@ -80,9 +80,9 @@ const TicketPage: NextPage = () => {
 
   return (
     <AdaptiveBg
-      primary={{ background: "url('images/backgrounds/ticket.jpg')", height: "1224px" }}
-      secondary={{ background: "url('images/backgrounds/ticket-mobile.jpg')", height: "926px" }}
-      mobile={{ background: "url('images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
+      primary={{ background: "/images/backgrounds/ticket.jpg", height: "1224px" }}
+      secondary={{ background: "/images/backgrounds/ticket-mobile.jpg", height: "926px" }}
+      mobile={{ background: "/images/backgrounds/ticket-mobile-default.jpg", height: "926px" }}
       classname="main-section"
       element="main"
     >

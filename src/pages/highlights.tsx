@@ -6,9 +6,9 @@ const Highlights = () => {
   return (
     <>
       <AdaptiveBg
-        primary={{ background: "url('images/backgrounds/landing.jpg')", height: "1024px" }}
-        secondary={{ background: "url('images/backgrounds/landing-mobile.jpg')", height: "926px" }}
-        mobile={{ background: "url('images/backgrounds/landing-mobile-default.jpg')", height: "926px" }}
+        primary={{ background: "/images/backgrounds/landing.jpg", height: "1024px" }}
+        secondary={{ background: "/images/backgrounds/landing-mobile.jpg", height: "926px" }}
+        mobile={{ background: "/images/backgrounds/landing-mobile-default.jpg", height: "926px" }}
         classname="flex font-display items-center"
         element="main"
       >
