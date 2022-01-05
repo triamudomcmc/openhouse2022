@@ -14,6 +14,7 @@ import classnames from "classnames"
 import { GetStaticProps } from "next"
 import { getAllPosts } from "@lib/api"
 import markdownToHtml from "@lib/markdownToHTML"
+import { IAuthContext, useAuth } from "@lib/auth"
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -130,9 +131,68 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
+const getButton = (auth: IAuthContext | null) => {
+  const noAuth = auth?.user === null
+  const authNoRegistered = auth?.user && !(auth?.userData?.username !== "")
+  const registered = auth?.user && auth?.userData?.username !== ""
+  const registeredNoGame = auth?.user && auth?.userData?.username !== "" && !auth.userData?.ticket
+  const playedGame = auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket
+
+  if (noAuth) {
+    return (
+      <Link href="/register">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+        >
+          ลงทะเบียน
+        </motion.button>
+      </Link>
+    )
+  } else if (authNoRegistered) {
+    return (
+      <Link href="/register/onboard">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+        >
+          ลงทะเบียน
+        </motion.button>
+      </Link>
+    )
+  } else if (registeredNoGame) {
+    return (
+      <Link href="/game">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+        >
+          เล่นเกมลงทะเบียน
+        </motion.button>
+      </Link>
+    )
+  } else if (playedGame) {
+    return (
+      <Link href="/ticket">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+        >
+          ดูตั๋วของคุณ
+        </motion.button>
+      </Link>
+    )
+  }
+}
+
 export default function Home({ articles }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
+  const auth = useAuth()
 
   return (
     <div className="font-display">
@@ -144,23 +204,18 @@ export default function Home({ articles }: any) {
           classname="flex items-center"
           element="main"
         >
-          <div className="flex flex-col items-start sm:items-center w-full px-8">
-            <h1 className="text-[64px] xl:text-[116px] leading-[64px] xl:leading-[156px] font-black tracking-[14px] xl:tracking-[30px]">
+          <div className="font-game flex flex-col items-start sm:items-center w-full px-8">
+            <span className="text-[64px] xl:text-[116px] leading-[64px] xl:leading-[156px] font-black tracking-[14px] xl:tracking-[24px]">
               TRIAM UDOM
-            </h1>
-            <h1 className="text-[40px] xl:text-[70px] tracking-[8px] xl:tracking-[13px] font-light mt-[10px] xl:mt-[-26px]">
+            </span>
+            <span className="text-[24px] xl:text-[50px] tracking-[8px] xl:tracking-[13px] font-light mt-[10px] xl:mt-[-26px]">
               ONLINE OPEN HOUSE 2022
-            </h1>
-            <h1 className="text-[20px] md:text-[30px] font-thin tracking-[8px] md:tracking-[10px] mt-10">
+            </span>
+            <span className="text-[16px] md:text-[30px] font-thin tracking-[8px] md:tracking-[10px] mt-10">
               14-15 JANUARY
-            </h1>
+            </span>
             <div className="flex flex-col items-center">
-              <div
-                className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
-                style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
-              >
-                <h1>เข้าสู่ระบบ</h1>
-              </div>
+              {getButton(auth)}
               <LogoWhite className="w-[174px] mt-6 md:mt-16" />
             </div>
           </div>
@@ -716,7 +771,7 @@ export default function Home({ articles }: any) {
                 }}
                 className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer"
               >
-                เกี่ยวกับโรงเรียนเตรียมฯ
+                การเดินทางมาโรงเรียนเตรียมฯ
               </div>
             </div>
           </div>
