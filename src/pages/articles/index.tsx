@@ -8,6 +8,38 @@ import {getAllPosts} from "@lib/api";
 import {useEffect, useState} from "react";
 import {searchKeyword} from "@utils/text";
 import {AdaptiveBg} from "@components/common/AdaptiveBg";
+import classnames from "classnames";
+import markdownToHtml from "@lib/markdownToHTML";
+
+const Blog = ({ data }: { data: any }) => {
+  return (
+    <Link href={`articles/${data.slug}`}>
+      <div
+        style={{
+          background: "linear-gradient(265.95deg, rgba(255, 255, 255, 0.3) 33.14%, rgba(255, 255, 255, 0) 100%)",
+        }}
+        className="border h-[198px] border-white rounded-lg border-opacity-40 flex justify-between backdrop-filter backdrop-blur-lg snap-center cursor-pointer"
+      >
+        <div className="flex flex-col justify-between px-6 py-4">
+          <div className="space-y-2">
+            <h1 className="text-lg font-semibold leading-[20px] h-[40px] overflow-hidden">{data.title}</h1>
+            <p dangerouslySetInnerHTML={{ __html: `${data.content}...` }} className="font-light overflow-hidden h-[56px] pt-2"></p>
+          </div>
+          <span className="text-sm font-light">{data.author}</span>
+        </div>
+        <div className="flex-shrink-0 md:block hidden">
+          <Image
+            width={317}
+            height={197}
+            objectFit={"cover"}
+            src={data.thumbnail}
+            className="flex-shrink-0 rounded-r-lg"
+          />
+        </div>
+      </div>
+    </Link>
+  )
+}
 
 const Club = ({data}: { data: any }) => {
 
@@ -34,7 +66,7 @@ const Club = ({data}: { data: any }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const fetchedData = getAllPosts(['slug', 'title', 'author', 'thumbnail'], '_articles')
+  const fetchedData = getAllPosts(['slug', 'title', 'author', 'thumbnail', "content"], '_articles')
   let cleaned = fetchedData.filter(item => Object.keys(item).length > 1)
   if (!cleaned) {
     return {
@@ -42,9 +74,22 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   }
 
+  let mapped = []
+
+  for (let i of cleaned) {
+    const e = await markdownToHtml(
+      i.content
+        .replace(/\!.+?\)/g, "")
+        .replace(/\[.+?\)/g, "")
+        .replace(new RegExp("\n> ", "g"), "")
+        .replace(/\n/g, " ") || ""
+    )
+    mapped.push({ ...i, content: e.substr(0, 120) })
+  }
+
   return {
     props: {
-      contents: cleaned
+      contents: mapped
     }
   }
 }
@@ -99,11 +144,12 @@ const Page = ({contents}: { contents: any }) => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center flex-wrap mt-14 ml-2">
-            {sorted.map((e: any, i: number) => (
-              <Club key={`article-${i}`} data={e}/>
-            ))}
-
+          <div className="mt-12 max-w-4xl mx-auto px-6">
+            <div className={classnames("relative space-y-6 max-h-[2021px] overflow-y-scroll snap-y scroll")}>
+              {contents.map((data: any, index: number) => (
+                <Blog key={`blog-${index}`} data={data} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

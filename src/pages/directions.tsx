@@ -11,7 +11,7 @@ const Directions = () => {
     bts: (
       <div className="space-y-10 mt-10">
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#9475EB] rounded-full font-black text-2xl flex justify-center items-center">
+          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
             1
           </h1>
           <div>
@@ -20,7 +20,7 @@ const Directions = () => {
           </div>
         </div>
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#9475EB] rounded-full font-black text-2xl flex justify-center items-center">
+          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
             2
           </h1>
           <div>
@@ -29,7 +29,7 @@ const Directions = () => {
           </div>
         </div>
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#9475EB] rounded-full font-black text-2xl flex justify-center items-center">
+          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
             3
           </h1>
           <div>
@@ -42,7 +42,7 @@ const Directions = () => {
     bus: (
       <div className="space-y-10 mt-10">
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#9475EB] rounded-full font-black text-2xl flex justify-center items-center">
+          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
             1
           </h1>
           <div>
@@ -59,7 +59,7 @@ const Directions = () => {
           </div>
         </div>
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#9475EB] rounded-full font-black text-2xl flex justify-center items-center">
+          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
             2
           </h1>
           <div>
@@ -77,7 +77,7 @@ const Directions = () => {
     mrt: (
       <div className="space-y-10 mt-10">
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#9475EB] rounded-full font-black text-2xl flex justify-center items-center">
+          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
             1
           </h1>
           <div>
@@ -86,7 +86,7 @@ const Directions = () => {
           </div>
         </div>
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#9475EB] rounded-full font-black text-2xl flex justify-center items-center">
+          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
             2
           </h1>
           <div>
@@ -135,7 +135,7 @@ const Directions = () => {
     <main
       className="min-h-screen"
       style={{
-        background: "linear-gradient(180deg, #9078B4 0%, #CB83C3 31.01%, rgba(197, 129, 141, 0.86) 102.66%)",
+        background: "linear-gradient(180deg, #9078B4 0%, #CB83C3 98.01%)",
       }}
     >
       <div className="pt-32 pb-24">
@@ -151,7 +151,7 @@ const Directions = () => {
                   }}
                   className={classnames(
                     "cursor-pointer flex justify-center items-center w-[60px] h-[60px] rounded-full shadow-md",
-                    currentTab === "bus" ? "bg-[#9475EB]" : "bg-white"
+                    currentTab === "bus" ? "bg-[#765ebc]" : "bg-white"
                   )}
                 >
                   <svg
@@ -175,7 +175,7 @@ const Directions = () => {
                   }}
                   className={classnames(
                     "cursor-pointer flex justify-center items-center w-[60px] h-[60px] rounded-full shadow-md",
-                    currentTab === "bts" ? "bg-[#9475EB]" : "bg-white"
+                    currentTab === "bts" ? "bg-[#765ebc]" : "bg-white"
                   )}
                 >
                   <svg
@@ -238,7 +238,7 @@ const Directions = () => {
                   }}
                   className={classnames(
                     "cursor-pointer flex justify-center items-center w-[60px] h-[60px] rounded-full shadow-md",
-                    currentTab === "mrt" ? "bg-[#9475EB]" : "bg-white"
+                    currentTab === "mrt" ? "bg-[#765ebc]" : "bg-white"
                   )}
                 >
                   {currentTab !== "mrt" ? (
@@ -273,7 +273,7 @@ const Directions = () => {
                         />
                         <path
                           d="M12.5 55.1724V14.8398H27.1373L36.0674 32.2562L45.1146 14.8398H59.6208V55.1724H46.4992V33.5984L40.2683 46.2725H31.3537L25.0743 33.5984V55.1724H12.5Z"
-                          fill="#9475EB"
+                          fill="#765ebc"
                         />
                         <path
                           d="M12.5 55.1724V14.8398H27.1373L36.0674 32.2562L45.1146 14.8398H59.6208V55.1724H46.4992V33.5984L40.2683 46.2725H31.3537L25.0743 33.5984V55.1724H12.5Z"
@@ -300,7 +300,7 @@ const Directions = () => {
             </div>
           </div>
           <div className="mt-8 mx-auto lg:mt-64 lg:ml-[-200px]">
-            <div className="flex space-x-4 lg:flex">
+            <div className="flex space-x-4 hidden lg:flex">
               <div>
                 <div
                   onClick={() => {
@@ -308,7 +308,7 @@ const Directions = () => {
                   }}
                   className={classnames(
                     "cursor-pointer flex justify-center items-center w-[107px] h-[107px] rounded-full shadow-md",
-                    currentTab === "bus" ? "bg-[#9475EB]" : "bg-white"
+                    currentTab === "bus" ? "bg-[#765ebc]" : "bg-white"
                   )}
                 >
                   <svg
@@ -334,7 +334,7 @@ const Directions = () => {
                   }}
                   className={classnames(
                     "cursor-pointer flex justify-center items-center w-[107px] h-[107px] rounded-full shadow-md",
-                    currentTab === "bts" ? "bg-[#9475EB]" : "bg-white"
+                    currentTab === "bts" ? "bg-[#765ebc]" : "bg-white"
                   )}
                 >
                   <svg
@@ -399,7 +399,7 @@ const Directions = () => {
                   }}
                   className={classnames(
                     "cursor-pointer flex justify-center items-center w-[107px] h-[107px] rounded-full shadow-md",
-                    currentTab === "mrt" ? "bg-[#9475EB]" : "bg-white"
+                    currentTab === "mrt" ? "bg-[#765ebc]" : "bg-white"
                   )}
                 >
                   {currentTab !== "mrt" ? (
@@ -434,7 +434,7 @@ const Directions = () => {
                         />
                         <path
                           d="M12.5 55.1724V14.8398H27.1373L36.0674 32.2562L45.1146 14.8398H59.6208V55.1724H46.4992V33.5984L40.2683 46.2725H31.3537L25.0743 33.5984V55.1724H12.5Z"
-                          fill="#9475EB"
+                          fill="#765ebc"
                         />
                         <path
                           d="M12.5 55.1724V14.8398H27.1373L36.0674 32.2562L45.1146 14.8398H59.6208V55.1724H46.4992V33.5984L40.2683 46.2725H31.3537L25.0743 33.5984V55.1724H12.5Z"

@@ -6,7 +6,7 @@ import Image from "next/image"
 import { LogoWhite } from "@vectors/Logo"
 import { ArrowCircleRightIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
 import Link from "next/link"
-import { UserIcon } from "@heroicons/react/solid"
+import {ArrowRightIcon, UserIcon} from "@heroicons/react/solid"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/splide.min.css"
 import { useEffect, useRef } from "react"
@@ -27,12 +27,12 @@ const Blog = ({ data }: { data: any }) => {
       >
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
-            <h1 className="text-lg font-semibold leading-[20px]">{data.title}</h1>
-            <p dangerouslySetInnerHTML={{ __html: `${data.content}...` }} className="font-light pt-2"></p>
+            <h1 className="text-lg font-semibold leading-[20px] h-[40px] overflow-hidden">{data.title}</h1>
+            <p dangerouslySetInnerHTML={{ __html: `${data.content}...` }} className="font-light overflow-hidden h-[56px] pt-2"></p>
           </div>
           <span className="text-sm font-light">{data.author}</span>
         </div>
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 md:block hidden">
           <Image
             width={317}
             height={197}
@@ -309,7 +309,7 @@ export default function Home({ articles }: any) {
           element="section"
         >
           <div className="pl-0 sm:pl-[200px] mx-auto w-max sm:h-[680px]">
-            <div className="mt-[130px] sm:mt-[300px] relative w-max">
+            <div className="mt-[110px] sm:mt-[300px] relative w-max">
               <h1 className="text-5xl sm:text-6xl font-semibold leading-[60px] sm:leading-[80px] z-[10] relative w-max">
                 มาตามหา
                 <br />
@@ -634,115 +634,7 @@ export default function Home({ articles }: any) {
                 ที่ทางเราจะนำมานำเสนอให้ทุกคนได้อ่านอย่างเต็มที่ !
               </p>
             </div>
-            <div className="block lg:hidden relative">
-              <Splide
-                options={{
-                  fixedWidth: 170,
-                  gap: 12,
-                  perMove: 1,
-                  arrows: false,
-                  classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },
-                }}
-                onMounted={() => {
-                  if (document && document.getElementsByClassName("splide__track").length >= 1) {
-                    // @ts-ignore
-                    document.getElementsByClassName("splide__track")[0].style["z-index"] = 2
-                  }
-                }}
-                renderControls={() => {
-                  return (
-                    <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
-                      <div
-                        style={{ left: "-50px" }}
-                        className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
-                      >
-                        <ChevronRightIcon className="w-6 h-6" />
-                      </div>
-                      <div
-                        style={{ right: "-40px" }}
-                        className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
-                      >
-                        <ChevronRightIcon className="w-6 h-6" />
-                      </div>
-                    </div>
-                  )
-                }}
-              >
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-                <SplideSlide>
-                  <div>
-                    <Video />
-                    <Video />
-                  </div>
-                </SplideSlide>
-              </Splide>
-            </div>
-            <div className="lg:block hidden">
+            <div className="">
               <div className={classnames("relative space-y-6 max-h-[621px] overflow-y-scroll snap-y scroll")}>
                 {articles.map((data: any, index: number) => (
                   <Blog key={`blog-${index}`} data={data} />

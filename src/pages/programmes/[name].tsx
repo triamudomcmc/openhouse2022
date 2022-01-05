@@ -96,7 +96,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
           onClick={() => {
             Router.back()
           }}
-          className="absolute flex items-center space-x-2 -mt-16 sm:mt-0 cursor-pointer"
+          className="absolute flex items-center space-x-2 -mt-16 md:mt-0 cursor-pointer"
         >
           <ArrowCircleLeftIcon className="w-7 h-7" />
           <span className="text-lg">ย้อนกลับ</span>
@@ -155,7 +155,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                 <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
                   <span className="w-full font-light text-8xl">“</span>
                   <article
-                    className="prose text-white font-texts -mt-10 px-8 article prose-inverted"
+                    className="prose text-white font-texts -mt-10 px-2 sm:px-8 article prose-inverted"
                     dangerouslySetInnerHTML={{ __html: reviewItem.content }}
                   ></article>
                   <p className="w-full font-light text-8xl text-right -mb-10">”</p>

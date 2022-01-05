@@ -21,7 +21,7 @@ const Video = ({data}: { data: any }) => {
             <Image src={data.thumbnail} objectFit={"cover"} width={170} height={98} priority={true} className="rounded-t-lg"/>
           </div>
           <div className="px-2">
-            <h1 className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</h1>
+            <h1 className="break-all text-[12px] h-[56px] font-light text-ellipsis leading-[14px]">{data.title}</h1>
             <div className="flex items-center space-x-1">
               <UserIcon className="w-4 h-4 flex-shrink-0"/>
               <h1 className="text-[10px] font-light truncate">{data.author}</h1>
