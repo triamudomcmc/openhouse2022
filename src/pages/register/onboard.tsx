@@ -38,7 +38,7 @@ const Onboard: NextPage = () => {
 
   return (
     <AdaptiveBg
-      primary={{ background: "url('images/backgrounds/register.jpg')", height: "1024px" }}
+      primary={{ background: "url('images/backgrounds/register.jpg')", height: "1024px", expandTo: "100%" }}
       secondary={{ background: "url('images/backgrounds/register-mobile.jpg')", height: "926px" }}
       mobile={{ background: "url('images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
       classname="relative main-section w-full min-h-screen"

@@ -18,7 +18,7 @@ const Register = () => {
       primary={{ background: "url('images/backgrounds/register.jpg')", height: "1024px" }}
       secondary={{ background: "url('images/backgrounds/register-mobile.jpg')", height: "926px" }}
       mobile={{ background: "url('images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
-      classname="relative py-2 w-full h-screen bg-gray-900"
+      classname="relative py-2 w-full h-screen"
       element="main"
     >
       <div className="flex flex-col items-center justify-center h-screen">
