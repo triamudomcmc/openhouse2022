@@ -162,6 +162,10 @@ const Game: NextPage = () => {
               currPage.type === "choice" && "w-[20rem] md:w-[25rem]"
             )}
           >
+            <GameSection type={["text", "opening", "determined"]} currType={currPage.type}>
+              <p className="font-light text-sm text-gray-100 animate-pulse">กดที่หน้าจอเพื่อไปต่อ</p>
+            </GameSection>
+
             <GameSection type="opening" currType={currPage.type}>
               <p
                 className="font-light text-sm cursor-pointer transition-opacity hover:opacity-100 opacity-90"
@@ -192,10 +196,6 @@ const Game: NextPage = () => {
               >
                 ดูผลลัพธ์ <ArrowCircleRightIcon className="inline text-white w-5 h-5" />
               </p>
-            </GameSection>
-
-            <GameSection type={["text", "opening", "determined"]} currType={currPage.type}>
-              <p className="font-light text-sm text-gray-100 animate-pulse">กดที่หน้าจอเพื่อไปต่อ</p>
             </GameSection>
 
             <GameSection type="choice" currType={currPage.type}>
