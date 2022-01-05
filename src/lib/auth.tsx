@@ -112,50 +112,31 @@ export const AuthProvider: React.FC = ({ children }) => {
   // }, [pathname, auth])
 
   useEffect(() => {
-    const noAuth = auth.user === null
-    const authNoRegistered = auth.user && !(auth?.userData?.username !== "")
-    const registered = auth.user && auth?.userData?.username !== ""
+    const isAuth = auth.user !== null
+    const isRegistered = auth.user && auth?.userData?.username !== ""
     const registeredNoGame = auth.user && auth?.userData?.username !== "" && !auth.userData?.ticket
     const playedGame = auth.user && auth?.userData?.username !== "" && auth.userData?.ticket
 
     if (auth.loading === false) {
-      // login
-      if (pathname === "/login") {
-        if (registered) Router.push("/")
-        else if (authNoRegistered) Router.push("/register/onboard")
-        else if (registeredNoGame) Router.push("/game")
-        else if (playedGame) Router.push("/ticket")
-      }
-      // register
       if (pathname === "/register") {
-        if (registered) Router.push("/")
-        else if (authNoRegistered) Router.push("/register/onboard")
+        if (!isAuth) {
+        } else if (!isRegistered) Router.push("/register/onboard")
+        else Router.push("/")
+      } else if (pathname === "/register/onboard") {
+        if (!isAuth) Router.push("/register")
+        else if (!isRegistered) {
+        } else Router.push("/")
+      } else if (pathname === "/login") {
+        if (!isAuth) {
+        } else if (!isRegistered) Router.push("/register/onboard")
+        else Router.push("/")
+      } else if (pathname === "/ticket") {
+        if (!isAuth) Router.push("/register?redirect=ticket")
+        else if (!isRegistered) Router.push("/register/onboard?redirect=ticket")
         else if (registeredNoGame) Router.push("/game")
-        else if (playedGame) Router.push("/ticket")
-      }
-      // onboard
-      else if (pathname === "/register/onboard") {
-        if (noAuth) Router.push("/register")
-        else if (registeredNoGame) Router.push("/game")
-        else if (playedGame) Router.push("/ticket")
-      }
-      // login
-      else if (pathname === "/login") {
-        if (authNoRegistered) Router.push("/register/onboard")
-        else if (registered) Router.push("/")
-        else if (registeredNoGame) Router.push("/game")
-        else if (playedGame) Router.push("/ticket")
-      }
-      // ticket
-      else if (pathname === "/ticket") {
-        if (noAuth) Router.push("/register?redirect=ticket")
-        else if (authNoRegistered) Router.push("/register/onboard?redirect=ticket")
-        else if (registeredNoGame) Router.push("/game")
-      }
-      // game
-      else if (pathname === "/game") {
-        if (noAuth) Router.push("/register?redirect=game")
-        else if (authNoRegistered) Router.push("/register/onboard?redirect=game")
+      } else if (pathname === "/game") {
+        if (!isAuth) Router.push("/register?redirect=game")
+        else if (!isRegistered) Router.push("/register/onboard?redirect=game")
         else if (playedGame) Router.push("/ticket")
       }
     }

@@ -27,8 +27,8 @@ const Blog = ({ data }: { data: any }) => {
       >
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
-            <h1 className="text-lg">{data.title}</h1>
-            <p dangerouslySetInnerHTML={{ __html: `${data.content}...` }} className="font-light"></p>
+            <h1 className="text-lg font-semibold leading-[20px]">{data.title}</h1>
+            <p dangerouslySetInnerHTML={{ __html: `${data.content}...` }} className="font-light pt-2"></p>
           </div>
           <span className="text-sm font-light">{data.author}</span>
         </div>
@@ -308,7 +308,7 @@ export default function Home({ articles }: any) {
           mobile={{ background: "url('images/backgrounds/branches-mobile-default.jpg')", height: "926px" }}
           element="section"
         >
-          <div className="pl-0 sm:pl-[200px] mx-auto w-max sm:h-[760px]">
+          <div className="pl-0 sm:pl-[200px] mx-auto w-max sm:h-[680px]">
             <div className="mt-[130px] sm:mt-[300px] relative w-max">
               <h1 className="text-5xl sm:text-6xl font-semibold leading-[60px] sm:leading-[80px] z-[10] relative w-max">
                 มาตามหา
@@ -479,7 +479,9 @@ export default function Home({ articles }: any) {
                 <br />
                 ที่มีมากกว่า 60 ชมรมกัน !
               </h1>
-              <div className="text-[#112D55] bg-white px-12 rounded-full text-lg py-2.5">ดูชมรมทั้งหมด</div>
+              <Link href="/clubs">
+                <div className="text-[#112D55] bg-white px-12 rounded-full text-lg py-2.5 cursor-pointer">ดูชมรมทั้งหมด</div>
+              </Link>
             </div>
           </div>
         </AdaptiveBg>
