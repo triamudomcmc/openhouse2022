@@ -198,7 +198,7 @@ export default function Home({ articles }: any) {
     <div className="font-display">
       <div>
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/landing.jpg')", height: "1024px" }}
+          primary={{ background: "url('images/backgrounds/landing.jpg')", height: "1024px" , expandTo: "100vh"}}
           secondary={{ background: "url('images/backgrounds/landing-mobile.jpg')", height: "926px" }}
           mobile={{ background: "url('images/backgrounds/landing-mobile-default.jpg')", height: "926px" }}
           classname="flex items-center"
@@ -220,6 +220,7 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
+        <div style={{background: "linear-gradient(180deg, rgba(64, 78, 83, 0.1128) 0%, rgba(47, 52, 78, 0.47) 49.79%, rgba(24, 19, 66, 0.0705) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/live.jpg')", height: "1024px" }}
           secondary={{ background: "url('images/backgrounds/live-mobile.jpg')", height: "926px" }}
@@ -302,6 +303,7 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
+        <div style={{background: "linear-gradient(180deg, rgba(63, 88, 170, 0) 0%, rgba(50, 76, 146, 0.0225) 51.51%, rgba(37, 64, 123, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/branches.jpg')", height: "1771px" }}
           secondary={{ background: "url('images/backgrounds/branches-mobile.jpg')", height: "1385px" }}
@@ -344,6 +346,7 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
+        <div style={{background: "linear-gradient(180deg, rgba(40, 67, 119, 0.15) 0%, rgba(39, 66, 116, 0) 0.01%, rgba(79, 88, 138, 0.0225) 48.74%, rgba(122, 112, 162, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/gifted.jpg')", height: "1124px" }}
           secondary={{ background: "url('images/backgrounds/gifted-mobile.jpg')", height: "926px" }}
@@ -455,6 +458,7 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
+        <div style={{background: "linear-gradient(180deg, rgba(144, 89, 136, 0) 0%, rgba(89, 78, 133, 0) 0.01%, rgba(96, 65, 125, 0.0225) 50.83%, rgba(103, 53, 118, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/clubs-index.jpg')", height: "1124px" }}
           secondary={{ background: "url('images/backgrounds/clubs-index-mobile.jpg')", height: "926px" }}
@@ -485,6 +489,7 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
+        <div style={{background: "linear-gradient(180deg, rgba(144, 89, 136, 0) 0%, rgba(89, 78, 133, 0) 0.01%, rgba(96, 65, 125, 0.0225) 50.83%, rgba(103, 53, 118, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/clubs.jpg')", height: "2048px" }}
           secondary={{ background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px" }}
@@ -643,6 +648,7 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
+        <div style={{background: "linear-gradient(180deg, rgba(120, 78, 136, 0) 0%, rgba(160, 128, 179, 0.0225) 47.7%, rgba(206, 186, 228, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/additional.jpg')", height: "1124px" }}
           secondary={{ background: "url('images/backgrounds/additional-mobile.jpg')", height: "926px" }}

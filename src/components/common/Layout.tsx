@@ -6,7 +6,7 @@ export const Layout: FC = ({ children }) => {
   return (
     <>
       <Nav />
-      <div className="w-full min-h-screen bg-black font-display text-white">{children}</div>
+      <div className="w-full min-h-screen font-display text-white">{children}</div>
       <Footer />
     </>
   )

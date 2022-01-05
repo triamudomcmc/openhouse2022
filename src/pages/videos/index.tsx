@@ -74,7 +74,7 @@ const Page = ({contents}: { contents: any }) => {
 
   return (
 
-    <AdaptiveBg primary={{background: "url('images/backgrounds/clubs.jpg')", height: "2048px"}}
+    <AdaptiveBg primary={{background: "url('images/backgrounds/clubs.jpg')", height: "2048px", expandTo: "100%"}}
                 secondary={{background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px"}}
                 mobile={{background: "url('images/backgrounds/clubs-mobile-default.jpg')", height: "926px"}}>
       <div className="max-w-6xl mx-auto mt-40">
