@@ -27,9 +27,9 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
   if (!name || !type || !uid)
     return (
       <AdaptiveBg
-        primary={{ background: "url('/images/backgrounds/ticket.jpg')", height: "1224px" }}
-        secondary={{ background: "url('/images/backgrounds/ticket-mobile.jpg')", height: "926px" }}
-        mobile={{ background: "url('/images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
+        primary={{ background: "url('images/backgrounds/ticket.jpg')", height: "1224px" }}
+        secondary={{ background: "url('images/backgrounds/ticket-mobile.jpg')", height: "926px" }}
+        mobile={{ background: "url('images/backgrounds/ticket-mobile-default.jpg')", height: "926px" }}
         classname="py-2"
         element="main"
       >

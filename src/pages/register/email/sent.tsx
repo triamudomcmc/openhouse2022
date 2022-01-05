@@ -4,9 +4,9 @@ import Link from "next/link"
 const EmailSent = () => {
   return (
     <AdaptiveBg
-      primary={{ background: "url('/images/backgrounds/register.jpg')", height: "1024px" }}
-      secondary={{ background: "url('/images/backgrounds/register-mobile.jpg')", height: "926px" }}
-      mobile={{ background: "url('/images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
+      primary={{ background: "url('images/backgrounds/register.jpg')", height: "1024px" }}
+      secondary={{ background: "url('images/backgrounds/register-mobile.jpg')", height: "926px" }}
+      mobile={{ background: "url('images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
       classname="relative w-full min-h-screen"
       element="main"
     >

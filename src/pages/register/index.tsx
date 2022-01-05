@@ -15,9 +15,9 @@ const Register = () => {
   // should be main
   return (
     <AdaptiveBg
-      primary={{ background: "url('/images/backgrounds/register.jpg')", height: "1024px" }}
-      secondary={{ background: "url('/images/backgrounds/register-mobile.jpg')", height: "926px" }}
-      mobile={{ background: "url('/images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
+      primary={{ background: "url('images/backgrounds/register.jpg')", height: "1024px" }}
+      secondary={{ background: "url('images/backgrounds/register-mobile.jpg')", height: "926px" }}
+      mobile={{ background: "url('images/backgrounds/register-mobile-default.jpg')", height: "926px" }}
       classname="relative py-2 w-full h-screen bg-gray-900"
       element="main"
     >

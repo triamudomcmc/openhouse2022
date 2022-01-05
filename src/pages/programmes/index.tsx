@@ -1,10 +1,9 @@
-import {AdaptiveBg} from "@components/common/AdaptiveBg";
-import Router from "next/router";
-import {Flask, Math} from "@vectors/index/gifted";
-import {Programme} from "@components/programme";
+import { AdaptiveBg } from "@components/common/AdaptiveBg"
+import Router from "next/router"
+import { Flask, Math } from "@vectors/index/gifted"
+import { Programme } from "@components/programme/Index"
 
 const Page = () => {
-
   return (
     <div>
       <AdaptiveBg
@@ -49,7 +48,13 @@ const Page = () => {
           </div>
         </div>
       </AdaptiveBg>
-      <div style={{background: "linear-gradient(180deg, rgba(40, 67, 119, 0.15) 0%, rgba(39, 66, 116, 0) 0.01%, rgba(79, 88, 138, 0.0225) 48.74%, rgba(122, 112, 162, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
+      <div
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(40, 67, 119, 0.15) 0%, rgba(39, 66, 116, 0) 0.01%, rgba(79, 88, 138, 0.0225) 48.74%, rgba(122, 112, 162, 0) 100%)",
+        }}
+        className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
+      />
       <AdaptiveBg
         primary={{ background: "url('images/backgrounds/gifted.jpg')", height: "1124px" }}
         secondary={{ background: "url('images/backgrounds/gifted-mobile.jpg')", height: "926px" }}
