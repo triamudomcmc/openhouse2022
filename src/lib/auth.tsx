@@ -78,38 +78,41 @@ export const AuthProvider: React.FC = ({ children }) => {
   //   return status
   // }, [pathname, auth])
 
-  // const checkDashboard = useMemo(() => {
-  //   let status = false
-  //   if (pathname === "/dashboard" && auth.user === null) {
-  //     status = true
-  //   }
-  //   if (pathname === "/dashboard" && auth.userData?.password === "") {
-  //     status = true
-  //   }
-  //   return status
-  // }, [pathname, auth])
+  const checkOnboard = useMemo(() => {
+    const isAuth = auth.user !== null
+    const isRegistered = auth.user && auth?.userData?.username !== ""
+    // const registeredNoGame = auth.user && auth?.userData?.username !== "" && !auth.userData?.ticket
+    // const playedGame = auth.user && auth?.userData?.username !== "" && auth.userData?.ticket
 
-  // useEffect(() => {
-  //   if (auth.loading === false) {
-  //     if (pathname === "/onboard") {
-  //       if (auth.user === null) {
-  //         Router.push("/")
-  //       } else if (auth.userData?.password !== "") {
-  //         Router.push("/dashboard")
-  //       }
-  //     } else if (auth.user && auth.userData?.password === "" && pathname !== "/tos" && pathname !== "/privacy-policy") {
-  //       // Router.push('/onboard')
-  //     } else if (auth.user === null) {
-  //       if (pathname === "/dashboard" || pathname === "/onboard") {
-  //         Router.push("/")
-  //       }
-  //     } else {
-  //       if (pathname === "/login" || pathname === "/register") {
-  //         Router.push("/")
-  //       }
-  //     }
-  //   }
-  // }, [pathname, auth])
+    let status = false
+    if (pathname === "/onboard" && !isAuth) {
+      // not logged in - wait for redirect
+      status = true
+    }
+    if (pathname === "/onboard" && isRegistered) {
+      // onboard done - wait for redirect
+      status = true
+    }
+    return status
+  }, [pathname, auth])
+
+  const checkGame = useMemo(() => {
+    const isAuth = auth.user !== null
+    // const isRegistered = auth.user && auth?.userData?.username !== ""
+    // const registeredNoGame = auth.user && auth?.userData?.username !== "" && !auth.userData?.ticket
+    const playedGame = auth.user && auth?.userData?.username !== "" && auth.userData?.ticket
+
+    let status = false
+    if (pathname === "/game" && !isAuth) {
+      // not logged in - wait for redirect
+      status = true
+    }
+    if (pathname === "/game" && playedGame) {
+      // game done - wait for redirect
+      status = true
+    }
+    return status
+  }, [pathname, auth])
 
   useEffect(() => {
     const isAuth = auth.user !== null
@@ -142,7 +145,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     }
   }, [pathname, auth])
 
-  if (auth.loading /*|| checkOnboard || checkDashboard*/) {
+  if (auth.loading || checkOnboard || checkGame) {
     return <Loading />
   }
 
