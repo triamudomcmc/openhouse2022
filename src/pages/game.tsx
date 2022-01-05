@@ -70,7 +70,7 @@ const Game: NextPage = () => {
         submitSkipGame(auth)
       }}
     >
-      <div className="bg-black">
+      <div className="">
         <AnimatePresence>
           <GameBg
             onClick={(e) => {

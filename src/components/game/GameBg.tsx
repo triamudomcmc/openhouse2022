@@ -1,7 +1,8 @@
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import classNames from "classnames"
 import { motion } from "framer-motion"
-import { FC, KeyboardEventHandler, MouseEventHandler, useEffect, useRef } from "react"
+import {FC, KeyboardEventHandler, MouseEventHandler, useEffect, useRef, useState} from "react"
+import Image from "next/image";
 
 const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
   if (["black", "white"].includes(scene)) {
@@ -11,9 +12,9 @@ const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
       return "#fff"
     }
   } else {
-    return `url('/images/backgrounds/${scene.replace("-up", "")}${
+    return `/images/backgrounds/${scene.replace("-up", "")}${
       type === "mobile" ? "-mobile" : type === "secondary" ? "-mobile-default" : ""
-    }.jpg')`
+    }.jpg`
   }
 
   return ""
@@ -23,35 +24,82 @@ export const GameBg: FC<{
   scene: string
   skey: string
   onClick: MouseEventHandler<HTMLDivElement>
-  className?: string
-}> = ({ children, scene, skey, onClick, className }) => {
+  className?: string,
+  expandTo?: string
+}> = ({ children, scene, skey, onClick, className , expandTo}) => {
   const primary = { background: getBg(scene, "primary"), height: "1224px" }
   const secondary = { background: getBg(scene, "secondary"), height: "926px" }
   const mobile = { background: getBg(scene, "mobile"), height: "926px" }
 
   const { width } = useWindowDimensions()
-  const ref = useRef<HTMLDivElement>(null)
+
+  const [bg, setBg] = useState(
+    <div
+      style={{ minHeight: primary.height, height: expandTo ? expandTo : "initial" }}
+      className="absolute top-0 right-0 h-full w-full z-[-1]"
+    >
+      <Image
+        src={primary.background}
+        layout={"fill"}
+        objectFit={"cover"}
+        objectPosition={"center"}
+        priority={true}
+        alt="background image"
+      />
+    </div>
+  )
+
+  const [source, setSource] = useState(primary)
+
 
   useEffect(() => {
-    if (ref.current) {
-      if (width > 0) {
-        if (width > 640) {
-          ref.current.style.background = primary.background
-          ref.current.style.backgroundPosition = "center"
-          ref.current.style.backgroundSize = "cover"
-          ref.current.style.backgroundRepeat = "no-repeat"
+    if (width > 0) {
+      if (width > 640) {
+        setBg(
+          <div
+            style={{ minHeight: primary.height, height: expandTo ? expandTo : "initial" }}
+            className="absolute top-0 right-0 h-full w-full z-[-1]"
+          >
+            <Image
+              alt="background image"
+              src={primary.background}
+              layout={"fill"}
+              objectFit={"cover"}
+              objectPosition={"center"}
+              priority={true}
+            />
+          </div>
+        )
+        setSource(primary)
+      } else {
+        if (width > 428) {
+          setBg(
+            <div style={{ minHeight: secondary.height }} className="absolute top-0 right-0 h-full w-full z-[-1]">
+              <Image
+                alt="background image"
+                src={secondary.background}
+                layout={"fill"}
+                objectFit={"cover"}
+                objectPosition={"center"}
+                priority={true}
+              />
+            </div>
+          )
+          setSource(secondary)
         } else {
-          if (width > 428) {
-            ref.current.style.background = secondary.background
-            ref.current.style.backgroundPosition = "center"
-            ref.current.style.backgroundSize = "cover"
-            ref.current.style.backgroundRepeat = "no-repeat"
-          } else {
-            ref.current.style.background = mobile.background
-            ref.current.style.backgroundPosition = "center"
-            ref.current.style.backgroundSize = "cover"
-            ref.current.style.backgroundRepeat = "no-repeat"
-          }
+          setBg(
+            <div style={{ minHeight: mobile.height }} className="absolute top-0 right-0 h-full w-full z-[-1]">
+              <Image
+                alt="background image"
+                src={mobile.background}
+                layout={"fill"}
+                objectFit={"cover"}
+                objectPosition={"center"}
+                priority={true}
+              />
+            </div>
+          )
+          setSource(mobile)
         }
       }
     }
@@ -80,16 +128,14 @@ export const GameBg: FC<{
       }}
       transition={{ duration: 3 }}
       style={{
-        background: primary.background,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        minHeight: source.height
       }}
       className={classNames(
         "relative flex font-game font-medium flex-col items-center text-center justify-center text-lg px-4 md:px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white",
         className
       )}
     >
+      {bg}
       {children}
     </motion.main>
   )

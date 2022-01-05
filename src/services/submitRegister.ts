@@ -10,5 +10,6 @@ export const submitRegister: (auth: IAuthContext | null, data: IData) => void = 
     await updateUser(auth?.user?.uid, { ...data, ticket: null })
     Router.push("/game")
   }
+
   auth?.setLoading(false)
 }

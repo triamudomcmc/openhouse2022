@@ -38,10 +38,10 @@ const Onboard: NextPage = () => {
 
   return (
     <AdaptiveBg
-      primary={{ background: "/images/backgrounds/register.jpg", height: "1024px" }}
+      primary={{ background: "/images/backgrounds/register.jpg", height: "1024px", expandTo: "100%" }}
       secondary={{ background: "/images/backgrounds/register-mobile.jpg", height: "926px" }}
       mobile={{ background: "/images/backgrounds/register-mobile-default.jpg", height: "926px" }}
-      classname="relative main-section w-full min-h-screen"
+      classname="relative main-section w-full"
       element="main"
     >
       <div className="flex flex-col items-center justify-center">
