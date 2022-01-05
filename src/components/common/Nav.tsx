@@ -3,8 +3,9 @@ import classNames from "classnames"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useEffect, useRef, useState } from "react"
+import {FC, useEffect, useRef, useState} from "react"
 import NavButton from "./NavButton"
+import classnames from "classnames";
 
 const DetectOuside = (ref: any, dep: boolean, callback: () => void) => {
   useEffect(() => {
@@ -39,7 +40,7 @@ const variants = {
   },
 }
 
-export const Nav = () => {
+export const Nav: FC<{theme?: "dark" | "light"}> = ({theme = "light"}) => {
   const [reveal, setReveal] = useState(false)
   const panel = useRef(null)
   const { pathname } = useRouter()
@@ -72,10 +73,10 @@ export const Nav = () => {
 
   return (
     <>
-      <header className="flex absolute z-50 top-0 left-0 py-2 px-8 mb-16 w-full text-white border-b border-white border-opacity-20 backdrop-blur-lg font-display navbar-bg">
+      <header className={classnames("flex absolute z-50 top-0 left-0 py-2 px-8 mb-16 w-full text-white border-b border-white border-opacity-20 backdrop-blur-lg font-display", theme === "dark" ? "navbar-bg-dark" : "navbar-bg")}>
         <div className="flex justify-between items-center mx-auto w-full max-w-6xl">
           <Link href="/">
-            <div className="flex space-x-2 cursor-pointer">
+            <div className="flex space-x-2 cursor-pointer flex-shrink-0">
               <img src="/images/logos/openhouse.png" />
               <div className="flex flex-col justify-center">
                 <h1 className="text-sm sm:text-base font-bold">
@@ -85,24 +86,24 @@ export const Nav = () => {
               </div>
             </div>
           </Link>
-          <nav role="navigation" className="hidden lg:flex items-center space-x-12">
+          <nav role="navigation" className="hidden md:flex items-center justify-evenly w-full max-w-2xl ml-4">
             <Link href="/">
-              <a className="font-light hover:border-white border-b border-transparent">หน้าแรก</a>
+              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">หน้าแรก</a>
             </Link>
             <Link href="/programmes">
-              <a className="font-light hover:border-white border-b border-transparent">สายการเรียน</a>
+              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">สายการเรียน</a>
             </Link>
             <Link href="/clubs">
-              <a className="font-light hover:border-white border-b border-transparent">ชมรม</a>
+              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">ชมรม</a>
             </Link>
             <Link href="/videos">
-              <a className="font-light hover:border-white border-b border-transparent">วิดีโอ</a>
+              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">วิดีโอ</a>
             </Link>
             <Link href="/articles">
-              <a className="font-light hover:border-white border-b border-transparent">บทความ</a>
+              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">บทความ</a>
             </Link>
             <Link href="/info">
-              <a className="font-light hover:border-white border-b border-transparent">ข้อมูลเพิ่มเติม</a>
+              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">ข้อมูลเพิ่มเติม</a>
             </Link>
           </nav>
           <button
@@ -111,7 +112,7 @@ export const Nav = () => {
               setReveal(!reveal)
             }}
           >
-            <MenuIcon className="block lg:hidden text-white w-8 h-8 cursor-pointer" />
+            <MenuIcon className="block md:hidden text-white w-8 h-8 cursor-pointer" />
           </button>
           {/* <NavButton
             toggle={() => {
@@ -124,7 +125,7 @@ export const Nav = () => {
         ref={panel}
         animate={reveal ? "open" : "close"}
         variants={variants}
-        className="flex lg:none flex-col items-center right-full fixed top-0 bg-black h-full w-48 z-[99] py-4"
+        className="flex md:none flex-col items-center right-full fixed top-0 bg-black h-full w-48 z-[99] py-4"
       >
         {/* <button onClick={() => setReveal(false)} className="mb-16">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">

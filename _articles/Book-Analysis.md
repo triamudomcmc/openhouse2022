@@ -58,7 +58,7 @@ Finally, let[']{dir="rtl"}s cover the analogy found in the novel. One of
 the biggest pieces of analogy found in Hinton[']{dir="rtl"}s Rumble fish
 is the comparison of the rumble fish that The Motorcycle Boy was
 fascinated with, as he made a direct comment saying
-["]{dir="rtl"}Siamese fighting fish. They try to kill each other. If you
+Siamese fighting fish. They try to kill each other. If you
 leaned a mirror against the bowl they[']{dir="rtl"}d kill themselves
 fighting their own reflection. Wonder if they[']{dir="rtl"}d act that
 way in the river", which is a connection to the setting of Rumble fish,

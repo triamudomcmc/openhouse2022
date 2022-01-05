@@ -111,7 +111,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             <div>
               <h1 className="text-4xl">การรับสมัครและการสอบเข้า</h1>
               <article
-                className="prose text-white font-texts mt-4 leading-[30px] article prose-inverted"
+                className="prose text-white text-justify font-texts mt-4 leading-[30px] article prose-inverted"
                 dangerouslySetInnerHTML={{ __html: contents.admission }}
               ></article>
             </div>
@@ -119,7 +119,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             <div>
               <h1 className="text-4xl">วิชาหรือหลักสูตรเพิ่มเติมที่เรียน</h1>
               <article
-                className="prose text-white font-texts mt-4 leading-[30px] article prose-inverted"
+                className="prose text-white text-justify font-texts mt-4 leading-[30px] article prose-inverted"
                 dangerouslySetInnerHTML={{ __html: contents.exsubject }}
               ></article>
             </div>
@@ -127,7 +127,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             <div>
               <h1 className="text-4xl">ความน่าสนใจของสายการเรียน</h1>
               <article
-                className="prose text-white mt-4 font-texts leading-[30px] article prose-inverted"
+                className="prose text-white text-justify mt-4 font-texts leading-[30px] article prose-inverted"
                 dangerouslySetInnerHTML={{ __html: contents.interest }}
               ></article>
             </div>
@@ -155,7 +155,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                 <div className="bg-white bg-opacity-20 border border-white border-opacity-60 w-full rounded-lg px-6 pt-4">
                   <span className="w-full font-light text-8xl">“</span>
                   <article
-                    className="prose text-white font-texts -mt-10 px-2 sm:px-8 article prose-inverted"
+                    className="prose text-white text-justify font-texts -mt-10 px-2 sm:px-8 article prose-inverted"
                     dangerouslySetInnerHTML={{ __html: reviewItem.content }}
                   ></article>
                   <p className="w-full font-light text-8xl text-right -mb-10">”</p>

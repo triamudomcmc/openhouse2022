@@ -13,10 +13,10 @@ goals include ending poverty, quality education, gender equality,
 economic growth, climate action, and many more. In this article we will
 be focusing on SDG number 13, which is titled Climate Action.
 
-SDG 13[']{dir="rtl"}s primary purpose is to ["]{dir="rtl"}take urgent
+SDG 13[']{dir="rtl"}s primary purpose is to take urgent
 action to combat climate change and its impacts". It consists of 5
-targets which can be divided into 3 ["]{dir="rtl"}output" targets and 2
-["]{dir="rtl"}means of achieving" targets. To put it basically, 3
+targets which can be divided into 3 output" targets and 2
+means of achieving" targets. To put it basically, 3
 targets about the result we want to accomplish and 2 targets about how
 to accomplish them. The output targets are to strengthen resilience and
 adaptive capacity to climate-related hazards, to integrate climate
