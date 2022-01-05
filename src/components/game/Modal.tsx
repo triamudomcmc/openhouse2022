@@ -19,7 +19,7 @@ export const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<bool
               </button>
               <div className="flex flex-col items-center justify-center w-full text-center space-y-4">
                 <div className="flex flex-col space-y-2">
-                  <p className="text-lg text-pink-400">ข้ามเนื้อเรื่อง</p>
+                  <p className="text-lg text-[#6670AD]">ข้ามเนื้อเรื่อง</p>
                   <p className="font-light text-gray-400 leading-tight">
                     ระบบจะทำการสุ่มตั๋วเดินทาง
                     <br />
@@ -35,7 +35,7 @@ export const Modal: FC<{ isOpen: boolean; setModal: Dispatch<SetStateAction<bool
                   </button>
                   <button
                     onClick={() => onDone()}
-                    className="font-light rounded-lg shadow-md bg-pink-400 text-white transition-colors hover:bg-pink-500 font-game px-4 py-2"
+                    className="font-light rounded-lg shadow-md bg-[#6670AD] text-white transition-colors hover:bg-[#50588b] font-game px-4 py-2"
                   >
                     ตกลง
                   </button>
