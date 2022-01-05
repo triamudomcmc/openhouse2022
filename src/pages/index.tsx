@@ -6,7 +6,7 @@ import Image from "next/image"
 import { LogoWhite } from "@vectors/Logo"
 import { ArrowCircleRightIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
 import Link from "next/link"
-import {ArrowRightIcon, UserIcon} from "@heroicons/react/solid"
+import { ArrowRightIcon, UserIcon } from "@heroicons/react/solid"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/splide.min.css"
 import { useEffect, useRef } from "react"
@@ -15,7 +15,6 @@ import { GetStaticProps } from "next"
 import { getAllPosts } from "@lib/api"
 import markdownToHtml from "@lib/markdownToHTML"
 import { IAuthContext, useAuth } from "@lib/auth"
-import {Programme} from "@components/programme";
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -28,8 +27,11 @@ const Blog = ({ data }: { data: any }) => {
       >
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
-            <h1 className="text-lg font-semibold leading-[20px] h-[40px] overflow-hidden">{data.title}</h1>
-            <p dangerouslySetInnerHTML={{ __html: `${data.content}...` }} className="font-light overflow-hidden h-[56px] pt-2"></p>
+            <p className="text-lg font-semibold leading-[20px] h-[40px] overflow-hidden">{data.title}</p>
+            <p
+              dangerouslySetInnerHTML={{ __html: `${data.content}...` }}
+              className="font-light overflow-hidden h-[56px] pt-2"
+            ></p>
           </div>
           <span className="text-sm font-light">{data.author}</span>
         </div>
@@ -71,17 +73,35 @@ const Video = () => {
             />
           </div>
           <div className="px-2">
-            <h1 className="break-all text-[12px] h-[56px] font-light text-ellipsis">
+            <p className="break-all text-[12px] h-[56px] font-light text-ellipsis">
               ชื่อวิดีโอยาววววววววววววววววววววววววววววววววววว
-            </h1>
+            </p>
             <div className="flex items-center space-x-1">
               <UserIcon className="w-4 h-4 flex-shrink-0" />
-              <h1 className="text-[10px] font-light truncate">งานกิจกรรมพัฒนาผู้เรียน</h1>
+              <p className="text-[10px] font-light truncate">งานกิจกรรมพัฒนาผู้เรียน</p>
             </div>
           </div>
         </div>
       </div>
     </Link>
+  )
+}
+
+const Programme = ({ name, thainame }: { name: string; thainame: string }) => {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      onClick={() => {
+        Router.push("/programmes/" + name)
+      }}
+      className="text-center cursor-pointer w-[100px] sm:w-[160px]"
+    >
+      <div className="w-[100px] sm:w-[160px]">
+        <Image width={160} height={160} src={`/images/branches/${name}.png`} />
+      </div>
+      <h1 className="font-light">{thainame}</h1>
+    </motion.div>
   )
 }
 
@@ -126,7 +146,7 @@ const getButton = (auth: IAuthContext | null) => {
       <Link href="/register">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           ลงทะเบียน
@@ -138,7 +158,7 @@ const getButton = (auth: IAuthContext | null) => {
       <Link href="/register/onboard">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           ลงทะเบียน
@@ -150,7 +170,7 @@ const getButton = (auth: IAuthContext | null) => {
       <Link href="/game">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           เล่นเกมลงทะเบียน
@@ -162,10 +182,10 @@ const getButton = (auth: IAuthContext | null) => {
       <Link href="/ticket">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
-          ดูการ์ดของคุณ
+          ดูตั๋วของคุณ
         </motion.button>
       </Link>
     )
@@ -181,7 +201,7 @@ export default function Home({ articles }: any) {
     <div className="font-display">
       <div>
         <AdaptiveBg
-          primary={{ background: "url('images/backgrounds/landing.jpg')", height: "1024px" , expandTo: "100vh"}}
+          primary={{ background: "url('images/backgrounds/landing.jpg')", height: "1024px", expandTo: "100vh" }}
           secondary={{ background: "url('images/backgrounds/landing-mobile.jpg')", height: "926px" }}
           mobile={{ background: "url('images/backgrounds/landing-mobile-default.jpg')", height: "926px" }}
           classname="flex items-center"
@@ -203,7 +223,13 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
-        <div style={{background: "linear-gradient(180deg, rgba(64, 78, 83, 0.1128) 0%, rgba(47, 52, 78, 0.47) 49.79%, rgba(24, 19, 66, 0.0705) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(64, 78, 83, 0.1128) 0%, rgba(47, 52, 78, 0.47) 49.79%, rgba(24, 19, 66, 0.0705) 100%)",
+          }}
+          className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
+        />
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/live.jpg')", height: "1024px" }}
           secondary={{ background: "url('images/backgrounds/live-mobile.jpg')", height: "926px" }}
@@ -228,65 +254,74 @@ export default function Home({ articles }: any) {
             </div>
             <div className="xl:block md:hidden block">
               <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
-                <h1 className="font-light text-sm">LIVE SCHEDULE</h1>
-                <h1 className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</h1>
+                <p className="font-light text-sm">LIVE SCHEDULE</p>
+                <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
               </div>
               <div className="min-w-[300px] sm:min-w-[380px] space-y-4 mx-auto">
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
+                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
                   </div>
                   <div>
-                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
+                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
+                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
                   </div>
                   <div>
-                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
+                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
+                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
                   </div>
                   <div>
-                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
+                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
+                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
                   </div>
                   <div>
-                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
+                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
                   </div>
                 </div>
                 <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                   <div className="w-[60px]">
-                    <h1 className="font-semibold text-xl sm:text-2xl">10.00</h1>
+                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
                   </div>
                   <div>
-                    <h1 className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</h1>
-                    <h1 className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</h1>
+                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
+                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
                   </div>
                 </div>
                 <Link href="/schedule">
-                  <div className="border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]">
-                    <h1 className="underline text-md sm:text-lg">ดูตารางรายการสดทั้งหมด</h1>
-                  </div>
+                  <motion.a
+                    whileHover={{ scale: 1.02 }}
+                    className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"
+                  >
+                    ดูตารางรายการสดทั้งหมด
+                  </motion.a>
                 </Link>
               </div>
             </div>
           </div>
         </AdaptiveBg>
-        <div style={{background: "linear-gradient(180deg, rgba(63, 88, 170, 0) 0%, rgba(50, 76, 146, 0.0225) 51.51%, rgba(37, 64, 123, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(63, 88, 170, 0) 0%, rgba(50, 76, 146, 0.0225) 51.51%, rgba(37, 64, 123, 0) 100%)",
+          }}
+          className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
+        />
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/branches.jpg')", height: "1771px" }}
           secondary={{ background: "url('images/backgrounds/branches-mobile.jpg')", height: "1385px" }}
@@ -295,7 +330,7 @@ export default function Home({ articles }: any) {
         >
           <div className="pl-0 sm:pl-[200px] mx-auto w-max sm:h-[680px]">
             <div className="mt-[110px] sm:mt-[300px] relative w-max">
-              <h1 className="text-5xl sm:text-6xl font-semibold leading-[60px] sm:leading-[80px] z-[10] relative w-max">
+              <p className="text-5xl sm:text-6xl font-semibold leading-[60px] sm:leading-[80px] z-[10] relative w-max">
                 มาตามหา
                 <br />
                 สายการเรียน
@@ -303,11 +338,11 @@ export default function Home({ articles }: any) {
                 ที่คุณอยากจะ
                 <br />
                 ทำความรู้จักกัน !
-              </h1>
+              </p>
               <div className="w-[300px] sm:w-[394px] h-[78px] sm:h-[96px] absolute border-[5px] border-yellow-500 rounded-[50%] rotate-[-6deg] top-[50px] sm:top-[74px] left-[-34px] z-[2]" />
-              <h1 className="font-light text-lg sm:text-xl tracking-wider mt-10 w-max">
+              <p className="font-light text-lg sm:text-xl tracking-wider mt-10 w-max">
                 คลิกที่ดวงดาวเพื่ออ่านข้อมูลสายการเรียน
-              </h1>
+              </p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row items-center mx-auto justify-evenly max-w-[1440px] mt-10 sm:mt-0">
@@ -329,7 +364,13 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
-        <div style={{background: "linear-gradient(180deg, rgba(40, 67, 119, 0.15) 0%, rgba(39, 66, 116, 0) 0.01%, rgba(79, 88, 138, 0.0225) 48.74%, rgba(122, 112, 162, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(40, 67, 119, 0.15) 0%, rgba(39, 66, 116, 0) 0.01%, rgba(79, 88, 138, 0.0225) 48.74%, rgba(122, 112, 162, 0) 100%)",
+          }}
+          className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
+        />
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/gifted.jpg')", height: "1124px" }}
           secondary={{ background: "url('images/backgrounds/gifted-mobile.jpg')", height: "926px" }}
@@ -338,7 +379,7 @@ export default function Home({ articles }: any) {
         >
           <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center space-x-2 lg:mt-[340px] mt-20">
             <div className="relative">
-              <h1 className="relative z-[10] text-[48px] font-light tracking-[14px] leading-[54px]">
+              <p className="relative z-[10] text-[48px] font-light tracking-[14px] leading-[54px]">
                 Explore
                 <br />
                 our
@@ -346,102 +387,110 @@ export default function Home({ articles }: any) {
                 <span className="font-semibold">Gifted</span>
                 <br />
                 programs.
-              </h1>
+              </p>
               <div className="w-[214px] h-[67px] absolute border-[3.6px] border-[#DD598F] rounded-[50%] rotate-[-8deg] top-[100px] left-[-10px] z-[2]" />
             </div>
             <div className="space-y-16 lg:mt-0 mt-20">
               <div className="flex flex-row md:space-x-16 space-x-4 items-center md:items-start">
-                <div
-                  onClick={() => {
-                    Router.push("/programmes/gifted-science")
-                  }}
-                  className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
-                >
-                  <div
-                    className="absolute top-[-30px] right-[-30px] w-[90px] h-[90px] sm:w-[126px] sm:h-[126px] rounded-full flex justify-center items-center z-[20]"
-                    style={{
-                      background: "linear-gradient(214.7deg, #6EB6F8 21.34%, #3144A9 92.79%, #4C97DD 93.46%)",
-                      boxShadow: "0px 3.35119px 3.35119px rgba(0, 0, 0, 0.25)",
-                    }}
+                <Link href="/programmes/gifted-science">
+                  <motion.a
+                    whileHover={{ scale: 1.04 }}
+                    className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
                   >
-                    <Flask className="h-[54px] w-[54px] sm:h-[80px] sm:w-[80px]" />
-                  </div>
-                  <h1 className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
-                    GIFTED-
-                    <br />
-                    SCIENCE
-                  </h1>
-                </div>
-                <div
-                  onClick={() => {
-                    Router.push("/programmes/gifted-math")
-                  }}
-                  className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
-                >
-                  <div
-                    className="absolute top-[-30px] right-[-30px] w-[90px] h-[90px] sm:w-[126px] sm:h-[126px] rounded-full flex justify-center items-center"
-                    style={{
-                      background: "linear-gradient(147.81deg, #379E7F 6.47%, #89C9AA 58.72%, #FFE459 102.08%)",
-                      boxShadow: "0px 3.35119px 3.35119px rgba(0, 0, 0, 0.25)",
-                    }}
+                    <div
+                      className="absolute top-[-30px] right-[-30px] w-[90px] h-[90px] sm:w-[126px] sm:h-[126px] rounded-full flex justify-center items-center z-[20]"
+                      style={{
+                        background: "linear-gradient(214.7deg, #6EB6F8 21.34%, #3144A9 92.79%, #4C97DD 93.46%)",
+                        boxShadow: "0px 3.35119px 3.35119px rgba(0, 0, 0, 0.25)",
+                      }}
+                    >
+                      <Flask className="h-[54px] w-[54px] sm:h-[80px] sm:w-[80px]" />
+                    </div>
+                    <p className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
+                      GIFTED-
+                      <br />
+                      SCIENCE
+                    </p>
+                  </motion.a>
+                </Link>
+
+                <Link href="/programmes/gifted-math">
+                  <motion.a
+                    whileHover={{ scale: 1.04 }}
+                    className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
                   >
-                    <Math className="h-[54px] w-[54px] sm:h-[80px] sm:w-[80px]" />
-                  </div>
-                  <h1 className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
-                    GIFTED-
-                    <br />
-                    MATH
-                  </h1>
-                </div>
+                    <div
+                      className="absolute top-[-30px] right-[-30px] w-[90px] h-[90px] sm:w-[126px] sm:h-[126px] rounded-full flex justify-center items-center"
+                      style={{
+                        background: "linear-gradient(147.81deg, #379E7F 6.47%, #89C9AA 58.72%, #FFE459 102.08%)",
+                        boxShadow: "0px 3.35119px 3.35119px rgba(0, 0, 0, 0.25)",
+                      }}
+                    >
+                      <Math className="h-[54px] w-[54px] sm:h-[80px] sm:w-[80px]" />
+                    </div>
+                    <p className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
+                      GIFTED-
+                      <br />
+                      MATH
+                    </p>
+                  </motion.a>
+                </Link>
               </div>
               <div className="flex flex-row md:space-x-16 space-x-4 items-center md:items-start">
-                <div
-                  onClick={() => {
-                    Router.push("/programmes/gifted-english")
-                  }}
-                  className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
-                >
-                  <div
-                    className="absolute top-[-30px] right-[-30px] w-[90px] h-[90px] sm:w-[126px] sm:h-[126px] rounded-full flex justify-center items-center z-[20]"
-                    style={{
-                      background: "linear-gradient(213.77deg, #BA3269 8.06%, #FC81B3 51.26%, #FFDB7D 88.91%)",
-                      boxShadow: "0px 3.35119px 3.35119px rgba(0, 0, 0, 0.25)",
-                    }}
+                <Link href="/programmes/gifted-english">
+                  <motion.a
+                    whileHover={{ scale: 1.04 }}
+                    className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
                   >
-                    <span className="text-[60px] sm:text-[73px] font-black">A</span>
-                  </div>
-                  <h1 className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
-                    GIFTED-
-                    <br />
-                    ENGLISH
-                  </h1>
-                </div>
-                <div
-                  onClick={() => {
-                    Router.push("/programmes/gifted-thai")
-                  }}
-                  className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
-                >
-                  <div
-                    className="absolute top-[-30px] right-[-30px] w-[90px] h-[90px] sm:w-[126px] sm:h-[126px] rounded-full flex justify-center items-center"
-                    style={{
-                      background: "linear-gradient(308.56deg, #B2A0F1 14.77%, #46BECE 86.58%, #8129A0 86.59%)",
-                      boxShadow: "0px 3.35119px 3.35119px rgba(0, 0, 0, 0.25)",
-                    }}
+                    <div
+                      className="absolute top-[-30px] right-[-30px] w-[90px] h-[90px] sm:w-[126px] sm:h-[126px] rounded-full flex justify-center items-center z-[20]"
+                      style={{
+                        background: "linear-gradient(213.77deg, #BA3269 8.06%, #FC81B3 51.26%, #FFDB7D 88.91%)",
+                        boxShadow: "0px 3.35119px 3.35119px rgba(0, 0, 0, 0.25)",
+                      }}
+                    >
+                      <span className="text-[60px] sm:text-[73px] font-black">A</span>
+                    </div>
+                    <p className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
+                      GIFTED-
+                      <br />
+                      ENGLISH
+                    </p>
+                  </motion.a>
+                </Link>
+
+                <Link href="/programmes/gifted-thai">
+                  <motion.a
+                    whileHover={{ scale: 1.04 }}
+                    className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
                   >
-                    <span className="text-[70px] sm:text-[88px] font-black">ก</span>
-                  </div>
-                  <h1 className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
-                    GIFTED-
-                    <br />
-                    THAI
-                  </h1>
-                </div>
+                    <div
+                      className="absolute top-[-30px] right-[-30px] w-[90px] h-[90px] sm:w-[126px] sm:h-[126px] rounded-full flex justify-center items-center"
+                      style={{
+                        background: "linear-gradient(308.56deg, #B2A0F1 14.77%, #46BECE 86.58%, #8129A0 86.59%)",
+                        boxShadow: "0px 3.35119px 3.35119px rgba(0, 0, 0, 0.25)",
+                      }}
+                    >
+                      <span className="text-[70px] sm:text-[88px] font-black">ก</span>
+                    </div>
+                    <p className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
+                      GIFTED-
+                      <br />
+                      THAI
+                    </p>
+                  </motion.a>
+                </Link>
               </div>
             </div>
           </div>
         </AdaptiveBg>
-        <div style={{background: "linear-gradient(180deg, rgba(144, 89, 136, 0) 0%, rgba(89, 78, 133, 0) 0.01%, rgba(96, 65, 125, 0.0225) 50.83%, rgba(103, 53, 118, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(144, 89, 136, 0) 0%, rgba(89, 78, 133, 0) 0.01%, rgba(96, 65, 125, 0.0225) 50.83%, rgba(103, 53, 118, 0) 100%)",
+          }}
+          className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
+        />
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/clubs-index.jpg')", height: "1124px" }}
           secondary={{ background: "url('images/backgrounds/clubs-index-mobile.jpg')", height: "926px" }}
@@ -450,29 +499,42 @@ export default function Home({ articles }: any) {
           element="section"
         >
           <div className="flex items-center md:flex-row flex-col space-x-4 lg:space-x-12">
-            <div className="relative w-max flex-shrink-0">
-              <div className="w-[300px] sm:w-[381px]">
-                <Image src="/images/clubs/clubs-circle.png" width={381} height={381} />
-              </div>
-              <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
-                <h1 className="text-[70px] sm:text-[84px] font-black">ชมรม</h1>
-              </div>
-            </div>
+            <Link href="/clubs">
+              <motion.a whileHover={{ scale: 1.02 }} className="cursor-pointer relative w-max flex-shrink-0">
+                <div className="w-[300px] sm:w-[381px]">
+                  <Image src="/images/clubs/clubs-circle.png" width={381} height={381} />
+                </div>
+                <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
+                  <p className="text-[70px] sm:text-[84px] font-bold">ชมรม</p>
+                </div>
+              </motion.a>
+            </Link>
             <div className="flex flex-col items-center md:items-end space-y-8 mt-[30px] md:mt-[100px]">
-              <h1 className="text-[30px] lg:text-[34px] leading-[40px] lg:leading-[48px] text-center md:text-right font-medium">
+              <p className="text-[30px] lg:text-[34px] leading-[40px] lg:leading-[48px] text-center md:text-right font-light">
                 เราจะพาทุกคนไปทำความรู้จัก
                 <br />
                 กับชมรมของโรงเรียนเรา
                 <br />
                 ที่มีมากกว่า 60 ชมรมกัน !
-              </h1>
+              </p>
               <Link href="/clubs">
-                <div className="text-[#112D55] bg-white px-12 rounded-full text-lg py-2.5 cursor-pointer">ดูชมรมทั้งหมด</div>
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  className="text-[#112D55] bg-white px-12 rounded-full text-lg py-2.5 cursor-pointer"
+                >
+                  ดูชมรมทั้งหมด
+                </motion.a>
               </Link>
             </div>
           </div>
         </AdaptiveBg>
-        <div style={{background: "linear-gradient(180deg, rgba(144, 89, 136, 0) 0%, rgba(89, 78, 133, 0) 0.01%, rgba(96, 65, 125, 0.0225) 50.83%, rgba(103, 53, 118, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(144, 89, 136, 0) 0%, rgba(89, 78, 133, 0) 0.01%, rgba(96, 65, 125, 0.0225) 50.83%, rgba(103, 53, 118, 0) 100%)",
+          }}
+          className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
+        />
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/clubs.jpg')", height: "2048px" }}
           secondary={{ background: "url('images/backgrounds/clubs-mobile.jpg')", height: "926px" }}
@@ -481,7 +543,7 @@ export default function Home({ articles }: any) {
           <div className="max-w-[900px] mx-auto px-6">
             <div className="mt-[200px] mb-8">
               <div className="flex items-center justify-between mb-6">
-                <h1 className="text-5xl">วิดีโอ</h1>
+                <p className="text-5xl">วิดีโอ</p>
                 <div
                   onClick={() => {
                     Router.push("/videos")
@@ -606,7 +668,7 @@ export default function Home({ articles }: any) {
             </div>
             <div className="mt-[200px] mb-8">
               <div className="flex items-center justify-between mb-6">
-                <h1 className="text-5xl">บทความ</h1>
+                <p className="text-5xl">บทความ</p>
                 <div
                   onClick={() => {
                     Router.push("/articles")
@@ -631,7 +693,13 @@ export default function Home({ articles }: any) {
             </div>
           </div>
         </AdaptiveBg>
-        <div style={{background: "linear-gradient(180deg, rgba(120, 78, 136, 0) 0%, rgba(160, 128, 179, 0.0225) 47.7%, rgba(206, 186, 228, 0) 100%)"}} className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"/>
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(120, 78, 136, 0) 0%, rgba(160, 128, 179, 0.0225) 47.7%, rgba(206, 186, 228, 0) 100%)",
+          }}
+          className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
+        />
         <AdaptiveBg
           primary={{ background: "url('images/backgrounds/additional.jpg')", height: "1124px" }}
           secondary={{ background: "url('images/backgrounds/additional-mobile.jpg')", height: "926px" }}
@@ -640,22 +708,27 @@ export default function Home({ articles }: any) {
           element="section"
         >
           <div className="mx-auto">
-            <h1 className="font-black text-[46px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h1>
+            <p className="font-black text-[46px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</p>
             <p className="text-[20px] md:text-[26px] font-light text-center mt-2">
               มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ
               <br />
               หรือถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !
             </p>
             <div className="flex flex-col md:flex-row justify-center items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0 mt-16">
-              <div className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md">การสอบเข้า</div>
-              <div
-                onClick={() => {
-                  Router.push("/directions")
-                }}
-                className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer"
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md"
               >
-                การเดินทางมาโรงเรียนเตรียมฯ
-              </div>
+                การสอบเข้า
+              </motion.a>
+              <Link href="/directions">
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer"
+                >
+                  การเดินทางมาโรงเรียนเตรียมฯ
+                </motion.a>
+              </Link>
             </div>
           </div>
         </AdaptiveBg>
