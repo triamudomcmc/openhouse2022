@@ -1,7 +1,7 @@
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import classNames from "classnames"
 import { motion } from "framer-motion"
-import { FC, MouseEventHandler, useEffect, useRef } from "react"
+import { FC, KeyboardEventHandler, MouseEventHandler, useEffect, useRef } from "react"
 
 const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
   if (["black", "white"].includes(scene)) {
@@ -69,6 +69,16 @@ export const GameBg: FC<{
     <motion.main
       key={skey}
       onClick={onClick}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{
+        opacity: 0,
+      }}
+      transition={{ duration: 3 }}
       style={{
         background: primary.background,
         backgroundRepeat: "no-repeat",
