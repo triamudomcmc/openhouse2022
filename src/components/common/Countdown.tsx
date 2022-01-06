@@ -2,8 +2,6 @@ import { FC, useEffect, useState } from "react"
 
 const OpeningTime = +new Date(2022, 0, 14, 9, 0, 0, 0)
 
-console.log(new Date(2022, 1, 14, 9, 0, 0, 0).toString())
-
 interface TimeLeft {
   days: number
   hours: number
@@ -42,8 +40,8 @@ export const CountDown: FC = () => {
   }, [])
 
   return (
-    <div className="flex flex-col text-white font-display text-xl font-thin px-16 py-3 mt-[30px] md:mt-[50px] space-y-8">
-      <div className="flex text-center space-x-8 text-4xl">
+    <div className="flex flex-col text-white font-display text-xl font-thin sm:px-16 py-3 mt-[30px] md:mt-[50px] space-y-8">
+      <div className="flex text-center space-x-6 text-4xl">
         <div className="flex-col space-y-2">
           <p className="font-mono px-6 py-6 bg-gray-500 bg-opacity-25 backdrop-blur-sm rounded-tl-xl rounded-bl-xl">
             {timeLeft?.days}

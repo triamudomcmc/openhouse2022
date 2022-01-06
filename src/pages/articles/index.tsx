@@ -22,7 +22,7 @@ const Blog = ({ data }: { data: any }) => {
       >
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
-            <h1 className="text-lg font-semibold leading-[20px] h-[40px] overflow-hidden">{data.title}</h1>
+            <h2 className="text-lg font-semibold leading-[20px] h-[40px] overflow-hidden">{data.title}</h2>
             <p
               dangerouslySetInnerHTML={{ __html: `${data.content}...` }}
               className="font-light overflow-hidden h-[56px] pt-2"
@@ -38,6 +38,7 @@ const Blog = ({ data }: { data: any }) => {
             src={data.thumbnail}
             className="flex-shrink-0 rounded-r-lg"
           />
+          <div className="w-[317px] h-[197px] bg-gray-400 bg-opacity-25 border border-white rounded-r-lg flex-shrink-0"></div>
         </div>
       </div>
     </Link>
