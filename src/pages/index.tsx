@@ -9,13 +9,14 @@ import Link from "next/link"
 import { ArrowRightIcon, UserIcon } from "@heroicons/react/solid"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/splide.min.css"
-import { useEffect, useRef } from "react"
+import { FC, useEffect, useRef } from "react"
 import classnames from "classnames"
 import { GetStaticProps } from "next"
 import { getAllPosts } from "@lib/api"
 import markdownToHtml from "@lib/markdownToHTML"
 import { IAuthContext, useAuth } from "@lib/auth"
 import { Programme } from "@components/programme"
+import { CountDown } from "@components/common/Countdown"
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -204,7 +205,8 @@ export default function Home({ articles }: any) {
               </span>
             </h1>
             <div className="flex flex-col items-center">
-              {getButton(auth)}
+              {/* {getButton(auth)} */}
+              <CountDown />
               <LogoWhite className="w-[174px] mt-6 md:mt-16" />
             </div>
           </div>
