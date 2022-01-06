@@ -300,7 +300,7 @@ const Directions = () => {
             </div>
           </div>
           <div className="mt-8 mx-auto lg:mt-64 lg:ml-[-200px]">
-            <div className="flex space-x-4 hidden lg:flex">
+            <div className="space-x-4 hidden lg:flex">
               <div>
                 <div
                   onClick={() => {
