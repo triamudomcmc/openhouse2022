@@ -15,7 +15,7 @@ import { GetStaticProps } from "next"
 import { getAllPosts } from "@lib/api"
 import markdownToHtml from "@lib/markdownToHTML"
 import { IAuthContext, useAuth } from "@lib/auth"
-import {Programme} from "@components/programme";
+import { Programme } from "@components/programme"
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -493,7 +493,7 @@ export default function Home({ articles }: any) {
               </motion.a>
             </Link>
             <div className="flex flex-col items-center md:items-end space-y-8 mt-[30px] md:mt-[100px]">
-              <p className="text-[30px] lg:text-[34px] leading-[40px] lg:leading-[48px] text-center md:text-right font-light">
+              <p className="text-[24px] lg:text-[30px] leading-[40px] lg:leading-[48px] text-center md:text-right font-light">
                 เราจะพาทุกคนไปทำความรู้จัก
                 <br />
                 กับชมรมของโรงเรียนเรา
@@ -690,7 +690,7 @@ export default function Home({ articles }: any) {
           classname="flex items-center"
           element="section"
         >
-          <div className="mx-auto">
+          <div className="mx-auto px-8 sm:px-0">
             <p className="font-black text-[46px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</p>
             <p className="text-[20px] md:text-[26px] font-light text-center mt-2">
               มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ
@@ -698,12 +698,14 @@ export default function Home({ articles }: any) {
               หรือถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !
             </p>
             <div className="flex flex-col md:flex-row justify-center items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0 mt-16">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md"
-              >
-                การสอบเข้า
-              </motion.a>
+              <Link href="/admission">
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer"
+                >
+                  การสอบเข้า
+                </motion.a>
+              </Link>
               <Link href="/directions">
                 <motion.a
                   whileHover={{ scale: 1.05 }}
