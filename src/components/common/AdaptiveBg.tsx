@@ -10,7 +10,8 @@ export const AdaptiveBg: FC<{
   classname?: string
   blend?: boolean
   element?: "main" | "section" | "article"
-}> = ({ children, primary, secondary, mobile, classname, element }) => {
+  id?: string
+}> = ({ children, primary, secondary, mobile, classname, id, element }) => {
   const { width } = useWindowDimensions()
   const [bg, setBg] = useState(
     <div
@@ -97,6 +98,7 @@ export const AdaptiveBg: FC<{
         minHeight: source.height,
       },
       className: classnames("relative overflow-x-hidden min-h-screen pb-20 text-white py-2", classname),
+      id: id,
     }
   }
 

@@ -189,17 +189,20 @@ export default function Home({ articles }: any) {
           mobile={{ background: "/images/backgrounds/landing-mobile-default.jpg", height: "926px" }}
           classname="flex items-center"
           element="main"
+          id="main"
         >
           <div className="font-game flex flex-col items-start sm:items-center w-full px-8">
-            <span className="text-[64px] xl:text-[116px] leading-[64px] xl:leading-[156px] font-black tracking-[14px] xl:tracking-[24px]">
-              TRIAM UDOM
-            </span>
-            <span className="text-[24px] xl:text-[50px] tracking-[8px] xl:tracking-[13px] font-light mt-[10px] xl:mt-[-26px]">
-              ONLINE OPEN HOUSE 2022
-            </span>
-            <span className="text-[16px] md:text-[30px] font-thin tracking-[8px] md:tracking-[10px] mt-10">
-              14-15 JANUARY
-            </span>
+            <h1 className="flex flex-col items-start sm:items-center">
+              <span className="text-[64px] xl:text-[116px] leading-[64px] xl:leading-[156px] font-black tracking-[14px] xl:tracking-[24px]">
+                TRIAM UDOM
+              </span>
+              <span className="text-[24px] xl:text-[50px] tracking-[8px] xl:tracking-[13px] font-light mt-[10px] xl:mt-[-26px]">
+                ONLINE OPEN HOUSE 2022
+              </span>
+              <span className="text-[16px] md:text-[30px] font-thin tracking-[8px] md:tracking-[10px] mt-10">
+                14-15 JANUARY
+              </span>
+            </h1>
             <div className="flex flex-col items-center">
               {getButton(auth)}
               <LogoWhite className="w-[174px] mt-6 md:mt-16" />
@@ -219,16 +222,17 @@ export default function Home({ articles }: any) {
           mobile={{ background: "/images/backgrounds/live-mobile-default.jpg", height: "926px" }}
           classname="flex items-center"
           element="section"
+          id="live"
         >
           <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
             <div className="my-auto">
               <div className="mb-4">
-                <div className="flex items-center space-x-3">
+                <h2 className="flex items-center space-x-3">
                   <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">
                     LIVE
                   </span>{" "}
                   <span className="text-2xl sm:text-3xl">ร้องเพลงปิ่นหทัย</span>
-                </div>
+                </h2>
                 <div>
                   <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>
                 </div>
@@ -310,10 +314,11 @@ export default function Home({ articles }: any) {
           secondary={{ background: "/images/backgrounds/branches-mobile.jpg", height: "1385px" }}
           mobile={{ background: "/images/backgrounds/branches-mobile-default.jpg", height: "926px" }}
           element="section"
+          id="programmes"
         >
           <div className="pl-0 sm:pl-[200px] mx-auto w-max sm:h-[680px]">
             <div className="mt-[110px] sm:mt-[300px] relative w-max">
-              <p className="text-5xl sm:text-6xl font-semibold leading-[60px] sm:leading-[80px] z-[10] relative w-max">
+              <h2 className="text-5xl sm:text-6xl font-semibold leading-[60px] sm:leading-[80px] z-[10] relative w-max">
                 มาตามหา
                 <br />
                 สายการเรียน
@@ -321,7 +326,7 @@ export default function Home({ articles }: any) {
                 ที่คุณอยากจะ
                 <br />
                 ทำความรู้จักกัน !
-              </p>
+              </h2>
               <div className="w-[300px] sm:w-[394px] h-[78px] sm:h-[96px] absolute border-[5px] border-yellow-500 rounded-[50%] rotate-[-6deg] top-[50px] sm:top-[74px] left-[-34px] z-[2]" />
               <p className="font-light text-lg sm:text-xl tracking-wider mt-10 w-max">
                 คลิกที่ดวงดาวเพื่ออ่านข้อมูลสายการเรียน
@@ -359,10 +364,11 @@ export default function Home({ articles }: any) {
           secondary={{ background: "/images/backgrounds/gifted-mobile.jpg", height: "926px" }}
           mobile={{ background: "/images/backgrounds/gifted-mobile-default.jpg", height: "926px" }}
           element="section"
+          id="gifted"
         >
           <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center space-x-2 lg:mt-[340px] mt-20">
             <div className="relative">
-              <p className="relative z-[10] text-[48px] font-light tracking-[14px] leading-[54px]">
+              <h2 className="relative z-[10] text-[48px] font-light tracking-[14px] leading-[54px]">
                 Explore
                 <br />
                 our
@@ -370,7 +376,7 @@ export default function Home({ articles }: any) {
                 <span className="font-semibold">Gifted</span>
                 <br />
                 programs.
-              </p>
+              </h2>
               <div className="w-[214px] h-[67px] absolute border-[3.6px] border-[#DD598F] rounded-[50%] rotate-[-8deg] top-[100px] left-[-10px] z-[2]" />
             </div>
             <div className="space-y-16 lg:mt-0 mt-20">
@@ -480,6 +486,7 @@ export default function Home({ articles }: any) {
           mobile={{ background: "/images/backgrounds/clubs-index-mobile-default.jpg", height: "926px" }}
           classname="flex flex-col justify-center items-center"
           element="section"
+          id="clubs"
         >
           <div className="flex items-center md:flex-row flex-col space-x-4 lg:space-x-12">
             <Link href="/clubs">
@@ -488,7 +495,7 @@ export default function Home({ articles }: any) {
                   <Image src="/images/clubs/clubs-circle.png" width={381} height={381} />
                 </div>
                 <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
-                  <p className="text-[70px] sm:text-[84px] font-bold">ชมรม</p>
+                  <h2 className="text-[70px] sm:text-[84px] font-bold">ชมรม</h2>
                 </div>
               </motion.a>
             </Link>
@@ -522,20 +529,18 @@ export default function Home({ articles }: any) {
           primary={{ background: "/images/backgrounds/clubs.jpg", height: "2048px" }}
           secondary={{ background: "/images/backgrounds/clubs-mobile.jpg", height: "926px" }}
           mobile={{ background: "/images/backgrounds/clubs-mobile-default.jpg", height: "926px" }}
+          id="content"
         >
           <div className="max-w-[900px] mx-auto px-6">
             <div className="mt-[200px] mb-8">
-              <div className="flex items-center justify-between mb-6">
-                <p className="text-5xl">วิดีโอ</p>
-                <div
-                  onClick={() => {
-                    Router.push("/videos")
-                  }}
-                  className="flex space-x-1 mr-10 cursor-pointer"
-                >
-                  <span className="font-light">ดูทั้งหมด</span>
-                  <ArrowCircleRightIcon className="w-6 h-6" />
-                </div>
+              <div id="videos" className="flex items-center justify-between mb-6">
+                <h2 className="text-5xl">วิดีโอ</h2>
+                <Link href="/videos">
+                  <a className="flex space-x-1 mr-10 cursor-pointer hover:underline">
+                    <span className="font-light">ดูทั้งหมด</span>
+                    <ArrowCircleRightIcon className="w-6 h-6" />
+                  </a>
+                </Link>
               </div>
               <p className="font-light text-lg leading-[24px]">
                 วิดีโอจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br /> ที่ทางเราจะนำมานำเสนอให้ทุกคนได้รับชมอย่างเต็มที่ !
@@ -649,18 +654,15 @@ export default function Home({ articles }: any) {
                 </SplideSlide>
               </Splide>
             </div>
-            <div className="mt-[200px] mb-8">
+            <div id="articles" className="mt-[200px] mb-8">
               <div className="flex items-center justify-between mb-6">
-                <p className="text-5xl">บทความ</p>
-                <div
-                  onClick={() => {
-                    Router.push("/articles")
-                  }}
-                  className="flex space-x-1 mr-10 cursor-pointer"
-                >
-                  <span className="font-light">ดูทั้งหมด</span>
-                  <ArrowCircleRightIcon className="w-6 h-6" />
-                </div>
+                <h2 className="text-5xl">บทความ</h2>
+                <Link href="/articles">
+                  <a className="flex space-x-1 mr-10 cursor-pointer hover:underline">
+                    <span className="font-light">ดูทั้งหมด</span>
+                    <ArrowCircleRightIcon className="w-6 h-6" />
+                  </a>
+                </Link>
               </div>
               <p className="font-light text-lg leading-[24px]">
                 บทความจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br />
@@ -689,9 +691,10 @@ export default function Home({ articles }: any) {
           mobile={{ background: "/images/backgrounds/additional-mobile-default.jpg", height: "926px" }}
           classname="flex items-center"
           element="section"
+          id="info"
         >
           <div className="mx-auto px-8 sm:px-0">
-            <p className="font-black text-[46px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</p>
+            <h2 className="font-black text-[46px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h2>
             <p className="text-[20px] md:text-[26px] font-light text-center mt-2">
               มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ
               <br />
