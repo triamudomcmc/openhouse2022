@@ -205,8 +205,7 @@ export default function Home({ articles }: any) {
               </span>
             </h1>
             <div className="flex flex-col items-center">
-              {/* {getButton(auth)} */}
-              <CountDown />
+              {getButton(auth)}
               <LogoWhite className="w-[174px] mt-6 md:mt-16" />
             </div>
           </div>
