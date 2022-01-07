@@ -1,8 +1,3 @@
-import { Layout } from "@components/common/Layout"
-import { Loading } from "@components/common/Loading"
-import { MetaData } from "@components/common/Meta"
-import { AuthProvider } from "@lib/auth"
-import { ToastProvider } from "@lib/toast"
 import "@styles/tailwind.css"
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router"
@@ -28,24 +23,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     router.events.on("routeChangeError", handleComplete)
   }, [router])
 
-  return loading ? (
-    <>
-      <MetaData />
-      <Loading />
-    </>
-  ) : (
-    <AuthProvider>
-      <ToastProvider>
-        {!(router.pathname === "/ticket/[uid]") && <MetaData />}
-        {!(router.pathname === "/") ? (
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        ) : (
-          <Component {...pageProps} />
-        )}
-      </ToastProvider>
-    </AuthProvider>
-  )
+  return <Component {...pageProps} />
 }
 export default MyApp
