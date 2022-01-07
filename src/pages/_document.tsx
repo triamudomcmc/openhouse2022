@@ -17,7 +17,10 @@ export default class Document extends NextDocument {
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Prompt:wght@300;500;600&display=swap?family=Roboto+Mono&display=swap"
             rel="stylesheet"
           />
-          <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+          />
           <link rel="icon" type="image/x-icon" href="/meta/favicon.ico" />
           <link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
@@ -28,6 +31,19 @@ export default class Document extends NextDocument {
           <meta
             name="keywords"
             content="Triam Udom, TUOPH, Triam Udom Online Open House, Triam Udom Open House 2022, Triam Udom Online Open House 2022, TriamOPH2022, triam, tu85, Triamudom85, เตรียมอุดม, เตรียมอุดมฯ, triamOPH"
+          />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3262R253B"></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'G-BP2MQ6QL2W', {
+				page_path: window.location.pathname,
+			  });
+			`,
+            }}
           />
         </Head>
         <body>
