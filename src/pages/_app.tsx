@@ -1,3 +1,4 @@
+import { MetaData } from "@components/common/Meta"
 import "@styles/tailwind.css"
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router"
@@ -23,6 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     router.events.on("routeChangeError", handleComplete)
   }, [router])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <MetaData />
+      <Component {...pageProps} />
+    </>
+  )
 }
 export default MyApp
