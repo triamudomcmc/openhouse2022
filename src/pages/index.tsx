@@ -39,48 +39,47 @@ const Highlights = () => {
         }}
       >
         <h1 className="text-[#D6A087] font-black text-5xl text-center">Highlights</h1>
-        <div className="flex flex-wrap justify-center items-center">
-          <div className="flex flex-col justify-center space-y-4 mt-6 mx-3">
+        <div className="flex flex-wrap justify-center items-start">
+          <div className="w-[270px] flex flex-col justify-center space-y-4 mt-6 mx-3">
             <Image
               className="border border-white rounded-xl"
               objectFit={"cover"}
               src={"/assets/highlights/live-interview.png"}
               alt="สัมภาษณ์ศิษย์เก่า"
               priority={true}
-              width={266}
+              width={270}
               height={149}
             />
-            <p className="text-center px-4 font-display text-white font-light text-[18px] mt-2">
-              LIVE สัมภาษณ์ศิษย์เก่าและคอนเทนต์ <br />
-              ที่น่าสนใจอื่น ๆ อีกมากมาย
+            <p className="text-center px-2 font-display text-white font-light text-[18px] mt-2">
+              LIVE สัมภาษณ์นักเรียนเก่า และคอนเทนต์ที่น่าสนใจอื่น ๆ อีกมากมาย
             </p>
           </div>
-          <div className="flex flex-col justify-center space-y-4 mt-6 mx-3">
+          <div className="w-[270px] flex flex-col justify-center space-y-4 mt-6 mx-3">
             <Image
-              className="border background-position border-white rounded-xl"
+              className="max-border background-position border-white rounded-xl"
               objectFit={"cover"}
               src={"/assets/highlights/zoom-promotion.jpg"}
               alt="สัมภาษณ์ศิษย์เก่า"
               priority={true}
-              width={266}
+              width={270}
               height={149}
             />
-            <p className="text-center px-4 font-display text-white font-light text-[18px] mt-2">
-              ปรึกษาปัญหา-พูดคุยกับพี่ ๆ <br />
-              ได้ในกิจกรรม ZOOM สายการเรียน
+            <p className="text-center px-2 font-display text-white font-light text-[18px] mt-2">
+              ปรึกษาปัญหา-พูดคุยกับพี่ ๆ ได้ในกิจกรรม ZOOM สายการเรียน
             </p>
           </div>
-          <div className="flex flex-col justify-center space-y-4 mt-6 mx-3">
+          <div className="w-[270px] flex flex-col justify-center space-y-4 mt-6 mx-3">
             <Image
               className="border border-white rounded-xl"
               src={"/assets/highlights/articles.jpg"}
               alt="สัมภาษณ์ศิษย์เก่า"
               priority={true}
-              width={266}
+              width={270}
               height={149}
             />
-            <p className="text-center px-4 font-display text-white font-light text-[18px] mt-2">
-              คลิป / บทความที่น่าสนใจ <br />
+            <p className="text-center px-2 font-display text-white font-light text-[18px] mt-2">
+              คลิป / บทความที่น่าสนใจ
+              <br />
               จากรุ่นพี่เตรียมอุดมฯ
             </p>
           </div>
