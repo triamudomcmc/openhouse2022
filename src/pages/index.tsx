@@ -15,8 +15,8 @@ import { GetStaticProps } from "next"
 import { getAllPosts } from "@lib/api"
 import markdownToHtml from "@lib/markdownToHTML"
 import { IAuthContext, useAuth } from "@lib/auth"
-import { Programme } from "@components/programme"
 import { CountDown } from "@components/common/Countdown"
+import { Programme } from "@components/programme"
 
 const Blog = ({ data }: { data: any }) => {
   return (
