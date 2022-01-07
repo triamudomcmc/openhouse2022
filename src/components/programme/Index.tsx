@@ -1,6 +1,6 @@
-import {motion} from "framer-motion";
-import Router from "next/router";
-import Image from "next/image";
+import { motion } from "framer-motion"
+import Router from "next/router"
+import Image from "next/image"
 
 export const Programme = ({ name, thainame }: { name: string; thainame: string }) => {
   return (

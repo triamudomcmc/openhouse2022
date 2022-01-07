@@ -5,7 +5,36 @@ import { Youtube } from "@vectors/Youtube"
 import { TUCMCLogo } from "./TUCMCLogo"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { useAuth } from "@lib/auth"
+import { IAuthContext, useAuth } from "@lib/auth"
+
+const getButton = (auth: IAuthContext | null) => {
+  const noAuth = auth?.user === null
+
+  if (noAuth) {
+    return (
+      <Link href="/register">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          style={{ background: "linear-gradient(97.19deg, #C898CC 0.83%, #666EAD 43.54%, #112D55 99.62%)" }}
+          className="px-8 py-2 rounded-full inline-flex font-regular font-display text-white"
+        >
+          ลงทะเบียน
+        </motion.button>
+      </Link>
+    )
+  } else {
+    return (
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        onClick={() => auth?.signout()}
+        style={{ background: "linear-gradient(97.19deg, #C898CC 0.83%, #666EAD 43.54%, #112D55 99.62%)" }}
+        className="px-8 py-2 rounded-full inline-flex font-regular font-display text-white"
+      >
+        ออกจากระบบ
+      </motion.button>
+    )
+  }
+}
 
 export const Footer = () => {
   const auth = useAuth()
@@ -52,24 +81,7 @@ export const Footer = () => {
                 <Youtube />
               </motion.a>
             </div>
-            {!auth?.user ? (
-              <motion.button
-                style={{ background: "linear-gradient(97.19deg, #C898CC 0.83%, #666EAD 43.54%, #112D55 99.62%)" }}
-                className="px-8 py-2 rounded-full inline-flex font-medium font-display text-white"
-                whileHover={{ scale: 1.1 }}
-              >
-                เข้าสู่ระบบ
-              </motion.button>
-            ) : (
-              <motion.button
-                style={{ background: "linear-gradient(97.19deg, #C898CC 0.83%, #666EAD 43.54%, #112D55 99.62%)" }}
-                className="px-8 py-2 rounded-full inline-flex font-medium font-display text-white"
-                whileHover={{ scale: 1.1 }}
-                onClick={() => auth.signout()}
-              >
-                ออกจากระบบ
-              </motion.button>
-            )}
+            {getButton(auth)}
           </div>
         </div>
         <div className="text-[#6B7280] flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28">
@@ -97,7 +109,7 @@ export const Footer = () => {
             <Link href="/admission">
               <a className="hover:underline">การสอบเข้า</a>
             </Link>
-            <Link href="/mycard">
+            <Link href="/ticket">
               <a className="hover:underline">การ์ดของคุณ</a>
             </Link>
             <Link href="/info">
