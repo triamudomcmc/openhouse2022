@@ -11,7 +11,7 @@ export const HamburgerButton = forwardRef<HTMLButtonElement, { reveal: boolean; 
       <button
         ref={ref}
         aria-label="Mobile Menu"
-        className="cursor-pointer"
+        className="cursor-pointer block md:hidden"
         onClick={(e) => {
           e.stopPropagation()
           toggle()

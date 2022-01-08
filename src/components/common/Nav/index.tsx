@@ -63,9 +63,9 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
     if (pathname == expected) {
       switch (part) {
         case "ul":
-          return "border-b-2 border-red-400 sm:border-white"
+          return "border-b-2 border-gray-400 sm:border-white"
         case "color":
-          return "text-red-400"
+          return "text-gray-400"
       }
     } else {
       switch (part) {
@@ -138,7 +138,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
         ref={panel}
         animate={reveal ? "open" : "close"}
         variants={variants}
-        className="flex md:none flex-col items-center right-full fixed top-0 bg-black h-full w-48 z-[99] py-4"
+        className="flex md:none flex-col items-center right-full fixed top-0 bg-gray-700 bg-opacity-75 backdrop-blur-lg h-full w-48 z-[99] py-4"
       >
         {/* <button onClick={() => setReveal(false)} className="mb-16">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
