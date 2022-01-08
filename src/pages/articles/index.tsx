@@ -38,7 +38,7 @@ const Blog = ({ data }: { data: any }) => {
             src={data.thumbnail}
             className="flex-shrink-0 rounded-r-lg"
           />
-          <div className="w-[317px] h-[197px] bg-gray-400 bg-opacity-25 border border-white rounded-r-lg flex-shrink-0"></div>
+          {/* <div className="w-[317px] h-[197px] bg-gray-400 bg-opacity-25 border border-white rounded-r-lg flex-shrink-0"></div> */}
         </div>
       </div>
     </Link>
@@ -131,12 +131,13 @@ const Page = ({ contents }: { contents: any }) => {
   }, [searchContext, contents])
 
   return (
-    <AdaptiveBg
-      primary={{ background: "/images/backgrounds/clubs.jpg", height: "2048px", expandTo: "100%" }}
-      secondary={{ background: "/images/backgrounds/clubs-mobile.jpg", height: "926px" }}
-      mobile={{ background: "/images/backgrounds/clubs-mobile-default.jpg", height: "926px" }}
-      id="articles"
-    >
+    <main className="color-violet-blue py-2" id="articles">
+      {/* <AdaptiveBg
+        primary={{ background: "/images/backgrounds/clubs.jpg", height: "2048px", expandTo: "100%" }}
+        secondary={{ background: "/images/backgrounds/clubs-mobile.jpg", height: "926px" }}
+        mobile={{ background: "/images/backgrounds/clubs-mobile-default.jpg", height: "926px" }}
+        id="articles"
+      > */}
       <div className="max-w-6xl mx-auto mt-40">
         <div
           onClick={() => {
@@ -166,7 +167,7 @@ const Page = ({ contents }: { contents: any }) => {
             </div>
           </div>
           <div className="mt-12 max-w-4xl mx-auto px-6">
-            <div className={classnames("relative space-y-6 max-h-[2021px] overflow-y-scroll snap-y scroll")}>
+            <div className={classnames("relative space-y-6 snap-y")}>
               {contents.map((data: any, index: number) => (
                 <Blog key={`blog-${index}`} data={data} />
               ))}
@@ -174,7 +175,8 @@ const Page = ({ contents }: { contents: any }) => {
           </div>
         </div>
       </div>
-    </AdaptiveBg>
+      {/*</AdaptiveBg>*/}
+    </main>
   )
 }
 

@@ -20,6 +20,10 @@
     background: linear-gradient(180deg, #000f30 0%, #072449 28.13%, #0f2466 100%);
   }
 
+  .color-violet-blue {
+    background: linear-gradient(180deg, #65185b 0%, #370663 28.13%, #0f2466 100%);
+  }
+
   .color-slip-jeen-top {
     background: linear-gradient(180deg, #000f30 0%, #072449 28.13%);
   }
