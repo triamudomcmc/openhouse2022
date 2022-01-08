@@ -10,10 +10,11 @@ const TOS: NextPage<{ content: string }> = ({ content }) => {
       <div className="flex flex-col items-center color-slip-jeen justify-center flex-1 w-full h-full px-8 main-section">
         <h1 className="text-xl mt-4 mb-4 font-bold text-white md:text-4xl">ข้อตกลงและเงื่อนไขในการใช้งาน</h1>
 
-        <div
+        <article
           className="prose lg:prose-xl leading-6 text-white prose-p:inline font-texts"
+          id="tos"
           dangerouslySetInnerHTML={{ __html: content }}
-        ></div>
+        ></article>
       </div>
     </>
   )

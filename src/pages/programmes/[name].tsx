@@ -112,7 +112,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
           <div className="mt-10 space-y-20">
             {loadPicture(0)}
             <div>
-              <h1 className="text-4xl">การรับสมัครและการสอบเข้า</h1>
+              <h2 className="text-4xl">การรับสมัครและการสอบเข้า</h2>
               <article
                 className="prose text-white text-justify font-texts mt-4 leading-[30px] article prose-inverted"
                 dangerouslySetInnerHTML={{ __html: contents.admission }}
@@ -120,24 +120,24 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             </div>
             {loadPicture(1)}
             <div>
-              <h1 className="text-4xl">วิชาหรือหลักสูตรเพิ่มเติมที่เรียน</h1>
+              <h2 className="text-4xl">วิชาหรือหลักสูตรเพิ่มเติมที่เรียน</h2>
               <article
-                className="prose text-white text-justify font-texts mt-4 leading-[30px] article prose-inverted"
+                className="prose text-white text-justify font-texts mt-4 prose-p:inline leading-[30px] article prose-inverted"
                 dangerouslySetInnerHTML={{ __html: contents.exsubject }}
               ></article>
             </div>
             {loadPicture(2)}
             <div>
-              <h1 className="text-4xl">ความน่าสนใจของสายการเรียน</h1>
+              <h2 className="text-4xl">ความน่าสนใจของสายการเรียน</h2>
               <article
-                className="prose text-white text-justify mt-4 font-texts leading-[30px] article prose-inverted"
+                className="prose text-white text-justify mt-4 font-texts prose-p:inline leading-[30px] article prose-inverted"
                 dangerouslySetInnerHTML={{ __html: contents.interest }}
               ></article>
             </div>
           </div>
         </div>
         <div className="mt-24 max-w-[50rem] mx-auto mb-24">
-          <h1 className="text-4xl mb-14">รีวิวจากรุ่นพี่</h1>
+          <h2 className="text-4xl mb-14">รีวิวจากรุ่นพี่</h2>
           <div className="space-y-12">
             {contents.reviews.map((reviewItem: any, i: number) => (
               <div key={`rev-${i}`} className="flex flex-col-reverse sm:flex-row sm:space-x-3">

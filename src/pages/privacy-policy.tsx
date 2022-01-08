@@ -11,6 +11,7 @@ const PP: NextPage<{ content: string }> = ({ content }) => {
 
       <article
         className="prose lg:prose-xl leading-6 text-white prose-p:inline font-texts"
+        id="privacy-policy"
         dangerouslySetInnerHTML={{ __html: content }}
       ></article>
     </main>

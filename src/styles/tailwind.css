@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 @layer utilities {
-  ol {
+  #privacy-policy ol,
+  #tos ol {
     counter-reset: item;
   }
-  ol > li {
+  #privacy-policy ol > li,
+  #tos ol > li {
     display: block;
   }
-  ol > li:before {
+  #privacy-policy ol > li:before,
+  #tos ol > li:before {
     content: counter(item) ". ";
     counter-increment: item;
     color: white;
