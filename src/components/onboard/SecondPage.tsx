@@ -1,10 +1,10 @@
-import {IData, ISecondPage} from "@pages/register/onboard"
+import { IData, ISecondPage } from "@pages/register/onboard"
 import classNames from "classnames"
-import {Field, Form, Formik} from "formik"
-import {FC, useState} from "react"
+import { Field, Form, Formik } from "formik"
+import { FC, useState } from "react"
 import Link from "next/link"
-import {filterNullProperties} from "@utils/filterNullObjProperties"
-import {AnimateSharedLayout, motion} from "framer-motion"
+import { filterNullProperties } from "@utils/filterNullObjProperties"
+import { AnimateSharedLayout, motion } from "framer-motion"
 
 const validate = (values: ISecondPage & { otherNews?: string; otherPurpose?: string }) => {
   const errors: any = {}
@@ -57,8 +57,7 @@ export const SecondPage: FC<{
   updateData: (data: ISecondPage) => void
   setPage: (page: number) => void
   data: IData
-}> = ({updateData, data, setPage, submitData}) => {
-
+}> = ({ updateData, data, setPage, submitData }) => {
   const [animated, setAnimated] = useState(false)
 
   return (
@@ -78,14 +77,20 @@ export const SecondPage: FC<{
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({errors, values}) => (
+        {({ errors, values }) => (
           <Form className="py-4 px-4 text-sm w-[20rem] sm:w-[24rem] text-gray-700 font-display" noValidate>
-            <motion.div layout={"position"} initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{delay: animated ? 0 :0.2}} className="mb-4">
+            <motion.div
+              layout={"position"}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: animated ? 0 : 0.2 }}
+              className="mb-4"
+            >
               <p className="w-full text-lg font-semibold mb-4 text-white font-display" id="news-group">
                 ได้รับข่าวสารของ Triam Udom Online
-                <br/>
+                <br />
                 Open House 2022 จากที่ใดบ้าง
-                <br/>
+                <br />
                 <span className="text-sm font-light">(ตอบได้มากกว่า 1 ข้อ)</span>
               </p>
               <div className="text-white flex flex-col space-y-4" role="group" aria-labelledby="news-group">
@@ -160,7 +165,7 @@ export const SecondPage: FC<{
                   <div className="flex flex-col w-full">
                     <span>อื่น ๆ โปรดระบุ:</span>
                     {values.news.includes("other") && (
-                      <motion.div initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1}}>
+                      <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
                         <Field
                           className="text-white bg-transparent w-full px-0.5 py-4 border-b border-white font-display h-[1.15rem] focus:outline-none"
                           name="otherNews"
@@ -172,17 +177,26 @@ export const SecondPage: FC<{
                   </div>
                 </label>
               </div>
-              {errors.news ? <p className="mt-1 text-red-400">{errors.news}</p> : <div className="h-6" aria-hidden></div>}
+              {errors.news ? (
+                <p className="mt-1 text-red-400">{errors.news}</p>
+              ) : (
+                <div className="h-6" aria-hidden></div>
+              )}
             </motion.div>
 
             {/* <hr className="text-white my-2 h-4" /> */}
 
-            <motion.div layout={"position"} initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{delay: animated ? 0 :0.4}}>
+            <motion.div
+              layout={"position"}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: animated ? 0 : 0.4 }}
+            >
               <p className="w-full text-lg font-semibold mb-4 text-white font-display" id="purpose-group">
                 จุดประสงค์ในการเข้าร่วม Triam Udom Online
-                <br/>
+                <br />
                 Open House 2022 จากที่ใดบ้าง
-                <br/>
+                <br />
                 <span className="text-sm font-light">(ตอบได้มากกว่า 1 ข้อ)</span>
               </p>
               <div className="text-white flex flex-col space-y-4" role="group" aria-labelledby="purpose-group">
@@ -239,7 +253,7 @@ export const SecondPage: FC<{
                   <div className="flex flex-col w-full">
                     <span>อื่น ๆ โปรดระบุ:</span>
                     {values.purpose.includes("other") && (
-                      <motion.div initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1}}>
+                      <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
                         <Field
                           className="text-white bg-transparent w-full px-0.5 py-4 border-b border-white font-display h-[1.15rem] focus:outline-none"
                           name="otherPurpose"
@@ -260,8 +274,13 @@ export const SecondPage: FC<{
 
             {/* <hr className="text-white h-4" /> */}
             {/* submit */}
-            <motion.div layout={"position"} initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{delay: animated ? 0 :0.6}}
-                        className="py-6 text-white flex justify-center space-x-2">
+            <motion.div
+              layout={"position"}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: animated ? 0 : 0.6 }}
+              className="py-6 text-white flex justify-center space-x-2"
+            >
               <button
                 className="w-36 p-3 mb-3 bg-transparent border border-white rounded-full transition-colors hover:bg-white hover:text-gray-600"
                 onClick={() => {
@@ -276,17 +295,25 @@ export const SecondPage: FC<{
               </button>
             </motion.div>
 
-            <motion.div onAnimationComplete={() => {setAnimated(true)}} layout={"position"} initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{delay: animated ? 0 :0.8}}
-                        className="text-white text-center w-full font-display">
-              <p className="leading-6">
+            <motion.div
+              onAnimationComplete={() => {
+                setAnimated(true)
+              }}
+              layout={"position"}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: animated ? 0 : 0.8 }}
+              className="text-white text-center w-full font-display"
+            >
+              <p className="leading-2">
                 การลงทะเบียนถือว่ายอมรับ
                 <Link href="/privacy-policy">
-                  <a className="text-red-400 mx-1 hover:underline whitespace-nowrap">นโยบายความเป็นส่วนตัว</a>
+                  <a className="text-red-200 underline mx-1 whitespace-nowrap">นโยบายความเป็นส่วนตัว</a>
                 </Link>
-                <br/>
+                <br />
                 และ
                 <Link href="/tos">
-                  <a className="text-red-400 mx-1 hover:underline">ข้อตกลงการใช้งาน</a>
+                  <a className="text-red-200 underline mx-1">ข้อตกลงการใช้งาน</a>
                 </Link>
               </p>
             </motion.div>
