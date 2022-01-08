@@ -49,7 +49,9 @@ export const CountDown: FC = () => {
           <p className="text-sm sm:text-base font-light">days</p>
         </div>
         <div className="flex-col space-y-2">
-          <p className="font-mono px-4 py-6 bg-gray-500 bg-opacity-25 backdrop-blur-sm">{String(timeLeft?.hours)}</p>
+          <p className="font-mono px-4 py-6 bg-gray-500 bg-opacity-25 backdrop-blur-sm">
+            {String(timeLeft?.hours).padStart(2, "0")}
+          </p>
           <p className="text-sm sm:text-base font-light">hours</p>
         </div>
         <div className="flex-col space-y-2">
