@@ -15,7 +15,7 @@ const Login = () => {
   // should be main
   return (
     <AdaptiveBg
-      primary={{ background: "/images/backgrounds/register.jpg", height: "1024px" }}
+      primary={{ background: "/images/backgrounds/register.jpg", height: "1024px", expandTo: "100vh" }}
       secondary={{ background: "/images/backgrounds/register-mobile.jpg", height: "926px" }}
       mobile={{ background: "/images/backgrounds/register-mobile-default.jpg", height: "926px" }}
       classname="relative py-2 w-full h-screen bg-gray-900"
