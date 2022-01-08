@@ -90,10 +90,10 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
             <div className="flex space-x-2 cursor-pointer flex-shrink-0">
               <img src="/images/logos/openhouse.png" />
               <div className="flex flex-col justify-center">
-                <h1 className="text-sm sm:text-base font-bold">
+                <p className="text-sm sm:text-base font-bold">
                   TRIAM UDOM
                   <p className="leading-[10px]">ONLINE OPEN HOUSE 2022</p>
-                </h1>
+                </p>
               </div>
             </div>
           </Link>
@@ -113,8 +113,8 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
             <Link href="/articles" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">บทความ</a>
             </Link>
-            <Link href="/info" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">ข้อมูลเพิ่มเติม</a>
+            <Link href="/admission" passHref>
+              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">การสอบเข้า</a>
             </Link>
           </nav>
           {/* <button
@@ -178,10 +178,10 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
                 <span>บทความ</span>
               </a>
             </Link>
-            <Link href="/info" passHref>
-              <a className={classNames(getClass("/info"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
+            <Link href="/admission" passHref>
+              <a className={classNames(getClass("/admission"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
                 <InformationCircleIcon className="text-white w-8 h-8" />
-                <span>ข้อมูลเพิ่มเติม</span>
+                <span>การสอบเข้่า</span>
               </a>
             </Link>
             <Link href="/contact" passHref>

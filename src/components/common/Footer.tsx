@@ -112,8 +112,8 @@ export const Footer = () => {
             <Link href="/ticket">
               <a className="hover:underline">การ์ดของคุณ</a>
             </Link>
-            <Link href="/info">
-              <a className="hover:underline">ข้อมูลเกี่ยวกับโรงเรียน</a>
+            <Link href="/admission">
+              <a className="hover:underline">การเดินทางมาโรงเรียนเตรียมฯ</a>
             </Link>
             <Link href="/contact">
               <a className="hover:underline">ติดต่อผู้จัดงาน</a>
