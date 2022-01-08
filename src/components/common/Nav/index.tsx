@@ -181,7 +181,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
             <Link href="/admission" passHref>
               <a className={classNames(getClass("/admission"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
                 <InformationCircleIcon className="text-white w-8 h-8" />
-                <span>การสอบเข้่า</span>
+                <span>การสอบเข้า</span>
               </a>
             </Link>
             <Link href="/contact" passHref>
