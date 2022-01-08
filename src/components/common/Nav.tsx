@@ -3,14 +3,19 @@ import classNames from "classnames"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { FC, useEffect, useRef, useState } from "react"
+import { FC, RefObject, useEffect, useRef, useState } from "react"
 import NavButton from "./NavButton"
 import classnames from "classnames"
 
-const DetectOuside = (ref: any, dep: boolean, callback: () => void) => {
+const DetectOuside = (
+  ref: RefObject<HTMLDivElement>,
+  buttonRef: RefObject<HTMLButtonElement>,
+  dep: boolean,
+  callback: () => void
+) => {
   useEffect(() => {
     function handleClickOutside(event: any) {
-      if (ref.current && !ref.current.contains(event.target) && dep) {
+      if (ref.current && !ref.current.contains(event.target) && !buttonRef.current?.contains(event.target) && dep) {
         callback()
       }
     }
@@ -43,13 +48,14 @@ const variants = {
 export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
   const [reveal, setReveal] = useState(false)
   const panel = useRef(null)
+  const buttonRef = useRef(null)
   const { pathname } = useRouter()
 
   useEffect(() => {
     setReveal(false)
   }, [pathname])
 
-  DetectOuside(panel, reveal, () => {
+  DetectOuside(panel, buttonRef, reveal, () => {
     setReveal(false)
   })
 
@@ -111,19 +117,21 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">ข้อมูลเพิ่มเติม</a>
             </Link>
           </nav>
-          <button
+          {/* <button
             aria-label="Mobile Menu"
             onClick={() => {
               setReveal(!reveal)
             }}
           >
             <MenuIcon className="block md:hidden text-white w-8 h-8 cursor-pointer" />
-          </button>
-          {/* <NavButton
+          </button> */}
+          <NavButton
+            ref={buttonRef}
+            reveal={reveal}
             toggle={() => {
               setReveal(!reveal)
             }}
-          /> */}
+          />
         </div>
       </header>
       <motion.nav
