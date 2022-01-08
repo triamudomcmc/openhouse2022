@@ -9,9 +9,9 @@ import { ticketTypes } from "@types"
 import { LogoWhite } from "@vectors/Logo"
 import classNames from "classnames"
 import { Field, Form, Formik } from "formik"
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { NextPage } from "next"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 interface IScore {
   strong: number
@@ -61,6 +61,15 @@ const Game: NextPage = () => {
   const [feedback, setFeedback] = useState("")
   const currPage = gameDialogue[page]
   const auth = useAuth()
+  const [changingScene, setChangeScene] = useState(false)
+
+  useEffect(() => {
+    if (page === 0) return
+    setChangeScene(true)
+    setTimeout(() => {
+      setChangeScene(false)
+    }, 1000)
+  }, [page])
 
   return (
     <Modal
@@ -71,20 +80,34 @@ const Game: NextPage = () => {
       }}
     >
       <div className="antialiased">
-        <AnimatePresence>
-          <GameBg
-            onClick={(e) => {
-              e.stopPropagation() // stops the main modal from triggering
-              if (modalOpen) return setModal(false)
+        <GameBg
+          onClick={(e) => {
+            e.stopPropagation() // stops the main modal from triggering
+            if (modalOpen) return setModal(false)
 
-              if (["text", "opening", "determined", "blank"].includes(currPage.type)) setPage(page + 1)
+            if (["text", "opening", "determined", "blank"].includes(currPage.type)) setPage(page + 1)
+          }}
+          scene={currPage.scene}
+          skey={`${currPage.scene}${currPage.type}${currPage?.text ?? "-"}`}
+          className={classNames(
+            ["text", "opening", "determined", "blank"].includes(currPage.type) && "cursor-pointer",
+            currPage.type === "opening" ? "space-y-12" : "space-y-2"
+          )}
+        >
+          <motion.div
+            variants={{
+              invisible: {
+                opacity: 0,
+                // x: -200,
+              },
+              visible: {
+                opacity: 1,
+                // x: 0,
+              },
             }}
-            scene={currPage.scene}
-            skey={`${currPage.scene}${currPage.type}${currPage?.text ?? "-"}`}
-            className={classNames(
-              ["text", "opening", "determined", "blank"].includes(currPage.type) && "cursor-pointer",
-              currPage.type === "opening" ? "space-y-12" : "space-y-2"
-            )}
+            transition={{ duration: 0.5, type: "tween" }}
+            animate={changingScene ? "invisible" : "visible"}
+            className={classNames(changingScene ? "none" : "inline")}
           >
             <div>
               <p className="whitespace-pre-line leading-loose drop-shadow-md">
@@ -229,10 +252,10 @@ const Game: NextPage = () => {
             </div>
 
             <GameSection type={["opening", "finale"]} currType={currPage.type}>
-              <LogoWhite className="absolute bottom-[3.5rem] md:bottom-[5rem] w-[174px]" />
+              <LogoWhite className="absolute left-1/2 -translate-x-1/2 bottom-[3.5rem] md:bottom-[5rem] w-[174px]" />
             </GameSection>
-          </GameBg>
-        </AnimatePresence>
+          </motion.div>
+        </GameBg>
       </div>
     </Modal>
   )
