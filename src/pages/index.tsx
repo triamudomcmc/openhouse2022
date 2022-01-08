@@ -203,6 +203,7 @@ export default function Home({ articles }: any) {
             <span className="text-[16px] md:text-[30px] font-thin tracking-[8px] md:tracking-[10px] mt-10">
               14-15 JANUARY
             </span>
+            {<CountDown />}
           </h1>
           <div className="flex flex-col items-center">
             {getButton(auth)}
@@ -695,8 +696,8 @@ export default function Home({ articles }: any) {
         id="info"
       >
         <div className="mx-auto px-8 sm:px-0">
-          <h2 className="font-black text-[46px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h2>
-          <p className="text-[20px] md:text-[26px] font-light text-center mt-2">
+          <h2 className="font-black text-[42px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h2>
+          <p className="text-[14px] md:text-[26px] font-light text-center mt-2">
             มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ
             <br />
             หรือถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !
