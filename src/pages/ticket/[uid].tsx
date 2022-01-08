@@ -11,6 +11,12 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import Link from "next/link"
 import { useState } from "react"
 import Head from "next/head"
+import {Footer} from "@components/common/Footer";
+import {Facebook} from "@vectors/Facebook";
+import {Instagram} from "@vectors/Instagram";
+import {Twitter} from "@vectors/Twitter";
+import {Youtube} from "@vectors/Youtube";
+import {TUCMCLogo} from "@components/common/TUCMCLogo";
 
 export interface ticketProps {
   name: string | null
@@ -87,26 +93,114 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
           <h2 className="text-center text-white font-display text-4xl font-semibold mb-4">ตั๋วการเดินทางของ {name}</h2>
           <PortraitTicket width={cardWidth} type={type} name={name} uid={uid} />
         </div>
-        <div className="mt-4">
-          <div className="flex flex-row justify-center">
-            <div className="flex flex-col items-center justify-between w-10/12 p-5 sm:w-1/2 md:w-4/12 md:p-6 bg-white shadow-lg rounded-3xl">
-              <div className="pb-4 text-lg font-semibold md:pb-5">
-                <p className="text-base text-center text-pink-900">ลงทะเบียนเข้าร่วมงาน</p>
-                <p className="text-base text-center text-pink-900">เพื่อรับการ์ดของคุณ</p>
+      </AdaptiveBg>
+      <div className="relative font-display">
+        <div className="flex w-full justify-center absolute top-[-90px]">
+          <div className="mt-4 w-full">
+            <div className="flex flex-row justify-center">
+              <div className="flex flex-col items-center justify-between w-10/12 p-5 sm:w-1/2 md:w-4/12 md:p-6 bg-white shadow-xl rounded-3xl">
+                <div className="pb-4 text-lg font-semibold md:pb-5">
+                  <p className="text-base text-center text-pink-900">ลงทะเบียนเข้าร่วมงาน</p>
+                  <p className="text-base text-center text-pink-900">เพื่อรับการ์ดของคุณ</p>
+                </div>
+                <Link href="/register">
+                  <motion.a
+                    whileHover={{ scale: 1.1 }}
+                    className="text-xl font-thin px-16 rounded-full py-3"
+                    style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+                  >
+                    <span className="text-white">ลงทะเบียน</span>
+                  </motion.a>
+                </Link>
               </div>
-              <Link href="/register">
-                <motion.a
-                  whileHover={{ scale: 1.1 }}
-                  className="text-xl font-thin px-16 rounded-full py-3"
-                  style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
-                >
-                  <span className="text-white">ลงทะเบียน</span>
-                </motion.a>
-              </Link>
             </div>
           </div>
         </div>
-      </AdaptiveBg>
+        <footer className="antialiased bg-white w-full pt-[150px] px-8">
+          <div className="flex flex-col sm:flex-row sm:items-start items-center px-0 sm:px-20 justify-between max-w-6xl mx-auto w-full">
+            <div className="flex justify-center">
+              <div className="sm:text-left text-center space-y-5">
+                <div className="text-[#1D3662] font-semibold font-sans">
+                  <p>TRIAM UDOM ONLINE</p>
+                  <p className="-mt-1">OPEN HOUSE 2022</p>
+                </div>
+                <div className="flex space-x-3">
+                  <motion.a
+                    href="https://www.facebook.com/TriamUdomOPH"
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Facebook />
+                  </motion.a>
+                  <motion.a
+                    href="https://www.instagram.com/triamudom.oph/"
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Instagram />
+                  </motion.a>
+                  <motion.a
+                    href="https://twitter.com/triamudomoph"
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Twitter />
+                  </motion.a>
+                  <motion.a
+                    href="https://www.youtube.com/c/TriamUdomOpenHouse"
+                    target="_blank"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Youtube />
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+            <div className="text-[#6B7280] flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28">
+              <div className="flex flex-col space-y-2 text-center sm:text-right font-display">
+                <Link href="/">
+                  <a className="hover:underline">หน้าแรก</a>
+                </Link>
+                <Link href="/live">
+                  <a className="hover:underline">รายการสด</a>
+                </Link>
+                <Link href="/articles">
+                  <a className="hover:underline">บทความ</a>
+                </Link>
+                <Link href="/videos">
+                  <a className="hover:underline">คลิปวิดีโอ</a>
+                </Link>
+                <Link href="/clubs">
+                  <a className="hover:underline">ชมรม</a>
+                </Link>
+              </div>
+              <div className="flex flex-col space-y-2 text-center sm:text-right mt-2 sm:mt-0 font-display">
+                <Link href="/programmes">
+                  <a className="hover:underline">สายการเรียน</a>
+                </Link>
+                <Link href="/admission">
+                  <a className="hover:underline">การสอบเข้า</a>
+                </Link>
+                <Link href="/ticket">
+                  <a className="hover:underline">การ์ดของคุณ</a>
+                </Link>
+                <Link href="/admission">
+                  <a className="hover:underline">การเดินทางมาโรงเรียนเตรียมฯ</a>
+                </Link>
+                <Link href="/contact">
+                  <a className="hover:underline">ติดต่อผู้จัดงาน</a>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center border-t border-gray-400 border-opacity-30 py-5 mt-10">
+            <TUCMCLogo className="h-6 sm:h-8" color="#777" />
+          </div>
+        </footer>
+      </div>
     </>
   )
 }
