@@ -35,8 +35,8 @@ export const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="flex flex-col justify-center px-16 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-xl xl:rounded-3xl l">
-                      <div className="flex flex-row items-center justify-center">
+                    <div className="flex flex-col justify-center px-8 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-full xl:rounded-3xl l">
+                      <div className="flex flex-row items-center justify-start xl:justify-center pl-[25px] xl:pl-[0] space-x-2 xl:space-x-0">
                         <Instagram />
                         <h3 className="pl-2">triamudom.oph</h3>
                       </div>
@@ -48,10 +48,10 @@ export const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="flex flex-col justify-center px-16 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-xl xl:rounded-3xl ">
-                      <div className="flex flex-row items-center justify-center">
+                    <div className="flex flex-col justify-center px-8 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-full xl:rounded-3xl ">
+                      <div className="flex flex-row items-center justify-start xl:justify-center pl-[25px] xl:pl-[0] space-x-2 xl:space-x-0">
                         <Facebook />
-                        <h3 className="pl-2 xl:w-32">TRIAM UDOM OPEN HOUSE</h3>
+                        <h3 className="pl-2 xl:w-32">Triam Udom Open House</h3>
                       </div>
                     </div>
                   </motion.a>
@@ -63,8 +63,8 @@ export const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="flex flex-col justify-center px-16 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-xl xl:rounded-3xl ">
-                      <div className="flex flex-row items-center justify-center">
+                    <div className="flex flex-col justify-center px-8 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-full xl:rounded-3xl ">
+                      <div className="flex flex-row items-center justify-start xl:justify-center pl-[25px] xl:pl-[0] space-x-2 xl:space-x-0">
                         <Twitter />
                         <h3 className="pl-2">@triamudomoph</h3>
                       </div>
@@ -76,10 +76,10 @@ export const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="flex flex-col justify-center px-16 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-xl xl:rounded-3xl ">
-                      <div className="flex flex-row items-center justify-center">
+                    <div className="flex flex-col justify-center px-8 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-full xl:rounded-3xl ">
+                      <div className="flex flex-row items-center justify-start xl:justify-center pl-[25px] xl:pl-[0] space-x-2 xl:space-x-0">
                         <Youtube />
-                        <h3 className="pl-2">@triamudomoph</h3>
+                        <h3 className="pl-2 xl:w-32">Triam Udom Open House</h3>
                       </div>
                     </div>
                   </motion.a>
@@ -98,8 +98,8 @@ export const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="flex flex-col justify-center px-16 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-xl xl:rounded-3xl ">
-                      <div className="flex flex-row items-center justify-center">
+                    <div className="flex flex-col justify-center px-8 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-full xl:rounded-3xl ">
+                      <div className="flex flex-row items-center justify-start xl:justify-center pl-[25px] xl:pl-[0] space-x-2 xl:space-x-0">
                         <Instagram />
                         <h3 className="pl-2">tucmc_official</h3>
                       </div>
@@ -111,8 +111,8 @@ export const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="flex flex-col justify-center px-16 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-xl xl:rounded-3xl ">
-                      <div className="flex flex-row items-center justify-center">
+                    <div className="flex flex-col justify-center px-8 py-4 mx-3 mb-4 text-xs font-semibold bg-white shadow-md xl:h-28 xl:py-8 xl:px-10 xl:mb-8 xl:text-lg rounded-full xl:rounded-3xl ">
+                      <div className="flex flex-row items-center justify-start xl:justify-center pl-[25px] xl:pl-[0] space-x-2 xl:space-x-0">
                         <Facebook />
                         <h3 className="pl-2">TUCMC</h3>
                       </div>
