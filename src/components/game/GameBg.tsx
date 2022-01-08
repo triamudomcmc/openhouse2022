@@ -57,46 +57,46 @@ export const GameBg: FC<{
       if (width > 640) {
         setBg(
           <div
-            style={{ minHeight: primary.height, height: expandTo ? expandTo : "initial" }}
+            style={{ minHeight: primary.height, height: expandTo ? expandTo : "initial", background: primary.background.includes("/") ? "unset" : primary.background}}
             className="absolute top-0 right-0 h-full w-full z-[-1]"
           >
-            <Image
+            {primary.background.includes("/") && <Image
               alt="background image"
               src={primary.background}
               layout={"fill"}
               objectFit={"cover"}
               objectPosition={"center"}
               priority={true}
-            />
+            />}
           </div>
         )
         setSource(primary)
       } else {
         if (width > 428) {
           setBg(
-            <div style={{ minHeight: secondary.height }} className="absolute top-0 right-0 h-full w-full z-[-1]">
-              <Image
+            <div style={{ minHeight: secondary.height, background: primary.background.includes("/") ? "unset" : primary.background }} className="absolute top-0 right-0 h-full w-full z-[-1]">
+              {secondary.background.includes("/") && <Image
                 alt="background image"
                 src={secondary.background}
                 layout={"fill"}
                 objectFit={"cover"}
                 objectPosition={"center"}
                 priority={true}
-              />
+              />}
             </div>
           )
           setSource(secondary)
         } else {
           setBg(
-            <div style={{ minHeight: mobile.height }} className="absolute top-0 right-0 h-full w-full z-[-1]">
-              <Image
+            <div style={{ minHeight: mobile.height, background: primary.background.includes("/") ? "unset" : primary.background }} className="absolute top-0 right-0 h-full w-full z-[-1]">
+              {mobile.background.includes("/") && <Image
                 alt="background image"
                 src={mobile.background}
                 layout={"fill"}
                 objectFit={"cover"}
                 objectPosition={"center"}
                 priority={true}
-              />
+              />}
             </div>
           )
           setSource(mobile)
@@ -126,7 +126,7 @@ export const GameBg: FC<{
       exit={{
         opacity: 0,
       }}
-      transition={{ duration: 3 }}
+      transition={{ duration: 1 }}
       style={{
         minHeight: source.height
       }}
