@@ -15,7 +15,7 @@ import { FC, RefObject, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
 import { HamburgerButton } from "./Hamburger"
 import { OPHHorizontalLogo } from "@vectors/OPHHorizontalLogo"
-import { Korchor } from "@vectors/KorChor"
+import { Korchor } from "@vectors/Korchor"
 
 const detectOuside = (
   ref: RefObject<HTMLDivElement>,
@@ -139,7 +139,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
         ref={panel}
         animate={reveal ? "open" : "close"}
         variants={variants}
-        className="flex md:none flex-col items-start right-full fixed top-0 color-mobile-nav backdrop-blur-lg min-w-[250px] h-full z-[99] py-4"
+        className="flex md:none flex-col items-start right-full fixed top-0 color-mobile-nav backdrop-blur-lg min-w-[295px] h-full z-[99] py-4"
       >
         <Link href="/" passHref>
           <a className="mb-4 px-4">
