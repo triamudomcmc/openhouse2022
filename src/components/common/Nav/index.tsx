@@ -4,8 +4,8 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { FC, RefObject, useEffect, useRef, useState } from "react"
-import NavButton from "./NavButton"
 import classnames from "classnames"
+import { HamburgerButton } from "./Hamburger"
 
 const DetectOuside = (
   ref: RefObject<HTMLDivElement>,
@@ -125,7 +125,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
           >
             <MenuIcon className="block md:hidden text-white w-8 h-8 cursor-pointer" />
           </button> */}
-          <NavButton
+          <HamburgerButton
             ref={buttonRef}
             reveal={reveal}
             toggle={() => {
