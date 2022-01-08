@@ -80,7 +80,7 @@ export const PortraitTicket: FC<TicketProps> = ({
         <div className="flex justify-between items-end">
           <div className="flex flex-col items-center">
             <QRCode
-              value={`${SITE_URL}/ticket/${uid}`}
+              value={`https://${SITE_URL}/ticket/${uid}`}
               renderAs="svg"
               bgColor="none"
               fgColor="#ffffff"
