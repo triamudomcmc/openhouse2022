@@ -62,7 +62,7 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
         primary={{ background: "/images/backgrounds/ticket.jpg", height: "1224px", expandTo: "100%" }}
         secondary={{ background: "/images/backgrounds/ticket-mobile.jpg", height: "926px" }}
         mobile={{ background: "/images/backgrounds/ticket-mobile-default.jpg", height: "926px" }}
-        classname="main-section"
+        classname="main-section font-display"
       >
         <Head>
           <title>{name}&apos;s ticket</title>
@@ -84,46 +84,8 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
           <meta property="twitter:image" content={`/meta/ticket/${type}.png`} />
         </Head>
         <div className="flex flex-col items-center space-y-4">
-          <h2 className="text-center text-white font-display text-4xl font-semibold">ตั๋วการเดินทางของ {name}</h2>
-          <div className="flex flex-row mb-10 space-x-8">
-            <div onClick={switchToSquare} className="flex flex-col items-center">
-              <div
-                className={classNames(
-                  isSquare ? "bg-pink-200" : "bg-white hover:bg-gray-100",
-                  "transition-colors flex flex-row items-center justify-center rounded-lg shadow-md cursor-pointer w-20 h-20 md:w-24 md:h-24"
-                )}
-              >
-                <div
-                  className={classNames(
-                    isSquare ? "border-white" : "border-gray-400",
-                    "w-12 h-12 border-2 rounded md:w-16 md:h-16 md:rounded-lg"
-                  )}
-                ></div>
-              </div>
-              <p className="mt-2 text-sm font-medium text-white md:text-base">Square</p>
-            </div>
-            <div onClick={switchToPortrait} className="flex flex-col items-center">
-              <div
-                className={classNames(
-                  !isSquare ? "bg-pink-200" : "bg-white hover:bg-gray-100",
-                  "transition-colors flex flex-row items-center justify-center rounded-lg shadow-md cursor-pointer w-20 h-20 md:w-24 md:h-24"
-                )}
-              >
-                <div
-                  className={classNames(
-                    !isSquare ? "border-white" : "border-gray-400",
-                    "w-8 h-12 border-2 rounded-lg md:w-10 md:h-16"
-                  )}
-                ></div>
-              </div>
-              <p className="mt-2 text-sm font-medium text-white md:text-base">Portrait</p>
-            </div>
-          </div>
-          {isSquare ? (
-            <SquareTicket width={cardWidth} type={type} name={name} uid={uid} />
-          ) : (
-            <PortraitTicket width={cardWidth} type={type} name={name} uid={uid} />
-          )}
+          <h2 className="text-center text-white font-display text-4xl font-semibold mb-4">ตั๋วการเดินทางของ {name}</h2>
+          <PortraitTicket width={cardWidth} type={type} name={name} uid={uid} />
         </div>
         <div className="mt-4">
           <div className="flex flex-row justify-center">
