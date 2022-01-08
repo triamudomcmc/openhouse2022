@@ -264,7 +264,7 @@ function useProvideAuth() {
     setLoading(true)
 
     await handleUser(null)
-    Router.push("/")
+
     await signOut(auth)
   }
 

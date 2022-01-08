@@ -27,15 +27,15 @@ export const GameBg: FC<{
   className?: string,
   expandTo?: string
 }> = ({ children, scene, skey, onClick, className , expandTo}) => {
-  const primary = { background: getBg(scene, "primary"), height: "1224px" }
-  const secondary = { background: getBg(scene, "secondary"), height: "926px" }
-  const mobile = { background: getBg(scene, "mobile"), height: "926px" }
+  const primary = { background: getBg(scene, "primary"), height: "600px", expandTo: "100vh" }
+  const secondary = { background: getBg(scene, "secondary"), height: "926px", expandTo: undefined }
+  const mobile = { background: getBg(scene, "mobile"), height: "926px", expandTo: undefined }
 
   const { width } = useWindowDimensions()
 
   const [bg, setBg] = useState(
     <div
-      style={{ minHeight: primary.height, height: expandTo ? expandTo : "initial" }}
+      style={{ minHeight: primary.height, height: primary.expandTo ? primary.expandTo : "initial" }}
       className="absolute top-0 right-0 h-full w-full z-[-1]"
     >
       <Image
@@ -49,7 +49,7 @@ export const GameBg: FC<{
     </div>
   )
 
-  const [source, setSource] = useState(primary)
+  const [source, setSource] = useState<any>(primary)
 
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export const GameBg: FC<{
       if (width > 640) {
         setBg(
           <div
-            style={{ minHeight: primary.height, height: expandTo ? expandTo : "initial", background: primary.background.includes("/") ? "unset" : primary.background}}
+            style={{ minHeight: primary.height, height: primary.expandTo ? primary.expandTo : "initial", background: primary.background.includes("/") ? "unset" : primary.background}}
             className="absolute top-0 right-0 h-full w-full z-[-1]"
           >
             {primary.background.includes("/") && <Image
@@ -128,7 +128,8 @@ export const GameBg: FC<{
       }}
       transition={{ duration: 1 }}
       style={{
-        minHeight: source.height
+        minHeight: source.height,
+        height: source.expandTo ? source.expandTo : "unset"
       }}
       className={classNames(
         "relative flex font-game font-medium flex-col items-center text-center justify-center text-lg px-4 md:px-[4rem] overflow-x-hidden min-h-screen pb-20 text-white",
