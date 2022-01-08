@@ -6,7 +6,7 @@ const Schedule = () => {
   return (
     <>
       <AdaptiveBg
-        primary={{ background: "/images/backgrounds/live.jpg", height: "1024px" }}
+        primary={{ background: "/images/backgrounds/live.jpg", height: "1024px", expandTo: "100vh"  }}
         secondary={{ background: "/images/backgrounds/live-mobile.jpg", height: "926px" }}
         mobile={{ background: "/images/backgrounds/live-mobile-default.jpg", height: "926px" }}
         element="main"

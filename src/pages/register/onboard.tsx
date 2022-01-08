@@ -63,7 +63,7 @@ const Onboard: NextPage = () => {
           </p>
         </div>
         <AnimatePresence exitBeforeEnter={true}>
-          <motion.div className="h-[924px]" key={`page-${page}`} initial={{x: -24, opacity:0 }} animate={{x: 0, opacity: 1}} exit={{x: 24, opacity: 0}}>
+          <motion.div className="h-[1004px]" key={`page-${page}`} initial={{x: -24, opacity:0 }} animate={{x: 0, opacity: 1}} exit={{x: 24, opacity: 0}}>
             {page === 1 &&             <FirstPage updateData={(_data: IFirstPage) => setData({...data, ..._data})} setPage={setPage} data={data}/>}
             {page === 2 && <SecondPage
               updateData={(_data: ISecondPage) => setData({...data, ..._data})}

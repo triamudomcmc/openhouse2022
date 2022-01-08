@@ -98,7 +98,7 @@ export const AdaptiveBg: FC<{
         minHeight: source.height,
         height: source.expandTo || "unset"
       },
-      className: classnames("relative overflow-x-hidden min-h-screen pb-20 text-white py-2", classname),
+      className: classnames("relative overflow-x-hidden overflow-y-hidden min-h-screen pb-20 text-white py-2", classname),
       id: id,
     }
   }

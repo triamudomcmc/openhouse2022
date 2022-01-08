@@ -281,7 +281,7 @@ export const SecondPage: FC<{
               <p className="leading-6">
                 การลงทะเบียนถือว่ายอมรับ
                 <Link href="/privacy-policy">
-                  <a className="text-red-400 mx-1 hover:underline">นโยบายความเป็นส่วนตัว</a>
+                  <a className="text-red-400 mx-1 hover:underline whitespace-nowrap">นโยบายความเป็นส่วนตัว</a>
                 </Link>
                 <br/>
                 และ

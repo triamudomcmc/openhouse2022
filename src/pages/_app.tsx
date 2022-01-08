@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <MetaData />
       <ToastProvider>
         {!(router.pathname === "/ticket/[uid]") && <MetaData />}
-        {!(router.pathname === "/game" || router.pathname === "/_ticket" || router.pathname === "/highlights") ? (
+        {!(router.pathname === "/game" || router.pathname.includes("ticket/") || router.pathname === "/highlights") ? (
           <Layout>
             <Component {...pageProps} />
           </Layout>
