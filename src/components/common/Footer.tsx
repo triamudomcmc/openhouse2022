@@ -40,7 +40,7 @@ export const Footer = () => {
   const auth = useAuth()
 
   return (
-    <footer className="bg-white w-full pt-10 px-8">
+    <footer className="antialiased bg-white w-full pt-10 px-8">
       <div className="flex flex-col sm:flex-row sm:items-start items-center px-0 sm:px-20 justify-between max-w-6xl mx-auto w-full">
         <div className="flex justify-center">
           <div className="sm:text-left text-center space-y-5">

@@ -3,8 +3,21 @@
 @tailwind utilities;
 
 @layer utilities {
+  ol {
+    counter-reset: item;
+  }
+  ol > li {
+    display: block;
+  }
+  ol > li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    color: white;
+    display: inline-block;
+  }
+
   .color-slip-jeen {
-    background: linear-gradient(180deg, #000f30 0%, #072449 28.13%, #8496cd 100%);
+    background: linear-gradient(180deg, #000f30 0%, #072449 28.13%, #0f2466 100%);
   }
 
   .color-slip-jeen-top {

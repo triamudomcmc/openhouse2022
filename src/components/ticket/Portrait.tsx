@@ -52,7 +52,7 @@ export const PortraitTicket: FC<TicketProps> = ({
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-      className={classNames(css["background"], "flex justify-center items-center")}
+      className={classNames(css["background"], "flex antialiased justify-center items-center")}
     >
       <div
         style={{ background: getOverlayBG(type) }}

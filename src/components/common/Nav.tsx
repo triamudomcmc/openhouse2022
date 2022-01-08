@@ -3,9 +3,9 @@ import classNames from "classnames"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import {FC, useEffect, useRef, useState} from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import NavButton from "./NavButton"
-import classnames from "classnames";
+import classnames from "classnames"
 
 const DetectOuside = (ref: any, dep: boolean, callback: () => void) => {
   useEffect(() => {
@@ -40,7 +40,7 @@ const variants = {
   },
 }
 
-export const Nav: FC<{theme?: "dark" | "light"}> = ({theme = "light"}) => {
+export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
   const [reveal, setReveal] = useState(false)
   const panel = useRef(null)
   const { pathname } = useRouter()
@@ -73,7 +73,12 @@ export const Nav: FC<{theme?: "dark" | "light"}> = ({theme = "light"}) => {
 
   return (
     <>
-      <header className={classnames("flex absolute z-50 top-0 left-0 py-2 px-8 mb-16 w-full text-white border-b border-white border-opacity-20 backdrop-blur-lg font-display", theme === "dark" ? "navbar-bg-dark" : "navbar-bg")}>
+      <header
+        className={classnames(
+          "antialiased flex absolute z-50 top-0 left-0 py-2 px-8 mb-16 w-full text-white border-b border-white border-opacity-20 backdrop-blur-lg font-display",
+          theme === "dark" ? "navbar-bg-dark" : "navbar-bg"
+        )}
+      >
         <div className="flex justify-between items-center mx-auto w-full max-w-6xl">
           <Link href="/">
             <div className="flex space-x-2 cursor-pointer flex-shrink-0">
