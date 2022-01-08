@@ -116,7 +116,7 @@ export const Footer = () => {
               <a className="hover:underline">ข้อมูลเกี่ยวกับโรงเรียน</a>
             </Link>
             <Link href="/contact">
-              <a className="hover:underline">ติดต่อ</a>
+              <a className="hover:underline">ติดต่อผู้จัดงาน</a>
             </Link>
           </div>
         </div>
