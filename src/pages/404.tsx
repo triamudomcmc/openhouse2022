@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const NotFound: NextPage = () => {
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center color-clubs">
+    <div className="w-screen h-screen flex flex-col justify-center items-center color-slip-jeen">
       <p className="font-display font-regular text-md text-white">404 | Not Found</p>
       <Link href="/">
         <motion.a
