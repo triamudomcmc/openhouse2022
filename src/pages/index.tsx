@@ -130,7 +130,7 @@ const getButton = (auth: IAuthContext | null) => {
       <Link href="/register">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           ลงทะเบียน
@@ -142,7 +142,7 @@ const getButton = (auth: IAuthContext | null) => {
       <Link href="/register/onboard">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           ลงทะเบียน
@@ -154,7 +154,7 @@ const getButton = (auth: IAuthContext | null) => {
       <Link href="/game">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           เข้าสู่เนื้อเรื่อง
@@ -166,7 +166,7 @@ const getButton = (auth: IAuthContext | null) => {
       <Link href="/ticket">
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[50px] md:mt-[80px]"
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           ดูการ์ดของคุณ
