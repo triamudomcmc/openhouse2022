@@ -52,3 +52,5 @@ export const HamburgerButton = forwardRef<HTMLButtonElement, { reveal: boolean; 
     )
   }
 )
+
+HamburgerButton.displayName = "HamburgerButton"
