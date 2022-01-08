@@ -81,7 +81,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
     <>
       <header
         className={classnames(
-          "antialiased flex absolute z-50 top-0 left-0 py-2 px-8 mb-16 w-full text-white border-b border-white border-opacity-20 backdrop-blur-lg font-display",
+          "antialiased flex sticky z-50 top-0 left-0 py-2 px-8 w-full text-white border-b border-white border-opacity-20 backdrop-blur-lg font-display",
           theme === "dark" ? "navbar-bg-dark" : "navbar-bg"
         )}
       >
