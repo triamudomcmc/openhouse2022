@@ -9,7 +9,7 @@ export const Layout: FC = ({ children }) => {
   return (
     <>
       <Nav theme={router.pathname === "/ticket" ? "dark" : "light"} />
-      <div className="antialiased w-full min-h-screen font-display text-white">{children}</div>
+      <div className="antialiased w-full min-h-screen font-display text-white mt-[-60px]">{children}</div>
       <Footer />
     </>
   )
