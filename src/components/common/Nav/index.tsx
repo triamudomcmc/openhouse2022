@@ -17,7 +17,7 @@ import { HamburgerButton } from "./Hamburger"
 import { OPHHorizontalLogo } from "@vectors/OPHHorizontalLogo"
 import { Korchor } from "@vectors/Korchor"
 
-const detectOuside = (
+const useDetectOuside = (
   ref: RefObject<HTMLDivElement>,
   buttonRef: RefObject<HTMLButtonElement>,
   dep: boolean,
@@ -65,7 +65,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
     setReveal(false)
   }, [pathname])
 
-  detectOuside(panel, buttonRef, reveal, () => {
+  useDetectOuside(panel, buttonRef, reveal, () => {
     setReveal(false)
   })
 
