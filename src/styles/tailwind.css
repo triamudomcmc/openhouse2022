@@ -16,6 +16,10 @@
     display: inline-block;
   }
 
+  .color-mobile-nav {
+    background: linear-gradient(89.43deg, rgba(6, 9, 14, 0.7) 0.6%, rgba(53, 64, 70, 0.7) 99.62%);
+  }
+
   .color-slip-jeen {
     background: linear-gradient(180deg, #000f30 0%, #072449 28.13%, #0f2466 100%);
   }

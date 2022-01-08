@@ -1,5 +1,5 @@
 import Router from "next/router"
-import { motion } from "framer-motion"
+import { motion, useViewportScroll } from "framer-motion"
 import { Flask, Math } from "@vectors/index/gifted"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import Image from "next/image"
@@ -180,6 +180,7 @@ export default function Home({ articles }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
   const auth = useAuth()
+  const { scrollY } = useViewportScroll()
 
   return (
     <>
