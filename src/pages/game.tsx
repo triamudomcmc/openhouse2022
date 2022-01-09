@@ -95,6 +95,21 @@ const Game: NextPage = () => {
             currPage.type === "opening" ? "space-y-12" : "space-y-2"
           )}
         >
+          <GameSection type={["text", "opening", "determined", "textInput", "choice"]} currType={currPage.type}>
+            <div className="absolute right-4 sm:right-6 top-6 sm:top-2">
+              <p
+                className="font-light text-sm sm:text-md cursor-pointer transition-opacity hover:opacity-100 opacity-90"
+                onClick={(e) => {
+                  e.stopPropagation() // stops the main div from triggering
+                  if (modalOpen) return
+                  setModal(true)
+                }}
+              >
+                ข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-6 h-6" />
+              </p>
+            </div>
+          </GameSection>
+
           <motion.div
             variants={{
               invisible: {
@@ -183,30 +198,17 @@ const Game: NextPage = () => {
 
             <div
               className={classNames(
-                "flex flex-col space-y-4 mt-20 md:mt-36",
+                "flex flex-col space-y-4 mt-6 md:mt-12 mb-12 sm:mb-16",
                 currPage.type === "choice" && "w-[20rem] md:w-[25rem]"
               )}
             >
               <GameSection type={["text", "opening", "determined"]} currType={currPage.type}>
-                <p className="font-light text-sm text-gray-100 animate-pulse">กดที่หน้าจอเพื่อไปต่อ</p>
-              </GameSection>
-
-              <GameSection type="opening" currType={currPage.type}>
-                <p
-                  className="font-light text-sm cursor-pointer transition-opacity hover:opacity-100 opacity-90"
-                  onClick={(e) => {
-                    e.stopPropagation() // stops the main div from triggering
-                    if (modalOpen) return
-                    setModal(true)
-                  }}
-                >
-                  ข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-5 h-5" />
-                </p>
+                <p className="font-light text-[12px] sm:text-sm text-gray-100 animate-pulse">กดที่หน้าจอเพื่อไปต่อ</p>
               </GameSection>
 
               <GameSection type="finale" currType={currPage.type}>
                 <p
-                  className="font-light text-sm cursor-pointer transition-opacity hover:opacity-100 opacity-90"
+                  className="font-light text-[12px] sm:`text-sm cursor-pointer transition-opacity hover:opacity-100 opacity-90"
                   onClick={(e) => {
                     e.stopPropagation() // stops the main div from triggering
                     if (modalOpen) return
@@ -224,36 +226,40 @@ const Game: NextPage = () => {
               </GameSection>
 
               <GameSection type="choice" currType={currPage.type}>
-                {currPage?.choices &&
-                  currPage?.choices.map((c, i) => (
-                    <button
-                      onClick={() => {
-                        setChoices((prevChoices) => [...prevChoices, { choice: c, index: i }])
-                        setScore((prevScore) => {
-                          const temp = { ...prevScore }
-                          const score = currPage.score[i]
+                <div className="flex flex-col items-center">
+                  {currPage?.choices &&
+                    currPage?.choices.map((c, i) => (
+                      <button
+                        onClick={() => {
+                          setChoices((prevChoices) => [...prevChoices, { choice: c, index: i }])
+                          setScore((prevScore) => {
+                            const temp = { ...prevScore }
+                            const score = currPage.score[i]
 
-                          Object.keys(score).forEach((s) => {
-                            // @ts-ignore
-                            temp[s] = temp[s] + score[s]
+                            Object.keys(score).forEach((s) => {
+                              // @ts-ignore
+                              temp[s] = temp[s] + score[s]
+                            })
+
+                            return temp
                           })
 
-                          return temp
-                        })
-
-                        setChangeScene(true)
-                      }}
-                      className="text-sm backdrop-blur-md shadow-md font-light bg-slate-600 bg-opacity-20 transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
-                      key={c}
-                    >
-                      {c}
-                    </button>
-                  ))}
+                          setChangeScene(true)
+                        }}
+                        className="text-sm backdrop-blur-md shadow-md font-light bg-slate-600 bg-opacity-20 transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
+                        key={c}
+                      >
+                        {c}
+                      </button>
+                    ))}
+                </div>
               </GameSection>
             </div>
 
             <GameSection type={["opening", "finale"]} currType={currPage.type}>
-              <LogoWhite className="absolute left-1/2 -translate-x-1/2 bottom-[3.5rem] md:bottom-[5rem] w-[174px]" />
+              <div className="flex justify-center mt-4 sm:mt-6">
+                <LogoWhite className="w-[174px]" />
+              </div>
             </GameSection>
           </motion.div>
         </GameBg>
