@@ -76,7 +76,19 @@ const Highlights = () => {
         classname="flex font-display items-center"
         element="main"
       >
-        <div className="flex flex-col items-start sm:items-center w-full px-8">
+        <div className="absolute z-[5] sm:left-[-150px] left-[150px]">
+          <Image src="/assets/stars/Star1.gif" width={1280} height={592} alt="star" />
+        </div>
+        <div className="absolute z-[5] sm:hidden top-[200px] left-[150px]">
+          <Image src="/assets/stars/Star2.gif" width={1280} height={592} alt="star" />
+        </div>
+        <div className="absolute z-[5] sm:hiddden top-[265px]">
+          <Image src="/assets/stars/Star3.gif" width={1280} height={592} alt="star" />
+        </div>
+        <div className="absolute z-[5] sm:left-[-250px] top-[130px]">
+          <Image src="/assets/stars/Star3.gif" width={1280} height={592} alt="star" />
+        </div>
+        <div className="relative z-[10] flex flex-col items-start sm:items-center w-full px-8">
           <h1 className="flex flex-col items-start sm:items-center font-game">
             <span className="text-[64px] xl:text-[116px] leading-[64px] xl:leading-[156px] font-black tracking-[14px] xl:tracking-[21px]">
               TRIAM UDOM
