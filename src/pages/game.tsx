@@ -174,7 +174,7 @@ const Game: NextPage = () => {
               className={(classNames(changingScene ? "none" : "inline"), "flex flex-col items-center justify-center")}
             >
               <div>
-                <p className="whitespace-pre-line text-[14px] sm:text-sm leading-loose drop-shadow-md">
+                <p className="whitespace-pre-line text-[14px] sm:text-sm xl:text-lg leading-loose xl:leading-relaxed drop-shadow-md">
                   <GameSection type="determined" currType={currPage.type}>
                     {currPage?.outcomes && `“${currPage?.outcomes[choices[choices.length - 1].index]}”`}
                   </GameSection>
