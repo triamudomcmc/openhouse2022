@@ -697,8 +697,10 @@ export default function Home({ articles }: any) {
       >
         <div className="mx-auto px-8 sm:px-0">
           <h2 className="font-black text-[42px] md:text-[85px] text-center">ข้อมูลเพิ่มเติมน่ารู้</h2>
-          <p className="text-[14px] md:text-[26px] font-light text-center mt-2">
-            มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ
+          <p className="text-[14px] md:text-[26px] font-light text-center mt-2 px-4">
+            มาดูข้อมูลและสถิติการสอบเข้าของปีก่อน ๆ
+            <br />
+            รวมถึงเอกสารที่ต้องใช้ในการสอบเข้ากันเถอะ
             <br />
             หรือถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !
           </p>
