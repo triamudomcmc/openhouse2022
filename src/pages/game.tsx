@@ -130,6 +130,7 @@ const Game: NextPage = () => {
               if (["text", "opening", "determined", "blank"].includes(currPage.type)) {
                 if (!changingScene) setChangeScene(true)
               }
+              // setPage(page - 1)
             }}
             scene={currPage.scene}
             skey={`${currPage.scene}${currPage.type}${currPage?.text ?? "-"}`}
@@ -141,17 +142,17 @@ const Game: NextPage = () => {
             <GameSection type={["text", "opening", "determined", "textInput", "choice"]} currType={currPage.type}>
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="absolute bg-white px-6 py-4 rounded-full shadow-md right-4 sm:right-6 top-6 sm:top-2"
+                className="absolute bg-slate-600 bg-opacity-50 backdrop-blur-lg px-6 py-2 rounded-full shadow-md right-4 sm:right-6 top-6 sm:top-2"
               >
                 <p
-                  className="font-light text-[#6670AD] text-md sm:text-lg cursor-pointer transition-opacity hover:opacity-100 opacity-90"
+                  className="font-light text-white text-md sm:text-lg cursor-pointer transition-opacity hover:opacity-100 opacity-90"
                   onClick={(e) => {
                     e.stopPropagation() // stops the main div from triggering
                     if (modalOpen) return
                     setModal(true)
                   }}
                 >
-                  ข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-[#6670AD] w-6 h-6" />
+                  ข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-6 h-6" />
                 </p>
               </motion.div>
             </GameSection>
@@ -174,7 +175,7 @@ const Game: NextPage = () => {
               className={(classNames(changingScene ? "none" : "inline"), "flex flex-col items-center justify-center")}
             >
               <div>
-                <p className="whitespace-pre-line text-[14px] sm:text-sm leading-loose drop-shadow-md">
+                <p className="whitespace-pre-line text-[14px] sm:text-lg xl:text-xl leading-loose xl:leading-relaxed drop-shadow-md">
                   <GameSection type="determined" currType={currPage.type}>
                     {currPage?.outcomes && `“${currPage?.outcomes[choices[choices.length - 1].index]}”`}
                   </GameSection>
@@ -296,7 +297,10 @@ const Game: NextPage = () => {
 
                           if (!changingScene) setChangeScene(true)
                         }}
-                        className="text-sm w-full backdrop-blur-md shadow-md font-light bg-slate-600 bg-opacity-20 transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
+                        className={classNames(
+                          currPage.scene === "dawn" ? "bg-[#612f2f] bg-opacity-[35%]" : "bg-slate-600 bg-opacity-20",
+                          "text-sm w-full backdrop-blur-md shadow-md font-light transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
+                        )}
                         key={c}
                       >
                         {c}

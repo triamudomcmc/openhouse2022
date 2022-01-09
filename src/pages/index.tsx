@@ -170,7 +170,7 @@ const getButton = (auth: IAuthContext | null) => {
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
-          ดูการ์ดของคุณ
+          ดูบัตรเดินทางของคุณ
         </motion.button>
       </Link>
     )
