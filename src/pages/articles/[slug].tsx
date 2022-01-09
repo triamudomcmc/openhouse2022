@@ -1,76 +1,69 @@
-import {NextPage} from "next";
-import Image from "next/image";
-import classnames from "classnames";
-import Router from "next/router";
-import {ArrowCircleLeftIcon} from "@heroicons/react/outline";
-import {getAllPosts, getPostBySlug} from "@lib/api";
-import markdownToHtml from "@lib/markdownToHTML";
+import { NextPage } from "next"
+import Image from "next/image"
+import classnames from "classnames"
+import Router from "next/router"
+import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
+import { getAllPosts, getPostBySlug } from "@lib/api"
+import markdownToHtml from "@lib/markdownToHTML"
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'], '_articles')
+  const posts = getAllPosts(["slug"], "_articles")
 
-  const urls = posts.map(posts => {
+  const urls = posts.map((posts) => {
     return {
       params: {
-        slug: posts.slug
-      }
+        slug: posts.slug,
+      },
     }
   })
 
   urls.push({
     params: {
-      slug: 'statistic'
-    }
+      slug: "statistic",
+    },
   })
 
   urls.push({
     params: {
-      slug: 'admission'
-    }
+      slug: "admission",
+    },
   })
 
   return {
     paths: urls,
-    fallback: false
+    fallback: false,
   }
 }
 
-export async function getStaticProps({ params }: {params: any}) {
-  if (params.slug === 'statistic') {
+export async function getStaticProps({ params }: { params: any }) {
+  if (params.slug === "statistic") {
     return {
       props: {
-        post: 'loadstat'
-      }
+        post: "loadstat",
+      },
     }
-  } else if (params.slug === 'admission') {
+  } else if (params.slug === "admission") {
     return {
       props: {
-        post: 'loadadmission'
-      }
+        post: "loadadmission",
+      },
     }
   } else {
-    const post = getPostBySlug(
-      params.slug,
-      ['title', 'author', 'content', 'coverImage'],
-      '_articles'
-    )
+    const post = getPostBySlug(params.slug, ["title", "author", "content", "coverImage"], "_articles")
 
-    const content = await markdownToHtml(post.content || '')
+    const content = await markdownToHtml(post.content || "")
     return {
       props: {
         post: {
           ...post,
-          content
-        }
-      }
+          content,
+        },
+      },
     }
   }
 }
 
-
 const Page: NextPage<{ post: any }> = ({ post }) => {
-
-
   return (
     <section className={classnames("min-h-screen main-section color-slip-jeen-top")}>
       <div className="max-w-6xl px-8 mx-auto">
@@ -85,12 +78,13 @@ const Page: NextPage<{ post: any }> = ({ post }) => {
         </div>
         <div className="mx-auto max-w-2xl mt-12 mb-24">
           <div className="flex flex-col items-start border-b pb-5">
-            <h1 className="text-5xl text-left">{post.title}</h1>
-            <p className="text-xl">{post.author}</p>
+            <h1 className="text-2xl sm:text-5xl text-left">{post.title}</h1>
+            <p className="mt-4 text-lg sm:text-xl font-light">{post.author}</p>
           </div>
-          <article className="prose text-white mt-6 leading-[30px] font-texts text-justify prose-invert article" dangerouslySetInnerHTML={{ __html: post.content }}>
-
-          </article>
+          <article
+            className="prose text-white mt-6 leading-[30px] font-texts text-justify prose-invert article"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          ></article>
         </div>
       </div>
     </section>
