@@ -139,16 +139,19 @@ const Game: NextPage = () => {
             )}
           >
             <GameSection type={["text", "opening", "determined", "textInput", "choice"]} currType={currPage.type}>
-              <motion.div whileHover={{ scale: 1.1 }} className="absolute right-4 sm:right-6 top-6 sm:top-2">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="absolute bg-white px-6 py-4 rounded-full shadow-md right-4 sm:right-6 top-6 sm:top-2"
+              >
                 <p
-                  className="font-light text-sm sm:text-md cursor-pointer transition-opacity hover:opacity-100 opacity-90"
+                  className="font-light text-[#6670AD] text-md sm:text-lg cursor-pointer transition-opacity hover:opacity-100 opacity-90"
                   onClick={(e) => {
                     e.stopPropagation() // stops the main div from triggering
                     if (modalOpen) return
                     setModal(true)
                   }}
                 >
-                  ข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-6 h-6" />
+                  ข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-[#6670AD] w-6 h-6" />
                 </p>
               </motion.div>
             </GameSection>
