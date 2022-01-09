@@ -18,7 +18,7 @@ const Blog = ({ data }: { data: any }) => {
         style={{
           background: "linear-gradient(265.95deg, rgba(255, 255, 255, 0.3) 33.14%, rgba(255, 255, 255, 0) 100%)",
         }}
-        className="border h-[198px] border-white rounded-lg border-opacity-40 flex justify-between backdrop-filter backdrop-blur-lg snap-center cursor-pointer"
+        className="border h-[375px] sm:h-[198px] border-white rounded-lg border-opacity-40 items-center flex flex-col sm:flex-row justify-between backdrop-filter backdrop-blur-lg snap-center cursor-pointer"
       >
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
@@ -30,13 +30,13 @@ const Blog = ({ data }: { data: any }) => {
           </div>
           <span className="text-sm font-light">{data.author}</span>
         </div>
-        <div className="flex-shrink-0 md:block hidden">
+        <div className="flex-shrink-0">
           <Image
             width={317}
             height={197}
             objectFit={"cover"}
             src={data.thumbnail}
-            className="flex-shrink-0 rounded-r-lg"
+            className="flex-shrink-0 rounded-lg sm:rounded-r-lg"
           />
           {/* <div className="w-[317px] h-[197px] bg-gray-400 bg-opacity-25 border border-white rounded-r-lg flex-shrink-0"></div> */}
         </div>
