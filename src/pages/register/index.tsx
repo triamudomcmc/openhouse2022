@@ -1,16 +1,26 @@
 import Link from "next/link"
 import { useAuth } from "@lib/auth"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { TUCMCLogo } from "@components/common/TUCMCLogo"
 import { AllMethods } from "@components/register/AllMethods"
 import { EmailForm } from "@components/register/EmailForm"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
-
 export type TPages = "all" | "email"
+
+const InApp = require("detect-inapp")
 
 const Register = () => {
   const auth = useAuth()
   const [page, setPage] = useState<TPages>("all")
+
+  const [blocked, setBlocked] = useState(false)
+
+  useEffect(() => {
+    const inapp = new InApp(navigator.userAgent || navigator.vendor)
+    if (inapp.isInApp) {
+      setBlocked(true)
+    }
+  }, [])
 
   // should be main
   return (
@@ -32,7 +42,11 @@ const Register = () => {
           </p>
         </div>
 
-        {page === "all" ? <AllMethods setPage={setPage} auth={auth} /> : <EmailForm auth={auth} setPage={setPage} />}
+        {page === "all" ? (
+          <AllMethods blocked={blocked} setPage={setPage} auth={auth} />
+        ) : (
+          <EmailForm auth={auth} setPage={setPage} />
+        )}
         <TUCMCLogo className="mt-4" />
       </div>
     </AdaptiveBg>

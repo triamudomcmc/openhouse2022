@@ -18,6 +18,8 @@ const EmailSent = () => {
           <Link href="/contact">
             <a className="text-pink-900 hover:underline mx-1">ช่องทางดังนี้</a>
           </Link>
+          <br />
+          (ต้องใช้ browser เดียวกันกับ browser นี้ในการยืนยันลิงก์ที่ส่งจากทางอีเมล)
         </p>
       </div>
     </AdaptiveBg>
