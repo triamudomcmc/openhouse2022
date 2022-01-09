@@ -89,35 +89,6 @@ export const Footer = () => {
             <Link href="/">
               <a className="hover:underline">หน้าแรก</a>
             </Link>
-            <Link href="/live">
-              <a className="hover:underline">รายการสด</a>
-            </Link>
-            <Link href="/articles">
-              <a className="hover:underline">บทความ</a>
-            </Link>
-            <Link href="/videos">
-              <a className="hover:underline">คลิปวิดีโอ</a>
-            </Link>
-            <Link href="/clubs">
-              <a className="hover:underline">ชมรม</a>
-            </Link>
-          </div>
-          <div className="flex flex-col space-y-2 text-center sm:text-right mt-2 sm:mt-0 font-display">
-            <Link href="/programmes">
-              <a className="hover:underline">สายการเรียน</a>
-            </Link>
-            <Link href="/admission">
-              <a className="hover:underline">การสอบเข้า</a>
-            </Link>
-            <Link href="/ticket">
-              <a className="hover:underline">บ้ตรของคุณ</a>
-            </Link>
-            <Link href="/directions">
-              <a className="hover:underline">การเดินทางมาโรงเรียนเตรียมฯ</a>
-            </Link>
-            <Link href="/contact">
-              <a className="hover:underline">ติดต่อผู้จัดงาน</a>
-            </Link>
           </div>
         </div>
       </div>

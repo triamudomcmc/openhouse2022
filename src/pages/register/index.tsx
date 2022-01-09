@@ -34,12 +34,12 @@ const Register = () => {
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="pb-8">
           <p className="font-display text-3xl text-white text-center font-medium py-2">Register / ลงทะเบียน</p>
-          <p className="font-display text-white text-center">
+          {/* <p className="font-display text-white text-center">
             Or{" "}
             <Link href="/login" passHref>
               <a className="text-red-400 hover:underline">login here</a>
             </Link>
-          </p>
+          </p> */}
         </div>
 
         {page === "all" ? (
