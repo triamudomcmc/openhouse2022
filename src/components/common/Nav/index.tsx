@@ -3,6 +3,7 @@ import {
   FlagIcon,
   HomeIcon,
   InformationCircleIcon,
+  MapIcon,
   MenuIcon,
   PuzzleIcon,
   VideoCameraIcon,
@@ -149,43 +150,49 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
         <div className="flex flex-col space-y-4 w-full text-white font-display">
           <>
             <Link href="/" passHref>
-              <a className={classNames(getClass("/"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
+              <a className={classNames(getClass("/"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <HomeIcon className="text-white w-8 h-8" />
                 <span>หน้าแรก</span>
               </a>
             </Link>
             <Link href="/programmes" passHref>
-              <a className={classNames(getClass("/programmes"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
+              <a className={classNames(getClass("/programmes"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <FlagIcon className="text-white w-8 h-8" />
                 <span>สายการเรียน</span>
               </a>
             </Link>
             <Link href="/clubs" passHref>
-              <a className={classNames(getClass("/clubs"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
+              <a className={classNames(getClass("/clubs"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <PuzzleIcon className="text-white w-8 h-8" />
                 <span>ชมรม</span>
               </a>
             </Link>
             <Link href="/videos" passHref>
-              <a className={classNames(getClass("/videos"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
+              <a className={classNames(getClass("/videos"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <VideoCameraIcon className="text-white w-8 h-8" />
                 <span>วิดีโอ</span>
               </a>
             </Link>
             <Link href="/articles" passHref>
-              <a className={classNames(getClass("/articles"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
+              <a className={classNames(getClass("/articles"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <BookOpenIcon className="text-white w-8 h-8" />
                 <span>บทความ</span>
               </a>
             </Link>
             <Link href="/admission" passHref>
-              <a className={classNames(getClass("/admission"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
+              <a className={classNames(getClass("/admission"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <InformationCircleIcon className="text-white w-8 h-8" />
                 <span>การสอบเข้า</span>
               </a>
             </Link>
+            <Link href="/directions" passHref>
+              <a className={classNames(getClass("/directions"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
+                <MapIcon className="text-white w-8 h-8" />
+                <span>การเดินทางมาโรงเรียนเตรียมฯ</span>
+              </a>
+            </Link>
             <Link href="/contact" passHref>
-              <a className={classNames(getClass("/contact"), "flex flex-row items-center space-x-4 pl-4 py-3 pr-8")}>
+              <a className={classNames(getClass("/contact"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <Korchor className="text-white w-8 h-8" />
                 <span>ติดต่อผู้จัดงาน</span>
               </a>
