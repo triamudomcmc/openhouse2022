@@ -40,6 +40,13 @@ const Register = () => {
               <a className="text-red-400 hover:underline">login here</a>
             </Link>
           </p> */}
+          {blocked && (
+            <p className="font-display text-gray-200 text-center mt-4 leading-loose">
+              หมายเหตุ: แนะนำให้ไปเปิดเว็บไซต์ใน browser ที่ไม่ใช่ภายใน Line, Instagram หรือ Messenger
+              <br />
+              หากเปิดใน browser เช่น Safari, Google Chrome จะสามารถล็อกอินได้ทุกวิธี
+            </p>
+          )}
         </div>
 
         {page === "all" ? (

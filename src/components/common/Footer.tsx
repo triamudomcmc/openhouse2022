@@ -89,6 +89,9 @@ export const Footer = () => {
             <Link href="/">
               <a className="hover:underline">หน้าแรก</a>
             </Link>
+            <Link href="/contact">
+              <a className="hover:underline">ติดต่อผู้จัดงาน</a>
+            </Link>
           </div>
         </div>
       </div>
