@@ -31,7 +31,7 @@ const ConfirmMail: NextPage = () => {
       classname="relative w-full min-h-screen"
       element="main"
     >
-      <div className="flex flex-col items-center h-screen justify-center py-8 px-4 space-y-4 text-center">
+      <div className="flex flex-col font-display items-center h-screen justify-center py-8 px-4 space-y-4 text-center">
         <p className="text-xl">เข้าสู่ระบบด้วยอีเมลสำเร็จ</p>
       </div>
     </AdaptiveBg>
