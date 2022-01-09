@@ -88,7 +88,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
         <div className="flex justify-between items-center mx-auto w-full max-w-6xl">
           <Link href="/" passHref>
             <div className="flex space-x-2 cursor-pointer flex-shrink-0">
-              <img width={60} height={40} src="/images/logos/openhouse.png" />
+              <img alt="Logo" width={60} height={40} src="/images/logos/openhouse.png" />
               <div className="flex flex-col justify-center">
                 <p className="text-sm sm:text-base font-bold">
                   TRIAM UDOM
