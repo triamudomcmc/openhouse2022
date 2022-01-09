@@ -126,6 +126,11 @@ const Game: NextPage = () => {
         }}
       >
         <div className="antialiased">
+          <GameSection type="opening" currType={currPage.type}>
+            <div className="absolute text-center w-full left-1/2 -translate-x-1/2 top-4 sm:top-8">
+              <p className="text-sm font-game text-white">trigger warning: character death (ความตาย)</p>
+            </div>
+          </GameSection>
           <GameBg
             onClick={(e) => {
               e.stopPropagation() // stops the main modal from triggering
