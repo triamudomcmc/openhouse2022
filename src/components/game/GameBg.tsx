@@ -28,8 +28,8 @@ export const GameBg: FC<{
   expandTo?: string
 }> = ({ children, scene, skey, onClick, className, expandTo }) => {
   const primary = { background: getBg(scene, "primary"), height: "600px", expandTo: "100vh" }
-  const secondary = { background: getBg(scene, "secondary"), height: "926px", expandTo: undefined }
-  const mobile = { background: getBg(scene, "mobile"), height: "926px", expandTo: undefined }
+  const secondary = { background: getBg(scene, "secondary"), height: "926px", expandTo: "100vh" }
+  const mobile = { background: getBg(scene, "mobile"), height: "926px", expandTo: "100vh" }
 
   const { width } = useWindowDimensions()
 
