@@ -84,12 +84,8 @@ const Page = ({ contents }: { contents: any }) => {
   }, [searchContext, contents])
 
   return (
-    <AdaptiveBg
-      primary={{ background: "/images/backgrounds/clubs.jpg", height: "2048px", expandTo: "100%" }}
-      secondary={{ background: "/images/backgrounds/clubs-mobile.jpg", height: "926px" }}
-      mobile={{ background: "/images/backgrounds/clubs-mobile-default.jpg", height: "926px" }}
-    >
-      <div className="max-w-6xl mx-auto mt-40">
+    <main className="color-videos main-section">
+      <div className="max-w-6xl mx-auto">
         <div
           onClick={() => {
             Router.back()
@@ -124,7 +120,7 @@ const Page = ({ contents }: { contents: any }) => {
           </div>
         </div>
       </div>
-    </AdaptiveBg>
+    </main>
   )
 }
 

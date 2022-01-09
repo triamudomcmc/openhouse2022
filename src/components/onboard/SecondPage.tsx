@@ -307,13 +307,17 @@ export const SecondPage: FC<{
             >
               <p className="leading-2">
                 การลงทะเบียนถือว่ายอมรับ
-                <Link href="/privacy-policy">
-                  <a className="text-red-200 underline mx-1 whitespace-nowrap">นโยบายความเป็นส่วนตัว</a>
+                <Link href="/privacy-policy" passHref>
+                  <a target="_blank" className="text-red-200 underline mx-1 whitespace-nowrap">
+                    นโยบายความเป็นส่วนตัว
+                  </a>
                 </Link>
                 <br />
                 และ
-                <Link href="/tos">
-                  <a className="text-red-200 underline mx-1">ข้อตกลงการใช้งาน</a>
+                <Link href="/tos" passHref>
+                  <a target="_blank" className="text-red-200 underline mx-1">
+                    ข้อตกลงการใช้งาน
+                  </a>
                 </Link>
               </p>
             </motion.div>

@@ -31,6 +31,10 @@
     background: linear-gradient(180deg, #352a62 0%, #4a3161 28.13%, #0f2466 100%);
   }
 
+  .color-videos {
+    background: linear-gradient(180deg, #3d2d3f 0%, #390749 28.13%, #0f2466 100%);
+  }
+
   .color-slip-jeen-top {
     background: linear-gradient(180deg, #000f30 0%, #072449 28.13%);
   }
