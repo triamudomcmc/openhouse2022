@@ -96,7 +96,7 @@ const Game: NextPage = () => {
           )}
         >
           <GameSection type={["text", "opening", "determined", "textInput", "choice"]} currType={currPage.type}>
-            <div className="absolute right-4 sm:right-6 top-6 sm:top-2">
+            <motion.div whileHover={{ scale: 1.1 }} className="absolute right-4 sm:right-6 top-6 sm:top-2">
               <p
                 className="font-light text-sm sm:text-md cursor-pointer transition-opacity hover:opacity-100 opacity-90"
                 onClick={(e) => {
@@ -107,23 +107,23 @@ const Game: NextPage = () => {
               >
                 ข้ามเนื้อเรื่อง <ArrowCircleRightIcon className="inline text-white w-6 h-6" />
               </p>
-            </div>
+            </motion.div>
           </GameSection>
 
           <motion.div
             variants={{
               invisible: {
                 opacity: 0,
-                // x: -200,
+                x: 200,
               },
               visible: {
                 opacity: 1,
-                // x: 0,
+                x: 0,
               },
             }}
-            transition={{ duration: 0.5, type: "tween" }}
+            transition={{ duration: 0.3, type: "tween" }}
             animate={changingScene ? "invisible" : "visible"}
-            className={classNames(changingScene ? "none" : "inline")}
+            className={(classNames(changingScene ? "none" : "inline"), "flex flex-col items-center justify-center")}
           >
             <div>
               <p className="whitespace-pre-line leading-loose drop-shadow-md">
@@ -198,8 +198,8 @@ const Game: NextPage = () => {
 
             <div
               className={classNames(
-                "flex flex-col space-y-4 mt-6 md:mt-12 mb-12 sm:mb-16",
-                currPage.type === "choice" && "w-[20rem] md:w-[25rem]"
+                "flex flex-col space-y-4 mt-4 md:mt-6 mb-12 sm:mb-16",
+                currPage.type === "choice" && "justify-center items-center w-[20rem] md:w-[25rem]"
               )}
             >
               <GameSection type={["text", "opening", "determined"]} currType={currPage.type}>
@@ -226,33 +226,31 @@ const Game: NextPage = () => {
               </GameSection>
 
               <GameSection type="choice" currType={currPage.type}>
-                <div className="flex flex-col items-center">
-                  {currPage?.choices &&
-                    currPage?.choices.map((c, i) => (
-                      <button
-                        onClick={() => {
-                          setChoices((prevChoices) => [...prevChoices, { choice: c, index: i }])
-                          setScore((prevScore) => {
-                            const temp = { ...prevScore }
-                            const score = currPage.score[i]
+                {currPage?.choices &&
+                  currPage?.choices.map((c, i) => (
+                    <button
+                      onClick={() => {
+                        setChoices((prevChoices) => [...prevChoices, { choice: c, index: i }])
+                        setScore((prevScore) => {
+                          const temp = { ...prevScore }
+                          const score = currPage.score[i]
 
-                            Object.keys(score).forEach((s) => {
-                              // @ts-ignore
-                              temp[s] = temp[s] + score[s]
-                            })
-
-                            return temp
+                          Object.keys(score).forEach((s) => {
+                            // @ts-ignore
+                            temp[s] = temp[s] + score[s]
                           })
 
-                          setChangeScene(true)
-                        }}
-                        className="text-sm backdrop-blur-md shadow-md font-light bg-slate-600 bg-opacity-20 transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
-                        key={c}
-                      >
-                        {c}
-                      </button>
-                    ))}
-                </div>
+                          return temp
+                        })
+
+                        setChangeScene(true)
+                      }}
+                      className="text-sm backdrop-blur-md shadow-md font-light bg-slate-600 bg-opacity-20 transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
+                      key={c}
+                    >
+                      {c}
+                    </button>
+                  ))}
               </GameSection>
             </div>
 
