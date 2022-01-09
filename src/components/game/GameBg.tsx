@@ -7,7 +7,7 @@ import Image from "next/image"
 const getBg = (scene: string, type: "primary" | "secondary" | "mobile") => {
   if (["black", "white"].includes(scene)) {
     if (scene === "black") {
-      return "#081A35"
+      return "#000"
     } else if (scene === "white") {
       return "#fff"
     }

@@ -87,7 +87,7 @@ const TicketPage: NextPage = () => {
       element="main"
     >
       <div className="flex flex-col items-center space-y-4">
-        <h2 className="text-center text-white font-display text-4xl font-semibold">ตั๋วการเดินทางของคุณ</h2>
+        <h2 className="text-center text-white font-display text-4xl font-semibold">บัตรเดินทางของคุณ</h2>
         <div className="flex flex-row mb-10 space-x-8">
           <div onClick={switchToSquare} className="flex flex-col items-center">
             <div
@@ -202,7 +202,7 @@ const TicketPage: NextPage = () => {
           </button>
         </div>
         <div style={{ width: cardWidth }} className="flex flex-col mt-8 mb-4 space-y-2">
-          <p className="text-white mt-4 mb-1 font-display text-xl">แชร์การ์ดต่อ</p>
+          <p className="text-white mt-4 mb-1 font-display text-xl">แชร์บัตรต่อ</p>
           <div
             className="flex flex-row justify-between items-center py-2 px-4 rounded-full bg-white cursor-pointer hover:bg-gray-100 active:bg-white transition-colors"
             onClick={() => {
