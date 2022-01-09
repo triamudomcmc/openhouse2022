@@ -158,12 +158,12 @@ const Game: NextPage = () => {
                 invisible: {
                   opacity: 0,
                   // x: 200,
-                  scale: 0,
+                  // scale: 0,
                 },
                 visible: {
                   opacity: 1,
                   // x: 0,
-                  scale: 1,
+                  // scale: 1,
                 },
               }}
               transition={{ duration: 0.6, type: "tween" }}
@@ -171,7 +171,7 @@ const Game: NextPage = () => {
               className={(classNames(changingScene ? "none" : "inline"), "flex flex-col items-center justify-center")}
             >
               <div>
-                <p className="whitespace-pre-line leading-loose drop-shadow-md">
+                <p className="whitespace-pre-line text-[14px] sm:text-sm leading-loose drop-shadow-md">
                   <GameSection type="determined" currType={currPage.type}>
                     {currPage?.outcomes && `“${currPage?.outcomes[choices[choices.length - 1].index]}”`}
                   </GameSection>
