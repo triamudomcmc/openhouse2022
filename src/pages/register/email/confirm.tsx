@@ -1,11 +1,13 @@
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import { useAuth } from "@lib/auth"
+import { useToast } from "@lib/toast"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 
 const ConfirmMail: NextPage = () => {
   const auth = useAuth()
   const router = useRouter()
+  const toast = useToast()
   const email = window.localStorage.getItem("emailForSignIn")
   if (!email)
     router.push({
@@ -16,6 +18,7 @@ const ConfirmMail: NextPage = () => {
     })
   else {
     auth?.signinWithEmail(email)
+    toast?.setToast("ยืนยันอีเมลสำเร็จแล้ว")
     router.push("/register/onboard")
   }
 

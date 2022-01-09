@@ -193,7 +193,19 @@ export default function Home({ articles }: any) {
         element="main"
         id="main"
       >
-        <div className="font-game flex flex-col items-start sm:items-center w-full px-8">
+        <div className="absolute z-[5] left-[150px]">
+          <Image src="/assets/stars/Star1.gif" width={1280} height={592} alt="star" />
+        </div>
+        <div className="absolute z-[5] top-[200px] left-[150px]">
+          <Image src="/assets/stars/Star2.gif" width={1280} height={592} alt="star" />
+        </div>
+        <div className="absolute z-[5] top-[265px]">
+          <Image src="/assets/stars/Star3.gif" width={1280} height={592} alt="star" />
+        </div>
+        <div className="absolute z-[5] top-[130px]">
+          <Image src="/assets/stars/Star3.gif" width={1280} height={592} alt="star" />
+        </div>
+        <div className="relative z-[10] font-game flex flex-col items-start sm:items-center w-full px-8">
           <h1 className="flex flex-col items-start sm:items-center">
             <span className="text-[64px] xl:text-[116px] leading-[64px] xl:leading-[156px] font-black tracking-[14px] xl:tracking-[24px]">
               TRIAM UDOM
@@ -206,7 +218,7 @@ export default function Home({ articles }: any) {
             </span>
             {<CountDown />}
           </h1>
-          <div className="flex flex-col items-center">
+          <div className="relative z-[10] flex flex-col items-center">
             {getButton(auth)}
             <LogoWhite className="w-[174px] mt-6 md:mt-16" />
           </div>
