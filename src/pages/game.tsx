@@ -247,6 +247,9 @@ const Game: NextPage = () => {
                   currPage.type === "choice" && "justify-center items-center w-[20rem] md:w-[25rem]"
                 )}
               >
+                <GameSection type="opening" currType={currPage.type}>
+                  <p className="font-light text-[12px] sm:text-sm text-gray-100">(เปิดเสียงเพื่ออรรถรสในการเล่น)</p>
+                </GameSection>
                 <GameSection type={["text", "opening", "determined"]} currType={currPage.type}>
                   <p className="font-light text-[12px] sm:text-sm text-gray-100 animate-pulse">กดที่หน้าจอเพื่อไปต่อ</p>
                 </GameSection>
