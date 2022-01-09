@@ -92,7 +92,7 @@ const Game: NextPage = () => {
           skey={`${currPage.scene}${currPage.type}${currPage?.text ?? "-"}`}
           className={classNames(
             ["text", "opening", "determined", "blank"].includes(currPage.type) && "cursor-pointer",
-            currPage.type === "opening" ? "space-y-12" : "space-y-2"
+            currPage.type === "opening" ? "space-y-12" : "space-y-12"
           )}
         >
           <GameSection type={["text", "opening", "determined", "textInput", "choice"]} currType={currPage.type}>
@@ -208,7 +208,7 @@ const Game: NextPage = () => {
 
               <GameSection type="finale" currType={currPage.type}>
                 <p
-                  className="font-light text-[12px] sm:`text-sm cursor-pointer transition-opacity hover:opacity-100 opacity-90"
+                  className="font-light text-sm sm:text-md cursor-pointer transition-opacity hover:opacity-100 opacity-90"
                   onClick={(e) => {
                     e.stopPropagation() // stops the main div from triggering
                     if (modalOpen) return
@@ -245,7 +245,7 @@ const Game: NextPage = () => {
 
                         setChangeScene(true)
                       }}
-                      className="text-sm backdrop-blur-md shadow-md font-light bg-slate-600 bg-opacity-20 transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
+                      className="text-sm w-full backdrop-blur-md shadow-md font-light bg-slate-600 bg-opacity-20 transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
                       key={c}
                     >
                       {c}
