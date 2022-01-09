@@ -64,12 +64,13 @@ const Game: NextPage = () => {
   const [changingScene, setChangeScene] = useState(false)
 
   useEffect(() => {
-    if (page === 0) return
-    setChangeScene(true)
-    setTimeout(() => {
-      setChangeScene(false)
-    }, 1000)
-  }, [page])
+    if (changingScene) {
+      setTimeout(() => {
+        setChangeScene(false)
+        setPage(page + 1)
+      }, 1000)
+    }
+  }, [changingScene])
 
   return (
     <Modal
@@ -85,7 +86,7 @@ const Game: NextPage = () => {
             e.stopPropagation() // stops the main modal from triggering
             if (modalOpen) return setModal(false)
 
-            if (["text", "opening", "determined", "blank"].includes(currPage.type)) setPage(page + 1)
+            if (["text", "opening", "determined", "blank"].includes(currPage.type)) setChangeScene(true)
           }}
           scene={currPage.scene}
           skey={`${currPage.scene}${currPage.type}${currPage?.text ?? "-"}`}
@@ -141,7 +142,7 @@ const Game: NextPage = () => {
                   }}
                   onSubmit={(data) => {
                     setFeedback(data.feedback)
-                    setPage(page + 1)
+                    setChangeScene(true)
                   }}
                   validateOnChange={false}
                   validateOnBlur={false}
@@ -240,7 +241,7 @@ const Game: NextPage = () => {
                           return temp
                         })
 
-                        setPage(page + 1)
+                        setChangeScene(true)
                       }}
                       className="text-sm backdrop-blur-md shadow-md font-light bg-slate-600 bg-opacity-20 transition-colors hover:bg-white hover:text-gray-600 font-game rounded-2xl px-6 py-4 border border-white"
                       key={c}
