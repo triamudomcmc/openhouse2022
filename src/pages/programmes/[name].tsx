@@ -148,6 +148,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                     src={reviewItem.profileURL}
                     className="rounded-2xl"
                     objectFit={"cover"}
+                    alt={reviewItem.profileData.name}
                   />
                   <div>
                     <h1 className="text-white font-semibold text-2xl">{reviewItem.profileData.name}</h1>
