@@ -72,7 +72,11 @@ const Game: NextPage = () => {
       const nextScene = page + 1
       setTimeout(() => {
         setChangeScene(false)
-        if (page === 10) {
+        if (page === 0) {
+          if (audioRef.current !== null) {
+            audioRef.current.play()
+          }
+        } else if (page === 10) {
           if (audioRef.current !== null) {
             audioRef.current.src = `/music/obstacle.mp3`
             audioRef.current.play()
@@ -97,7 +101,7 @@ const Game: NextPage = () => {
 
   return (
     <div
-      onMouseOver={() => {
+      onClick={() => {
         if (audioRef.current) audioRef.current.play()
       }}
     >
