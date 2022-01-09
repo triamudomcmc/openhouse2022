@@ -195,7 +195,7 @@ export const SecondPage: FC<{
               <p className="w-full text-lg font-semibold mb-4 text-white font-display" id="purpose-group">
                 จุดประสงค์ในการเข้าร่วม Triam Udom Online
                 <br />
-                Open House 2022 จากที่ใดบ้าง
+                Open House 2022
                 <br />
                 <span className="text-sm font-light">(ตอบได้มากกว่า 1 ข้อ)</span>
               </p>
