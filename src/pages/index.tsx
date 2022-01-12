@@ -252,7 +252,15 @@ export default function Home({ articles }: any) {
                 <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>
               </div>
             </div>
-            <div className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl"></div>
+            <iframe
+              className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl"
+              src="https://player.twitch.tv/?channel=tuophtest&parent=openhouse.triamudom.ac.th"
+              frameBorder="0"
+              allowFullScreen={true}
+              scrolling="no"
+              height="378"
+              width="620"
+            ></iframe>
           </div>
           <div className="xl:block md:hidden block">
             <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
