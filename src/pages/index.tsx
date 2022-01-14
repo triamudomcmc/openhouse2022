@@ -4,7 +4,13 @@ import { Flask, Math } from "@vectors/index/gifted"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import Image from "next/image"
 import { LogoWhite } from "@vectors/Logo"
-import { ArrowCircleRightIcon, ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
+import {
+  ArrowCircleRightIcon,
+  ArrowLeftIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  PaperAirplaneIcon,
+} from "@heroicons/react/outline"
 import Link from "next/link"
 import { ArrowRightIcon, ClockIcon, UserIcon } from "@heroicons/react/solid"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
@@ -18,6 +24,8 @@ import { IAuthContext, useAuth } from "@lib/auth"
 import { CountDown } from "@components/common/Countdown"
 import { Programme } from "@components/programme"
 import { getDb } from "@lib/firebase-admin"
+import { updateLiveFeedback } from "@lib/db"
+import { useToast } from "@lib/toast"
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -199,6 +207,11 @@ const getButton = (auth: IAuthContext | null) => {
 
 const zeroPad = (num: number, places: number) => String(num).padStart(places, "0")
 
+const formatTime = (timeStamp: number) => {
+  const d = new Date(timeStamp)
+  return `${zeroPad(d.getHours(), 2)}:${zeroPad(d.getMinutes(), 2)}`
+}
+
 const findCurrent = (sc: Array<any>) => {
   const time = new Date().getTime()
   const fil = sc.filter((e: any) => e.start * 1000 < time)
@@ -211,6 +224,7 @@ export default function Home({ articles, schedule }: any) {
   const videoRight = useRef(null)
   const [current, setCurrent] = useState(findCurrent(schedule).now)
   const auth = useAuth()
+  const toast = useToast()
 
   const next = () => {
     if (findCurrent(schedule).now) {
@@ -224,6 +238,7 @@ export default function Home({ articles, schedule }: any) {
   useEffect(() => {
     next()
   })
+  const [question, setQuestion] = useState("")
 
   const { scrollY } = useViewportScroll()
 
@@ -280,7 +295,7 @@ export default function Home({ articles, schedule }: any) {
         primary={{ background: "/images/backgrounds/live.jpg", height: "1024px" }}
         secondary={{ background: "/images/backgrounds/live-mobile.jpg", height: "926px" }}
         mobile={{ background: "/images/backgrounds/live-mobile-default.jpg", height: "926px" }}
-        classname="flex items-center"
+        classname="flex flex-col justify-center items-center"
         element="section"
         id="live"
       >
@@ -293,9 +308,13 @@ export default function Home({ articles, schedule }: any) {
                 </span>{" "}
                 <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current?.name || ""}</span>
               </h2>
-              {/*<div>*/}
-              {/*   <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>*/}
-              {/*</div>*/}
+              {!(!current?.by || !current?.start) && (
+                <div>
+                  <span className="font-light sm:text-md text-sm">
+                    {current?.by} | {formatTime(current?.start)} น.
+                  </span>
+                </div>
+              )}
             </div>
             {auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket ? (
               <iframe
@@ -346,6 +365,32 @@ export default function Home({ articles, schedule }: any) {
                 </motion.a>
               </Link>
             </div>
+          </div>
+        </div>
+        <div className="mt-6 w-full md:w-1/2">
+          <div className="relative rounded-xl border px-8 py-6 space-y-3 w-full mb-4">
+            <p>สงสัยอะไรไหม ? พิมพ์ถามคำถามสด ๆ ได้เลย</p>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+                updateLiveFeedback(question)
+                setQuestion("")
+                toast?.setToast("ส่งคำถามสำเร็จ")
+              }}
+              className="flex items-center space-x-4"
+            >
+              <input
+                onChange={(e) => {
+                  setQuestion(e.target.value)
+                }}
+                value={question}
+                className="border bg-white bg-opacity-20 rounded-full placeholder:text-white py-1 pl-3 w-full border-opacity-40 pr-4"
+                placeholder="ถามคำถามเลย !"
+              />
+              <button type="submit">
+                <PaperAirplaneIcon className="rotate-90 w-8 h-8" />
+              </button>
+            </form>
           </div>
         </div>
       </AdaptiveBg>
