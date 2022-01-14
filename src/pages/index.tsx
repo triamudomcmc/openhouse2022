@@ -310,9 +310,9 @@ export default function Home({ articles, schedule }: any) {
               <div className="min-w-[300px] max-w-[400px] sm:min-w-[380px] mx-auto">
                   <div className="max-w-[400px] max-h-[440px] overflow-y-auto space-y-4 mx-auto">
                       {
-                          schedule.map((item: any) => {
+                          schedule.map((item: any, index: any) => {
                               return (
-                                  <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                                  <div key={`e-${index}`} className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
                                       <div className="w-[60px]">
                                           <p className="font-semibold text-xl sm:text-2xl">{zeroPad(new Date(item.start * 1000).getHours(), 2)}:{zeroPad(new Date(item.start * 1000).getMinutes(), 2)}</p>
                                       </div>
