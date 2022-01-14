@@ -306,7 +306,7 @@ export default function Home({ articles, schedule }: any) {
                 width="620"
               ></iframe>
             ) : (
-              <div className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl flex flex-col items-center justify-center">
+              <div className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl flex flex-col items-center justify-center mx-auto">
                 <p className="text-white">จำเป็นต้องลงทะเบียนเพื่อเข้าดู LIVE</p>
                 {getButton(auth)}
               </div>
