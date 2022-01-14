@@ -4,12 +4,12 @@ import { Flask, Math } from "@vectors/index/gifted"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import Image from "next/image"
 import { LogoWhite } from "@vectors/Logo"
-import {ArrowCircleRightIcon, ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/outline"
+import { ArrowCircleRightIcon, ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
 import Link from "next/link"
-import {ArrowRightIcon, ClockIcon, UserIcon} from "@heroicons/react/solid"
+import { ArrowRightIcon, ClockIcon, UserIcon } from "@heroicons/react/solid"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/splide.min.css"
-import {FC, useEffect, useRef, useState} from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
 import { GetStaticProps } from "next"
 import { getAllPosts } from "@lib/api"
@@ -17,7 +17,7 @@ import markdownToHtml from "@lib/markdownToHTML"
 import { IAuthContext, useAuth } from "@lib/auth"
 import { CountDown } from "@components/common/Countdown"
 import { Programme } from "@components/programme"
-import {getDb} from "@lib/firebase-admin";
+import { getDb } from "@lib/firebase-admin"
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -101,10 +101,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const data = await getDb().collection("schedule").doc("GSUnaiZv85XPHPWiZOzf").get()
   const schedule = data.get("14").map((e: any) => {
-
     return {
       name: e.name,
-      start: e.start._seconds
+      start: e.start._seconds,
     }
   })
 
@@ -126,7 +125,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       articles: mapped,
-      schedule: schedule
+      schedule: schedule,
     },
   }
 }
@@ -185,26 +184,26 @@ const getButton = (auth: IAuthContext | null) => {
       //     ดูบัตรเดินทางของคุณ
       //   </motion.button>
       // </Link>
-        <Link href="/stream">
-          <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
-              style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
-          >
-            รับชมรายการสด
-          </motion.button>
-        </Link>
+      <Link href="/stream">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
+          style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+        >
+          รับชมรายการสด
+        </motion.button>
+      </Link>
     )
   }
 }
 
-const zeroPad = (num: number, places: number) => String(num).padStart(places, '0')
+const zeroPad = (num: number, places: number) => String(num).padStart(places, "0")
 
 const findCurrent = (sc: Array<any>) => {
-    const time = new Date().getTime()
-    const fil = sc.filter((e: any) => (e.start * 1000 < time))
-    const file = sc.filter((e: any) => (e.start * 1000 > time))
-    return {now: fil[fil.length - 1], next:file[0]}
+  const time = new Date().getTime()
+  const fil = sc.filter((e: any) => e.start * 1000 < time)
+  const file = sc.filter((e: any) => e.start * 1000 > time)
+  return { now: fil[fil.length - 1], next: file[0] }
 }
 
 export default function Home({ articles, schedule }: any) {
@@ -217,7 +216,7 @@ export default function Home({ articles, schedule }: any) {
     setTimeout(() => {
       setCurrent(findCurrent(schedule).now)
       next()
-    }, (findCurrent(schedule).now.start * 1000) - new Date().getTime())
+    }, findCurrent(schedule).now.start * 1000 - new Date().getTime())
   }
 
   useEffect(() => {
@@ -225,7 +224,6 @@ export default function Home({ articles, schedule }: any) {
   })
 
   const { scrollY } = useViewportScroll()
-
 
   return (
     <>
@@ -291,7 +289,7 @@ export default function Home({ articles, schedule }: any) {
                 <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">
                   LIVE
                 </span>{" "}
-                 <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current.name}</span>
+                <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current.name}</span>
               </h2>
               {/*<div>*/}
               {/*   <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>*/}
@@ -316,36 +314,37 @@ export default function Home({ articles, schedule }: any) {
           </div>
           <div className="xl:block md:hidden block">
             <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
-                <p className="font-light text-sm">LIVE SCHEDULE</p>
-                <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
-              </div>
-              <div className="min-w-[300px] max-w-[400px] sm:min-w-[380px] mx-auto">
-                  <div className="max-w-[400px] max-h-[440px] overflow-y-auto space-y-4 mx-auto">
-                      {
-                          schedule.map((item: any, index: any) => {
-                              return (
-                                  <div key={`e-${index}`} className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                                      <div className="w-[60px]">
-                                          <p className="font-semibold text-xl sm:text-2xl">{zeroPad(new Date(item.start * 1000).getHours(), 2)}:{zeroPad(new Date(item.start * 1000).getMinutes(), 2)}</p>
-                                      </div>
-                                      <div>
-                                          <p className="text-md sm:text-lg">{item.name}</p>
-                                      </div>
-                                  </div>
-                              )
-                          })
-                      }
-                  </div>
-                  {/*<Link href="/schedule">*/}
-                  {/*    <motion.a*/}
-                  {/*        whileHover={{ scale: 1.02 }}*/}
-                  {/*        className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"*/}
-                  {/*    >*/}
-                  {/*        ดูตารางรายการสดทั้งหมด*/}
-                  {/*    </motion.a>*/}
-                  {/*</Link>*/}
-              </div>
+              <p className="font-light text-sm">LIVE SCHEDULE</p>
+              <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
             </div>
+            <div className="min-w-[300px] max-w-[400px] sm:min-w-[380px] mx-auto">
+              <div className="max-w-[400px] max-h-[440px] overflow-y-auto space-y-4 mx-auto">
+                {schedule.map((item: any, index: any) => {
+                  return (
+                    <div key={`e-${index}`} className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                      <div className="w-[60px]">
+                        <p className="font-semibold text-xl sm:text-2xl">
+                          {zeroPad(new Date(item.start * 1000).getHours(), 2)}:
+                          {zeroPad(new Date(item.start * 1000).getMinutes(), 2)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-md sm:text-lg">{item.name}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+              {/*<Link href="/schedule">*/}
+              {/*    <motion.a*/}
+              {/*        whileHover={{ scale: 1.02 }}*/}
+              {/*        className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"*/}
+              {/*    >*/}
+              {/*        ดูตารางรายการสดทั้งหมด*/}
+              {/*    </motion.a>*/}
+              {/*</Link>*/}
+            </div>
+          </div>
         </div>
       </AdaptiveBg>
 
@@ -594,12 +593,12 @@ export default function Home({ articles, schedule }: any) {
             </p>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-[400px] bg-white bg-opacity-20 rounded-xl border border-white border-opacity-40">
-            <ClockIcon className="w-24 h-24 mb-4"/>
-            <h1 className="text-center text-2xl">สามารถติดตามหลังจบการถ่ายทอดสดสด</h1>
+            <ClockIcon className="w-24 h-24 mb-4" />
+            <h1 className="text-center px-4 text-2xl">สามารถติดตามหลังจบการถ่ายทอดสด</h1>
             <Link href="/stream">
               <div className="flex items-center space-x-2 cursor-pointer">
                 <p>รับชมการถ่ายทอดสด</p>
-                <ArrowRightIcon className="w-4 h-4"/>
+                <ArrowRightIcon className="w-4 h-4" />
               </div>
             </Link>
           </div>
