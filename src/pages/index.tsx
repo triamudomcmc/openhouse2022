@@ -314,17 +314,17 @@ export default function Home({ articles, schedule }: any) {
               </div>
             )}
           </div>
-          <div className="xl:block md:hidden block">
+          <div className="xl:block md:hidden block w-full">
             <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
               <p className="font-light text-sm">LIVE SCHEDULE</p>
               <p className="font-black text-2xl mt-[-6px]">15 JANUARY 2022</p>
             </div>
-            <div className="min-w-[300px] max-w-[400px] sm:min-w-[380px] mx-auto">
-              <div className="max-w-[400px] max-h-[400px] overflow-y-auto space-y-4 mx-auto">
+            <div className="w-full sm:max-w-[400px] sm:min-w-[380px] mx-auto">
+              <div className="w-full max-h-[400px] overflow-y-auto space-y-4 px-4">
                 {schedule.map((item: any, index: any) => {
                   return (
                     <div key={`e-${index}`} className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                      <div className="w-[60px]">
+                      <div className="">
                         <p className="font-semibold text-xl sm:text-2xl">
                           {zeroPad(new Date(item.start * 1000).getHours(), 2)}:
                           {zeroPad(new Date(item.start * 1000).getMinutes(), 2)}
@@ -338,12 +338,12 @@ export default function Home({ articles, schedule }: any) {
                 })}
               </div>
               <Link href="/schedule">
-                  <motion.a
-                      whileHover={{ scale: 1.02 }}
-                      className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"
-                  >
-                      ดูตารางรายการสดทั้งหมด
-                  </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"
+                >
+                  ดูตารางรายการสดทั้งหมด
+                </motion.a>
               </Link>
             </div>
           </div>
