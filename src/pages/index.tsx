@@ -100,7 +100,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   const data = await getDb().collection("schedule").doc("GSUnaiZv85XPHPWiZOzf").get()
-  const schedule = data.get("14").map((e: any) => {
+  const schedule = data.get("15").map((e: any) => {
     return {
       name: e.name,
       start: e.start._seconds,
