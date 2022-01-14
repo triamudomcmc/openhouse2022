@@ -163,15 +163,24 @@ const getButton = (auth: IAuthContext | null) => {
     )
   } else if (playedGame) {
     return (
-      <Link href="/ticket">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
-          style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
-        >
-          ดูบัตรเดินทางของคุณ
-        </motion.button>
-      </Link>
+      // <Link href="/ticket">
+      //   <motion.button
+      //     whileHover={{ scale: 1.1 }}
+      //     className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
+      //     style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+      //   >
+      //     ดูบัตรเดินทางของคุณ
+      //   </motion.button>
+      // </Link>
+        <Link href="/stream">
+          <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
+              style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+          >
+            รับชมรายการสด
+          </motion.button>
+        </Link>
     )
   }
 }
@@ -180,7 +189,7 @@ export default function Home({ articles }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
   const auth = useAuth()
-  
+
   const { scrollY } = useViewportScroll()
 
   return (
