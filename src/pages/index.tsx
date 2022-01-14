@@ -262,8 +262,8 @@ export default function Home({ articles }: any) {
                 width="620"
               ></iframe>
             </div>
-            <div className="xl:block md:hidden block">
-              <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
+            {/* <div className="xl:block md:hidden block"> */}
+            {/* <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
                 <p className="font-light text-sm">LIVE SCHEDULE</p>
                 <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
               </div>
@@ -322,7 +322,7 @@ export default function Home({ articles }: any) {
                   </motion.a>
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
         </AdaptiveBg>
       )}
