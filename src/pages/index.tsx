@@ -9,7 +9,7 @@ import Link from "next/link"
 import {ArrowRightIcon, ClockIcon, UserIcon} from "@heroicons/react/solid"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/splide.min.css"
-import { FC, useEffect, useRef } from "react"
+import {FC, useEffect, useRef, useState} from "react"
 import classnames from "classnames"
 import { GetStaticProps } from "next"
 import { getAllPosts } from "@lib/api"
@@ -210,11 +210,23 @@ const findCurrent = (sc: Array<any>) => {
 export default function Home({ articles, schedule }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
+  const [current, setCurrent] = useState(findCurrent(schedule).now)
   const auth = useAuth()
+
+  const next = () => {
+    setTimeout(() => {
+      setCurrent(findCurrent(schedule).now)
+      next()
+    }, (findCurrent(schedule).now.start * 1000) - new Date().getTime())
+  }
+
+  useEffect(() => {
+    next()
+  })
 
   const { scrollY } = useViewportScroll()
 
-    findCurrent(schedule)
+
   return (
     <>
       <AdaptiveBg
@@ -279,7 +291,7 @@ export default function Home({ articles, schedule }: any) {
                 <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">
                   LIVE
                 </span>{" "}
-                 <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{findCurrent(schedule).now.name}</span>
+                 <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current.name}</span>
               </h2>
               {/*<div>*/}
               {/*   <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>*/}
@@ -287,7 +299,7 @@ export default function Home({ articles, schedule }: any) {
             </div>
             {auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket ? (
               <iframe
-                className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl"
+                className="bg-black w-[90vw] h-[48vw] mx-auto sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl"
                 src="https://player.twitch.tv/?channel=TriamUdomOPH&parent=openhouse.triamudom.ac.th"
                 frameBorder="0"
                 allowFullScreen={true}
