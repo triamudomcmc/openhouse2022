@@ -213,10 +213,12 @@ export default function Home({ articles, schedule }: any) {
   const auth = useAuth()
 
   const next = () => {
-    setTimeout(() => {
-      setCurrent(findCurrent(schedule).now)
-      next()
-    }, findCurrent(schedule).now.start * 1000 - new Date().getTime())
+    if (findCurrent(schedule).now) {
+      setTimeout(() => {
+        setCurrent(findCurrent(schedule).now)
+        next()
+      }, findCurrent(schedule).now.start * 1000 - new Date().getTime())
+    }
   }
 
   useEffect(() => {
@@ -289,7 +291,7 @@ export default function Home({ articles, schedule }: any) {
                 <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">
                   LIVE
                 </span>{" "}
-                <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current.name}</span>
+                <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current?.name || ""}</span>
               </h2>
               {/*<div>*/}
               {/*   <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>*/}
