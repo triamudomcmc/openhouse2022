@@ -4,9 +4,9 @@ import { Flask, Math } from "@vectors/index/gifted"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import Image from "next/image"
 import { LogoWhite } from "@vectors/Logo"
-import { ArrowCircleRightIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
+import {ArrowCircleRightIcon, ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/outline"
 import Link from "next/link"
-import { ArrowRightIcon, UserIcon } from "@heroicons/react/solid"
+import {ArrowRightIcon, ClockIcon, UserIcon} from "@heroicons/react/solid"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/splide.min.css"
 import { FC, useEffect, useRef } from "react"
@@ -587,114 +587,124 @@ export default function Home({ articles }: any) {
               วิดีโอจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br /> ที่ทางเราจะนำมานำเสนอให้ทุกคนได้รับชมอย่างเต็มที่ !
             </p>
           </div>
-          <div className="relative">
-            <Splide
-              options={{
-                fixedWidth: 170,
-                gap: 12,
-                perMove: 1,
-                arrows: false,
-                classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },
-              }}
-              onMounted={() => {
-                if (document && document.getElementsByClassName("splide__track").length >= 1) {
-                  // @ts-ignore
-                  document.getElementsByClassName("splide__track")[0].style["z-index"] = 2
-                }
-              }}
-              renderControls={() => {
-                return (
-                  <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
-                    <div
-                      style={{ left: "-50px" }}
-                      className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
-                    >
-                      <ChevronRightIcon className="w-6 h-6" />
-                    </div>
-                    <div
-                      style={{ right: "-40px" }}
-                      className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
-                    >
-                      <ChevronRightIcon className="w-6 h-6" />
-                    </div>
-                  </div>
-                )
-              }}
-            >
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-            </Splide>
+          <div className="flex flex-col items-center justify-center w-full h-[400px] bg-white bg-opacity-20 rounded-xl border border-white border-opacity-40">
+            <ClockIcon className="w-24 h-24 mb-4"/>
+            <h1 className="text-center text-2xl">สามารถติดตามหลังจบการถ่ายทอดสดสด</h1>
+            <Link href="/stream">
+              <div className="flex items-center space-x-2 cursor-pointer">
+                <p>รับชมการถ่ายทอดสด</p>
+                <ArrowRightIcon className="w-4 h-4"/>
+              </div>
+            </Link>
           </div>
+          {/*<div className="relative">*/}
+          {/*  <Splide*/}
+          {/*    options={{*/}
+          {/*      fixedWidth: 170,*/}
+          {/*      gap: 12,*/}
+          {/*      perMove: 1,*/}
+          {/*      arrows: false,*/}
+          {/*      classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },*/}
+          {/*    }}*/}
+          {/*    onMounted={() => {*/}
+          {/*      if (document && document.getElementsByClassName("splide__track").length >= 1) {*/}
+          {/*        // @ts-ignore*/}
+          {/*        document.getElementsByClassName("splide__track")[0].style["z-index"] = 2*/}
+          {/*      }*/}
+          {/*    }}*/}
+          {/*    renderControls={() => {*/}
+          {/*      return (*/}
+          {/*        <div className="splide__arrows absolute top-0 z-[1] w-full h-full">*/}
+          {/*          <div*/}
+          {/*            style={{ left: "-50px" }}*/}
+          {/*            className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"*/}
+          {/*          >*/}
+          {/*            <ChevronRightIcon className="w-6 h-6" />*/}
+          {/*          </div>*/}
+          {/*          <div*/}
+          {/*            style={{ right: "-40px" }}*/}
+          {/*            className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"*/}
+          {/*          >*/}
+          {/*            <ChevronRightIcon className="w-6 h-6" />*/}
+          {/*          </div>*/}
+          {/*        </div>*/}
+          {/*      )*/}
+          {/*    }}*/}
+          {/*  >*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*  </Splide>*/}
+          {/*</div>*/}
           <div id="articles" className="mt-[200px] mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-5xl">บทความ</h2>
