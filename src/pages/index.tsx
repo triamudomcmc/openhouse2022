@@ -4,12 +4,12 @@ import { Flask, Math } from "@vectors/index/gifted"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import Image from "next/image"
 import { LogoWhite } from "@vectors/Logo"
-import { ArrowCircleRightIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
+import {ArrowCircleRightIcon, ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/outline"
 import Link from "next/link"
-import { ArrowRightIcon, UserIcon } from "@heroicons/react/solid"
+import {ArrowRightIcon, ClockIcon, UserIcon} from "@heroicons/react/solid"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/splide.min.css"
-import { FC, useEffect, useRef } from "react"
+import {FC, useEffect, useRef, useState} from "react"
 import classnames from "classnames"
 import { GetStaticProps } from "next"
 import { getAllPosts } from "@lib/api"
@@ -17,6 +17,7 @@ import markdownToHtml from "@lib/markdownToHTML"
 import { IAuthContext, useAuth } from "@lib/auth"
 import { CountDown } from "@components/common/Countdown"
 import { Programme } from "@components/programme"
+import {getDb} from "@lib/firebase-admin";
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -98,6 +99,17 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   }
 
+  const data = await getDb().collection("schedule").doc("GSUnaiZv85XPHPWiZOzf").get()
+  const schedule = data.get("14").map((e: any) => {
+
+    return {
+      name: e.name,
+      start: e.start._seconds
+    }
+  })
+
+  console.log(schedule)
+
   let mapped = []
 
   for (let i of cleaned) {
@@ -114,6 +126,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       articles: mapped,
+      schedule: schedule
     },
   }
 }
@@ -163,24 +176,56 @@ const getButton = (auth: IAuthContext | null) => {
     )
   } else if (playedGame) {
     return (
-      <Link href="/ticket">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
-          style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
-        >
-          ดูบัตรเดินทางของคุณ
-        </motion.button>
-      </Link>
+      // <Link href="/ticket">
+      //   <motion.button
+      //     whileHover={{ scale: 1.1 }}
+      //     className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
+      //     style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+      //   >
+      //     ดูบัตรเดินทางของคุณ
+      //   </motion.button>
+      // </Link>
+        <Link href="/stream">
+          <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
+              style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
+          >
+            รับชมรายการสด
+          </motion.button>
+        </Link>
     )
   }
 }
 
-export default function Home({ articles }: any) {
+const zeroPad = (num: number, places: number) => String(num).padStart(places, '0')
+
+const findCurrent = (sc: Array<any>) => {
+    const time = new Date().getTime()
+    const fil = sc.filter((e: any) => (e.start * 1000 < time))
+    const file = sc.filter((e: any) => (e.start * 1000 > time))
+    return {now: fil[fil.length - 1], next:file[0]}
+}
+
+export default function Home({ articles, schedule }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
+  const [current, setCurrent] = useState(findCurrent(schedule).now)
   const auth = useAuth()
+
+  const next = () => {
+    setTimeout(() => {
+      setCurrent(findCurrent(schedule).now)
+      next()
+    }, (findCurrent(schedule).now.start * 1000) - new Date().getTime())
+  }
+
+  useEffect(() => {
+    next()
+  })
+
   const { scrollY } = useViewportScroll()
+
 
   return (
     <>
@@ -246,15 +291,15 @@ export default function Home({ articles }: any) {
                 <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">
                   LIVE
                 </span>{" "}
-                {/* <span className="text-2xl sm:text-3xl">ร้องเพลงปิ่นหทัย</span> */}
+                 <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current.name}</span>
               </h2>
-              <div>
-                {/* <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span> */}
-              </div>
+              {/*<div>*/}
+              {/*   <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>*/}
+              {/*</div>*/}
             </div>
             {auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket ? (
               <iframe
-                className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl"
+                className="bg-black w-[90vw] h-[48vw] mx-auto sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl"
                 src="https://player.twitch.tv/?channel=TriamUdomOPH&parent=openhouse.triamudom.ac.th"
                 frameBorder="0"
                 allowFullScreen={true}
@@ -269,67 +314,38 @@ export default function Home({ articles }: any) {
               </div>
             )}
           </div>
-          {/* <div className="xl:block md:hidden block"> */}
-          {/* <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
+          <div className="xl:block md:hidden block">
+            <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
                 <p className="font-light text-sm">LIVE SCHEDULE</p>
                 <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
               </div>
-              <div className="min-w-[300px] sm:min-w-[380px] space-y-4 mx-auto">
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
+              <div className="min-w-[300px] max-w-[400px] sm:min-w-[380px] mx-auto">
+                  <div className="max-w-[400px] max-h-[440px] overflow-y-auto space-y-4 mx-auto">
+                      {
+                          schedule.map((item: any, index: any) => {
+                              return (
+                                  <div key={`e-${index}`} className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                                      <div className="w-[60px]">
+                                          <p className="font-semibold text-xl sm:text-2xl">{zeroPad(new Date(item.start * 1000).getHours(), 2)}:{zeroPad(new Date(item.start * 1000).getMinutes(), 2)}</p>
+                                      </div>
+                                      <div>
+                                          <p className="text-md sm:text-lg">{item.name}</p>
+                                      </div>
+                                  </div>
+                              )
+                          })
+                      }
                   </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
-                  </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
-                  </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
-                  </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
-                  </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <Link href="/schedule">
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"
-                  >
-                    ดูตารางรายการสดทั้งหมด
-                  </motion.a>
-                </Link>
+                  {/*<Link href="/schedule">*/}
+                  {/*    <motion.a*/}
+                  {/*        whileHover={{ scale: 1.02 }}*/}
+                  {/*        className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"*/}
+                  {/*    >*/}
+                  {/*        ดูตารางรายการสดทั้งหมด*/}
+                  {/*    </motion.a>*/}
+                  {/*</Link>*/}
               </div>
-            </div> */}
+            </div>
         </div>
       </AdaptiveBg>
 
@@ -577,114 +593,124 @@ export default function Home({ articles }: any) {
               วิดีโอจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br /> ที่ทางเราจะนำมานำเสนอให้ทุกคนได้รับชมอย่างเต็มที่ !
             </p>
           </div>
-          <div className="relative">
-            <Splide
-              options={{
-                fixedWidth: 170,
-                gap: 12,
-                perMove: 1,
-                arrows: false,
-                classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },
-              }}
-              onMounted={() => {
-                if (document && document.getElementsByClassName("splide__track").length >= 1) {
-                  // @ts-ignore
-                  document.getElementsByClassName("splide__track")[0].style["z-index"] = 2
-                }
-              }}
-              renderControls={() => {
-                return (
-                  <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
-                    <div
-                      style={{ left: "-50px" }}
-                      className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
-                    >
-                      <ChevronRightIcon className="w-6 h-6" />
-                    </div>
-                    <div
-                      style={{ right: "-40px" }}
-                      className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
-                    >
-                      <ChevronRightIcon className="w-6 h-6" />
-                    </div>
-                  </div>
-                )
-              }}
-            >
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div>
-                  <Video />
-                  <Video />
-                </div>
-              </SplideSlide>
-            </Splide>
+          <div className="flex flex-col items-center justify-center w-full h-[400px] bg-white bg-opacity-20 rounded-xl border border-white border-opacity-40">
+            <ClockIcon className="w-24 h-24 mb-4"/>
+            <h1 className="text-center text-2xl">สามารถติดตามหลังจบการถ่ายทอดสดสด</h1>
+            <Link href="/stream">
+              <div className="flex items-center space-x-2 cursor-pointer">
+                <p>รับชมการถ่ายทอดสด</p>
+                <ArrowRightIcon className="w-4 h-4"/>
+              </div>
+            </Link>
           </div>
+          {/*<div className="relative">*/}
+          {/*  <Splide*/}
+          {/*    options={{*/}
+          {/*      fixedWidth: 170,*/}
+          {/*      gap: 12,*/}
+          {/*      perMove: 1,*/}
+          {/*      arrows: false,*/}
+          {/*      classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },*/}
+          {/*    }}*/}
+          {/*    onMounted={() => {*/}
+          {/*      if (document && document.getElementsByClassName("splide__track").length >= 1) {*/}
+          {/*        // @ts-ignore*/}
+          {/*        document.getElementsByClassName("splide__track")[0].style["z-index"] = 2*/}
+          {/*      }*/}
+          {/*    }}*/}
+          {/*    renderControls={() => {*/}
+          {/*      return (*/}
+          {/*        <div className="splide__arrows absolute top-0 z-[1] w-full h-full">*/}
+          {/*          <div*/}
+          {/*            style={{ left: "-50px" }}*/}
+          {/*            className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"*/}
+          {/*          >*/}
+          {/*            <ChevronRightIcon className="w-6 h-6" />*/}
+          {/*          </div>*/}
+          {/*          <div*/}
+          {/*            style={{ right: "-40px" }}*/}
+          {/*            className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"*/}
+          {/*          >*/}
+          {/*            <ChevronRightIcon className="w-6 h-6" />*/}
+          {/*          </div>*/}
+          {/*        </div>*/}
+          {/*      )*/}
+          {/*    }}*/}
+          {/*  >*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*    <SplideSlide>*/}
+          {/*      <div>*/}
+          {/*        <Video />*/}
+          {/*        <Video />*/}
+          {/*      </div>*/}
+          {/*    </SplideSlide>*/}
+          {/*  </Splide>*/}
+          {/*</div>*/}
           <div id="articles" className="mt-[200px] mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-5xl">บทความ</h2>
