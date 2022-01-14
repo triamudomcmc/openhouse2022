@@ -230,28 +230,29 @@ export default function Home({ articles }: any) {
         }}
         className="w-full h-[95px] mt-[-42px] bg-white backdrop-filter backdrop-blur-[6px] absolute"
       />
-      {auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket && (
-        <AdaptiveBg
-          primary={{ background: "/images/backgrounds/live.jpg", height: "1024px" }}
-          secondary={{ background: "/images/backgrounds/live-mobile.jpg", height: "926px" }}
-          mobile={{ background: "/images/backgrounds/live-mobile-default.jpg", height: "926px" }}
-          classname="flex items-center"
-          element="section"
-          id="live"
-        >
-          <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
-            <div className="my-auto">
-              <div className="mb-4">
-                <h2 className="flex items-center space-x-3">
-                  <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">
-                    LIVE
-                  </span>{" "}
-                  {/* <span className="text-2xl sm:text-3xl">ร้องเพลงปิ่นหทัย</span> */}
-                </h2>
-                <div>
-                  {/* <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span> */}
-                </div>
+      {/* {auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket && ( */}
+      <AdaptiveBg
+        primary={{ background: "/images/backgrounds/live.jpg", height: "1024px" }}
+        secondary={{ background: "/images/backgrounds/live-mobile.jpg", height: "926px" }}
+        mobile={{ background: "/images/backgrounds/live-mobile-default.jpg", height: "926px" }}
+        classname="flex items-center"
+        element="section"
+        id="live"
+      >
+        <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
+          <div className="my-auto">
+            <div className="mb-4">
+              <h2 className="flex items-center space-x-3">
+                <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">
+                  LIVE
+                </span>{" "}
+                {/* <span className="text-2xl sm:text-3xl">ร้องเพลงปิ่นหทัย</span> */}
+              </h2>
+              <div>
+                {/* <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span> */}
               </div>
+            </div>
+            {auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket ? (
               <iframe
                 className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl"
                 src="https://player.twitch.tv/?channel=TriamUdomOPH&parent=openhouse.triamudom.ac.th"
@@ -261,9 +262,15 @@ export default function Home({ articles }: any) {
                 height="378"
                 width="620"
               ></iframe>
-            </div>
-            {/* <div className="xl:block md:hidden block"> */}
-            {/* <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
+            ) : (
+              <div className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl flex flex-col items-center justify-center">
+                <p className="text-white">จำเป็นต้องลงทะเบียนเพื่อเข้าดู LIVE</p>
+                {getButton(auth)}
+              </div>
+            )}
+          </div>
+          {/* <div className="xl:block md:hidden block"> */}
+          {/* <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
                 <p className="font-light text-sm">LIVE SCHEDULE</p>
                 <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
               </div>
@@ -323,9 +330,9 @@ export default function Home({ articles }: any) {
                 </Link>
               </div>
             </div> */}
-          </div>
-        </AdaptiveBg>
-      )}
+        </div>
+      </AdaptiveBg>
+
       <div
         style={{
           background:
