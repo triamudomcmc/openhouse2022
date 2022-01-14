@@ -144,7 +144,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       }
       // login
       else if (pathname === "/stream") {
-        if (playedGame) Router.push("/register")
+        if (!playedGame) Router.push("/register")
       }
       // ticket
       else if (pathname === "/ticket") {
