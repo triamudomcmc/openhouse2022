@@ -124,8 +124,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     if (auth.loading === false) {
       // register
       if (pathname === "/register") {
-        if (registered) Router.push("/")
-        else if (authNoRegistered) Router.push("/register/onboard")
+        if (authNoRegistered) Router.push("/register/onboard")
         else if (registeredNoGame) Router.push("/game")
         else if (playedGame) Router.push("/ticket")
       }
@@ -151,7 +150,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       }
       // login
       else if (pathname === "/stream") {
-        if (!playedGame) Router.push("/register")
+        // if (!playedGame) Router.push("/register")
       }
       // ticket
       else if (pathname === "/ticket") {
