@@ -159,7 +159,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
               </a>
             </Link>
             <Link href="/stream" passHref>
-              <a className={classNames(getClass("/programmes"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
+              <a className={classNames(getClass("/stream"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <VideoCameraIcon className="text-white w-8 h-8" />
                 <span>รายการสด</span>
               </a>
