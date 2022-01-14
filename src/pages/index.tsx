@@ -180,6 +180,7 @@ export default function Home({ articles }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
   const auth = useAuth()
+  
   const { scrollY } = useViewportScroll()
 
   return (

@@ -5,6 +5,7 @@ import { TUCMCLogo } from "@components/common/TUCMCLogo"
 import { AllMethods } from "@components/register/AllMethods"
 import { EmailForm } from "@components/register/EmailForm"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
+import Router from "next/router";
 export type TPages = "all" | "email"
 
 const InApp = require("detect-inapp")
@@ -21,6 +22,15 @@ const Register = () => {
       setBlocked(true)
     }
   }, [])
+
+  useEffect(() => {
+    const noAuth = auth?.user === null
+    if (noAuth) {
+
+    }else{
+      Router.push("/stream")
+    }
+  }, [auth])
 
   // should be main
   return (
