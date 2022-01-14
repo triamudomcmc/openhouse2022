@@ -317,7 +317,7 @@ export default function Home({ articles, schedule }: any) {
           <div className="xl:block md:hidden block">
             <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
               <p className="font-light text-sm">LIVE SCHEDULE</p>
-              <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
+              <p className="font-black text-2xl mt-[-6px]">15 JANUARY 2022</p>
             </div>
             <div className="min-w-[300px] max-w-[400px] sm:min-w-[380px] mx-auto">
               <div className="max-w-[400px] max-h-[400px] overflow-y-auto space-y-4 mx-auto">

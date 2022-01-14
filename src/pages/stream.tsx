@@ -12,7 +12,7 @@ const findCurrent = (sc: Array<any>) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await getDb().collection("schedule").doc("GSUnaiZv85XPHPWiZOzf").get()
-  const schedule = data.get("14").map((e: any) => {
+  const schedule = data.get("15").map((e: any) => {
 
     return {
       name: e.name,
@@ -35,10 +35,12 @@ const Stream = ({schedule}: any) => {
   const auth = useAuth()
 
   const next = () => {
-    setTimeout(() => {
-      setCurrent(findCurrent(schedule).now)
-      next()
-    }, (findCurrent(schedule).now.start * 1000) - new Date().getTime())
+    if (findCurrent(schedule).now) {
+      setTimeout(() => {
+        setCurrent(findCurrent(schedule).now)
+        next()
+      }, findCurrent(schedule).now.start * 1000 - new Date().getTime())
+    }
   }
 
   useEffect(() => {
@@ -60,7 +62,7 @@ const Stream = ({schedule}: any) => {
                   LIVE
                 </span>{" "}
               <span
-                className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current.name}</span>
+                className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current?.name || ""}</span>
             </h2>
             {/*<div>*/}
             {/*   <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>*/}
@@ -79,7 +81,7 @@ const Stream = ({schedule}: any) => {
         <div className="xl:block md:hidden block">
           <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
             <p className="font-light text-sm">LIVE SCHEDULE</p>
-            <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
+            <p className="font-black text-2xl mt-[-6px]">15 JANUARY 2022</p>
           </div>
           <div className="min-w-[300px] max-w-[400px] sm:min-w-[380px] mx-auto">
             <div className="max-w-[400px] max-h-[440px] overflow-y-auto space-y-4 mx-auto">
