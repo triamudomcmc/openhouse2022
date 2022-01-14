@@ -17,6 +17,7 @@ import markdownToHtml from "@lib/markdownToHTML"
 import { IAuthContext, useAuth } from "@lib/auth"
 import { CountDown } from "@components/common/Countdown"
 import { Programme } from "@components/programme"
+import {getDb} from "@lib/firebase-admin";
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -98,6 +99,17 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   }
 
+  const data = await getDb().collection("schedule").doc("GSUnaiZv85XPHPWiZOzf").get()
+  const schedule = data.get("14").map((e: any) => {
+
+    return {
+      name: e.name,
+      start: e.start._seconds
+    }
+  })
+
+  console.log(schedule)
+
   let mapped = []
 
   for (let i of cleaned) {
@@ -114,6 +126,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       articles: mapped,
+      schedule: schedule
     },
   }
 }
@@ -185,13 +198,23 @@ const getButton = (auth: IAuthContext | null) => {
   }
 }
 
-export default function Home({ articles }: any) {
+const zeroPad = (num: number, places: number) => String(num).padStart(places, '0')
+
+const findCurrent = (sc: Array<any>) => {
+    const time = new Date().getTime()
+    const fil = sc.filter((e: any) => (e.start * 1000 < time))
+    const file = sc.filter((e: any) => (e.start * 1000 > time))
+    return {now: fil[fil.length - 1], next:file[0]}
+}
+
+export default function Home({ articles, schedule }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
   const auth = useAuth()
 
   const { scrollY } = useViewportScroll()
 
+    findCurrent(schedule)
   return (
     <>
       <AdaptiveBg
@@ -256,11 +279,11 @@ export default function Home({ articles }: any) {
                 <span className="text-white bg-red-500 font-semibold tracking-[3px] leading-[21px] sm:text-md text-sm rounded-sm px-[3px]">
                   LIVE
                 </span>{" "}
-                {/* <span className="text-2xl sm:text-3xl">ร้องเพลงปิ่นหทัย</span> */}
+                 <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{findCurrent(schedule).now.name}</span>
               </h2>
-              <div>
-                {/* <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span> */}
-              </div>
+              {/*<div>*/}
+              {/*   <span className="font-light sm:text-md text-sm">ชื่อชมรมร้องเพลงปิ่นหทัย | 10.30-11.35 น.</span>*/}
+              {/*</div>*/}
             </div>
             {auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket ? (
               <iframe
@@ -279,67 +302,38 @@ export default function Home({ articles }: any) {
               </div>
             )}
           </div>
-          {/* <div className="xl:block md:hidden block"> */}
-          {/* <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
+          <div className="xl:block md:hidden block">
+            <div className="text-[#C898CC] mt-[10px] mb-[20px] px-6">
                 <p className="font-light text-sm">LIVE SCHEDULE</p>
                 <p className="font-black text-2xl mt-[-6px]">14 JANUARY 2022</p>
               </div>
-              <div className="min-w-[300px] sm:min-w-[380px] space-y-4 mx-auto">
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
+              <div className="min-w-[300px] max-w-[400px] sm:min-w-[380px] mx-auto">
+                  <div className="max-w-[400px] max-h-[440px] overflow-y-auto space-y-4 mx-auto">
+                      {
+                          schedule.map((item: any) => {
+                              return (
+                                  <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
+                                      <div className="w-[60px]">
+                                          <p className="font-semibold text-xl sm:text-2xl">{zeroPad(new Date(item.start * 1000).getHours(), 2)}:{zeroPad(new Date(item.start * 1000).getMinutes(), 2)}</p>
+                                      </div>
+                                      <div>
+                                          <p className="text-md sm:text-lg">{item.name}</p>
+                                      </div>
+                                  </div>
+                              )
+                          })
+                      }
                   </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
-                  </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
-                  </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
-                  </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <div className="border border-white rounded-lg flex space-x-3 px-6 py-2 w-full">
-                  <div className="w-[60px]">
-                    <p className="font-semibold text-xl sm:text-2xl">10.00</p>
-                  </div>
-                  <div>
-                    <p className="text-md sm:text-lg">จตุรกิฟต์ทอล์ก</p>
-                    <p className="sm:text-md text-sm text-gray-400 mt-[-2px]">รุ่นพี่จากโครงการพิเศษ</p>
-                  </div>
-                </div>
-                <Link href="/schedule">
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"
-                  >
-                    ดูตารางรายการสดทั้งหมด
-                  </motion.a>
-                </Link>
+                  {/*<Link href="/schedule">*/}
+                  {/*    <motion.a*/}
+                  {/*        whileHover={{ scale: 1.02 }}*/}
+                  {/*        className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"*/}
+                  {/*    >*/}
+                  {/*        ดูตารางรายการสดทั้งหมด*/}
+                  {/*    </motion.a>*/}
+                  {/*</Link>*/}
               </div>
-            </div> */}
+            </div>
         </div>
       </AdaptiveBg>
 

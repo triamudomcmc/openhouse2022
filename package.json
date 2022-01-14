@@ -16,6 +16,7 @@
     "@splidejs/splide-extension-grid": "^0.3.18",
     "chrome-aws-lambda": "^10.1.0",
     "classnames": "^2.3.1",
+    "csv-parser": "^3.0.0",
     "detect-inapp": "^1.4.0",
     "firebase": "^9.6.1",
     "firebase-admin": "^10.0.1",
