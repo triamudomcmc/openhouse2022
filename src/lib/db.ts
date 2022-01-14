@@ -17,6 +17,12 @@ export const getUserRef = (uid: string) => {
   return doc(db, "users", uid)
 }
 
+export const updateFeedback = (feedBack: string) => {
+  const feedbackRef = doc(db, "newquestions", feedBack)
+
+  return setDoc(feedbackRef, { feedBack }, { merge: true })
+}
+
 export const updateUser = (uid: string, data: DocumentData): Promise<void> => {
   const userRef = getUserRef(uid)
 
