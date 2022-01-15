@@ -71,7 +71,8 @@ const Stream = ({ schedule }: any) => {
             </h2>
             <div>
               <span className="font-light sm:text-md text-sm">
-                {current?.by && `${current?.by} |`} {formatTime(current?.start)} น.
+                {current?.by && `${current?.by} |`} {zeroPad(new Date(current.start * 1000).getHours(), 2)}:
+                {zeroPad(new Date(current.start * 1000).getMinutes(), 2)} น. น.
               </span>
             </div>
           </div>
