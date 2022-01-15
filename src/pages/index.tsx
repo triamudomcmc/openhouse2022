@@ -366,32 +366,6 @@ export default function Home({ articles, schedule }: any) {
             </div>
           </div>
         </div>
-        <div className="mt-6 w-full md:w-1/2">
-          <div className="relative rounded-xl border px-8 py-6 space-y-3 w-full mb-4">
-            <p>สงสัยอะไรไหม ? พิมพ์ถามคำถามสด ๆ ได้เลย</p>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault()
-                updateLiveFeedback(question)
-                setQuestion("")
-                toast?.setToast("ส่งคำถามสำเร็จ")
-              }}
-              className="flex items-center space-x-4"
-            >
-              <input
-                onChange={(e) => {
-                  setQuestion(e.target.value)
-                }}
-                value={question}
-                className="border bg-white bg-opacity-20 rounded-full placeholder:text-white py-1 pl-3 w-full border-opacity-40 pr-4"
-                placeholder="ถามคำถามเลย !"
-              />
-              <button type="submit">
-                <PaperAirplaneIcon className="rotate-90 w-8 h-8" />
-              </button>
-            </form>
-          </div>
-        </div>
       </AdaptiveBg>
 
       <div
