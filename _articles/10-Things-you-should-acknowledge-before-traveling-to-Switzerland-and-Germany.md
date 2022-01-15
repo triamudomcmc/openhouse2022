@@ -25,10 +25,9 @@ nation. This post will teach you about facts that you should be aware of
 before visiting these diverse and varied nations of Germany and
 Switzerland.
 
-***1 : Germany and Switzerland : Punctuality is key.***
+**_1 : Germany and Switzerland : Punctuality is key._**
 
 ![image1.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image1.jpeg)
-
 
 Punctuality is essential for making a good impression on a Swiss and a
 German. These countries are not a place for those who are always late.
@@ -53,10 +52,9 @@ unable to arrive on time, it is required that you inform the individual
 or individuals you are meeting with first. If you are late, your
 professionalism will certainly degrade.
 
-***2 : Switzerland : Respect their personal lives.***
+**_2 : Switzerland : Respect their personal lives._**
 
 ![image3.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image2.jpeg)
-
 
 Another issue that visitors to Switzerland must tackle is the practice
 of randomly probing strangers about their personal life. Inquiring about
@@ -73,10 +71,9 @@ to a Swiss is a no-no. While you will normally encounter a friendly
 attitude as a visitor in Switzerland, don\'t anticipate strangers to
 approach you on every corner.
 
-***3 : Switzerland : A multilingual muse.***
+**_3 : Switzerland : A multilingual muse._**
 
 ![image5.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image3.jpeg)
-
 
 Swiss people are taught to be able to communicate in two or more
 languages. While more languages are spoken in Switzerland, only four are
@@ -109,10 +106,9 @@ rather than a unified language. So, if you see any sign with four
 languages on it in Switzerland, you can interpret it as a symbol of
 linguistic diversity.
 
-***4 : Switzerland : Don***'***t bring the wrong plug adapter.***
+**_4 : Switzerland : Don't bring the wrong plug adapter._**
 
 ![image6.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image4.jpeg)
-
 
 One of the most common mistakes tourists make while visiting Switzerland
 is bringing the incorrect plug or plug adaptor. Most foreigners will
@@ -129,11 +125,9 @@ adapters from electrical local pharmacies, but remember to check the
 quality of the product since safety regulations range from country to
 country.
 
-***5 : Switzerland : Don***'***t throw it away, recycle for another
-day.***
+**_5 : Switzerland : Don't throw it away, recycle for another day._**
 
 ![](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image5.jpeg)
-
 
 In Switzerland, recycling and rubbish disposal are extremely essential.
 The Swiss take it \"very\" seriously! You might risk a hefty charge if
@@ -153,10 +147,9 @@ Each canton has either specially designated bags that are priced based
 on size or a sticker that can be added to a bag. The bags may be found
 at all supermarkets, grocery stores, and corner shops.
 
-***6 : Germany : Cash is king.***
+**_6 : Germany : Cash is king._**
 
 ![image8.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image6.jpeg)
-
 
 In Germany, cash is still the most common form of payment. Furthermore,
 the country has one of the highest rates of cash use in the European
@@ -180,10 +173,9 @@ and enterprises. Hotels, for the most part, will take credit cards. And,
 because most foreigners will be unprepared for this cash culture, they
 will be required to use an ATM to withdraw money
 
-***7 : Germany : No Nazi-related gestures or symbols! Never ever!***
+**_7 : Germany : No Nazi-related gestures or symbols! Never ever!_**
 
 ![image2.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image7.jpeg)
-
 
 Did you know that giving the Nazi salute, \"Heil Hitler!\" might land
 you in prison for up to three years? In 2017, two Chinese visitors were
@@ -206,10 +198,9 @@ classic action-adventure FPS game Wolfenstein 2. The Nazi chancellor has
 his mustache entirely shaved, his name has been altered, and the
 swastika in the game has been replaced with another symbol.
 
-***8 : Germany : The war is a sensitive topic.***
+**_8 : Germany : The war is a sensitive topic._**
 
 ![image7.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image8.jpeg)
-
 
 Although the topic of the Second World War is a talkable one and is
 taught in schools, make sure you approach it with caution or, better
@@ -229,10 +220,9 @@ critical that you do not reject the Holocaust. If you dispute it or
 speak positively of Hitler, you might wind yourself in jail or be
 prosecuted.
 
-***9 : Germany : The Silence of Sundays.***
+**_9 : Germany : The Silence of Sundays._**
 
 ![image10.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image9.jpeg)
-
 
 In Germany, a Sunday is known as a \"Ruhetag,\" or \"rest day.\" It will
 become quite quiet, so no loud housekeeping, no mowing lawns, and no
@@ -251,10 +241,9 @@ other ways to pass the time, such as going for a stroll, relaxing with
 friends, or engaging in your favorite pastimes. In Germany, Sundays are
 the greatest days to be active! (without the noise of course.)
 
-***10 : Germany : Alles in Ordnung? (Is everything in order?)***
+**_10 : Germany : Alles in Ordnung? (Is everything in order?)_**
 
 ![image9.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image10.jpeg)
-
 
 Probably one of the best German verses is \"Ordnung muss sein,\" which
 translates as \"Order must prevail.\" Germans are exceedingly
@@ -299,11 +288,9 @@ responsibility, fulfillment, punctuality, hard labor, and truthfulness.
 บทความนี้มีคำอธิบายเกี่ยวกับสิ่งที่ควรระวังก่อนเดินทางไปประเทศที่เต็มไปด้วยความหลากหลายอย่าง
 เยอรมนี และ สวิตเซอร์แลนด์ไว้ให้ทั้งหมดแล้ว
 
-***1 :*** เยอรมนี และ สวิตเซอร์แลนด์ ***:***
-ยืนหนึ่งเรื่องตรงเวลา***!***
+**_1 : เยอรมนี และ สวิตเซอร์แลนด์ : ยืนหนึ่งเรื่องตรงเวลา!_**
 
 ![image1.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image1.jpeg)
-
 
 หากคุณต้องการสร้างความประทับใจต่อเพื่อนชาวสวิสหรือเยอรมันของคุณ
 สิ่งที่ควรทำเป็นอย่างแรก คือ การตรงต่อเวลา !
@@ -331,10 +318,9 @@ responsibility, fulfillment, punctuality, hard labor, and truthfulness.
 คุณควรรีบแจ้งคู่นัดโดยเร็วที่สุด มิเช่นนั้น
 ความเป็นมืออาชีพของคุณจะไม่น่าเชื่อถืออีกต่อไป
 
-***2 :*** สวิตเซอร์แลนด์ ***:*** ไม่แตะเรื่องส่วนตัว
+**_2 : สวิตเซอร์แลนด์ : ไม่แตะเรื่องส่วนตัว_**
 
 ![image3.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image2.jpeg)
-
 
 อีกหนึ่งสิ่งที่ผู้มาเยือนประเทศสวิตเซอร์แลนด์ต้องจำให้ขึ้นใจ คือ
 การคุยกับคนแปลกหน้าถึงเรื่องส่วนตัว มาร์คไว้ในใจเลยนะ คำถามเกี่ยวกับ
@@ -351,46 +337,45 @@ responsibility, fulfillment, punctuality, hard labor, and truthfulness.
 แม้คุณจะเดินทางมาสวิสด้วยความหวังอยากมีเพื่อนเต็มที่
 แต่คุณก็อย่าหวังเยอะนะ ว่าคนแปลกหน้าทุกคนจะเดินเข้ามาทักทายคุณ
 
-***3 :*** สวิตเซอร์แลนด์ ***:*** ดินแดนพหุภาษา
+**_3 : สวิตเซอร์แลนด์ : ดินแดนพหุภาษา_**
 
 ![image5.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image3.jpeg)
-
 
 ครูชาวสวิสสอนให้นักเรียนสื่อสารได้สองหรือสามภาษาเป็นเรื่องปกติ !
 สวิตเซอร์เเลนด์มีภาษามากมายที่ใช้สื่อสาร แต่มีเพียง 4
 ภาษาที่เป็นภาษาราชการ ได้แก่ ภาษาเยอรมัน (หรือเรียกอีกอย่างว่า สวิส -
 เยอรมัน) ภาษาฝรั่งเศส ภาษาอิตาเลียน และภาษาโรมานซ์ ใน 4 ภาษานี้ ภาษาสวิส
-- เยอรมัน คือภาษาที่ใช้เยอะที่สุดในประเทศ ประชากรมากกว่า 65%
-ซึ่งอาศัยอยู่ในบริเวณภาคตะวันตกเฉียงเหนือ ภาคตะวันออก ภาคกลาง
-และบริเวณที่ราบสูงของสวิตเซอร์แลนด์ก็ใช้ภาษานี้เป็นหลัก
-ชาวสวิสมักเข้ารับการศึกษาเป็นภาษาเยอรมันตั้งแต่ระดับอนุบาล
-ดังนั้นคนส่วนใหญ่จึงฟังภาษาเยอรมัน และเข้าใจพูดโต้ตอบได้ นอกจากนี้
-เมืองซูริค ลูเซิร์น ออบวัลเดน บาเซิล และเมืองอื่น ๆ ก็มีภาษาถิ่นสวิส --
-เยอรมันด้วยนะ และที่นี่ยังมีภาษาสวิส - ฝรั่งเศส ซึ่งผู้คนประมาณ 1 ใน 4
-ของประชากรทั้งหมดใช้ และแพร่หลายในฝั่งตะวันตก
-ความแตกต่างระหว่างภาษาฝรั่งเศสกับภาษาสวิส - ฝรั่งเศส ถือว่าชัดเจนมาก
-เช่น การนับเลข ภาษาสวิส - ฝรั่งเศส จะนับจำนวน70 ว่าเจ็ดสิบ (Septante)
-และจำนวน90 ว่า เก้าสิบ (Nonante) แต่ภาษาฝรั่งเศส ใช้ระบบการนับทีละยี่สิบ
-จึงเรียกจำนวน70 ว่า สามยี่สิบกับอีกสิบ (Soixante-Dix) - และจำนวน 90 ว่า
-สี่ยี่สิบกับอีกสิบ (Quatre-Vingt-Dix) ภาษาต่อมาคือ ภาษาสวิส - อิตาเลียน
-ที่ใช้สื่อสารทางตอนใต้ของประเทศ หรือในเมืองตีซีโน และเกราบึนเดน
-ประชากรประมาณ 15.4% พูดภาษานี้ จึงถือเป็น 1
-ในภาษาที่ใช้พูดกันอย่างเเพร่หลาย ภาษาสวิส - อิตาเลียน
-คล้ายคลึงภาษาอิตาเลียนทั่วไปมาก มีเพียงข้อยกเว้นที่ว่า
-คำศัพท์บางคำที่แปลจากภาษาฝรั่งเศสหรือเยอรมัน แตกต่างกัน ยกตัวอย่างเช่น
-คำว่า "Flu" (ไข้หวัดใหญ่) ที่อิตาลีใช้ "Influenza"
-แต่ที่สวิตเซอร์แลนด์กลับเรียกว่า "Grippe"
-ซึ่งมีที่มาจากคำเดียวกันนี้ในภาษาเยอรมัน ท้ายที่สุด
-ภาษาโรมานซ์หรือภาษาราชการที่ใช้กันน้อยที่สุด ด้วยประชากรเพียง 60,000 คน
-ทางตอนใต้ที่พูดภาษานี้ สิ่งหนึ่งที่ควรพิจารณาเกี่ยวกับภาษาโรมานซ์ คือ
-มันเป็นภาษาที่ใกล้เคียงกับ "ภาษาถิ่น" มากกว่าภาษาหลัก
-ดังนั้นเมื่อคุณเจอป้ายที่มีถึง 4 ภาษาในสวิส อย่าตกใจ
-เพราะมันคือสัญลักษณ์ของความหลากหลายทางภาษาในประเทศนี้
 
-***4 :*** สวิตเซอร์แลนด์ ***:*** อย่าหยิบตัวปรับปลั๊กมาผิดนะ***!***
+- เยอรมัน คือภาษาที่ใช้เยอะที่สุดในประเทศ ประชากรมากกว่า 65%
+  ซึ่งอาศัยอยู่ในบริเวณภาคตะวันตกเฉียงเหนือ ภาคตะวันออก ภาคกลาง
+  และบริเวณที่ราบสูงของสวิตเซอร์แลนด์ก็ใช้ภาษานี้เป็นหลัก
+  ชาวสวิสมักเข้ารับการศึกษาเป็นภาษาเยอรมันตั้งแต่ระดับอนุบาล
+  ดังนั้นคนส่วนใหญ่จึงฟังภาษาเยอรมัน และเข้าใจพูดโต้ตอบได้ นอกจากนี้
+  เมืองซูริค ลูเซิร์น ออบวัลเดน บาเซิล และเมืองอื่น ๆ ก็มีภาษาถิ่นสวิส --
+  เยอรมันด้วยนะ และที่นี่ยังมีภาษาสวิส - ฝรั่งเศส ซึ่งผู้คนประมาณ 1 ใน 4
+  ของประชากรทั้งหมดใช้ และแพร่หลายในฝั่งตะวันตก
+  ความแตกต่างระหว่างภาษาฝรั่งเศสกับภาษาสวิส - ฝรั่งเศส ถือว่าชัดเจนมาก
+  เช่น การนับเลข ภาษาสวิส - ฝรั่งเศส จะนับจำนวน70 ว่าเจ็ดสิบ (Septante)
+  และจำนวน90 ว่า เก้าสิบ (Nonante) แต่ภาษาฝรั่งเศส ใช้ระบบการนับทีละยี่สิบ
+  จึงเรียกจำนวน70 ว่า สามยี่สิบกับอีกสิบ (Soixante-Dix) - และจำนวน 90 ว่า
+  สี่ยี่สิบกับอีกสิบ (Quatre-Vingt-Dix) ภาษาต่อมาคือ ภาษาสวิส - อิตาเลียน
+  ที่ใช้สื่อสารทางตอนใต้ของประเทศ หรือในเมืองตีซีโน และเกราบึนเดน
+  ประชากรประมาณ 15.4% พูดภาษานี้ จึงถือเป็น 1
+  ในภาษาที่ใช้พูดกันอย่างเเพร่หลาย ภาษาสวิส - อิตาเลียน
+  คล้ายคลึงภาษาอิตาเลียนทั่วไปมาก มีเพียงข้อยกเว้นที่ว่า
+  คำศัพท์บางคำที่แปลจากภาษาฝรั่งเศสหรือเยอรมัน แตกต่างกัน ยกตัวอย่างเช่น
+  คำว่า "Flu" (ไข้หวัดใหญ่) ที่อิตาลีใช้ "Influenza"
+  แต่ที่สวิตเซอร์แลนด์กลับเรียกว่า "Grippe"
+  ซึ่งมีที่มาจากคำเดียวกันนี้ในภาษาเยอรมัน ท้ายที่สุด
+  ภาษาโรมานซ์หรือภาษาราชการที่ใช้กันน้อยที่สุด ด้วยประชากรเพียง 60,000 คน
+  ทางตอนใต้ที่พูดภาษานี้ สิ่งหนึ่งที่ควรพิจารณาเกี่ยวกับภาษาโรมานซ์ คือ
+  มันเป็นภาษาที่ใกล้เคียงกับ "ภาษาถิ่น" มากกว่าภาษาหลัก
+  ดังนั้นเมื่อคุณเจอป้ายที่มีถึง 4 ภาษาในสวิส อย่าตกใจ
+  เพราะมันคือสัญลักษณ์ของความหลากหลายทางภาษาในประเทศนี้
+
+**_4 : สวิตเซอร์แลนด์ : อย่าหยิบตัวปรับปลั๊กมาผิดนะ!_**
 
 ![image6.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image4.jpeg)
-
 
 หนึ่งในข้อผิดพลาดที่นักท่องเที่ยวมักเจอ
 ขณะท่องเที่ยวในประเทศสวิตเซอร์แลนด์ คือ หยิบปลั๊กหรือตัวปรับปลั๊กมาผิด!
@@ -406,11 +391,10 @@ Type C นอกจากนี้ อุปกรณ์ไฟฟ้าแบบ
 แต่ก่อนจ่ายเงิน
 อย่าลืมตรวจสอบคุณภาพของสินค้าว่าตรงตามข้อบังคับความปลอดภัยระหว่างประเทศหรือไม่
 
-***5 :*** สวิตเซอร์แลนด์ ***:*** อย่าเพิ่งทิ้ง***!***
+**_5 : สวิตเซอร์แลนด์ : อย่าเพิ่งทิ้ง!_**
 ยังเก็บไปใช้ได้อีกวัน
 
 ![image4.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image11.jpeg)
-
 
 การรีไซเคิลขยะในสวิตเซอร์แลนด์สำคัญมากถึงมากที่สุด
 ชาวสวิสถือเป็นเรื่องจริงจังมาก อย่าได้คิดว่าเป็นเรื่องเล่น ๆ นะ
@@ -429,10 +413,9 @@ Type C นอกจากนี้ อุปกรณ์ไฟฟ้าแบบ
 หากประสงค์จะซื้อถุงเหล่านี้ สามารถหาได้ตามซูเปอร์มาร์เก็ต ร้านขายของชำ
 และร้านริมถนนทั่วไป
 
-***6 :*** เยอรมนี ***:*** เงินสดครองเมือง
+**_6 : เยอรมนี : เงินสดครองเมือง_**
 
 ![image8.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image6.jpeg)
-
 
 ในเยอรมนี เงินสดยังคงมีบทบาทสำคัญในการใช้จ่าย ประเทศแห่งนี้ถือเป็น 1
 ในประเทศที่มียอดการใช้เงินสดสูงที่สุดในสหภาพยุโรป
@@ -462,11 +445,9 @@ Type C นอกจากนี้ อุปกรณ์ไฟฟ้าแบบ
 นักท่องเที่ยวชาวต่างชาติบางคนไม่ได้พกเงินสดปริมาณมาก ๆ
 ติดตัวมาที่เยอรมนี พวกเขาจึงต้องใช้บริการ ATM เพื่อกดเงินออกมาใช้จ่าย
 
-***7 :*** เยอรมนี ***:*** ไม่มีสัญลักษณ์หรืออะไรก็ตามที่เกี่ยวข้องกับ
-***"***นาซี***"*** ไม่เคยมี***!***
+**_7 : เยอรมนี : ไม่มีสัญลักษณ์หรืออะไรก็ตามที่เกี่ยวข้องกับ "นาซี" ไม่เคยมี!_**
 
 ![image2.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image7.jpeg)
-
 
 คุณรู้หรือไม่ว่า แค่การกล่าวว่า \"ไฮล์ ฮิตเลอร์! (Heil Hitler!)"
 ก็สามารถส่งคุณเข้าเรือนจำเป็นเวลา 3 ปีได้ หากไม่เชื่อลองฟังเหตุการณ์นี้
@@ -494,10 +475,9 @@ Wolfenstein 2 ที่ถูกกองเซ็นเซอร์นาซี
 ชื่อของเขาถูกเปลี่ยน
 และเครื่องหมายสวัสติกะในเกมก็โดนแทนที่ด้วยเครื่องหมายอื่น
 
-***8 :*** เยอรมนี ***:*** สงครามคือเรื่องละเอียดอ่อน
+**_8 : เยอรมนี : สงครามคือเรื่องละเอียดอ่อน_**
 
 ![image7.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image8.jpeg)
-
 
 แม้ว่าในโรงเรียนมักสอนเรื่องสงครามโลกครั้งที่ 2
 และพูดถึงกันอย่างแพร่หลาย แต่ระวังไว้ก็ดี คุณไม่ควรพูดคุยถึงเรื่องนี้
@@ -523,10 +503,9 @@ Wolfenstein 2 ที่ถูกกองเซ็นเซอร์นาซี
 หากคุณพูดถึงเหตุการณ์ฮอโลคอสต์หรือพูดถึงฮิตเลอร์ในเชิงสรรเสริญแล้วล่ะก็
 หนทางสู่เรือนจำหรือความตายของคุณก็เกิดขึ้นได้ง่ายดาย
 
-***9 :*** เยอรมนี ***:*** วันอาทิตย์ วันแห่งความเงียบ
+**_9 : เยอรมนี : วันอาทิตย์ วันแห่งความเงียบ_**
 
 ![image10.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image9.jpeg)
-
 
 ณ ประเทศเยอรมนี วันอาทิตย์ถือเป็น "วันพักผ่อน"
 บรรยากาศในวันนั้นจะเต็มไปด้วยความเงียบ ไร้เสียงทำความสะอาดบ้าน
@@ -546,10 +525,9 @@ Wolfenstein 2 ที่ถูกกองเซ็นเซอร์นาซี
 เพราะฉะนั้น ในเยอรมนี วันอาทิตย์จึงเป็นวันที่เหมาะที่สุดที่จะขยัน!
 (ในความเงียบน่ะนะ)
 
-***10 :*** เยอรมนี ***:*** ทุกอย่างเป็นไปตามระเบียบหรือยัง***?***
+**_10 : เยอรมนี : ทุกอย่างเป็นไปตามระเบียบหรือยัง?_**
 
 ![image9.jpg](/assets/articles/10-Things-you-should-acknowledge-before-traveling-to-Switzerland-and-Germany/media/image10.jpeg)
-
 
 หนึ่งในวลีเด็ด ๆ ในภาษาเยอรมัน คือ \"Ordnung muss sein" ที่แปลได้ว่า
 "ระเบียบนี่แหละยืนยง" ชาวเยอรมันเป็นพวกยึดติดกับกฎเป็นอย่างมาก
