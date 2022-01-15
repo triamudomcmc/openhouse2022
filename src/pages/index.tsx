@@ -26,6 +26,8 @@ import { Programme } from "@components/programme"
 import { getDb } from "@lib/firebase-admin"
 import { updateLiveFeedback } from "@lib/db"
 import { useToast } from "@lib/toast"
+import fs from "fs";
+import {shuffle} from "@utils/arrays";
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -34,7 +36,7 @@ const Blog = ({ data }: { data: any }) => {
         style={{
           background: "linear-gradient(265.95deg, rgba(255, 255, 255, 0.3) 33.14%, rgba(255, 255, 255, 0) 100%)",
         }}
-        className="border h-[375px] sm:h-[198px] border-white rounded-lg border-opacity-40 items-center flex flex-col sm:flex-row justify-between backdrop-filter backdrop-blur-lg snap-center cursor-pointer"
+        className="border h-[375px] sm:h-[198px] border-white rounded-lg border-opacity-40 items-center flex flex-col-reverse sm:flex-row justify-between backdrop-filter backdrop-blur-lg snap-center cursor-pointer"
       >
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
@@ -46,7 +48,7 @@ const Blog = ({ data }: { data: any }) => {
           </div>
           <span className="text-sm font-light">{data.author}</span>
         </div>
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 mt-2 sm:mt-0">
           <Image
             width={317}
             height={197}
@@ -61,9 +63,9 @@ const Blog = ({ data }: { data: any }) => {
   )
 }
 
-const Video = () => {
+const Video = ({data}: any) => {
   return (
-    <Link href={"/"}>
+    <Link href={data.path}>
       <div
         style={{
           background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
@@ -73,23 +75,22 @@ const Video = () => {
         <div>
           <div className="relative">
             <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">
-              00.00
+              {data.duration}
             </span>
-            {/* <Image
-              src={"/images/placeholders/clubs.jpg"}
+            <Image
+              src={data.thumbnail}
               objectFit={"cover"}
               width={170}
               height={98}
               priority={true}
               className="rounded-t-lg"
-            /> */}
-            <div className=" bg-gray-100 w-[178px] h-[98px]"></div>
+            />
           </div>
           <div className="px-2">
-            <p className="break-all text-[12px] h-[56px] font-light text-ellipsis">รอติดตามหลังไลฟ์...</p>
+            <p className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</p>
             <div className="flex items-center space-x-1">
               <UserIcon className="w-4 h-4 flex-shrink-0" />
-              <p className="text-[10px] font-light truncate">งานกิจกรรมพัฒนาผู้เรียน</p>
+              <p className="text-[10px] font-light truncate">{data.author}</p>
             </div>
           </div>
         </div>
@@ -101,6 +102,11 @@ const Video = () => {
 export const getStaticProps: GetStaticProps = async () => {
   const fetchedData = getAllPosts(["slug", "title", "author", "thumbnail", "content"], "_articles")
   let cleaned = fetchedData.filter((item) => Object.keys(item).length > 1)
+
+  const datav = fs.readFileSync("./src/_data/_maps/videoMap.json").toString()
+
+  const videoData = JSON.parse(datav)
+
   if (!cleaned) {
     return {
       notFound: true,
@@ -132,6 +138,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       articles: mapped,
       schedule: schedule,
+      video: videoData
     },
   }
 }
@@ -217,12 +224,15 @@ const findCurrent = (sc: Array<any>) => {
   return { now: fil[fil.length - 1], next: file[0] }
 }
 
-export default function Home({ articles, schedule }: any) {
+export default function Home({ articles, schedule, video }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
   const [current, setCurrent] = useState(findCurrent(schedule).now)
   const auth = useAuth()
   const toast = useToast()
+
+  const [videos, setVideos] = useState(shuffle(video))
+  const [article, setArticle] = useState(shuffle(articles))
 
   const next = () => {
     if (findCurrent(schedule).now) {
@@ -611,124 +621,64 @@ export default function Home({ articles, schedule }: any) {
               วิดีโอจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br /> ที่ทางเราจะนำมานำเสนอให้ทุกคนได้รับชมอย่างเต็มที่ !
             </p>
           </div>
-          <div className="flex flex-col items-center justify-center w-full h-[400px] bg-white bg-opacity-20 rounded-xl border border-white border-opacity-40">
-            <ClockIcon className="w-24 h-24 mb-4" />
-            <h1 className="text-center px-4 text-2xl">สามารถติดตามหลังจบการถ่ายทอดสด</h1>
-            <Link href="/stream">
-              <div className="flex items-center space-x-2 cursor-pointer">
-                <p>รับชมการถ่ายทอดสด</p>
-                <ArrowRightIcon className="w-4 h-4" />
-              </div>
-            </Link>
-          </div>
-          {/*<div className="relative">*/}
-          {/*  <Splide*/}
-          {/*    options={{*/}
-          {/*      fixedWidth: 170,*/}
-          {/*      gap: 12,*/}
-          {/*      perMove: 1,*/}
-          {/*      arrows: false,*/}
-          {/*      classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },*/}
-          {/*    }}*/}
-          {/*    onMounted={() => {*/}
-          {/*      if (document && document.getElementsByClassName("splide__track").length >= 1) {*/}
-          {/*        // @ts-ignore*/}
-          {/*        document.getElementsByClassName("splide__track")[0].style["z-index"] = 2*/}
-          {/*      }*/}
-          {/*    }}*/}
-          {/*    renderControls={() => {*/}
-          {/*      return (*/}
-          {/*        <div className="splide__arrows absolute top-0 z-[1] w-full h-full">*/}
-          {/*          <div*/}
-          {/*            style={{ left: "-50px" }}*/}
-          {/*            className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"*/}
-          {/*          >*/}
-          {/*            <ChevronRightIcon className="w-6 h-6" />*/}
-          {/*          </div>*/}
-          {/*          <div*/}
-          {/*            style={{ right: "-40px" }}*/}
-          {/*            className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"*/}
-          {/*          >*/}
-          {/*            <ChevronRightIcon className="w-6 h-6" />*/}
-          {/*          </div>*/}
-          {/*        </div>*/}
-          {/*      )*/}
-          {/*    }}*/}
-          {/*  >*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*    <SplideSlide>*/}
-          {/*      <div>*/}
-          {/*        <Video />*/}
-          {/*        <Video />*/}
-          {/*      </div>*/}
-          {/*    </SplideSlide>*/}
-          {/*  </Splide>*/}
+          {/*<div className="flex flex-col items-center justify-center w-full h-[400px] bg-white bg-opacity-20 rounded-xl border border-white border-opacity-40">*/}
+          {/*  <ClockIcon className="w-24 h-24 mb-4" />*/}
+          {/*  <h1 className="text-center px-4 text-2xl">สามารถติดตามหลังจบการถ่ายทอดสด</h1>*/}
+          {/*  <Link href="/stream">*/}
+          {/*    <div className="flex items-center space-x-2 cursor-pointer">*/}
+          {/*      <p>รับชมการถ่ายทอดสด</p>*/}
+          {/*      <ArrowRightIcon className="w-4 h-4" />*/}
+          {/*    </div>*/}
+          {/*  </Link>*/}
           {/*</div>*/}
+          <div className="relative">
+            <Splide
+              options={{
+                fixedWidth: 170,
+                gap: 12,
+                perMove: 1,
+                arrows: false,
+                classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },
+              }}
+              onMounted={() => {
+                if (document && document.getElementsByClassName("splide__track").length >= 1) {
+                  // @ts-ignore
+                  document.getElementsByClassName("splide__track")[0].style["z-index"] = 2
+                }
+              }}
+              renderControls={() => {
+                return (
+                  <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
+                    <div
+                      style={{ left: "-50px" }}
+                      className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
+                    >
+                      <ChevronRightIcon className="w-6 h-6" />
+                    </div>
+                    <div
+                      style={{ right: "-40px" }}
+                      className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
+                    >
+                      <ChevronRightIcon className="w-6 h-6" />
+                    </div>
+                  </div>
+                )
+              }}
+            >
+              {videos.reduce(function(result, value, index, array) {
+                if (index % 2 === 0)
+                  result.push(array.slice(index, index + 2));
+                return result;
+              }, []).map((item: any, index: number) => {
+                return <SplideSlide key={`slide-${index}`}>
+                  <div>
+                    <Video data={item[0]}/>
+                    {item.length > 1 && <Video data={item[1]}/>}
+                  </div>
+                </SplideSlide>
+              })}
+            </Splide>
+          </div>
           <div id="articles" className="mt-[200px] mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-5xl">บทความ</h2>
@@ -746,7 +696,7 @@ export default function Home({ articles, schedule }: any) {
           </div>
           <div className="">
             <div className={classnames("relative space-y-6 max-h-[621px] overflow-y-scroll snap-y scroll")}>
-              {articles.map((data: any, index: number) => (
+              {article.map((data: any, index: number) => (
                 <Blog key={`blog-${index}`} data={data} />
               ))}
             </div>
