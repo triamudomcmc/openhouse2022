@@ -69,13 +69,11 @@ const Stream = ({ schedule }: any) => {
               </span>{" "}
               <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current?.name ?? ""}</span>
             </h2>
-            {!(!current?.by || !current?.start) && (
-              <div>
-                <span className="font-light sm:text-md text-sm">
-                  {current?.by} | {formatTime(current?.start)} น.
-                </span>
-              </div>
-            )}
+            <div>
+              <span className="font-light sm:text-md text-sm">
+                {current?.by && `${current?.by} |`} {formatTime(current?.start)} น.
+              </span>
+            </div>
           </div>
           <iframe
             className="bg-black w-[90vw] h-[48vw] sm:w-[82vw] mx-auto sm:h-[46vw] lg:w-[841px] lg:h-[483px] border border-white border-opacity-50 rounded-xl"

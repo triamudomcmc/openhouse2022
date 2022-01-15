@@ -238,6 +238,7 @@ export default function Home({ articles, schedule }: any) {
   useEffect(() => {
     next()
   })
+
   const [question, setQuestion] = useState("")
 
   const { scrollY } = useViewportScroll()
@@ -308,13 +309,11 @@ export default function Home({ articles, schedule }: any) {
                 </span>{" "}
                 <span className="text-2xl sm:text-3xl w-[90vw] sm:w-[82vw] lg:w-[841px]">{current?.name || ""}</span>
               </h2>
-              {!(!current?.by || !current?.start) && (
-                <div>
-                  <span className="font-light sm:text-md text-sm">
-                    {current?.by} | {formatTime(current?.start)} น.
-                  </span>
-                </div>
-              )}
+              <div>
+                <span className="font-light sm:text-md text-sm">
+                  {current?.by && `${current?.by} |`} {formatTime(current?.start)} น.
+                </span>
+              </div>
             </div>
             {auth?.user && auth?.userData?.username !== "" && auth.userData?.ticket ? (
               <iframe
