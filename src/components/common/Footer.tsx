@@ -111,7 +111,7 @@ export const Footer = () => {
             </Link> */}
             {auth?.userData?.ticket && (
               <Link href="/ticket">
-                <a className="hover:underline">บ้ตรของคุณ</a>
+                <a className="hover:underline">บัตรของคุณ</a>
               </Link>
             )}
             <Link href="/directions">
