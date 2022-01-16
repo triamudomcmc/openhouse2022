@@ -102,9 +102,9 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
             <Link href="/" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">หน้าแรก</a>
             </Link>
-            <Link href="/stream" passHref>
+            {/* <Link href="/stream" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">รายการสด</a>
-            </Link>
+            </Link> */}
             <Link href="/programmes" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">สายการเรียน</a>
             </Link>
@@ -158,12 +158,12 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
                 <span>หน้าแรก</span>
               </a>
             </Link>
-            <Link href="/stream" passHref>
+            {/* <Link href="/stream" passHref>
               <a className={classNames(getClass("/stream"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <VideoCameraIcon className="text-white w-8 h-8" />
                 <span>รายการสด</span>
               </a>
-            </Link>
+            </Link> */}
             <Link href="/programmes" passHref>
               <a className={classNames(getClass("/programmes"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <FlagIcon className="text-white w-8 h-8" />
