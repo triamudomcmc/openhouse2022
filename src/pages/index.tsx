@@ -65,37 +65,37 @@ const Blog = ({ data }: { data: any }) => {
 
 const Video = ({ data }: any) => {
   return (
-    // <Link href={data.path}>
-    <div
-      style={{
-        background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
-      }}
-      className="w-[170px] rounded-lg mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
-    >
-      <div>
-        <div className="relative">
-          <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">
-            {data.duration}
-          </span>
-          <Image
-            src={data.thumbnail}
-            objectFit={"cover"}
-            width={170}
-            height={98}
-            priority={true}
-            className="rounded-t-lg"
-          />
-        </div>
-        <div className="px-2">
-          <p className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</p>
-          <div className="flex items-center space-x-1">
-            <UserIcon className="w-4 h-4 flex-shrink-0" />
-            <p className="text-[10px] font-light truncate">{data.author}</p>
+    <Link href={data.path}>
+      <div
+        style={{
+          background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
+        }}
+        className="w-[170px] rounded-lg mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+      >
+        <div>
+          <div className="relative">
+            <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">
+              {data.duration}
+            </span>
+            <Image
+              src={data.thumbnail}
+              objectFit={"cover"}
+              width={170}
+              height={98}
+              priority={true}
+              className="rounded-t-lg"
+            />
+          </div>
+          <div className="px-2">
+            <p className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</p>
+            <div className="flex items-center space-x-1">
+              <UserIcon className="w-4 h-4 flex-shrink-0" />
+              <p className="text-[10px] font-light truncate">{data.author}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    // </Link>
+    </Link>
   )
 }
 
@@ -308,7 +308,16 @@ export default function Home({ articles, schedule, video }: any) {
         element="section"
         id="live"
       >
-        <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
+        <h2 className="text-2xl font-semibold">แบบสำรวจความพึงพอใจที่มีต่องาน Triam Udom Online Open House 2022</h2>
+        <motion.a
+          className="underline mt-6"
+          href="https://forms.gle/Xz857WpU5CEWByBB8"
+          target="_blank"
+          rel="noreferrer"
+        >
+          ทำแบบสอบถาม <ArrowRightIcon className="w-4 h-4 inline" />
+        </motion.a>
+        {/* <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
           <div className="my-auto">
             <div className="mb-4">
               <h2 className="flex items-center space-x-3">
@@ -374,7 +383,7 @@ export default function Home({ articles, schedule, video }: any) {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
       </AdaptiveBg>
 
       <div
