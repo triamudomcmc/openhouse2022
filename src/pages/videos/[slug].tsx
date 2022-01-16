@@ -104,8 +104,8 @@ const Page: NextPage<{ post: any; list: any }> = ({ post, list }) => {
         <ArrowCircleLeftIcon className="w-7 h-7" />
         <span className="text-lg">ย้อนกลับ</span>
       </div>
-      <div className="flex xl:flex-row flex-col items-center max-w-[1250px] justify-between mx-auto space-x-6 mt-12 mb-12">
-        <div className="flex justify-center max-w-[841px] px-8">
+      <div className="flex xl:flex-row flex-col items-center justify-between mx-auto space-x-6 mt-12 mb-12">
+        <div className="flex justify-center px-8">
           <div className="mb-2">
             <iframe
               width="560"
@@ -126,14 +126,17 @@ const Page: NextPage<{ post: any; list: any }> = ({ post, list }) => {
                 </div>
               </div>
               <div>
-                <p dangerouslySetInnerHTML={{ __html: post.description }}></p>
+                <article
+                  className="prose-p:leading-relaxed prose-hr:my-4 prose-hr:w-[50px]"
+                  dangerouslySetInnerHTML={{ __html: post.description }}
+                ></article>
               </div>
             </div>
           </div>
         </div>
         <div className="mt-10 xl:mt-0">
           <h1 className="text-lg">วิดีโออื่น ๆ</h1>
-          <div className="flex xl:flex-row flex-col hidden md:flex">
+          <div className="flex xl:flex-row flex-col md:flex">
             <div className="flex xl:flex-col flex-wrap justify-center">
               {suggest.slice(0, 4).map((i, index: number) => (
                 <Video data={i} key={`suggestion-1-${index}`} />
