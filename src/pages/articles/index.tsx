@@ -23,10 +23,10 @@ const Blog = ({ data }: { data: any }) => {
         <div className="flex flex-col justify-between px-6 py-4">
           <div className="space-y-2">
             <h2 className="text-lg font-semibold leading-[20px] h-[40px] overflow-hidden">{data.title}</h2>
-            <p
+            <span
               dangerouslySetInnerHTML={{ __html: `${data.content}...` }}
               className="font-light overflow-hidden h-[56px] pt-2"
-            ></p>
+            ></span>
           </div>
           <span className="text-sm font-light">{data.author}</span>
         </div>
