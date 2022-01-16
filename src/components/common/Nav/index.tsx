@@ -111,15 +111,15 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
             <Link href="/clubs" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">ชมรม</a>
             </Link>
-            {/* <Link href="/videos" passHref>
+            <Link href="/videos" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">วิดีโอ</a>
-            </Link> */}
+            </Link>
             <Link href="/articles" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">บทความ</a>
             </Link>
-            {/* <Link href="/admission" passHref>
+            <Link href="/admission" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">การสอบเข้า</a>
-            </Link> */}
+            </Link>
           </nav>
           {/* <button
             ref={buttonRef}
@@ -176,24 +176,24 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
                 <span>ชมรม</span>
               </a>
             </Link>
-            {/* <Link href="/videos" passHref>
+            <Link href="/videos" passHref>
               <a className={classNames(getClass("/videos"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <VideoCameraIcon className="text-white w-8 h-8" />
                 <span>วิดีโอ</span>
               </a>
-            </Link> */}
+            </Link>
             <Link href="/articles" passHref>
               <a className={classNames(getClass("/articles"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <BookOpenIcon className="text-white w-8 h-8" />
                 <span>บทความ</span>
               </a>
             </Link>
-            {/* <Link href="/admission" passHref>
+            <Link href="/admission" passHref>
               <a className={classNames(getClass("/admission"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <InformationCircleIcon className="text-white w-8 h-8" />
                 <span>การสอบเข้า</span>
               </a>
-            </Link> */}
+            </Link>
             <Link href="/directions" passHref>
               <a className={classNames(getClass("/directions"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <MapIcon className="text-white w-8 h-8" />

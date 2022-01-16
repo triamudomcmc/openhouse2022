@@ -95,9 +95,9 @@ export const Footer = () => {
             <Link href="/articles">
               <a className="hover:underline">บทความ</a>
             </Link>
-            {/* <Link href="/videos">
+            <Link href="/videos">
               <a className="hover:underline">คลิปวิดีโอ</a>
-            </Link> */}
+            </Link>
             <Link href="/clubs">
               <a className="hover:underline">ชมรม</a>
             </Link>
@@ -106,9 +106,9 @@ export const Footer = () => {
             <Link href="/programmes">
               <a className="hover:underline">สายการเรียน</a>
             </Link>
-            {/* <Link href="/admission">
+            <Link href="/admission">
               <a className="hover:underline">การสอบเข้า</a>
-            </Link> */}
+            </Link>
             {auth?.userData?.ticket && (
               <Link href="/ticket">
                 <a className="hover:underline">บัตรของคุณ</a>
