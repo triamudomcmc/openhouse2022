@@ -11,8 +11,8 @@ import {
 import { MD } from "@utils/breakpoints"
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { Chart } from "@vectors/Chart"
-import { motion } from "framer-motion"
 import { FC } from "react"
+import Image from "next/image"
 
 interface IMilestoneData {
   date: string
@@ -82,9 +82,10 @@ const Admission = () => {
         </div>
         <div className="flex flex-col">
           <h2 className="font-semibold text-2xl mt-6 mb-4 text-center">ข้อมูลสายการเรียนที่เปิดรับ</h2>
-          <article className="flex flex-col justify-center">
-            <div className="">
-              <Chart className="w-full sm:w-[270px]" />
+          <article className="flex flex-col sm:space-x-8 sm:flex-row justify-center items-center">
+            <div className="w-[300px] sm:w-[1024px]">
+              {/* <Chart className="w-full sm:w-[270px]" /> */}
+              <Image src="/assets/admission/chart.png" width={449} height={658} className="w-full" />
             </div>
             <div className="mt-6 flex flex-col space-y-4">
               {/* <div>
@@ -117,7 +118,7 @@ const Admission = () => {
                     <span className="font-semibold text-lg">
                       <PencilAltIcon className="inline w-8 h-8" /> สิ่งที่สามารถนำเข้าห้องสอบได้
                     </span>
-                    <div className="flex flex-row space-x-16 ml-10 mt-2 py-2">
+                    <div className="flex flex-col sm:flex-row sm:space-x-16 ml-10 mt-2 py-2">
                       <div className="flex flex-col space-y-6">
                         <ul>
                           <li>
@@ -174,8 +175,8 @@ const Admission = () => {
                     </div>
                   </li>
                 </ul>
-                <div className="flex space-x-4 flex-row pl-12 pr-8">
-                  <ExclamationIcon className="w-20 h-20" />
+                <div className="flex space-x-4 flex-col sm:flex-row items-center sm:items-start pl-12 pr-8">
+                  <ExclamationIcon className="w-20 h-20 my-2 sm:my-0" />
                   <p className="font-light">
                     นอกเหนือจากที่กล่าวไปข้างต้น ไม่สามารถนำเข้าห้องสอบได้ เช่น เงิน อาหาร น้ำดื่ม ช้อน ลิขวิดเปเปอร์
                     ถุงพลาสติก วงเวียน ไม้บรรทัด ปากกาหลากสียกเว้นสีน้ำเงิน หมวก แว่นดำ หน้ากากผ้าลวดลาย โทรศัพท์ ผ้าห่ม

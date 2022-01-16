@@ -308,7 +308,9 @@ export default function Home({ articles, schedule, video }: any) {
         element="section"
         id="live"
       >
-        <h2 className="text-2xl font-semibold">แบบสำรวจความพึงพอใจที่มีต่องาน Triam Udom Online Open House 2022</h2>
+        <h2 className="text-center text-2xl font-semibold px-4">
+          แบบสำรวจความพึงพอใจที่มีต่องาน Triam Udom Online Open House 2022
+        </h2>
         <motion.a
           className="underline mt-6"
           href="https://forms.gle/Xz857WpU5CEWByBB8"
