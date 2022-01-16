@@ -8,41 +8,41 @@ import { getAllPosts } from "@lib/api"
 import { useEffect, useState } from "react"
 import { searchKeyword } from "@utils/text"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
-import fs from "fs";
+import fs from "fs"
 
 const Video = ({ data }: { data: any }) => {
   return (
-    <Link href={`${data.path}`}>
-      <div
-        style={{
-          background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
-        }}
-        className="w-[170px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
-      >
-        <div>
-          <div className="relative">
-            <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm shadow-md">
-              {data.duration}
-            </span>
-            <Image
-              src={data.thumbnail}
-              objectFit={"cover"}
-              width={170}
-              height={98}
-              priority={true}
-              className="rounded-t-lg"
-            />
-          </div>
-          <div className="px-2">
-            <h1 className="break-all text-[12px] h-[56px] font-light text-ellipsis leading-[14px]">{data.title}</h1>
-            <div className="flex items-center space-x-1">
-              <UserIcon className="w-4 h-4 flex-shrink-0" />
-              <h1 className="text-[10px] font-light truncate">{data.author}</h1>
-            </div>
+    // <Link href={`${data.path}`}>
+    <div
+      style={{
+        background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
+      }}
+      className="w-[170px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+    >
+      <div>
+        <div className="relative">
+          <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm shadow-md">
+            {data.duration}
+          </span>
+          <Image
+            src={data.thumbnail}
+            objectFit={"cover"}
+            width={170}
+            height={98}
+            priority={true}
+            className="rounded-t-lg"
+          />
+        </div>
+        <div className="px-2">
+          <h1 className="break-all text-[12px] h-[56px] font-light text-ellipsis leading-[14px]">{data.title}</h1>
+          <div className="flex items-center space-x-1">
+            <UserIcon className="w-4 h-4 flex-shrink-0" />
+            <h1 className="text-[10px] font-light truncate">{data.author}</h1>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
+    // </Link>
   )
 }
 

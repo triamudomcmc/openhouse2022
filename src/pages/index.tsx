@@ -26,8 +26,8 @@ import { Programme } from "@components/programme"
 import { getDb } from "@lib/firebase-admin"
 import { updateLiveFeedback } from "@lib/db"
 import { useToast } from "@lib/toast"
-import fs from "fs";
-import {shuffle} from "@utils/arrays";
+import fs from "fs"
+import { shuffle } from "@utils/arrays"
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -63,39 +63,39 @@ const Blog = ({ data }: { data: any }) => {
   )
 }
 
-const Video = ({data}: any) => {
+const Video = ({ data }: any) => {
   return (
-    <Link href={data.path}>
-      <div
-        style={{
-          background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
-        }}
-        className="w-[170px] rounded-lg mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
-      >
-        <div>
-          <div className="relative">
-            <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">
-              {data.duration}
-            </span>
-            <Image
-              src={data.thumbnail}
-              objectFit={"cover"}
-              width={170}
-              height={98}
-              priority={true}
-              className="rounded-t-lg"
-            />
-          </div>
-          <div className="px-2">
-            <p className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</p>
-            <div className="flex items-center space-x-1">
-              <UserIcon className="w-4 h-4 flex-shrink-0" />
-              <p className="text-[10px] font-light truncate">{data.author}</p>
-            </div>
+    // <Link href={data.path}>
+    <div
+      style={{
+        background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
+      }}
+      className="w-[170px] rounded-lg mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+    >
+      <div>
+        <div className="relative">
+          <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">
+            {data.duration}
+          </span>
+          <Image
+            src={data.thumbnail}
+            objectFit={"cover"}
+            width={170}
+            height={98}
+            priority={true}
+            className="rounded-t-lg"
+          />
+        </div>
+        <div className="px-2">
+          <p className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</p>
+          <div className="flex items-center space-x-1">
+            <UserIcon className="w-4 h-4 flex-shrink-0" />
+            <p className="text-[10px] font-light truncate">{data.author}</p>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
+    // </Link>
   )
 }
 
@@ -138,7 +138,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       articles: mapped,
       schedule: schedule,
-      video: videoData
+      video: videoData,
     },
   }
 }
@@ -665,18 +665,21 @@ export default function Home({ articles, schedule, video }: any) {
                 )
               }}
             >
-              {videos.reduce(function(result, value, index, array) {
-                if (index % 2 === 0)
-                  result.push(array.slice(index, index + 2));
-                return result;
-              }, []).map((item: any, index: number) => {
-                return <SplideSlide key={`slide-${index}`}>
-                  <div>
-                    <Video data={item[0]}/>
-                    {item.length > 1 && <Video data={item[1]}/>}
-                  </div>
-                </SplideSlide>
-              })}
+              {videos
+                .reduce(function (result, value, index, array) {
+                  if (index % 2 === 0) result.push(array.slice(index, index + 2))
+                  return result
+                }, [])
+                .map((item: any, index: number) => {
+                  return (
+                    <SplideSlide key={`slide-${index}`}>
+                      <div>
+                        <Video data={item[0]} />
+                        {item.length > 1 && <Video data={item[1]} />}
+                      </div>
+                    </SplideSlide>
+                  )
+                })}
             </Splide>
           </div>
           <div id="articles" className="mt-[200px] mb-8">
