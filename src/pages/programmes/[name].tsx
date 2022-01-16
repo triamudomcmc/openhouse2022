@@ -122,7 +122,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             <div>
               <h2 className="text-4xl">วิชาหรือหลักสูตรเพิ่มเติมที่เรียน</h2>
               <article
-                className="prose text-white text-justify font-texts mt-4 prose-p:inline leading-[30px] article prose-inverted"
+                className="prose text-white text-justify font-texts mt-4 leading-[30px] article prose-inverted"
                 dangerouslySetInnerHTML={{ __html: contents.exsubject }}
               ></article>
             </div>
@@ -130,7 +130,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
             <div>
               <h2 className="text-4xl">ความน่าสนใจของสายการเรียน</h2>
               <article
-                className="prose text-white text-justify mt-4 font-texts prose-p:inline leading-[30px] article prose-inverted"
+                className="prose text-white text-justify mt-4 font-texts leading-[30px] article prose-inverted"
                 dangerouslySetInnerHTML={{ __html: contents.interest }}
               ></article>
             </div>
