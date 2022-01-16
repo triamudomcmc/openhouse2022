@@ -779,14 +779,14 @@ export default function Home({ articles, schedule }: any) {
             ถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0 mt-16">
-            {/* <Link href="/admission">
+            <Link href="/admission">
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer"
               >
                 การสอบเข้า
               </motion.a>
-            </Link> */}
+            </Link>
             <Link href="/directions">
               <motion.a
                 whileHover={{ scale: 1.05 }}
