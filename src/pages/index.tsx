@@ -46,7 +46,7 @@ const Blog = ({ data }: { data: any }) => {
               className="font-light overflow-hidden h-[56px] pt-2"
             ></span>
           </div>
-          <span className="text-sm font-light">{data.author}</span>
+          <span className="text-sm mt-4 font-light">{data.author}</span>
         </div>
         <div className="flex-shrink-0 mt-2 sm:mt-0">
           <Image
