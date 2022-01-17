@@ -17,7 +17,7 @@ const Video = ({ data }: { data: any }) => {
         style={{
           background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
         }}
-        className="w-[170px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+        className="w-[212px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
       >
         <div>
           <div className="relative">
@@ -27,8 +27,8 @@ const Video = ({ data }: { data: any }) => {
             <Image
               src={data.thumbnail}
               objectFit={"cover"}
-              width={170}
-              height={98}
+              width={212}
+              height={112}
               priority={true}
               className="rounded-t-lg"
             />

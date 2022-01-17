@@ -10,6 +10,7 @@ import { searchKeyword } from "@utils/text"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import classnames from "classnames"
 import markdownToHtml from "@lib/markdownToHTML"
+import { shuffleArray } from "@utils/shuffle"
 
 const Blog = ({ data }: { data: any }) => {
   return (
@@ -103,7 +104,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      contents: mapped,
+      contents: shuffleArray(mapped),
     },
   }
 }

@@ -9,6 +9,8 @@ import { AnimateSharedLayout } from "framer-motion"
 import { useEffect, useState } from "react"
 import { searchKeyword } from "@utils/text"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
+import { useWindowDimensions } from "@utils/useWindowDimensions"
+import { SM } from "@utils/breakpoints"
 
 const Clube = ({ data }: { data: any }) => {
   return (
@@ -16,7 +18,7 @@ const Clube = ({ data }: { data: any }) => {
       style={{
         background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
       }}
-      className="w-[170px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+      className="w-[212px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
     >
       <div>
         <div className="relative">
@@ -24,8 +26,8 @@ const Clube = ({ data }: { data: any }) => {
           <Image
             src={data.thumbnail}
             objectFit={"cover"}
-            width={170}
-            height={98}
+            width={212}
+            height={112}
             priority={true}
             className="rounded-t-lg"
           />
@@ -43,13 +45,15 @@ const Clube = ({ data }: { data: any }) => {
 }
 
 const Club = ({ data }: { data: any }) => {
+  const { width } = useWindowDimensions()
+
   return (
     <Link href={data.path}>
       <div
         style={{
           background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
         }}
-        className="w-[170px] cursor-pointer rounded-lg mr-3 mt-3 backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+        className="w-[350px] sm:w-[212px] cursor-pointer rounded-lg mr-6 mt-6 backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
       >
         <div>
           <div className="relative">
@@ -57,10 +61,10 @@ const Club = ({ data }: { data: any }) => {
             <Image
               src={data.thumbnail}
               objectFit={"cover"}
-              width={170}
-              height={98}
+              width={width > SM ? 212 : 350}
+              height={width > SM ? 112 : 250}
               priority={true}
-              className="rounded-t-lg"
+              className="w-full rounded-t-lg"
             />
           </div>
           <div className="px-2">
