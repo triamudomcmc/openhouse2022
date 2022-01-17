@@ -11,6 +11,7 @@ import { searchKeyword } from "@utils/text"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { SM } from "@utils/breakpoints"
+import { Loading } from "@components/common/Loading"
 
 const Clube = ({ data }: { data: any }) => {
   return (
@@ -104,11 +105,13 @@ const Page = ({ contents }: { contents: any }) => {
   const [sorted, setSorted] = useState(contents)
   const [query, setQuery] = useState(setTimeout(() => {}, 10))
   const router = useRouter()
+  const [searching, setSearching] = useState(false)
 
   const [searchContext, setSearchContext] = useState("")
 
   useEffect(() => {
     clearTimeout(query)
+    setSearching(true)
 
     setQuery(
       setTimeout(() => {
@@ -119,7 +122,8 @@ const Page = ({ contents }: { contents: any }) => {
         } else {
           setSorted(contents)
         }
-      }, 900)
+        setSearching(false)
+      }, 400)
     )
   }, [searchContext, contents])
 
@@ -158,11 +162,17 @@ const Page = ({ contents }: { contents: any }) => {
             </div>
           </div>
           <div className="flex justify-center flex-wrap mt-14 ml-2">
-            <AnimateSharedLayout>
-              {sorted.map((e: any, i: number) => (
-                <Club key={`club-${i}`} data={e} />
-              ))}
-            </AnimateSharedLayout>
+            {searching ? (
+              <div className="h-screen flex justify-center items-center">
+                <p>Loading...</p>
+              </div>
+            ) : (
+              <AnimateSharedLayout>
+                {sorted.map((e: any, i: number) => (
+                  <Club key={`club-${i}`} data={e} />
+                ))}
+              </AnimateSharedLayout>
+            )}
           </div>
         </div>
       </div>

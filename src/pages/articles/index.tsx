@@ -112,11 +112,13 @@ export const getStaticProps: GetStaticProps = async () => {
 const Page = ({ contents }: { contents: any }) => {
   const [sorted, setSorted] = useState(contents)
   const [query, setQuery] = useState(setTimeout(() => {}, 10))
+  const [searching, setSearching] = useState(false)
 
   const [searchContext, setSearchContext] = useState("")
 
   useEffect(() => {
     clearTimeout(query)
+    setSearching(true)
 
     setQuery(
       setTimeout(() => {
@@ -127,7 +129,8 @@ const Page = ({ contents }: { contents: any }) => {
         } else {
           setSorted(contents)
         }
-      }, 900)
+        setSearching(false)
+      }, 400)
     )
   }, [searchContext, contents])
 
@@ -169,9 +172,13 @@ const Page = ({ contents }: { contents: any }) => {
           </div>
           <div className="mt-12 max-w-4xl mx-auto px-6">
             <div className={classnames("relative space-y-6 snap-y")}>
-              {contents.map((data: any, index: number) => (
-                <Blog key={`blog-${index}`} data={data} />
-              ))}
+              {searching ? (
+                <div className="h-screen flex justify-center items-center">
+                  <p>Loading...</p>
+                </div>
+              ) : (
+                contents.map((data: any, index: number) => <Blog key={`blog-${index}`} data={data} />)
+              )}
             </div>
           </div>
         </div>

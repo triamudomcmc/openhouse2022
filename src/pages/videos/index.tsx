@@ -17,7 +17,7 @@ const Video = ({ data }: { data: any }) => {
         style={{
           background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
         }}
-        className="w-[212px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+        className="w-[212px] rounded-lg mr-6 mt-6 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
       >
         <div>
           <div className="relative">
@@ -34,10 +34,10 @@ const Video = ({ data }: { data: any }) => {
             />
           </div>
           <div className="px-2">
-            <h1 className="break-all text-[12px] h-[56px] font-light text-ellipsis leading-[14px]">{data.title}</h1>
+            <h2 className="break-all text-[12px] h-[56px] font-light text-ellipsis leading-[14px]">{data.title}</h2>
             <div className="flex items-center space-x-1">
               <UserIcon className="w-4 h-4 flex-shrink-0" />
-              <h1 className="text-[10px] font-light truncate">{data.author}</h1>
+              <span className="text-[10px] font-light truncate">{data.author}</span>
             </div>
           </div>
         </div>
@@ -68,11 +68,13 @@ export const getStaticProps: GetStaticProps = async () => {
 const Page = ({ contents }: { contents: any }) => {
   const [sorted, setSorted] = useState(contents)
   const [query, setQuery] = useState(setTimeout(() => {}, 10))
+  const [searching, setSearching] = useState(false)
 
   const [searchContext, setSearchContext] = useState("")
 
   useEffect(() => {
     clearTimeout(query)
+    setSearching(true)
 
     setQuery(
       setTimeout(() => {
@@ -83,6 +85,7 @@ const Page = ({ contents }: { contents: any }) => {
         } else {
           setSorted(contents)
         }
+        setSearching(false)
       }, 900)
     )
   }, [searchContext, contents])
@@ -118,9 +121,13 @@ const Page = ({ contents }: { contents: any }) => {
             </div>
           </div>
           <div className="flex justify-center flex-wrap mt-14 ml-2">
-            {sorted.map((e: any, i: number) => (
-              <Video key={`article-${i}`} data={e} />
-            ))}
+            {searching ? (
+              <div className="h-[350px] flex justify-center items-center">
+                <p>Loading...</p>
+              </div>
+            ) : (
+              sorted.map((e: any, i: number) => <Video key={`video-${i}`} data={e} />)
+            )}
           </div>
         </div>
       </div>
