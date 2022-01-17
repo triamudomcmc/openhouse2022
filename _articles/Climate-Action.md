@@ -13,7 +13,7 @@ goals include ending poverty, quality education, gender equality,
 economic growth, climate action, and many more. In this article we will
 be focusing on SDG number 13, which is titled Climate Action.
 
-SDG 13[']{dir="rtl"}s primary purpose is to take urgent
+SDG 13's primary purpose is to take urgent
 action to combat climate change and its impacts". It consists of 5
 targets which can be divided into 3 output" targets and 2
 means of achieving" targets. To put it basically, 3
@@ -22,8 +22,8 @@ to accomplish them. The output targets are to strengthen resilience and
 adaptive capacity to climate-related hazards, to integrate climate
 change measures into national policies, strategies and planning, and to
 build knowledge and capacity to meet climate change. The 2 means of
-achieving targets are implementing the United Nations[']{dir="rtl"}
-Framework Convention on Climate Change[']{dir="rtl"}s (UNFCCC) Green
+achieving targets are implementing the United Nations'
+Framework Convention on Climate Change's (UNFCCC) Green
 Climate Fund in 1994 to directly address the financial needs of
 developing countries in the context of meaningful climate actions and
 promoting mechanisms to raise capacity for climate planning and
@@ -43,7 +43,7 @@ all these actions the world continues to experience the ever worsening
 effects of global warming and is projected to still be on course for
 catastrophic levels from its effects.
 
-The problem is that most countries[']{dir="rtl"} pledges are not
+The problem is that most countries' pledges are not
 ambitious enough and will not be enacted quickly enough to meet the
 Paris Agreement goals. Most scientists agree that a continuation of
 current policies would result in a rise in global average temperatures
@@ -64,7 +64,7 @@ to act, use your voice and let them hear us, hear that we want change
 and we want it now! Climate strikes, demonstrations and campaigns are a
 sure way for the government to hear our voices. Every individual should
 contribute in the fight against climate change, for we have only one
-world and one chance. Don[']{dir="rtl"}t let our only hope for the
+world and one chance. Don't let our only hope for the
 future, yours and mine alike, be thrown away in vain. Only then can we
 truly achieve the goal of Climate Action!
 
