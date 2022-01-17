@@ -304,21 +304,28 @@ export default function Home({ articles, schedule, video }: any) {
         primary={{ background: "/images/backgrounds/live.jpg", height: "1024px" }}
         secondary={{ background: "/images/backgrounds/live-mobile.jpg", height: "926px" }}
         mobile={{ background: "/images/backgrounds/live-mobile-default.jpg", height: "926px" }}
-        classname="flex flex-col justify-center items-center"
+        classname="flex flex-col justify-center items-center space-y-12"
         element="section"
         id="live"
       >
-        <h2 className="text-center text-2xl font-semibold px-4">
-          แบบสำรวจความพึงพอใจที่มีต่องาน Triam Udom Online Open House 2022
-        </h2>
-        <motion.a
-          className="underline mt-6"
-          href="https://forms.gle/Xz857WpU5CEWByBB8"
-          target="_blank"
-          rel="noreferrer"
-        >
-          ทำแบบสอบถาม <ArrowRightIcon className="w-4 h-4 inline" />
-        </motion.a>
+        <div className="flex flex-col justify-center items-center">
+          <h2 className="text-center text-2xl font-semibold px-4">Count Down วันสอบเข้าโรงเรียนเตรียมอุดมศึกษา</h2>
+          <p className="text-sm mt-4">5 ม.ค. 2565</p>
+          <CountDown until={+new Date(2022, 2, 5, 9, 0, 0, 0)} />
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <h2 className="text-center text-2xl font-semibold px-4">
+            แบบสำรวจความพึงพอใจที่มีต่องาน Triam Udom Online Open House 2022
+          </h2>
+          <motion.a
+            className="underline mt-6"
+            href="https://forms.gle/Xz857WpU5CEWByBB8"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ทำแบบสอบถาม <ArrowRightIcon className="w-4 h-4 inline" />
+          </motion.a>
+        </div>
         {/* <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
           <div className="my-auto">
             <div className="mb-4">

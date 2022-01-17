@@ -26,12 +26,12 @@ const calculateTimeLeft: (time: number) => TimeLeft | null = (time) => {
   }
 }
 
-export const CountDown: FC = () => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(calculateTimeLeft(OpeningTime))
+export const CountDown: FC<{ until?: number }> = ({ until }) => {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(calculateTimeLeft(until ?? OpeningTime))
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft(OpeningTime))
+      setTimeLeft(calculateTimeLeft(until ?? OpeningTime))
     }, 1000)
 
     return function cleanup() {
@@ -40,7 +40,7 @@ export const CountDown: FC = () => {
   }, [])
 
   return (
-    <div className="flex flex-col text-white font-display text-xl font-thin sm:px-16 py-3 mt-[30px] md:mt-[50px] space-y-8">
+    <div className="flex flex-col text-white font-display text-xl font-thin sm:px-16 py-3 space-y-8">
       <div className="flex text-center space-x-2 sm:space-x-6 text-2xl sm:text-4xl">
         <div className="flex-col space-y-2">
           <p className="font-mono px-6 py-6 bg-gray-500 bg-opacity-25 backdrop-blur-sm rounded-tl-xl rounded-bl-xl">
