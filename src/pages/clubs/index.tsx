@@ -163,7 +163,7 @@ const Page = ({ contents }: { contents: any }) => {
           </div>
           <div className="flex justify-center flex-wrap mt-14 ml-2">
             {searching ? (
-              <div className="h-screen flex justify-center items-center">
+              <div className="h-[350px] flex justify-center items-center">
                 <p>Loading...</p>
               </div>
             ) : (

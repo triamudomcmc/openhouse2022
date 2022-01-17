@@ -43,11 +43,13 @@ export async function getStaticProps({ params }: { params: any }) {
     }
   })
 
+  const post = posts.find((p: any) => p.path.replace("/videos/", "") === params.slug)
+
   return {
     props: {
       post: {
-        ...posts[params.slug - 1],
-        description: await markdownToHtml(posts[params.slug - 1].description),
+        ...post,
+        description: await markdownToHtml(post.description),
       },
       list: suggestions,
     },
