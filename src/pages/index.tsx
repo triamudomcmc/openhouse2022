@@ -490,11 +490,11 @@ export default function Home({ articles, schedule, video }: any) {
                   >
                     <Flask className="h-[54px] w-[54px] sm:h-[80px] sm:w-[80px]" />
                   </div>
-                  <p className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
+                  <h3 className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
                     GIFTED-
                     <br />
                     SCIENCE
-                  </p>
+                  </h3>
                 </motion.a>
               </Link>
 
@@ -512,11 +512,11 @@ export default function Home({ articles, schedule, video }: any) {
                   >
                     <Math className="h-[54px] w-[54px] sm:h-[80px] sm:w-[80px]" />
                   </div>
-                  <p className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
+                  <h3 className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
                     GIFTED-
                     <br />
                     MATH
-                  </p>
+                  </h3>
                 </motion.a>
               </Link>
             </div>
@@ -535,11 +535,11 @@ export default function Home({ articles, schedule, video }: any) {
                   >
                     <span className="text-[60px] sm:text-[73px] font-black">A</span>
                   </div>
-                  <p className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
+                  <h3 className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
                     GIFTED-
                     <br />
                     ENGLISH
-                  </p>
+                  </h3>
                 </motion.a>
               </Link>
 
@@ -557,11 +557,11 @@ export default function Home({ articles, schedule, video }: any) {
                   >
                     <span className="text-[70px] sm:text-[88px] font-black">ก</span>
                   </div>
-                  <p className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
+                  <h3 className="absolute bottom-[20px] left-[26px] text-[20px] sm:text-[24.67px] font-semibold text-black">
                     GIFTED-
                     <br />
                     THAI
-                  </p>
+                  </h3>
                 </motion.a>
               </Link>
             </div>
