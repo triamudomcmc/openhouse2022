@@ -13,38 +13,6 @@ import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { SM } from "@utils/breakpoints"
 import { Loading } from "@components/common/Loading"
 
-const Clube = ({ data }: { data: any }) => {
-  return (
-    <div
-      style={{
-        background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
-      }}
-      className="w-[212px] rounded-lg mr-3 mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
-    >
-      <div>
-        <div className="relative">
-          {/*<span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">12.10</span>*/}
-          <Image
-            src={data.thumbnail}
-            objectFit={"cover"}
-            width={212}
-            height={112}
-            priority={true}
-            className="rounded-t-lg"
-          />
-        </div>
-        <div className="px-2">
-          <h1 className="break-all text-[12px] h-[56px] font-light">{data.title}</h1>
-          <div className="flex items-center space-x-1">
-            <UserIcon className="w-4 h-4" />
-            <h1 className="text-[10px] font-light">งานกิจกรรมพัฒนาผู้เรียน</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 const Club = ({ data }: { data: any }) => {
   const { width } = useWindowDimensions()
 
@@ -60,6 +28,7 @@ const Club = ({ data }: { data: any }) => {
           <div className="relative">
             {/*<span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">12.10</span>*/}
             <Image
+              alt={data.title}
               src={data.thumbnail}
               objectFit={"cover"}
               width={width > SM ? 212 : 350}

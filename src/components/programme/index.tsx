@@ -13,7 +13,7 @@ export const Programme = ({ name, thainame }: { name: string; thainame: string }
       className="text-center cursor-pointer w-[100px] sm:w-[160px]"
     >
       <div className="w-[100px] sm:w-[160px]">
-        <Image width={160} height={160} src={`/images/branches/${name}.png`} />
+        <Image width={160} height={160} alt={"name"} src={`/images/branches/${name}.png`} />
       </div>
       <h1 className="font-light">{thainame}</h1>
     </motion.div>

@@ -76,7 +76,13 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
   const loadPicture = (index: number) => {
     return contents.pictures.length >= index + 1 ? (
       <div>
-        <Image src={contents.pictures[index].url} width={672} height={378} objectFit={"cover"} />
+        <Image
+          src={contents.pictures[index].url}
+          alt={contents.pictures[index].description}
+          width={672}
+          height={378}
+          objectFit={"cover"}
+        />
         <p className="text-center font-texts mt-2">{contents.pictures[index].description}</p>
       </div>
     ) : (
@@ -136,6 +142,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                 <div className="flex-shrink-0 flex sm:flex-col flex-row items-start sm:space-x-0 space-x-2 mt-4 sm:mt-0">
                   {reviewItem.profileURL && (
                     <Image
+                      alt={reviewItem.profileeData.name}
                       width={85}
                       height={85}
                       src={reviewItem.profileURL}

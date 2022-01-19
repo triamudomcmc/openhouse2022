@@ -37,6 +37,7 @@ const Blog = ({ data }: { data: any }) => {
             height={197}
             objectFit={"cover"}
             src={data.thumbnail}
+            alt={data.title}
             className="flex-shrink-0 rounded-lg sm:rounded-r-lg"
           />
           {/* <div className="w-[317px] h-[197px] bg-gray-400 bg-opacity-25 border border-white rounded-r-lg flex-shrink-0"></div> */}
@@ -60,6 +61,7 @@ const Club = ({ data }: { data: any }) => {
             {/*<span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">12.10</span>*/}
             <Image
               src={data.thumbnail}
+              alt={data.title}
               objectFit={"cover"}
               width={170}
               height={98}

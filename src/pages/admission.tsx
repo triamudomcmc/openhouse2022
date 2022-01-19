@@ -120,7 +120,13 @@ const Admission = () => {
           <article className="flex flex-col w-full max-w-[1260px] xl:space-x-8 xl:flex-row justify-center items-center">
             <div className="w-[300px] xl:w-[1024px] sm:min-w-[400px]">
               {/* <Chart className="w-full lg:w-[270px]" /> */}
-              <Image src="/assets/admission/chart.png" width={449} height={658} className="w-full" />
+              <Image
+                src="/assets/admission/chart.png"
+                alt="programmes chart"
+                width={449}
+                height={658}
+                className="w-full"
+              />
             </div>
             <div className="mt-6 flex flex-col space-y-4">
               {/* <div>

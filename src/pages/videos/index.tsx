@@ -26,6 +26,7 @@ const Video = ({ data }: { data: any }) => {
             </span>
             <Image
               src={data.thumbnail}
+              alt={data.title}
               objectFit={"cover"}
               width={212}
               height={112}

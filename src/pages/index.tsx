@@ -54,6 +54,7 @@ const Blog = ({ data }: { data: any }) => {
             height={197}
             objectFit={"cover"}
             src={data.thumbnail}
+            alt={data.title}
             className="flex-shrink-0 rounded-lg sm:rounded-r-lg"
           />
           {/* <div className="w-[317px] h-[197px] bg-gray-400 bg-opacity-25 border border-white rounded-r-lg flex-shrink-0"></div> */}
@@ -79,6 +80,7 @@ const Video = ({ data }: any) => {
             </span>
             <Image
               src={data.thumbnail}
+              alt={data.title}
               objectFit={"cover"}
               width={170}
               height={98}
