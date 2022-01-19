@@ -14,6 +14,7 @@ import { Chart } from "@vectors/Chart"
 import { FC } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 interface IMilestoneData {
   date: string
@@ -46,27 +47,27 @@ const Admission = () => {
       className="min-h-screen w-full flex flex-col main-section items-center"
       style={{ background: "linear-gradient(90deg, #143476 0%, #3B498A 21.87%, #855187 79.69%, #905386 100%)" }}
     >
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 px-4">
         <h1 className="font-semibold text-4xl">การสอบเข้าศึกษาต่อระดับมัธยมศึกษาปีที่ 4 </h1>
         <p className="font-semibold mt-4 text-4xl">โรงเรียนเตรียมอุดมศึกษา</p>
         <p className="font-light mt-4 text-lg">ปีการศึกษา 2565</p>
       </div>
-      <div className="px-4 md:px-12 lg:px-36 flex-col space-y-8 w-full">
-        <div className="bg-[#C0AFE9] rounded-xl bg-opacity-40 px-6 py-8 flex flex-col items-center">
+      <div className="px-4 md:px-12 lg:px-36 flex flex-col space-y-12 w-full items-center">
+        <div className="bg-[#C0AFE9] max-w-[600px] rounded-2xl bg-opacity-40 px-8 py-8 flex flex-col items-center">
           <h2 className="font-semibold text-2xl mb-4 text-center">เกี่ยวกับโรงเรียนเตรียมอุดมศึกษา</h2>
-          <p className="indent-4 text-left max-w-[600px] mb-6 leading-loose">
+          <p className="indent-4 mb-6 leading-loose font-texts text-justify">
             โรงเรียนเตรียมอุดมศึกษา เป็นโรงเรียนมัธยมปลายขนาดใหญ่พิเศษ มีทำเลที่ตั้งอยู่ใจกลางเมือง ติด BTS สถานีสยาม
             เดินทางสะดวก บรรยากาศโดยรอบโรงเรียนมีสีสัน
             รายล้อมไปด้วยห้างสรรพสินค้าและสถานที่สำหรับอ่านหนังสือที่สามารถมาได้ทุกเวลาหลังเลิกเรียน
             เรียกได้ว่าโรงเรียนเตรียมอุดมศึกษาเป็นโรงเรียนที่มีความพร้อมที่จะส่งเสริมศักยภาพของนักเรียนเตรียมฯ ในทุกด้าน
           </p>
           <Link href="/directions">
-            <button className="font-light text-md border border-white px-8 py-4 rounded-full">
+            <button className="font-light text-md border border-white hover:bg-white hover:text-slate-600 transition-colors px-8 py-4 rounded-full">
               การเดินทางมาโรงเรียนเตรียมฯ
             </button>
           </Link>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full">
           <h2 className="font-semibold text-2xl mb-6 text-center">กำหนดการสอบเข้า</h2>
           <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 w-full items-center justify-center">
             <Milestone data={{ date: "19-23", month: "ก.พ. 65", event: "เปิดรับสมัคร" }} />
@@ -94,6 +95,24 @@ const Admission = () => {
               <ArrowDownIcon className="w-5 h-5 text-white" />
             )}
             <Milestone data={{ date: "21", month: "มี.ค. 65", event: "วันมอบตัว" }} />
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center px-4 mb-4 mt-4 w-full">
+          <h2 className="font-semibold text-2xl mb-4 text-center">พบปะท่านรองผู้อำนวยการโรงเรียน กลุ่มบริหารวิชาการ</h2>
+          <p className="mb-4">
+            ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
+          </p>
+          <div className="">
+            <iframe
+              width="560"
+              height="315"
+              src={"https://youtube.com/embed/zHZ2wsXUt3A"}
+              title="สัมภาษณ์สดท่านรองผู้อำนวยการ"
+              className="rounded-lg aspect-video w-[90vw] sm:w-[75vw] lg:w-[600px] h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
         <div className="flex flex-col items-center">
