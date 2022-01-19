@@ -13,6 +13,7 @@ import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { Chart } from "@vectors/Chart"
 import { FC } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface IMilestoneData {
   date: string
@@ -42,14 +43,29 @@ const Admission = () => {
 
   return (
     <main
-      className="min-h-screen w-full flex flex-col main-section"
+      className="min-h-screen w-full flex flex-col main-section items-center"
       style={{ background: "linear-gradient(90deg, #143476 0%, #3B498A 21.87%, #855187 79.69%, #905386 100%)" }}
     >
-      <div className="text-center mb-12">
-        <h1 className="font-semibold text-4xl">การสอบเข้าศึกษาต่อ</h1>
-        <p className="font-light text-lg">ในระดับมัธยมศึกษาปีที่ 4 โรงเรียนเตรียมอุดมศึกษา</p>
+      <div className="text-center mb-8">
+        <h1 className="font-semibold text-4xl">การสอบเข้าศึกษาต่อระดับมัธยมศึกษาปีที่ 4 </h1>
+        <p className="font-semibold mt-4 text-4xl">โรงเรียนเตรียมอุดมศึกษา</p>
+        <p className="font-light mt-4 text-lg">ปีการศึกษา 2565</p>
       </div>
       <div className="px-4 md:px-12 lg:px-36 flex-col space-y-8 w-full">
+        <div className="bg-[#C0AFE9] rounded-xl bg-opacity-40 px-6 py-8 flex flex-col items-center">
+          <h2 className="font-semibold text-2xl mb-4 text-center">เกี่ยวกับโรงเรียนเตรียมอุดมศึกษา</h2>
+          <p className="indent-4 text-left max-w-[600px] mb-6 leading-loose">
+            โรงเรียนเตรียมอุดมศึกษา เป็นโรงเรียนมัธยมปลายขนาดใหญ่พิเศษ มีทำเลที่ตั้งอยู่ใจกลางเมือง ติด BTS สถานีสยาม
+            เดินทางสะดวก บรรยากาศโดยรอบโรงเรียนมีสีสัน
+            รายล้อมไปด้วยห้างสรรพสินค้าและสถานที่สำหรับอ่านหนังสือที่สามารถมาได้ทุกเวลาหลังเลิกเรียน
+            เรียกได้ว่าโรงเรียนเตรียมอุดมศึกษาเป็นโรงเรียนที่มีความพร้อมที่จะส่งเสริมศักยภาพของนักเรียนเตรียมฯ ในทุกด้าน
+          </p>
+          <Link href="/directions">
+            <button className="font-light text-md border border-white px-8 py-4 rounded-full">
+              การเดินทางมาโรงเรียนเตรียมฯ
+            </button>
+          </Link>
+        </div>
         <div className="flex flex-col">
           <h2 className="font-semibold text-2xl mb-6 text-center">กำหนดการสอบเข้า</h2>
           <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 w-full items-center justify-center">
@@ -80,11 +96,11 @@ const Admission = () => {
             <Milestone data={{ date: "21", month: "มี.ค. 65", event: "วันมอบตัว" }} />
           </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center">
           <h2 className="font-semibold text-2xl mt-6 mb-4 text-center">ข้อมูลสายการเรียนที่เปิดรับ</h2>
-          <article className="flex flex-col sm:space-x-8 sm:flex-row justify-center items-center">
-            <div className="w-[300px] sm:w-[1024px]">
-              {/* <Chart className="w-full sm:w-[270px]" /> */}
+          <article className="flex flex-col w-full max-w-[1260px] xl:space-x-8 xl:flex-row justify-center items-center">
+            <div className="w-[300px] xl:w-[1024px] sm:min-w-[400px]">
+              {/* <Chart className="w-full lg:w-[270px]" /> */}
               <Image src="/assets/admission/chart.png" width={449} height={658} className="w-full" />
             </div>
             <div className="mt-6 flex flex-col space-y-4">
@@ -118,7 +134,7 @@ const Admission = () => {
                     <span className="font-semibold text-lg">
                       <PencilAltIcon className="inline w-8 h-8" /> สิ่งที่สามารถนำเข้าห้องสอบได้
                     </span>
-                    <div className="flex flex-col sm:flex-row sm:space-x-16 ml-10 mt-2 py-2">
+                    <div className="flex flex-col xl:flex-row xl:space-x-16 ml-10 mt-2 py-2">
                       <div className="flex flex-col space-y-6">
                         <ul>
                           <li>
