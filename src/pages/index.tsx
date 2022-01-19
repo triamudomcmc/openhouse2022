@@ -587,7 +587,7 @@ export default function Home({ articles, schedule, video }: any) {
           <Link href="/clubs">
             <motion.a whileHover={{ scale: 1.02 }} className="cursor-pointer relative w-max flex-shrink-0">
               <div className="w-[300px] sm:w-[381px]">
-                <Image src="/images/clubs/clubs-circle.png" width={381} height={381} />
+                <Image src="/images/clubs/clubs-circle.png" alt="clubs" width={381} height={381} />
               </div>
               <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
                 <h2 className="text-[70px] sm:text-[84px] font-bold">ชมรม</h2>
