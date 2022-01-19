@@ -46,8 +46,8 @@ const Admission = () => {
       style={{ background: "linear-gradient(90deg, #143476 0%, #3B498A 21.87%, #855187 79.69%, #905386 100%)" }}
     >
       <div className="text-center mb-12">
-        <h1 className="font-semibold text-4xl">การสอบเข้า</h1>
-        <p className="font-light text-lg">โรงเรียนเตรียมอุดมศึกษา</p>
+        <h1 className="font-semibold text-4xl">การสอบเข้าศึกษาต่อ</h1>
+        <p className="font-light text-lg">ในระดับมัธยมศึกษาปีที่ 4 โรงเรียนเตรียมอุดมศึกษา</p>
       </div>
       <div className="px-4 md:px-12 lg:px-36 flex-col space-y-8 w-full">
         <div className="flex flex-col">
