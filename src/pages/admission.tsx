@@ -52,7 +52,7 @@ const Admission = () => {
         <p className="font-semibold mt-4 text-4xl">โรงเรียนเตรียมอุดมศึกษา</p>
         <p className="font-light mt-4 text-lg">ปีการศึกษา 2565</p>
       </div>
-      <div className="px-4 md:px-12 lg:px-36 flex flex-col space-y-12 w-full items-center">
+      <div className="px-4 md:px-12 lg:px-48 flex flex-col space-y-12 w-full items-center">
         <div className="bg-[#C0AFE9] max-w-[600px] rounded-2xl bg-opacity-40 px-8 py-8 flex flex-col items-center">
           <h2 className="font-semibold text-2xl mb-4 text-center">เกี่ยวกับโรงเรียนเตรียมอุดมศึกษา</h2>
           <p className="indent-4 mb-6 leading-loose font-texts text-justify">
@@ -98,7 +98,9 @@ const Admission = () => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center px-4 mb-4 mt-4 w-full">
-          <h2 className="font-semibold text-2xl mb-4 text-center">พบปะท่านรองผู้อำนวยการโรงเรียน กลุ่มบริหารวิชาการ</h2>
+          <h2 className="font-semibold text-2xl mb-4 text-center">
+            พบปะท่านรองกลุ่มบริหารวิชาการ : นายทรงเกียรติ เทพประเสน
+          </h2>
           <p className="mb-4">
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
           </p>
