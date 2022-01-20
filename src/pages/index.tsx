@@ -359,7 +359,7 @@ export default function Home({ articles, schedule, video, record }: any) {
           <CountDown until={+new Date(2022, 2, 5, 9, 0, 0, 0)} />
         </div>
         <div id="records" className="w-full">
-          <div className="flex items-center justify-between px-4 sm:px-12 w-full">
+          <div className="flex items-center max-w-[900px] mx-auto justify-between px-4 w-full">
             <h2 className="text-center text-2xl font-semibold px-4 my-4">รายการย้อนหลัง</h2>
             <Link passHref href="/records">
               <a className="flex space-x-1 mr-10 cursor-pointer hover:underline">
