@@ -11,29 +11,23 @@ const Directions = () => {
     bts: (
       <div className="space-y-10 mt-10">
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
-            1
-          </h1>
+          <p className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">1</p>
           <div>
-            <h1 className="text-xl font-semibold">เดินจากสถานี BTS สยาม</h1>
+            <h2 className="text-xl font-semibold">เดินจากสถานี BTS สยาม</h2>
             <p className="text-lg font-light">ฝั่งถนนพญาไท ประมาณ 900 เมตร</p>
           </div>
         </div>
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
-            2
-          </h1>
+          <p className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">2</p>
           <div>
-            <h1 className="text-xl font-semibold">เดินจากสถานี BTS สยาม</h1>
+            <h2 className="text-xl font-semibold">เดินจากสถานี BTS สยาม</h2>
             <p className="text-lg font-light">ฝั่งถนนอังรีดูนังต์ ประมาณ 700 เมตร</p>
           </div>
         </div>
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
-            3
-          </h1>
+          <p className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">3</p>
           <div>
-            <h1 className="text-xl font-semibold">เดินจากสถานี BTS สนามกีฬาฯ</h1>
+            <h2 className="text-xl font-semibold">เดินจากสถานี BTS สนามกีฬาฯ</h2>
             <p className="text-lg font-light">ฝั่งถนนพญาไท ประมาณ 800 เมตร</p>
           </div>
         </div>
@@ -42,11 +36,9 @@ const Directions = () => {
     bus: (
       <div className="space-y-10 mt-10">
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
-            1
-          </h1>
+          <p className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">1</p>
           <div>
-            <h1 className="text-xl font-semibold">รถประจำทาง</h1>
+            <h2 className="text-xl font-semibold">รถประจำทาง</h2>
             <p className="text-lg font-light">
               ลงป้ายรถประจำทางหน้าโรงเรียน
               <br />
@@ -59,11 +51,9 @@ const Directions = () => {
           </div>
         </div>
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
-            2
-          </h1>
+          <p className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">2</p>
           <div>
-            <h1 className="text-xl font-semibold">รถประจำทาง</h1>
+            <h2 className="text-xl font-semibold">รถประจำทาง</h2>
             <p className="text-lg font-light">
               ลงป้ายรถประจำทางหน้าโรงเรียน <br />
               ฝั่งถนนอังรีดูนังต์
@@ -77,20 +67,16 @@ const Directions = () => {
     mrt: (
       <div className="space-y-10 mt-10">
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
-            1
-          </h1>
+          <p className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">1</p>
           <div>
-            <h1 className="text-xl font-semibold">เดินจากสถานี MRT สามย่าน</h1>
+            <h2 className="text-xl font-semibold">เดินจากสถานี MRT สามย่าน</h2>
             <p className="text-lg font-light">ฝั่งถนนพญาไท ประมาณ 800 เมตร</p>
           </div>
         </div>
         <div className="flex space-x-4">
-          <h1 className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">
-            2
-          </h1>
+          <p className="w-10 h-10 bg-[#765ebc] rounded-full font-black text-2xl flex justify-center items-center">2</p>
           <div>
-            <h1 className="text-xl font-semibold">เดินจากสถานี MRT สามย่าน</h1>
+            <h2 className="text-xl font-semibold">เดินจากสถานี MRT สามย่าน</h2>
             <p className="text-lg font-light">ฝั่งถนนอังรีดูนังต์ ประมาณ 1,200 เมตร</p>
           </div>
         </div>
@@ -166,7 +152,7 @@ const Directions = () => {
                     />
                   </svg>
                 </div>
-                <h1 className="text-center text-xs mt-1">รถประจำทาง</h1>
+                <h2 className="text-center text-xs mt-1">รถประจำทาง</h2>
               </div>
               <div>
                 <div
@@ -229,7 +215,7 @@ const Directions = () => {
                   </svg>
                 </div>
 
-                <h1 className="text-center text-xs mt-1">BTS</h1>
+                <h2 className="text-center text-xs mt-1">BTS</h2>
               </div>
               <div>
                 <div
@@ -295,7 +281,7 @@ const Directions = () => {
                   )}
                 </div>
 
-                <h1 className="text-center text-xs mt-1">MRT</h1>
+                <h2 className="text-center text-xs mt-1">MRT</h2>
               </div>
             </div>
           </div>
@@ -325,7 +311,7 @@ const Directions = () => {
                     />
                   </svg>
                 </div>
-                <h1 className="text-center mt-1">รถประจำทาง</h1>
+                <h2 className="text-center mt-1">รถประจำทาง</h2>
               </div>
               <div>
                 <div
@@ -390,7 +376,7 @@ const Directions = () => {
                   </svg>
                 </div>
 
-                <h1 className="text-center mt-1">BTS</h1>
+                <h2 className="text-center mt-1">BTS</h2>
               </div>
               <div>
                 <div
@@ -456,11 +442,23 @@ const Directions = () => {
                   )}
                 </div>
 
-                <h1 className="text-center mt-1">MRT</h1>
+                <h2 className="text-center mt-1">MRT</h2>
               </div>
             </div>
             {des[currentTab]}
           </div>
+        </div>
+        <div className="py-4 px-2">
+          <h2 className="text-5xl mt-8 mb-6 font-semibold text-center">แผนที่</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.637467491092!2d100.52848511460412!3d13.740385290354828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ed3828ba8e5%3A0xf0db3be87e158217!2sTriam%20Udom%20Suksa%20School!5e0!3m2!1sen!2sth!4v1642656766845!5m2!1sen!2sth"
+            width="600"
+            height="450"
+            className="mx-auto rounded-lg aspect-square sm:aspect-video w-[90vw] sm:w-[75vw] lg:w-[600px] h-full"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </main>
