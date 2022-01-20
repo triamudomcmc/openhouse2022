@@ -100,7 +100,7 @@ const Admission = () => {
         </div>
         <div className="flex flex-col justify-center items-center px-4 mb-4 mt-4 w-full">
           <h2 className="font-semibold text-2xl mb-4 text-center">
-            พบปะท่านรองกลุ่มบริหารวิชาการ : นายทรงเกียรติ เทพประเสน
+            รายละเอียดในการรับสมัครนักเรียนชั้นมัธยมศึกษาปีที่ 4 ปีการศึกษา 2565
           </h2>
           <p className="mb-4">
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
