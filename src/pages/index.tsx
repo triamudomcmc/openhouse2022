@@ -155,37 +155,37 @@ const getButton = (auth: IAuthContext | null) => {
   if (noAuth) {
     return (
       <Link passHref href="/register">
-        <motion.button
+        <motion.a
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           ลงทะเบียน
-        </motion.button>
+        </motion.a>
       </Link>
     )
   } else if (authNoRegistered) {
     return (
       <Link passHref href="/register/onboard">
-        <motion.button
+        <motion.a
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           ลงทะเบียน
-        </motion.button>
+        </motion.a>
       </Link>
     )
   } else if (registeredNoGame) {
     return (
       <Link passHref href="/game">
-        <motion.button
+        <motion.a
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           เข้าสู่เนื้อเรื่อง
-        </motion.button>
+        </motion.a>
       </Link>
     )
   } else if (playedGame) {
@@ -200,13 +200,13 @@ const getButton = (auth: IAuthContext | null) => {
       //   </motion.button>
       // </Link>
       <Link passHref href="/stream">
-        <motion.button
+        <motion.a
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
           รับชมรายการสด
-        </motion.button>
+        </motion.a>
       </Link>
     )
   }
