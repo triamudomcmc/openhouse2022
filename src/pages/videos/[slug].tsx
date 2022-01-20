@@ -119,7 +119,7 @@ const Page: NextPage<{ post: any; list: any }> = ({ post, list }) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-            <div className="w-[90vw] h-[48vw] sm:w-[92vw] sm:h-[49vw] lg:w-[841px] lg:h-[473px]">
+            <div className="w-[90vw] sm:w-[92vw] lg:w-[841px]">
               <div className="border-b mt-5 pb-5 mb-6">
                 <h1>{post.title}</h1>
                 <div className="flex space-x-2 mt-2">
@@ -129,7 +129,7 @@ const Page: NextPage<{ post: any; list: any }> = ({ post, list }) => {
               </div>
               <div>
                 <article
-                  className="prose-p:leading-relaxed prose-hr:my-4 prose-hr:w-[50px]"
+                  className="prose-p:leading-relaxed whitespace-pre-line prose-hr:my-4 prose-hr:w-[50px]"
                   dangerouslySetInnerHTML={{ __html: post.description }}
                 ></article>
               </div>

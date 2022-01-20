@@ -101,6 +101,45 @@ const Video = ({ data }: any) => {
   )
 }
 
+const VideoRecord = ({ data }: any) => {
+  return (
+    <Link passHref href={data.path}>
+      <div
+        style={{
+          background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
+        }}
+        className="w-[170px] rounded-lg mt-3 cursor-pointer backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+      >
+        <div>
+          <div className="relative">
+            <span className="absolute bottom-[12px] right-[6px] text-[10px] z-[2] text-gray-700 bg-white px-2 py-[0.6px] font-medium rounded-sm text-sm">
+              {data.duration}
+            </span>
+            <div className="">
+              <Image
+                src={data.thumbnail}
+                alt={data.title}
+                objectFit={"cover"}
+                width={170}
+                height={98}
+                priority={true}
+                className="rounded-t-lg"
+              />
+            </div>
+          </div>
+          <div className="px-2">
+            <p className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</p>
+            <div className="flex items-center space-x-1">
+              <UserIcon className="w-4 h-4 flex-shrink-0" />
+              <p className="text-[10px] font-light truncate">{data.author}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
+
 export const getStaticProps: GetStaticProps = async () => {
   const fetchedData = getAllPosts(["slug", "title", "author", "thumbnail", "content"], "_articles")
   let cleaned = fetchedData.filter((item) => Object.keys(item).length > 1)
@@ -237,6 +276,7 @@ export default function Home({ articles, schedule, video, record }: any) {
   const toast = useToast()
 
   const [videos, setVideos] = useState(shuffle(video))
+  const [records, setRecords] = useState<any[]>(record)
   const [article, setArticle] = useState(shuffle(articles))
 
   const next = () => {
@@ -318,7 +358,69 @@ export default function Home({ articles, schedule, video, record }: any) {
           <p className="text-sm mt-4">5 ม.ค. 2565</p>
           <CountDown until={+new Date(2022, 2, 5, 9, 0, 0, 0)} />
         </div>
-        <div className="flex flex-col justify-center items-center">
+        <div id="records" className="w-full">
+          <div className="flex items-center justify-between px-4 sm:px-12 w-full">
+            <h2 className="text-center text-2xl font-semibold px-4 my-4">รายการย้อนหลัง</h2>
+            <Link passHref href="/records">
+              <a className="flex space-x-1 mr-10 cursor-pointer hover:underline">
+                <span className="font-light">ดูทั้งหมด</span>
+                <ArrowCircleRightIcon className="w-6 h-6" />
+              </a>
+            </Link>
+          </div>
+          <div className="relative max-w-[900px] mx-auto px-6">
+            <Splide
+              options={{
+                fixedWidth: 170,
+                gap: 12,
+                perMove: 1,
+                arrows: false,
+                classes: { pagination: "splide__pagination custom-pagination", track: "splide__track z-[2]" },
+              }}
+              onMounted={() => {
+                if (document && document.getElementsByClassName("splide__track").length >= 1) {
+                  // @ts-ignore
+                  document.getElementsByClassName("splide__track")[0].style["z-index"] = 2
+                }
+              }}
+              renderControls={() => {
+                return (
+                  <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
+                    <div
+                      style={{ left: "-50px" }}
+                      className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
+                    >
+                      <ChevronRightIcon className="w-6 h-6" />
+                    </div>
+                    <div
+                      style={{ right: "-40px" }}
+                      className="splide__arrow--next absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
+                    >
+                      <ChevronRightIcon className="w-6 h-6" />
+                    </div>
+                  </div>
+                )
+              }}
+            >
+              {records
+                .reduce(function (result, value, index, array) {
+                  if (index % 2 === 0) result.push(array.slice(index, index + 2))
+                  return result
+                }, [])
+                .map((item: any, index: number) => {
+                  return (
+                    <SplideSlide key={`_slide-${index}`}>
+                      <div>
+                        <VideoRecord data={item[0]} />
+                        {item.length > 1 && <VideoRecord data={item[1]} />}
+                      </div>
+                    </SplideSlide>
+                  )
+                })}
+            </Splide>
+          </div>
+        </div>
+        {/* <div className="flex flex-col justify-center items-center">
           <h2 className="text-center text-2xl font-semibold px-4">
             แบบสำรวจความพึงพอใจที่มีต่องาน Triam Udom Online Open House 2022
           </h2>
@@ -330,7 +432,7 @@ export default function Home({ articles, schedule, video, record }: any) {
           >
             ทำแบบสอบถาม <ArrowRightIcon className="w-4 h-4 inline" />
           </motion.a>
-        </div>
+        </div> */}
         {/* <div className="flex lg:flex-row flex-col mx-auto lg:space-y-0 space-y-4 space-x-0 lg:space-x-8 pt-[30px]">
           <div className="my-auto">
             <div className="mb-4">

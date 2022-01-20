@@ -89,8 +89,8 @@ export const Footer = () => {
             <Link passHref href="/">
               <a className="hover:underline">หน้าแรก</a>
             </Link>
-            <Link passHref href="/stream">
-              <a className="hover:underline">รายการสด</a>
+            <Link passHref href="/records">
+              <a className="hover:underline">รายการย้อนหลัง</a>
             </Link>
             <Link passHref href="/articles">
               <a className="hover:underline">บทความ</a>

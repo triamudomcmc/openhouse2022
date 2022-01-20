@@ -105,7 +105,7 @@ const Page = ({ contents }: { contents: any }) => {
         </div>
         <div className="mx-auto max-w-5xl mt-16 mb-24">
           <div className="flex flex-col items-center">
-            <h1 className="text-5xl">วิดีโอ</h1>
+            <h1 className="text-5xl">รายการย้อนหลัง</h1>
             <div className="px-10 w-full max-w-[500px]">
               <div className="relative mt-4">
                 <div className="absolute top-0 left-0 h-full flex items-center ml-6">

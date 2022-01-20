@@ -5,6 +5,7 @@ import {
   InformationCircleIcon,
   MapIcon,
   MenuIcon,
+  PlayIcon,
   PuzzleIcon,
   VideoCameraIcon,
 } from "@heroicons/react/outline"
@@ -111,14 +112,14 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
             {/* <Link href="/stream" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">รายการสด</a>
             </Link> */}
-            <Link href="/programmes" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">สายการเรียน</a>
-            </Link>
             <Link href="/clubs" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">ชมรม</a>
             </Link>
             <Link href="/videos" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">วิดีโอ</a>
+            </Link>
+            <Link href="/records" passHref>
+              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">รายการย้อนหลัง</a>
             </Link>
             <Link href="/articles" passHref>
               <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">บทความ</a>
@@ -170,12 +171,6 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
                 <span>รายการสด</span>
               </a>
             </Link> */}
-            <Link href="/programmes" passHref>
-              <a className={classNames(getClass("/programmes"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
-                <FlagIcon className="text-white w-8 h-8" />
-                <span>สายการเรียน</span>
-              </a>
-            </Link>
             <Link href="/clubs" passHref>
               <a className={classNames(getClass("/clubs"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
                 <PuzzleIcon className="text-white w-8 h-8" />
@@ -184,8 +179,14 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
             </Link>
             <Link href="/videos" passHref>
               <a className={classNames(getClass("/videos"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
-                <VideoCameraIcon className="text-white w-8 h-8" />
+                <PlayIcon className="text-white w-8 h-8" />
                 <span>วิดีโอ</span>
+              </a>
+            </Link>
+            <Link href="/records" passHref>
+              <a className={classNames(getClass("/records"), "flex flex-row items-center space-x-4 pl-4 py-2 pr-8")}>
+                <VideoCameraIcon className="text-white w-8 h-8" />
+                <span>รายการสดย้อนหลัง</span>
               </a>
             </Link>
             <Link href="/articles" passHref>
