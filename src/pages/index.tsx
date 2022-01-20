@@ -106,8 +106,10 @@ export const getStaticProps: GetStaticProps = async () => {
   let cleaned = fetchedData.filter((item) => Object.keys(item).length > 1)
 
   const datav = fs.readFileSync("./src/_data/_maps/videoMap.json").toString()
+  const datar = fs.readFileSync("./src/_data/_maps/recordMap.json").toString()
 
   const videoData = JSON.parse(datav)
+  const recordData = JSON.parse(datar)
 
   if (!cleaned) {
     return {
@@ -141,6 +143,7 @@ export const getStaticProps: GetStaticProps = async () => {
       articles: mapped,
       schedule: schedule,
       video: videoData,
+      record: recordData,
     },
   }
 }
@@ -226,7 +229,7 @@ const findCurrent = (sc: Array<any>) => {
   return { now: fil[fil.length - 1], next: file[0] }
 }
 
-export default function Home({ articles, schedule, video }: any) {
+export default function Home({ articles, schedule, video, record }: any) {
   const videoLeft = useRef(null)
   const videoRight = useRef(null)
   const [current, setCurrent] = useState(findCurrent(schedule).now)
