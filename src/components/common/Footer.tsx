@@ -12,7 +12,7 @@ const getButton = (auth: IAuthContext | null) => {
 
   if (noAuth) {
     return (
-      <Link href="/register">
+      <Link passHref href="/register">
         <motion.button
           whileHover={{ scale: 1.1 }}
           style={{ background: "linear-gradient(97.19deg, #C898CC 0.83%, #666EAD 43.54%, #112D55 99.62%)" }}
@@ -86,38 +86,38 @@ export const Footer = () => {
         </div>
         <div className="text-[#6B7280] flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28">
           <div className="flex flex-col space-y-2 text-center sm:text-right font-display">
-            <Link href="/">
+            <Link passHref href="/">
               <a className="hover:underline">หน้าแรก</a>
             </Link>
-            <Link href="/stream">
+            <Link passHref href="/stream">
               <a className="hover:underline">รายการสด</a>
             </Link>
-            <Link href="/articles">
+            <Link passHref href="/articles">
               <a className="hover:underline">บทความ</a>
             </Link>
-            <Link href="/videos">
+            <Link passHref href="/videos">
               <a className="hover:underline">คลิปวิดีโอ</a>
             </Link>
-            <Link href="/clubs">
+            <Link passHref href="/clubs">
               <a className="hover:underline">ชมรม</a>
             </Link>
           </div>
           <div className="flex flex-col space-y-2 text-center sm:text-right mt-2 sm:mt-0 font-display">
-            <Link href="/programmes">
+            <Link passHref href="/programmes">
               <a className="hover:underline">สายการเรียน</a>
             </Link>
-            <Link href="/admission">
+            <Link passHref href="/admission">
               <a className="hover:underline">การสอบเข้า</a>
             </Link>
             {auth?.userData?.ticket && (
-              <Link href="/ticket">
+              <Link passHref href="/ticket">
                 <a className="hover:underline">บัตรของคุณ</a>
               </Link>
             )}
-            <Link href="/directions">
+            <Link passHref href="/directions">
               <a className="hover:underline">การเดินทางมาโรงเรียนเตรียมฯ</a>
             </Link>
-            <Link href="/contact">
+            <Link passHref href="/contact">
               <a className="hover:underline">ติดต่อผู้จัดงาน</a>
             </Link>
           </div>

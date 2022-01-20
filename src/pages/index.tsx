@@ -31,7 +31,7 @@ import { shuffle } from "@utils/arrays"
 
 const Blog = ({ data }: { data: any }) => {
   return (
-    <Link href={`articles/${data.slug}`}>
+    <Link passHref href={`articles/${data.slug}`}>
       <div
         style={{
           background: "linear-gradient(265.95deg, rgba(255, 255, 255, 0.3) 33.14%, rgba(255, 255, 255, 0) 100%)",
@@ -66,7 +66,7 @@ const Blog = ({ data }: { data: any }) => {
 
 const Video = ({ data }: any) => {
   return (
-    <Link href={data.path}>
+    <Link passHref href={data.path}>
       <div
         style={{
           background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
@@ -154,7 +154,7 @@ const getButton = (auth: IAuthContext | null) => {
 
   if (noAuth) {
     return (
-      <Link href="/register">
+      <Link passHref href="/register">
         <motion.button
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
@@ -166,7 +166,7 @@ const getButton = (auth: IAuthContext | null) => {
     )
   } else if (authNoRegistered) {
     return (
-      <Link href="/register/onboard">
+      <Link passHref href="/register/onboard">
         <motion.button
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
@@ -178,7 +178,7 @@ const getButton = (auth: IAuthContext | null) => {
     )
   } else if (registeredNoGame) {
     return (
-      <Link href="/game">
+      <Link passHref href="/game">
         <motion.button
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
@@ -190,7 +190,7 @@ const getButton = (auth: IAuthContext | null) => {
     )
   } else if (playedGame) {
     return (
-      // <Link href="/ticket">
+      // <Link passHref href="/ticket">
       //   <motion.button
       //     whileHover={{ scale: 1.1 }}
       //     className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
@@ -199,7 +199,7 @@ const getButton = (auth: IAuthContext | null) => {
       //     ดูบัตรเดินทางของคุณ
       //   </motion.button>
       // </Link>
-      <Link href="/stream">
+      <Link passHref href="/stream">
         <motion.button
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
@@ -384,7 +384,7 @@ export default function Home({ articles, schedule, video }: any) {
                   )
                 })}
               </div>
-              <Link href="/schedule">
+              <Link passHref href="/schedule">
                 <motion.a
                   whileHover={{ scale: 1.02 }}
                   className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"
@@ -476,7 +476,7 @@ export default function Home({ articles, schedule, video }: any) {
           </div>
           <div className="space-y-16 lg:mt-0 mt-20">
             <div className="flex flex-row md:space-x-16 space-x-4 items-center md:items-start">
-              <Link href="/programmes/gifted-science">
+              <Link passHref href="/programmes/gifted-science">
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
@@ -498,7 +498,7 @@ export default function Home({ articles, schedule, video }: any) {
                 </motion.a>
               </Link>
 
-              <Link href="/programmes/gifted-math">
+              <Link passHref href="/programmes/gifted-math">
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
@@ -521,7 +521,7 @@ export default function Home({ articles, schedule, video }: any) {
               </Link>
             </div>
             <div className="flex flex-row md:space-x-16 space-x-4 items-center md:items-start">
-              <Link href="/programmes/gifted-english">
+              <Link passHref href="/programmes/gifted-english">
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
@@ -543,7 +543,7 @@ export default function Home({ articles, schedule, video }: any) {
                 </motion.a>
               </Link>
 
-              <Link href="/programmes/gifted-thai">
+              <Link passHref href="/programmes/gifted-thai">
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
@@ -584,7 +584,7 @@ export default function Home({ articles, schedule, video }: any) {
         id="clubs"
       >
         <div className="flex items-center md:flex-row flex-col space-x-4 lg:space-x-12">
-          <Link href="/clubs">
+          <Link passHref href="/clubs">
             <motion.a whileHover={{ scale: 1.02 }} className="cursor-pointer relative w-max flex-shrink-0">
               <div className="w-[300px] sm:w-[381px]">
                 <Image src="/images/clubs/clubs-circle.png" alt="clubs" width={381} height={381} />
@@ -602,7 +602,7 @@ export default function Home({ articles, schedule, video }: any) {
               <br />
               ที่มีมากกว่า 60 ชมรมกัน !
             </p>
-            <Link href="/clubs">
+            <Link passHref href="/clubs">
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 className="text-[#112D55] bg-white px-12 rounded-full text-lg py-2.5 cursor-pointer"
@@ -630,7 +630,7 @@ export default function Home({ articles, schedule, video }: any) {
           <div className="mt-[200px] mb-8">
             <div id="videos" className="flex items-center justify-between mb-6">
               <h2 className="text-5xl">วิดีโอ</h2>
-              {/* <Link href="/videos">
+              {/* <Link passHref href="/videos">
                 <a className="flex space-x-1 mr-10 cursor-pointer hover:underline">
                   <span className="font-light">ดูทั้งหมด</span>
                   <ArrowCircleRightIcon className="w-6 h-6" />
@@ -644,7 +644,7 @@ export default function Home({ articles, schedule, video }: any) {
           {/*<div className="flex flex-col items-center justify-center w-full h-[400px] bg-white bg-opacity-20 rounded-xl border border-white border-opacity-40">*/}
           {/*  <ClockIcon className="w-24 h-24 mb-4" />*/}
           {/*  <h1 className="text-center px-4 text-2xl">สามารถติดตามหลังจบการถ่ายทอดสด</h1>*/}
-          {/*  <Link href="/stream">*/}
+          {/*  <Link passHref href="/stream">*/}
           {/*    <div className="flex items-center space-x-2 cursor-pointer">*/}
           {/*      <p>รับชมการถ่ายทอดสด</p>*/}
           {/*      <ArrowRightIcon className="w-4 h-4" />*/}
@@ -705,7 +705,7 @@ export default function Home({ articles, schedule, video }: any) {
           <div id="articles" className="mt-[200px] mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-5xl">บทความ</h2>
-              <Link href="/articles">
+              <Link passHref href="/articles">
                 <a className="flex space-x-1 mr-10 cursor-pointer hover:underline">
                   <span className="font-light">ดูทั้งหมด</span>
                   <ArrowCircleRightIcon className="w-6 h-6" />
@@ -752,7 +752,7 @@ export default function Home({ articles, schedule, video }: any) {
             ถ้าใครอยากรู้จักโรงเรียนเรามากขึ้นก็คลิกเลย !
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0 mt-16">
-            <Link href="/admission">
+            <Link passHref href="/admission">
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer"
@@ -760,7 +760,7 @@ export default function Home({ articles, schedule, video }: any) {
                 การสอบเข้า
               </motion.a>
             </Link>
-            <Link href="/directions">
+            <Link passHref href="/directions">
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer"

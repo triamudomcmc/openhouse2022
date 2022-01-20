@@ -58,7 +58,7 @@ export async function getStaticProps({ params }: { params: any }) {
 
 const Video = ({ data }: { data: any }) => {
   return (
-    <Link href={`${data.path}`}>
+    <Link passHref href={`${data.path}`}>
       <div
         style={{
           background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
@@ -101,7 +101,7 @@ const Page: NextPage<{ post: any; list: any }> = ({ post, list }) => {
         onClick={() => {
           Router.back()
         }}
-        className="absolute flex items-center space-x-2 left-4 sm:left-12 xl:left-24 mt-0 cursor-pointer"
+        className="absolute flex items-center space-x-2 left-4 sm:left-12 xl:left-2 mt-0 cursor-pointer"
       >
         <ArrowCircleLeftIcon className="w-7 h-7" />
         <span className="text-lg">ย้อนกลับ</span>

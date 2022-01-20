@@ -14,7 +14,7 @@ import { shuffleArray } from "@utils/shuffle"
 
 const Blog = ({ data }: { data: any }) => {
   return (
-    <Link href={`articles/${data.slug}`}>
+    <Link passHref href={`articles/${data.slug}`}>
       <div
         style={{
           background: "linear-gradient(265.95deg, rgba(255, 255, 255, 0.3) 33.14%, rgba(255, 255, 255, 0) 100%)",
@@ -49,7 +49,7 @@ const Blog = ({ data }: { data: any }) => {
 
 const Club = ({ data }: { data: any }) => {
   return (
-    <Link href={`articles/${data.slug}`}>
+    <Link passHref href={`articles/${data.slug}`}>
       <div
         style={{
           background: "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",

@@ -35,7 +35,7 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
         <MetaData />
         <div className="w-screen h-screen flex flex-col justify-center items-center">
           <p className="font-display font-regular text-md text-white">ไม่พบบัตรเดินทางดังกล่าว</p>
-          <Link href="/">
+          <Link passHref href="/">
             <motion.a
               className="px-8 py-2 rounded-full cursor-pointer inline-flex font-display text-white border border-white hover:bg-gray-200 hover:text-gray-900 transition-colors mt-4"
               whileHover={{ scale: 1.1 }}
@@ -96,7 +96,7 @@ const TicketPage: NextPage<TicketProps> = ({ name, type, uid }) => {
                   <p className="text-base text-center text-[#6670AD]">ลงทะเบียนเข้าร่วมงาน</p>
                   <p className="text-base text-center text-[#6670AD]">เพื่อรับบัตรเดินทางของคุณ</p>
                 </div>
-                <Link href="/register">
+                <Link passHref href="/register">
                   <motion.a
                     whileHover={{ scale: 1.1 }}
                     className="text-xl font-thin px-16 rounded-full py-3 bg-[#4e599b] cursor-pointer"

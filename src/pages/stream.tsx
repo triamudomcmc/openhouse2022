@@ -133,7 +133,7 @@ const Stream = ({ schedule }: any) => {
                 )
               })}
             </div>
-            {/*<Link href="/schedule">*/}
+            {/*<Link passHref href="/schedule">*/}
             {/*    <motion.a*/}
             {/*        whileHover={{ scale: 1.02 }}*/}
             {/*        className="underline cursor-pointer text-md sm:text-lg border border-white rounded-lg bg-white flex justify-center space-x-3 px-6 py-4 w-full text-[#2E2D56]"*/}

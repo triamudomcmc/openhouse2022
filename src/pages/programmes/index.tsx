@@ -77,7 +77,7 @@ const Page = () => {
           </div>
           <div className="space-y-16 lg:mt-0 mt-20">
             <div className="flex flex-row md:space-x-16 space-x-4 items-center md:items-start">
-              <Link href="/programmes/gifted-science">
+              <Link passHref href="/programmes/gifted-science">
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
@@ -99,7 +99,7 @@ const Page = () => {
                 </motion.a>
               </Link>
 
-              <Link href="/programmes/gifted-math">
+              <Link passHref href="/programmes/gifted-math">
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
@@ -122,7 +122,7 @@ const Page = () => {
               </Link>
             </div>
             <div className="flex flex-row md:space-x-16 space-x-4 items-center md:items-start">
-              <Link href="/programmes/gifted-english">
+              <Link passHref href="/programmes/gifted-english">
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"
@@ -144,7 +144,7 @@ const Page = () => {
                 </motion.a>
               </Link>
 
-              <Link href="/programmes/gifted-thai">
+              <Link passHref href="/programmes/gifted-thai">
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   className="relative bg-white w-[140px] h-[140px] sm:w-[195px] sm:h-[195px] rounded-[31.84px] shadow-md cursor-pointer"

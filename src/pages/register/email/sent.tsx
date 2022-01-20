@@ -15,7 +15,7 @@ const EmailSent = () => {
         <p className="font-light text-gray-100 px-12">โปรดตรวจสอบกล่องข้อความในอีเมลของท่าน</p>
         <div className="font-light rounded-lg bg-slate-900 border border-gray-400 bg-opacity-25 backdrop-blur-lg text-sm py-4 mt-12 text-gray-100 px-12">
           หากพบปัญหาในการเข้าสู่ระบบ สามารถติดต่อผู้จัดงานได้ที่
-          <Link href="/contact">
+          <Link passHref href="/contact">
             <a className="text-white underline mx-1">ช่องทางดังนี้</a>
           </Link>
           <br />

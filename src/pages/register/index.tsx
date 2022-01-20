@@ -5,7 +5,7 @@ import { TUCMCLogo } from "@components/common/TUCMCLogo"
 import { AllMethods } from "@components/register/AllMethods"
 import { EmailForm } from "@components/register/EmailForm"
 import { AdaptiveBg } from "@components/common/AdaptiveBg"
-import Router from "next/router";
+import Router from "next/router"
 export type TPages = "all" | "email"
 
 const InApp = require("detect-inapp")
@@ -26,8 +26,7 @@ const Register = () => {
   useEffect(() => {
     const noAuth = auth?.user === null
     if (noAuth) {
-
-    }else{
+    } else {
       Router.push("/stream")
     }
   }, [auth])
@@ -46,7 +45,7 @@ const Register = () => {
           <p className="font-display text-3xl text-white text-center font-medium py-2">Register / ลงทะเบียน</p>
           {/* <p className="font-display text-white text-center">
             Or{" "}
-            <Link href="/login" passHref>
+            <Link passHref href="/login" passHref>
               <a className="text-red-400 hover:underline">login here</a>
             </Link>
           </p> */}
