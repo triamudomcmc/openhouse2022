@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
+    "@next/bundle-analyzer": "^12.0.8",
     "@splidejs/react-splide": "^0.6.17",
     "@splidejs/splide-extension-grid": "^0.3.18",
     "chrome-aws-lambda": "^10.1.0",
@@ -30,7 +31,8 @@
     "react-custom-scrollbars-2": "^4.4.0",
     "react-dom": "17.0.2",
     "remark": "13.0.0",
-    "remark-html": "^15.0.1"
+    "remark-html": "^15.0.1",
+    "sharp": "^0.29.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.0",
