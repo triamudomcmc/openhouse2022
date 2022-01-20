@@ -80,10 +80,10 @@ const Video = ({ data }: { data: any }) => {
             />
           </div>
           <div className="px-2">
-            <h1 className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</h1>
+            <h3 className="break-all text-[12px] h-[56px] font-light text-ellipsis">{data.title}</h3>
             <div className="flex items-center space-x-1">
               <UserIcon className="w-4 h-4 flex-shrink-0" />
-              <h1 className="text-[10px] font-light truncate">{data.author}</h1>
+              <p className="text-[10px] font-light truncate">{data.author}</p>
             </div>
           </div>
         </div>
@@ -101,12 +101,12 @@ const Page: NextPage<{ post: any; list: any }> = ({ post, list }) => {
         onClick={() => {
           Router.back()
         }}
-        className="absolute flex items-center space-x-2 ml-6 mt-0 cursor-pointer"
+        className="absolute flex items-center space-x-2 left-4 sm:left-12 xl:left-24 mt-0 cursor-pointer"
       >
         <ArrowCircleLeftIcon className="w-7 h-7" />
         <span className="text-lg">ย้อนกลับ</span>
       </div>
-      <div className="flex xl:flex-row flex-col items-center justify-between mx-auto space-x-6 mt-12 mb-12">
+      <div className="flex xl:flex-row flex-col items-center xl:items-start justify-between xl:justify-center mx-auto space-x-6 mt-12 mb-12">
         <div className="flex justify-center px-8">
           <div className="mb-2">
             <iframe
@@ -119,7 +119,7 @@ const Page: NextPage<{ post: any; list: any }> = ({ post, list }) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-            <div className="">
+            <div className="w-[90vw] h-[48vw] sm:w-[92vw] sm:h-[49vw] lg:w-[841px] lg:h-[473px]">
               <div className="border-b mt-5 pb-5 mb-6">
                 <h1>{post.title}</h1>
                 <div className="flex space-x-2 mt-2">
@@ -137,7 +137,7 @@ const Page: NextPage<{ post: any; list: any }> = ({ post, list }) => {
           </div>
         </div>
         <div className="mt-10 xl:mt-0">
-          <h1 className="text-lg">วิดีโออื่น ๆ</h1>
+          <h2 className="text-lg">วิดีโออื่น ๆ</h2>
           <div className="flex xl:flex-row flex-col md:flex">
             <div className="flex xl:flex-col flex-wrap justify-center">
               {suggest.slice(0, 4).map((i, index: number) => (
