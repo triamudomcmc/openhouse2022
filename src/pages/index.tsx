@@ -241,13 +241,13 @@ const getButton = (auth: IAuthContext | null) => {
       //     ดูบัตรเดินทางของคุณ
       //   </motion.button>
       // </Link>
-      <Link passHref href="/stream">
+      <Link passHref href="/records">
         <motion.a
           whileHover={{ scale: 1.1 }}
           className="font-display text-xl font-thin px-16 rounded-full py-3 mt-[35px] md:mt-[55px]"
           style={{ background: "linear-gradient(267.68deg, #A1677D 4.3%, #EFBB8B 94.12%)" }}
         >
-          รับชมรายการสด
+          รับชมรายการสดย้อนหลัง
         </motion.a>
       </Link>
     )
