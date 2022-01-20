@@ -6,6 +6,7 @@ import {
   DocumentTextIcon,
   ExclamationIcon,
   LocationMarkerIcon,
+  MapIcon,
   PencilAltIcon,
 } from "@heroicons/react/outline"
 import { MD } from "@utils/breakpoints"
@@ -63,7 +64,7 @@ const Admission = () => {
           </p>
           <Link passHref href="/directions">
             <a className="font-light text-md border border-white hover:bg-white hover:text-slate-600 transition-colors px-8 py-4 rounded-full">
-              การเดินทางมาโรงเรียนเตรียมฯ
+              การเดินทางมาโรงเรียนเตรียมฯ <LocationMarkerIcon className="w-5 h-5 inline" />
             </a>
           </Link>
         </div>
