@@ -62,9 +62,9 @@ const Admission = () => {
             เรียกได้ว่าโรงเรียนเตรียมอุดมศึกษาเป็นโรงเรียนที่มีความพร้อมที่จะส่งเสริมศักยภาพของนักเรียนเตรียมฯ ในทุกด้าน
           </p>
           <Link passHref href="/directions">
-            <button className="font-light text-md border border-white hover:bg-white hover:text-slate-600 transition-colors px-8 py-4 rounded-full">
+            <a className="font-light text-md border border-white hover:bg-white hover:text-slate-600 transition-colors px-8 py-4 rounded-full">
               การเดินทางมาโรงเรียนเตรียมฯ
-            </button>
+            </a>
           </Link>
         </div>
         <div className="flex flex-col w-full">
