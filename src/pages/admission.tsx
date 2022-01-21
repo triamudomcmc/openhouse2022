@@ -9,7 +9,7 @@ import {
   MapIcon,
   PencilAltIcon,
 } from "@heroicons/react/outline"
-import { MD } from "@utils/breakpoints"
+import { LG, MD } from "@utils/breakpoints"
 import { useWindowDimensions } from "@utils/useWindowDimensions"
 import { Chart } from "@vectors/Chart"
 import { FC } from "react"
@@ -70,27 +70,27 @@ const Admission = () => {
         </div>
         <div className="flex flex-col w-full">
           <h2 className="font-semibold text-2xl mb-6 text-center">กำหนดการสอบเข้า</h2>
-          <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 w-full items-center justify-center">
+          <div className="flex flex-col space-y-4 lg:flex-row lg:space-x-4 lg:space-y-0 w-full items-center justify-center">
             <Milestone data={{ date: "19-23", month: "ก.พ. 65", event: "เปิดรับสมัคร" }} />
-            {width > MD ? (
+            {width > LG ? (
               <ArrowRightIcon className="w-5 h-5 text-white" />
             ) : (
               <ArrowDownIcon className="w-5 h-5 text-white" />
             )}
             <Milestone highlight data={{ date: "5", month: "มี.ค. 65", event: "วันสอบ" }} />
-            {width > MD ? (
+            {width > LG ? (
               <ArrowRightIcon className="w-5 h-5 text-white" />
             ) : (
               <ArrowDownIcon className="w-5 h-5 text-white" />
             )}
             <Milestone data={{ date: "12", month: "มี.ค. 65", event: "วันประกาศผล" }} />
-            {width > MD ? (
+            {width > LG ? (
               <ArrowRightIcon className="w-5 h-5 text-white" />
             ) : (
               <ArrowDownIcon className="w-5 h-5 text-white" />
             )}
             <Milestone data={{ date: "15", month: "มี.ค. 65", event: "รายงานตัว" }} />
-            {width > MD ? (
+            {width > LG ? (
               <ArrowRightIcon className="w-5 h-5 text-white" />
             ) : (
               <ArrowDownIcon className="w-5 h-5 text-white" />
