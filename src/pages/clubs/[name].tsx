@@ -142,7 +142,7 @@ const Page: NextPage<{ contents: any; suggestion: any }> = ({ contents, suggesti
                 <div className="flex-shrink-0 flex sm:flex-col flex-row items-start sm:space-x-0 space-x-2 mt-4 sm:mt-0">
                   {reviewItem.profileURL && (
                     <Image
-                      alt={reviewItem.profileeData.name}
+                      alt={reviewItem.profileData.name}
                       width={85}
                       height={85}
                       src={reviewItem.profileURL}
