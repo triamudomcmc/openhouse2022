@@ -735,12 +735,12 @@ export default function Home({ articles, schedule, video, record }: any) {
           <div className="mt-[200px] mb-8">
             <div id="videos" className="flex items-center justify-between mb-6">
               <h2 className="text-5xl">วิดีโอ</h2>
-              {/* <Link passHref href="/videos">
+              <Link passHref href="/videos">
                 <a className="flex space-x-1 mr-10 cursor-pointer hover:underline">
                   <span className="font-light">ดูทั้งหมด</span>
                   <ArrowCircleRightIcon className="w-6 h-6" />
                 </a>
-              </Link> */}
+              </Link>
             </div>
             <p className="font-light text-lg leading-[24px]">
               วิดีโอจากรุ่นพี่สายการเรียนและชมรมต่าง ๆ <br /> ที่ทางเราจะนำมานำเสนอให้ทุกคนได้รับชมอย่างเต็มที่ !
@@ -773,7 +773,7 @@ export default function Home({ articles, schedule, video, record }: any) {
               }}
               renderControls={() => {
                 return (
-                  <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
+                  <div className="splide__arrows relative top-0 z-[1] w-full h-full">
                     <div
                       style={{ left: "-50px" }}
                       className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
