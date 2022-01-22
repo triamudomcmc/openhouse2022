@@ -16,6 +16,7 @@ import { FC } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import {ArrowCircleLeftIcon} from "@heroicons/react/solid";
 
 interface IMilestoneData {
   date: string
@@ -40,7 +41,7 @@ const Milestone: FC<{ data: IMilestoneData; highlight?: boolean }> = ({ data, hi
   )
 }
 
-const Admission = () => {
+const Admission = ({query}: any) => {
   const { width } = useWindowDimensions()
 
   return (
@@ -105,14 +106,27 @@ const Admission = () => {
           <p className="mb-6">
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
           </p>
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            className="mb-6 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
-            href="https://admission.triamudom.ac.th"
-            rel="noreferrer"
-          >
-            สมัครสอบเลย !
-          </motion.a>
+          <div className="flex space-x-4">
+            {"back" in query && <motion.a
+              whileHover={{ scale: 1.1 }}
+              className="flex items-center space-x-2 mb-6 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
+              href="https://triamudom.ac.th/website"
+              rel="noreferrer"
+            >
+              <ArrowCircleLeftIcon className="w-4 h-4"/>
+              <span>
+                กลับสู่เว็บไซต์โรงเรียน
+              </span>
+            </motion.a>}
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              className="mb-6 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
+              href="https://admission.triamudom.ac.th"
+              rel="noreferrer"
+            >
+              สมัครสอบเลย !
+            </motion.a>
+          </div>
           <div className="">
             <iframe
               width="560"
@@ -255,6 +269,10 @@ const Admission = () => {
       </div>
     </main>
   )
+}
+
+Admission.getInitialProps = ({query}: any) => {
+  return {query}
 }
 
 export default Admission
