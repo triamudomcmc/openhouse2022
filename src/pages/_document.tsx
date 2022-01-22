@@ -32,6 +32,19 @@ export default class Document extends NextDocument {
             name="keywords"
             content="Triam Udom, TUOPH, Triam Udom Online Open House, Triam Udom Open House 2022, Triam Udom Online Open House 2022, TriamOPH2022, triam, tu85, Triamudom85, เตรียมอุดม, เตรียมอุดมฯ, triamOPH"
           />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3262R253B"></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'G-BP2MQ6QL2W', {
+				page_path: window.location.pathname,
+			  });
+			`,
+            }}
+          />
         </Head>
         <body>
           <Main />
