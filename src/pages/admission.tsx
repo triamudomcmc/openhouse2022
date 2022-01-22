@@ -16,6 +16,7 @@ import { FC } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import {ArrowCircleLeftIcon} from "@heroicons/react/solid";
 
 interface IMilestoneData {
   date: string
@@ -40,7 +41,7 @@ const Milestone: FC<{ data: IMilestoneData; highlight?: boolean }> = ({ data, hi
   )
 }
 
-const Admission = () => {
+const Admission = ({query}: any) => {
   const { width } = useWindowDimensions()
 
   return (
@@ -105,14 +106,27 @@ const Admission = () => {
           <p className="mb-6">
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
           </p>
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            className="mb-6 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
-            href="https://admission.triamudom.ac.th"
-            rel="noreferrer"
-          >
-            สมัครสอบเลย !
-          </motion.a>
+          <div className="flex sm:flex-row flex-col sm:space-y-0 space-y-2 space-x-0 sm:space-x-4 mb-6">
+            {"back" in query && <motion.a
+              whileHover={{ scale: 1.1 }}
+              className="flex items-center space-x-2 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
+              href="https://triamudom.ac.th/website"
+              rel="noreferrer"
+            >
+              <ArrowCircleLeftIcon className="w-4 h-4"/>
+              <span>
+                กลับสู่เว็บไซต์โรงเรียน
+              </span>
+            </motion.a>}
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              className="font-light text-center text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
+              href="https://admission.triamudom.ac.th"
+              rel="noreferrer"
+            >
+              สมัครสอบเลย !
+            </motion.a>
+          </div>
           <div className="">
             <iframe
               width="560"
@@ -166,9 +180,9 @@ const Admission = () => {
                 <span className="font-semibold">วิทย์-คณิต สอบ 5 วิขา :</span> คณิตศาสตร์ วิทยาศาสตร์ ภาษาไทย สังคมศึกษา
                 ภาษาอังกฤษ
                 <br />
-                <span className="font-semibold">ศิลป์-คำนวณ สอบ 4 วิขา :</span> คณิตศาสตร์ ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
+                <span className="font-semibold">ภาษา-คณิต สอบ 4 วิขา :</span> คณิตศาสตร์ ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
                 <br />
-                <span className="font-semibold">ศิลป์-ภาษา สอบ 3 วิขา :</span> ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
+                <span className="font-semibold">ภาษา-ภาษา สอบ 3 วิขา :</span> ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
               </div>
               <div className="bg-[#C0AFE9] rounded-xl inline bg-opacity-40 px-6 py-8">
                 <h3 className="text-2xl font-bold mb-4">สิ่งที่ควรรู้ในวันสอบ</h3>
@@ -255,6 +269,10 @@ const Admission = () => {
       </div>
     </main>
   )
+}
+
+Admission.getInitialProps = ({query}: any) => {
+  return {query}
 }
 
 export default Admission
