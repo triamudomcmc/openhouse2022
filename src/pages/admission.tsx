@@ -106,10 +106,10 @@ const Admission = ({query}: any) => {
           <p className="mb-6">
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
           </p>
-          <div className="flex space-x-4">
+          <div className="flex sm:flex-row flex-col sm:space-y-0 space-y-2 space-x-0 sm:space-x-4 mb-6">
             {"back" in query && <motion.a
               whileHover={{ scale: 1.1 }}
-              className="flex items-center space-x-2 mb-6 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
+              className="flex items-center space-x-2 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
               href="https://triamudom.ac.th/website"
               rel="noreferrer"
             >
@@ -120,7 +120,7 @@ const Admission = ({query}: any) => {
             </motion.a>}
             <motion.a
               whileHover={{ scale: 1.1 }}
-              className="mb-6 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
+              className="font-light text-center text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
               href="https://admission.triamudom.ac.th"
               rel="noreferrer"
             >
