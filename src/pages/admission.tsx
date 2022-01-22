@@ -180,9 +180,9 @@ const Admission = ({query}: any) => {
                 <span className="font-semibold">วิทย์-คณิต สอบ 5 วิขา :</span> คณิตศาสตร์ วิทยาศาสตร์ ภาษาไทย สังคมศึกษา
                 ภาษาอังกฤษ
                 <br />
-                <span className="font-semibold">ศิลป์-คำนวณ สอบ 4 วิขา :</span> คณิตศาสตร์ ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
+                <span className="font-semibold">ภาษา-คณิต สอบ 4 วิขา :</span> คณิตศาสตร์ ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
                 <br />
-                <span className="font-semibold">ศิลป์-ภาษา สอบ 3 วิขา :</span> ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
+                <span className="font-semibold">ภาษา-ภาษา สอบ 3 วิขา :</span> ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
               </div>
               <div className="bg-[#C0AFE9] rounded-xl inline bg-opacity-40 px-6 py-8">
                 <h3 className="text-2xl font-bold mb-4">สิ่งที่ควรรู้ในวันสอบ</h3>
