@@ -98,13 +98,21 @@ const Admission = () => {
             <Milestone data={{ date: "21", month: "มี.ค. 65", event: "วันมอบตัว" }} />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center px-4 mb-4 mt-4 w-full">
+        <div className="flex flex-col justify-center items-center px-4 mt-4 w-full">
           <h2 className="font-semibold text-2xl mb-4 text-center">
             รายละเอียดในการรับสมัครนักเรียนชั้นมัธยมศึกษาปีที่ 4 ปีการศึกษา 2565
           </h2>
-          <p className="mb-4">
+          <p className="mb-6">
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
           </p>
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            className="mb-6 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
+            href="https://admission.triamudom.ac.th"
+            rel="noreferrer"
+          >
+            สมัครสอบเลย !
+          </motion.a>
           <div className="">
             <iframe
               width="560"

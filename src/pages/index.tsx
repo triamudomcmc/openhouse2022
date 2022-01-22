@@ -862,7 +862,7 @@ export default function Home({ articles, schedule, video, record }: any) {
                 whileHover={{ scale: 1.05 }}
                 className="bg-white rounded-full text-[#11052C] py-3 px-10 shadow-md cursor-pointer"
               >
-                การสอบเข้า
+                การสอบเข้า ม.4
               </motion.a>
             </Link>
             <Link passHref href="/directions">
