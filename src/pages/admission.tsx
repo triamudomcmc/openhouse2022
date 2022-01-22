@@ -126,6 +126,18 @@ const Admission = () => {
             ></iframe>
           </div>
         </div>
+        <div className="flex flex-col itesm-center">
+          <h2 className="font-semibold text-2xl mt-6 mb-4 text-center">การเดินทางมาสถานที่สอบ</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.768954036868!2d100.5455547146062!3d13.912753890243433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2830b0b06eef3%3A0x5ade5eb90113ca18!2sIMPACT!5e0!3m2!1sen!2sth!4v1642815661950!5m2!1sen!2sth"
+            width="600"
+            height="450"
+            className="mx-auto rounded-lg aspect-square sm:aspect-video w-[90vw] sm:w-[75vw] lg:w-[600px] h-full"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </div>
         <div className="flex flex-col items-center">
           <h2 className="font-semibold text-2xl mt-6 mb-4 text-center">ข้อมูลสายการเรียนที่เปิดรับ</h2>
           <article className="flex flex-col w-full max-w-[1260px] xl:space-x-8 xl:flex-row justify-center items-center">
