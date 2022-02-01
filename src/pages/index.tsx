@@ -773,7 +773,7 @@ export default function Home({ articles, schedule, video, record }: any) {
               }}
               renderControls={() => {
                 return (
-                  <div className="splide__arrows relative top-0 z-[1] w-full h-full">
+                  <div className="splide__arrows absolute top-0 z-[1] w-full h-full">
                     <div
                       style={{ left: "-50px" }}
                       className="splide__arrow--prev absolute h-full z-[20] flex items-center hover:bg-white hover:bg-opacity-20 rounded-md cursor-pointer"
