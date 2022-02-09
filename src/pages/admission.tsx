@@ -16,7 +16,7 @@ import { FC } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import {ArrowCircleLeftIcon} from "@heroicons/react/solid";
+import { ArrowCircleLeftIcon } from "@heroicons/react/solid"
 
 interface IMilestoneData {
   date: string
@@ -41,7 +41,7 @@ const Milestone: FC<{ data: IMilestoneData; highlight?: boolean }> = ({ data, hi
   )
 }
 
-const Admission = ({query}: any) => {
+const Admission = ({ query }: any) => {
   const { width } = useWindowDimensions()
 
   return (
@@ -107,17 +107,17 @@ const Admission = ({query}: any) => {
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
           </p>
           <div className="flex sm:flex-row flex-col sm:space-y-0 space-y-2 space-x-0 sm:space-x-4 mb-6">
-            {"back" in query && <motion.a
-              whileHover={{ scale: 1.1 }}
-              className="flex items-center space-x-2 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
-              href="https://triamudom.ac.th/website"
-              rel="noreferrer"
-            >
-              <ArrowCircleLeftIcon className="w-4 h-4"/>
-              <span>
-                กลับสู่เว็บไซต์โรงเรียน
-              </span>
-            </motion.a>}
+            {"back" in query && (
+              <motion.a
+                whileHover={{ scale: 1.1 }}
+                className="flex items-center space-x-2 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
+                href="https://triamudom.ac.th/website"
+                rel="noreferrer"
+              >
+                <ArrowCircleLeftIcon className="w-4 h-4" />
+                <span>กลับสู่เว็บไซต์โรงเรียน</span>
+              </motion.a>
+            )}
             <motion.a
               whileHover={{ scale: 1.1 }}
               className="font-light text-center text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
@@ -166,16 +166,16 @@ const Admission = ({query}: any) => {
               />
             </div>
             <div className="mt-6 flex flex-col space-y-4">
-              {/* <div>
+              <div>
                 <motion.a
-                  href="/"
+                  href="https://www.triamudom.ac.th/website/images/65/02/Admission4-65.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="bg-[#C0AFE9] rounded-full inline bg-opacity-40 px-6 py-2"
                 >
                   <DocumentTextIcon className="inline w-5 h-5" /> อ่านข้อมูลเพิ่มเติมโดยละเอียด
                 </motion.a>
-              </div> */}
+              </div>
               <div className="bg-[#C0AFE9] rounded-xl inline bg-opacity-40 px-6 py-8">
                 <span className="font-semibold">วิทย์-คณิต สอบ 5 วิขา :</span> คณิตศาสตร์ วิทยาศาสตร์ ภาษาไทย สังคมศึกษา
                 ภาษาอังกฤษ
@@ -271,8 +271,8 @@ const Admission = ({query}: any) => {
   )
 }
 
-Admission.getInitialProps = ({query}: any) => {
-  return {query}
+Admission.getInitialProps = ({ query }: any) => {
+  return { query }
 }
 
 export default Admission
