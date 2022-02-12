@@ -55,7 +55,7 @@ const Admission = ({ query }: any) => {
           <br />
           ระดับมัธยมศึกษาปีที่ 4{" "}
         </h1>
-        <p className="mt-4 text-xl sm:text-4xl">โรงเรียนเตรียมอุดมศึกษา</p>
+        <p className="mt-4 text-xl sm:text-2xl">โรงเรียนเตรียมอุดมศึกษา</p>
         <p className="font-light mt-4 text-lg">ปีการศึกษา 2565</p>
       </div>
       <div className="px-4 md:px-12 lg:px-48 flex flex-col space-y-12 w-full items-center">
@@ -104,26 +104,36 @@ const Admission = ({ query }: any) => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center px-4 mt-4 w-full">
-          <h2 className="font-semibold text-2xl mb-4 text-center">
+          <h2 className="font-semibold text-xl mb-4 text-center">
             รายละเอียดในการรับสมัครนักเรียนชั้นมัธยมศึกษาปีที่ 4 ปีการศึกษา 2565
           </h2>
-          <p className="mb-6">
+          <p className="text-center sm:text-left text-sm font-light mb-6">
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
           </p>
           <div className="flex sm:flex-row flex-col sm:space-y-0 space-y-2 space-x-0 sm:space-x-4 mb-6">
             {"back" in query && (
               <motion.a
-                whileHover={{ scale: 1.1 }}
-                className="flex items-center space-x-2 font-light text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
+                whileHover={{ scale: 1.05 }}
+                className="font-light text-md border border-white text-white hover:text-slate-700 hover:bg-white hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
                 href="https://triamudom.ac.th/website"
                 rel="noreferrer"
+                onClick={() => {
+                  // @ts-ignore
+                  window.gtag("event", "link_back", {
+                    event_category: "back_to_school_website",
+                    //   event_label: url,
+                    // link: url,
+                  })
+                }}
               >
-                <ArrowCircleLeftIcon className="w-4 h-4" />
-                <span>กลับสู่เว็บไซต์โรงเรียน</span>
+                <div className="flex items-center justify-center space-x-2">
+                  <ArrowCircleLeftIcon className="w-4 h-4" />
+                  <span>กลับสู่เว็บไซต์โรงเรียน</span>
+                </div>
               </motion.a>
             )}
             <motion.a
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               className="font-light text-center text-md bg-white text-slate-700 hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
               href="https://admission.triamudom.ac.th"
               rel="noreferrer"
