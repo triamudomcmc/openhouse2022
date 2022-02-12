@@ -50,8 +50,12 @@ const Admission = ({ query }: any) => {
       style={{ background: "linear-gradient(90deg, #143476 0%, #3B498A 21.87%, #855187 79.69%, #905386 100%)" }}
     >
       <div className="text-center mb-8 px-4">
-        <h1 className="font-semibold text-4xl">การสอบเข้าศึกษาต่อระดับมัธยมศึกษาปีที่ 4 </h1>
-        <p className="font-semibold mt-4 text-4xl">โรงเรียนเตรียมอุดมศึกษา</p>
+        <h1 className="text-3xl sm:text-4xl">
+          การสอบเข้าศึกษาต่อ
+          <br />
+          ระดับมัธยมศึกษาปีที่ 4{" "}
+        </h1>
+        <p className="mt-4 text-xl sm:text-4xl">โรงเรียนเตรียมอุดมศึกษา</p>
         <p className="font-light mt-4 text-lg">ปีการศึกษา 2565</p>
       </div>
       <div className="px-4 md:px-12 lg:px-48 flex flex-col space-y-12 w-full items-center">
