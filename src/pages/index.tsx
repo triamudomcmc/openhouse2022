@@ -354,9 +354,9 @@ export default function Home({ articles, schedule, video, record }: any) {
         id="live"
       >
         <div className="flex flex-col justify-center items-center">
-          <h2 className="text-center text-2xl font-semibold px-4">Count Down วันสอบเข้าโรงเรียนเตรียมอุดมศึกษา</h2>
-          <p className="text-sm mt-4">5 มี.ค. 2565</p>
-          <CountDown until={+new Date(2022, 2, 5, 9, 0, 0, 0)} />
+          <h2 className="text-center text-2xl font-semibold px-4">Count Down วันประกาศผลสอบ</h2>
+          <p className="text-sm mt-4">12 มี.ค. 2565</p>
+          <CountDown until={+new Date(2022, 2, 12, 10, 0, 0, 0)} />
         </div>
         <div id="records" className="w-full">
           <div className="flex items-center max-w-[900px] mx-auto justify-between px-4 w-full">
