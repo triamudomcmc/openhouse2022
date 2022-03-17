@@ -100,7 +100,7 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
               <div className="flex flex-col justify-center">
                 <p className="text-sm sm:text-base font-bold">
                   TRIAM UDOM
-                  <span className="leading-[10px]">ONLINE OPEN HOUSE 2022</span>
+                  <span className="leading-[10px] block">ONLINE OPEN HOUSE 2022</span>
                 </p>
               </div>
             </div>
