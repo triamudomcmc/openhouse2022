@@ -107,25 +107,25 @@ export const Nav: FC<{ theme?: "dark" | "light" }> = ({ theme = "light" }) => {
           </Link>
           <nav role="navigation" className="hidden md:flex items-center justify-evenly w-full max-w-2xl ml-4">
             <Link href="/" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">หน้าแรก</a>
+              <a className="font-light  border-transparent flex-shrink-0">หน้าแรก</a>
             </Link>
             {/* <Link href="/stream" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">รายการสด</a>
+              <a className="font-light  border-transparent flex-shrink-0">รายการสด</a>
             </Link> */}
             <Link href="/clubs" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">ชมรม</a>
+              <a className="font-light  border-transparent flex-shrink-0">ชมรม</a>
             </Link>
             <Link href="/videos" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">วิดีโอ</a>
+              <a className="font-light  border-transparent flex-shrink-0">วิดีโอ</a>
             </Link>
             <Link href="/records" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">รายการย้อนหลัง</a>
+              <a className="font-light  border-transparent flex-shrink-0">รายการย้อนหลัง</a>
             </Link>
             <Link href="/articles" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">บทความ</a>
+              <a className="font-light  border-transparent flex-shrink-0">บทความ</a>
             </Link>
             <Link href="/admission" passHref>
-              <a className="font-light hover:border-white border-b border-transparent flex-shrink-0">การสอบเข้า ม.4</a>
+              <a className="font-light  border-transparent flex-shrink-0">การสอบเข้า ม.4</a>
             </Link>
           </nav>
           {/* <button
