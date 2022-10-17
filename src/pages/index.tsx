@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
 
-      # Countdown
+      {/* Countdown */}
       <main className={styles.main}>
         <h1 className={styles.title}>
           Countdown
