@@ -10,33 +10,10 @@ import {
 } from 'firebase/auth'
 import firebaseApp from "./firebase"
 import { createUser, getUserData } from './dbMethod'
+import { IAuthContext, IInitialUserData, IUserData } from '@ctypes/account'
 
 interface actProp {
     children: React.ReactNode
-}
-
-interface IInitialUserData {
-    tucmc?: boolean | null
-    uid: string
-    email: string | null
-    name: string | null
-    provider: string
-    photoUrl: string | null
-}
-
-export interface IUserData extends IInitialUserData {
-    username: string
-    firstname: string
-    lastname: string
-    tucmc: boolean
-}
-
-export interface IAuthContext {
-    user: IInitialUserData | null
-    loading: boolean
-    setLoading: (loading: boolean) => void
-    signinWithGoogle: (redirect: string) => Promise<void>
-    signout: () => void
 }
 
 const auth = getAuth(firebaseApp)

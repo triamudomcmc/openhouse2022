@@ -44,5 +44,10 @@ export const markOnsite = async (uid: string): Promise<void> => {
   const userRef = getUserRef(uid)
 
   return await updateDoc(userRef, marked)
+}
 
+export const stamp = async (club: string,uid: string): Promise<void> => {
+  const userRef = getUserRef(uid)
+
+  return await updateDoc(userRef, {[`stamp.${club}`]: true})
 }

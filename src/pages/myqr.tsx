@@ -1,18 +1,45 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { useQRCode } from 'next-qrcode'
+import Link from 'next/link'
 
 import {useAuth} from '@lib/auth'
+import { getUserData } from '@lib/dbMethod'
 import styles from '@styles/Home.module.css'
 
 export default function QrGen() {
-    const {Canvas} = useQRCode()
+    const {Image} = useQRCode()
     const {user} = useAuth()
+    const [uidData, setUidData] = useState(null)
+    const [stampData, setStampData] = useState(null)
 
+    async function getUidData(fetchUid: string) {
+        if (fetchUid) {
+            const res = await fetch(`/api/qrinfo/${fetchUid}`)
+            const tmp = await res.json()
+            if (tmp) setUidData(tmp)
+        }
+    }
+
+    useEffect(() => {
+        if (user?.uid) {
+            getUidData(user?.uid)
+        }
+    }, [user?.uid])
+
+    useEffect(() => {
+        if (uidData?.stamp) {
+            if (Object.keys(uidData?.stamp)) {
+                setStampData(Object.keys(uidData?.stamp))
+            }
+        }
+    }, [stampData, uidData?.stamp])
+
+    
     if (user?.uid) {
         return (
             <div className={styles.main}>
-                <Canvas 
+                <Image 
                     text={user?.uid}
                     options={{
                         type: 'image/jpeg',
@@ -27,13 +54,22 @@ export default function QrGen() {
                         },
                     }}
                 />
+                <h3>Stamp journey</h3>
+                {stampData ? 
+                    <div>
+                        {stampData.map((club: string) => {
+                            return <p key={club}>{club}</p>
+                        })}
+                    </div>
+                : <div><p>Nothing yet...</p></div>
+                }
             </div>
         )
     }
     return (
         <div className={styles.main}>
             <h3>Please sign up to view your QR code</h3>
-            <a href='/auth'><u>Click here to Sign Up</u></a>
+            <Link href='auth'><u>Click here to Sign Up</u></Link>
         </div>
     )
 }
