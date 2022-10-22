@@ -4,6 +4,8 @@ export interface IInitialUserData {
     name: string | null
     provider: string
     photoUrl: string | null
+    stamp: JSON | null
+    account_id: string
 }
 
 export interface IUserData extends IInitialUserData {
@@ -12,7 +14,6 @@ export interface IUserData extends IInitialUserData {
     lastname: string
     roles?: JSON | null
     club?: JSON | null
-    stamp?: JSON | null
     onSite?: boolean | null
 }
 

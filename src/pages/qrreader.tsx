@@ -15,6 +15,9 @@ export default function Scan() {
             setUid(result.text)
             getUidData(result.text)
         }
+        if (error) {
+            setUidData(null)
+        }
     }
 
     async function getUidData(fetchUid: string) {
@@ -51,6 +54,9 @@ export default function Scan() {
                     }
                 </div>
             )
+        }
+        else {
+            return false
         }
     }
     catch {

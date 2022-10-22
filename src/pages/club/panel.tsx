@@ -19,6 +19,11 @@ export default function ClubPanel() {
             setUid(result.text)
             getUidData(result.text)
         }
+        if (error) {
+            setStPress(false)
+            setUidData(null)
+            getUidData(null)
+        }
     }
 
     async function getUidData(fetchUid: string) {

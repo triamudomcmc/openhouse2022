@@ -4,7 +4,6 @@ import { useQRCode } from 'next-qrcode'
 import Link from 'next/link'
 
 import {useAuth} from '@lib/auth'
-import { getUserData } from '@lib/dbMethod'
 import styles from '@styles/Home.module.css'
 
 export default function QrGen() {
@@ -54,7 +53,11 @@ export default function QrGen() {
                         },
                     }}
                 />
-                <h3>Stamp journey</h3>
+                <h3>Account Information</h3>
+                <h5>Name:{uidData?.name}</h5>
+                <h5>ID: {uidData?.account_id}</h5>
+
+                <h3>Stamp journey ~</h3>
                 {stampData ? 
                     <div>
                         {stampData.map((club: string) => {

@@ -9,7 +9,7 @@ import {
     GoogleAuthProvider,
 } from 'firebase/auth'
 import firebaseApp from "./firebase"
-import { createUser, getUserData } from './dbMethod'
+import { createUser, getCurrentUserId, getUserData } from './dbMethod'
 import { IAuthContext, IInitialUserData, IUserData } from '@ctypes/account'
 
 interface actProp {
@@ -47,7 +47,8 @@ function useProvideAuth() {
 
     const handleUser = async (rawUser: User | null) => {
         if (rawUser && user === null) {
-            const user = userFormatter(rawUser)
+            const currentAccountId = await getCurrentUserId()
+            const user = userFormatter(rawUser, currentAccountId)
             await createUser(user.uid, user)
             setUser(rawUser)
         } else if (rawUser === null) {
@@ -81,12 +82,14 @@ function useProvideAuth() {
     }
 }
 
-const userFormatter = (user: User): IInitialUserData => {
+const userFormatter = (user: User, currentid: string): IInitialUserData => {
     return {
         uid: user.uid,
         email: user.email,
         name: user.displayName,
         provider: user.providerData[0].providerId,
         photoUrl: user.photoURL,
+        stamp: JSON.parse('{}'),
+        account_id: currentid
     }
 }

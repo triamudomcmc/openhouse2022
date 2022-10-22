@@ -39,6 +39,19 @@ export const getUserData = async (uid: string): Promise<null | DocumentData> => 
   }
 }
 
+export const getCurrentUserId = async (): Promise<string> => {
+  const ref = doc(db, "account", "count")
+  const curr = (await getDoc(ref)).data().current
+  const pcurr = curr+1
+
+  await updateDoc(ref, { current: pcurr })
+
+  const prefix = "TU8699"
+  const account_id = prefix+("0000"+pcurr).slice(-4)
+
+  return account_id
+}
+
 export const markOnsite = async (uid: string): Promise<void> => {
   const marked = {onSite: true}
   const userRef = getUserRef(uid)
