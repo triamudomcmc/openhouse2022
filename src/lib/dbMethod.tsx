@@ -1,12 +1,12 @@
 import {
   DocumentData,
   getFirestore,
+  collection,
   doc,
   setDoc,
   updateDoc,
   getDoc,
   addDoc,
-  collection,
 } from 'firebase/firestore'
 import firebaseApp from './firebase'
 
@@ -22,10 +22,15 @@ export const updateUser = (uid: string, data: DocumentData): Promise<void> => {
   return updateDoc(userRef, data)
 }
 
-export const createUser = (uid: string, data: DocumentData): Promise<void> => {
+export const createUser = async (uid: string, data: DocumentData): Promise<void> => {
   const userRef = getUserRef(uid)
-
-  return setDoc(userRef, data, { merge: true })
+  const checkExist = (await getDoc(userRef)).exists()
+  if (checkExist) {
+    return undefined
+  }
+  else {
+    return setDoc(userRef, data, { merge: true })
+  }
 }
 
 export const getUserData = async (uid: string): Promise<null | DocumentData> => {
@@ -39,17 +44,24 @@ export const getUserData = async (uid: string): Promise<null | DocumentData> => 
   }
 }
 
-export const getCurrentUserId = async (): Promise<string> => {
+export const getCurrentUserId = async (uid: string): Promise<string> => {
   const ref = doc(db, "account", "count")
   const curr = (await getDoc(ref)).data().current
-  const pcurr = curr+1
+  
+  try {
+    const userid = (await getUserData(uid)).account_id
+    return userid
+  }
+  catch {
+    const pcurr = curr+1
 
-  await updateDoc(ref, { current: pcurr })
+    await updateDoc(ref, { current: pcurr })
 
-  const prefix = "TU8699"
-  const account_id = prefix+("0000"+pcurr).slice(-4)
+    const prefix = "TU8699"
+    const account_id = prefix+("0000"+pcurr).slice(-4)
 
-  return account_id
+    return account_id
+  }
 }
 
 export const markOnsite = async (uid: string): Promise<void> => {

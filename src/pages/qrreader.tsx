@@ -22,7 +22,9 @@ export default function Scan() {
 
     async function getUidData(fetchUid: string) {
         if (fetchUid) {
-            const res = await fetch(`/api/qrinfo/onsite/${fetchUid}`)
+            const res = await fetch(`/api/qrinfo/onsite/${fetchUid}`, {
+                headers: {roles: JSON.stringify(user?.roles)}
+            })
             const tmp = await res.json()
             if (tmp) setUidData(tmp)
         }

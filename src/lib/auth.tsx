@@ -47,7 +47,7 @@ function useProvideAuth() {
 
     const handleUser = async (rawUser: User | null) => {
         if (rawUser && user === null) {
-            const currentAccountId = await getCurrentUserId()
+            const currentAccountId = await getCurrentUserId(rawUser.uid)
             const user = userFormatter(rawUser, currentAccountId)
             await createUser(user.uid, user)
             setUser(rawUser)
