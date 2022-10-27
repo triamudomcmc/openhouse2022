@@ -14,7 +14,11 @@ export default function QrGen() {
 
     async function getUidData(fetchUid: string) {
         if (fetchUid) {
-            const res = await fetch(`/api/qrinfo/${fetchUid}`)
+            const res = await fetch(`/api/qrinfo/${fetchUid}`, {
+                headers: {
+                    req_uid: user?.uid
+                }
+            })
             const tmp = await res.json()
             if (tmp) setUidData(tmp)
         }

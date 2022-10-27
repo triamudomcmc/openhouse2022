@@ -4,7 +4,7 @@ import { uer } from '@ctypes/perm'
 export default async function getInfo(req, res) {
     const { uid } = req.query
     if (req.headers.roles) {
-        const role = Object.keys(JSON.parse(req.headers.roles))
+        const role = Object.keys(await JSON.parse(req.headers.roles))
 
         // ***  IN-SECURE AF, MOCK N/CONCEPT USE ONLY  *** //
         if (role.filter((a) => { return uer.includes(a) })) {
@@ -16,6 +16,6 @@ export default async function getInfo(req, res) {
             return false
         }
     }
-    
-    return res.send('Access Denied')
+     
+    return res.send(`Access Denied, query id: ${uid}`)
 }
