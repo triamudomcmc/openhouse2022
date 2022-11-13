@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react'
-import styles from '@styles/Home.module.css'
 
 const OpeningTime = +new Date(2023, 0, 14, 9, 0, 0, 0)
 
@@ -41,7 +40,7 @@ export const CountDown: FC<{ until?: number }> = ({ until }) => {
   }, [until])
 
   return (
-    <div className={styles.main}>
+    <div>
         <p>
             {timeLeft?.days ?? 0} {timeLeft?.days && timeLeft?.days > 1 ? "days" : "day"}
         </p>

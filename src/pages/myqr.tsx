@@ -4,7 +4,6 @@ import { useQRCode } from 'next-qrcode'
 import Link from 'next/link'
 
 import {useAuth} from '@lib/auth'
-import styles from '@styles/Home.module.css'
 
 export default function QrGen() {
     const {Image} = useQRCode()
@@ -41,7 +40,7 @@ export default function QrGen() {
     
     if (user?.uid) {
         return (
-            <div className={styles.main}>
+            <div>
                 <Image 
                     text={user?.uid}
                     options={{
@@ -53,7 +52,6 @@ export default function QrGen() {
                         width: 200,
                         color: {
                         dark: '#000000',
-                        light: '#cccccc',
                         },
                     }}
                 />
@@ -74,7 +72,7 @@ export default function QrGen() {
         )
     }
     return (
-        <div className={styles.main}>
+        <div>
             <h3>Please sign up to view your QR code</h3>
             <Link href='auth'><u>Click here to Sign Up</u></Link>
         </div>

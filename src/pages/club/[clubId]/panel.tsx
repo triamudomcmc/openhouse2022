@@ -4,8 +4,6 @@ import { QrReader } from 'react-qr-reader'
 import { useAuth } from '@lib/auth'
 import { stamp } from '@lib/dbMethod'
 
-import styles from '@styles/Home.module.css'
-
 export default function ClubPanel() {
     const {user} = useAuth()
     const [club, setClub] = useState(null)
@@ -44,7 +42,7 @@ export default function ClubPanel() {
 
     if (club !== null) {
         return (
-            <div className={styles.main}>
+            <div>
                 <h3>Club Panel</h3>
                 <h5>Your club is: {club}</h5>
                     <QrReader
@@ -71,7 +69,7 @@ export default function ClubPanel() {
     }
 
     return (
-        <div className={styles.main}>
+        <div>
             <h3>Access Denied</h3>
         </div>
     )

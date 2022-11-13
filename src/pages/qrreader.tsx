@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react"
 import { QrReader } from "react-qr-reader"
 
 import { useAuth } from "@lib/auth";
-import styles from "../styles/Home.module.css"
 
 
 export default function Scan() {
@@ -33,7 +32,7 @@ export default function Scan() {
     try {
         if (user?.roles['tucmc'] || user?.roles['aic']) {
             return (
-                <div className={styles.main}>
+                <div>
                         <QrReader
                             onResult={(result, error) => {
                                 handleQrUid(result, error)
@@ -63,7 +62,7 @@ export default function Scan() {
     }
     catch {
         return (
-            <div className={styles.main}><h5>Access Denied</h5></div>
+            <div><h5>Access Denied</h5></div>
         )
     }
 }

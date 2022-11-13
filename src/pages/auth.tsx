@@ -2,21 +2,20 @@ import React, {useEffect, useState} from 'react'
 
 import {useAuth} from "@lib/auth"
 
-import styles from '@styles/Home.module.css'
 import Image from 'next/image'
 
 export default function Sane() {
     const {user, signinWithGoogle, signout} = useAuth()
     if (!user?.uid) {
         return (
-            <div className={styles.main}>
+            <div>
                 <button onClick={() => signinWithGoogle('/myqr')}>Google</button>
             </div>
         )
     }
 
     return (
-        <div className={styles.main}>
+        <div>
             {user?.email ? 
                 <>
                     <h3>
