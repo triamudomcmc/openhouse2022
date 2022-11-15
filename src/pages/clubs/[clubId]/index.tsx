@@ -33,12 +33,22 @@ const ViewArticle = ({clubId}) => {
     }, [])
 
     async function ifAppr() {
-        const res = await fetch(`/api/${clubId}/clubApprArticle`)
+        const res = await fetch(`/api/${clubId}/clubApprArticle`,{
+            method: 'POST',
+            body: JSON.stringify({
+                executerUid: user?.uid
+            })
+        })
         setIfPendArticle(false)
     }
 
     async function loadPending() {
-        const res = await fetch(`/api/${clubId}/pendingcontent`)
+        const res = await fetch(`/api/${clubId}/pendingcontent`, {
+            method: 'POST',
+            body: JSON.stringify({
+                executerUid: user?.uid
+            })
+        })
         const pendFetch = await res?.json()
         if (!pendFetch.nonexisted) {
             setIfPendArticle(true)

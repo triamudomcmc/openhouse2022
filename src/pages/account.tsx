@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, {useEffect, useState} from 'react'
 import { useQRCode } from 'next-qrcode'
+import Router from 'next/router'
 import Link from 'next/link'
 
 import {useAuth} from '@lib/auth'
@@ -10,6 +11,7 @@ export default function QrGen() {
     const {user} = useAuth()
     const [uidData, setUidData] = useState(null)
     const [stampData, setStampData] = useState(null)
+    const [clubPanelUrl, setClubPanelUrl] = useState<string>('/')
 
     async function getUidData(fetchUid: string) {
         if (fetchUid) {
@@ -19,7 +21,9 @@ export default function QrGen() {
                 }
             })
             const tmp = await res.json()
-            if (tmp) setUidData(tmp)
+            if (tmp) {
+                setUidData(tmp)
+            }
         }
     }
 
@@ -27,6 +31,7 @@ export default function QrGen() {
         if (user?.uid) {
             getUidData(user?.uid)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user?.uid])
 
     useEffect(() => {
@@ -37,7 +42,10 @@ export default function QrGen() {
         }
     }, [stampData, uidData?.stamp])
 
-    
+    useEffect(() => {
+        if (user?.club) setClubPanelUrl(`/clubs/${user?.club}/panel`)
+    }, [clubPanelUrl, user?.club])
+
     if (user?.uid) {
         return (
             <div>
@@ -58,6 +66,13 @@ export default function QrGen() {
                 <h3>Account Information</h3>
                 <h5>Name:{uidData?.name}</h5>
                 <h5>ID: {uidData?.account_id}</h5>
+
+                {user?.club && clubPanelUrl
+                ?   <Link href={`${clubPanelUrl}`}>
+                        Club Panel
+                    </Link>
+                : null
+                }
 
                 <h3>Stamp journey ~</h3>
                 {stampData ? 

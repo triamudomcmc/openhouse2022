@@ -1,21 +1,16 @@
-import { getUserData, markOnsite } from "@lib/dbMethod"
-import { uer } from '@ctypes/perm'
+import { getUserData, markOnsite } from '@lib/dbMethod'
+import { executeOverPerm } from '@handlers/permCheck'
 
 export default async function getInfo(req, res) {
     const { uid } = req.query
-    if (req.headers.roles) {
-        const role = Object.keys(await JSON.parse(req.headers.roles))
-
-        // ***  IN-SECURE AF, MOCK N/CONCEPT USE ONLY  *** //
-        if (role.filter((a) => { return uer.includes(a) })) {
-            const uidData = await getUserData(uid)
-            const marked = await markOnsite(uid)
-            if (uidData) return res.json(uidData,marked)
-        }
-        else {
-            return false
-        }
+    if (req.method == 'POST') {
+        return await executeOverPerm(req, res, ['tucmc', 'aic', 'tusc', 'clubPresident', 'clubStaff', 'teacher'], 
+            async (req, res) => {
+                const uidData = await getUserData(uid)
+                const marked = await markOnsite(uid)
+                if (uidData) return res.json(uidData,marked)
+            }
+        )
     }
-     
-    return res.send(`Access Denied, query id: ${uid}`)
+    return res.send(304)
 }

@@ -17,37 +17,44 @@ const Editor = ({clubId}) => {
     const [description, setDescription] = useState('')
     const [mainArticle, setMainArticle] = useState('')
 
-    async function fetchInitialData() {
-      const res = await fetch(`/api/${clubId}/pendingcontent`)
-      const clubFetch = await res?.json()
-      if (clubFetch.nonexisted) {
-        const res = await fetch(`/api/${clubId}/prodcontent`)
-        const prodFetch = await res?.json()
-        setDescription(prodFetch?.Description)
-        setMainArticle(prodFetch?.MainArticle)
+    useEffect(() => {
+      const fetchInitialData = async () => {
+        const permBody = JSON.stringify({executerUid: user?.uid})
+        const res = await fetch(`/api/${clubId}/pendingcontent`, {
+          method: 'POST',
+          body: permBody
+        })
+        const clubFetch = await res?.json()
+        if (clubFetch.nonexisted) {
+          const res = await fetch(`/api/${clubId}/prodcontent`, {
+            method: 'POST',
+            body: permBody
+          })
+          const prodFetch = await res?.json()
+          setDescription(prodFetch?.Description)
+          setMainArticle(prodFetch?.MainArticle)
+        }
+        else {
+          setDescription(clubFetch?.Description)
+          setMainArticle(clubFetch?.MainArticle)
+        }
       }
-      else {
-        setDescription(clubFetch?.Description)
-        setMainArticle(clubFetch?.MainArticle)
-      }
-    }
+      if (user?.uid) fetchInitialData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user?.uid])
 
     async function publishToPending() {
       const res = await fetch(`/api/${clubId}/publishToPending`, {
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
+          executerUid: user?.uid,
           "Description": description,
           "MainArticle": mainArticle
         })
       })
     }
 
-    useEffect(() => {
-      fetchInitialData()
-    }, [])
-
-    if (user?.club == clubId) return (
+    if (user?.club == clubId || user?.roles['tucmc']) return (
         <div className="rounded-xl bg-white px-6 shadow-lg md:px-16 md:pt-12 md:pb-16">
           <h1>Description</h1>
           <QuillEditor

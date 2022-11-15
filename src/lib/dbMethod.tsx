@@ -103,14 +103,12 @@ export const getClubPendArticle = async (clubId: string): Promise<null | Documen
 export const updateArticleToPending = async (clubId: string, data) : Promise<void> => {
   const clubRef = getClubPendRef(clubId)
 
+  data = JSON.parse(data)
   const finalData = {
     Description: data.Description,
     MainArticle: data.MainArticle,
   }
-
-  // const checkExist = (await getDoc(clubRef)).exists()
-  // if (checkExist) return undefined
-  // else return setDoc(clubRef, finalData, { merge: true })
+  
   return await setDoc(clubRef, finalData, {merge: true})
 }
 

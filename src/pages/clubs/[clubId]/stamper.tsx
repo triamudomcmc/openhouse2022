@@ -22,9 +22,10 @@ export default function ClubPanel() {
     async function getUidData(fetchUid: string) {
         if (fetchUid) {
             const res = await fetch(`/api/qrinfo/onsite/${fetchUid}`, {
-                headers: {
-                    roles: JSON.stringify(user?.roles)
-                }
+                method: 'POST',
+                body: JSON.stringify({
+                    executerUid: user?.uid
+                })
             })
             const tmp = await res.json()
             if (tmp) setUidData(tmp)
@@ -43,19 +44,16 @@ export default function ClubPanel() {
     if (club !== null) {
         return (
             <div>
-                <h3>Club Panel</h3>
-                <h5>Your club is: {club}</h5>
-                    <QrReader
-                        onResult={(result, error) => {
-                            handleQrUid(result, error)
-                        }}
-                        constraints={{ facingMode:  "environment"  }}
-                        containerStyle={{ width: "50%", height: "50%" }}
-                    />
+                <QrReader
+                    onResult={(result, error) => {
+                        handleQrUid(result, error)
+                    }}
+                    constraints={{ facingMode:  "environment"  }}
+                    containerStyle={{ width: "50%", height: "50%" }}
+                />
                     
-                {uidData ?
-                
-                    <div>
+                {uidData
+                ?   <div>
                         <p>Name: {uidData.name}</p>
                         <p>Email: {uidData.email}</p>
                         {uidData?.stamp[club] || stpress ? 

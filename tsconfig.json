@@ -8,6 +8,7 @@
       "@components/*": ["src/components/*"],
       "@lib/*": ["src/lib/*"],
       "@pages/*": ["src/pages/*"],
+      "@handlers/*": ["src/handlers/*"],
       "@ctypes/*": ["src/types/*"],
       "@styles/*": ["src/styles/*"],
     },
