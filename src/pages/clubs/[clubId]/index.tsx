@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next'
 
 import QuillEditor from '@components/common/QuillEditor'
 import { useAuth } from '@lib/auth'
+import { MainRenderer } from '@components/cms/mainRender'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
@@ -63,33 +64,12 @@ const ViewArticle = ({clubId}) => {
     if (!ifPendArticle && user?.roles['tucmc']) loadPending()
     if (description || mainArticle || reviews) return (
             <div>
-                <QuillEditor
-                    value={description}
-                    readOnly={true}
+                <MainRenderer 
+                    description={description}
+                    mainArticle={mainArticle}
+                    reviews={reviews}
                 />
-
-                <QuillEditor
-                    value={mainArticle}
-                    readOnly={true}
-                />
-
-                <br />
-                <h1><u>Reviews</u></h1>
-                {reviews
-                ? Object.keys(reviews).map((key, i) => {
-                    return ( 
-                        <div key={i}>
-                            <h5>Name: {reviews[key]['name']}</h5>
-                            <h5>{reviews[key]['social']}</h5>
-                            <h5>Year: {reviews[key]['year']}</h5>
-                            <h5>{reviews[key]['review']}</h5>
-                            <br />
-                        </div>
-                    )
-                })
-                : null
-                }
-
+                
                 {ifPendArticle}
                 {ifPendArticle && user?.roles['tucmc']
                 ? <button className='bg-lime hover:bg-green-100 text-green-800 font-semibold py-2 px-4 border border-green-400 rounded shadow' onClick={ifAppr} type='submit'>Approve</button>
