@@ -17,6 +17,7 @@ const ViewArticle = ({clubId}) => {
     const [ifPendArticle, setIfPendArticle] = useState<boolean>(false)
     const [description, setDescription] = useState('')
     const [mainArticle, setMainArticle] = useState('')
+    const [reviews, setReviews] = useState({})
 
     async function fetchInitialData() {
         const res = await fetch(`/api/${clubId}/prodcontent`)
@@ -24,13 +25,14 @@ const ViewArticle = ({clubId}) => {
         if (clubFetch) {
             setDescription(clubFetch?.Description)
             setMainArticle(clubFetch?.MainArticle)
+            setReviews(clubFetch?.Reviews)
         }
     }
 
     useEffect(() => {
         fetchInitialData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [description, mainArticle])
 
     async function ifAppr() {
         const res = await fetch(`/api/${clubId}/clubApprArticle`,{
@@ -54,11 +56,12 @@ const ViewArticle = ({clubId}) => {
             setIfPendArticle(true)
             setDescription(pendFetch.Description)
             setMainArticle(pendFetch.MainArticle)
+            setReviews(pendFetch?.Reviews)
         }
     }
 
     if (!ifPendArticle && user?.roles['tucmc']) loadPending()
-    if (description || mainArticle) return (
+    if (description || mainArticle || reviews) return (
             <div>
                 <QuillEditor
                     value={description}
@@ -69,6 +72,24 @@ const ViewArticle = ({clubId}) => {
                     value={mainArticle}
                     readOnly={true}
                 />
+
+                <br />
+                <h1><u>Reviews</u></h1>
+                {reviews
+                ? Object.keys(reviews).map((key, i) => {
+                    return ( 
+                        <div key={i}>
+                            <h5>Name: {reviews[key]['name']}</h5>
+                            <h5>{reviews[key]['social']}</h5>
+                            <h5>Year: {reviews[key]['year']}</h5>
+                            <h5>{reviews[key]['review']}</h5>
+                            <br />
+                        </div>
+                    )
+                })
+                : null
+                }
+
                 {ifPendArticle}
                 {ifPendArticle && user?.roles['tucmc']
                 ? <button className='bg-lime hover:bg-green-100 text-green-800 font-semibold py-2 px-4 border border-green-400 rounded shadow' onClick={ifAppr} type='submit'>Approve</button>
