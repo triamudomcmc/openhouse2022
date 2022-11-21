@@ -61,16 +61,17 @@ const ViewArticle = ({clubId}) => {
         }
     }
 
-    if (!ifPendArticle && user?.roles['tucmc']) loadPending()
+    if (!ifPendArticle && user?.roles?.hasOwnProperty('tucmc')) loadPending()
     if (description || mainArticle || reviews) return (
             <div>
                 <MainRenderer 
                     description={description}
                     mainArticle={mainArticle}
                     reviews={reviews}
+                    setReviews={setReviews}
                 />
 
-                {ifPendArticle && user?.roles['tucmc']
+                {ifPendArticle && user?.roles?.hasOwnProperty('tucmc')
                 ? <button className='bg-lime hover:bg-green-100 text-green-800 font-semibold py-2 px-4 border border-green-400 rounded shadow' onClick={ifAppr} type='submit'>Approve</button>
                 : null
                 }

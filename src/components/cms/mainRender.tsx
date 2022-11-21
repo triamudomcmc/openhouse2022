@@ -6,7 +6,8 @@ export const MainRenderer:FC<{
     description: string
     mainArticle: string
     reviews?: any[]
-}> = ({description, mainArticle, reviews}) => {
+    setReviews?: any
+}> = ({description, mainArticle, reviews, setReviews}) => {
     return (
         <div>
             <QuillEditor
@@ -24,6 +25,7 @@ export const MainRenderer:FC<{
             <ReviewRenderer
                 rawData={reviews}
                 editable={false}
+                setReviews={setReviews}
             />
         </div>
     )

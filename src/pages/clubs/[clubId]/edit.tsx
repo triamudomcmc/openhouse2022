@@ -18,7 +18,7 @@ const Editor = ({clubId}) => {
     const [description, setDescription] = useState('')
     const [mainArticle, setMainArticle] = useState('')
     const [reviews, setReviews] = useState([])
-    
+
     useEffect(() => {
       const fetchInitialData = async () => {
         const permBody = JSON.stringify({executerUid: user?.uid})
@@ -43,7 +43,7 @@ const Editor = ({clubId}) => {
           setReviews(clubFetch?.Reviews)
         }
       }
-      if (user?.uid) fetchInitialData()
+      if (user?.uid && user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) fetchInitialData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user?.uid])
 
@@ -59,7 +59,7 @@ const Editor = ({clubId}) => {
       })
     }
 
-    if (user?.club == clubId || user?.roles['tucmc']) return (
+    if (user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) return (
         <div className="rounded-xl bg-white px-6 shadow-lg md:px-16 md:pt-12 md:pb-16">
           <h1>Description</h1>
           <QuillEditor

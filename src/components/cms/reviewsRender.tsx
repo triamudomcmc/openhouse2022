@@ -53,7 +53,7 @@ const ReviewRenderer:FC<{
     social: string
     review: string
     profilepic?: string
-    setReviews: any
+    setReviews?: any
     editable: boolean
   }> = ({index, name, year, social, review, profilepic, setReviews, editable}) => {
     return (
@@ -100,8 +100,8 @@ const ReviewRenderer:FC<{
           readOnly={!editable}
         />
         <br />
-          <div
-            hidden={!editable}
+        {editable
+        ? <div
               onClick={() => {
                 setReviews((prev) => {
                   const after = [...prev]
@@ -113,6 +113,7 @@ const ReviewRenderer:FC<{
             >
             <h3><u>Delete</u></h3>
           </div>
+        : null}
         <br />
       </div>
     )

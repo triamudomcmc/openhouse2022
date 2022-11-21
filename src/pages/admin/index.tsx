@@ -20,10 +20,10 @@ export default function AdminIndex() {
                 setPendingArticleList(val?.value)
             }
         }
-        fetchPendingArticleList()
-    }, [user?.uid])
+        if (user?.uid && user?.roles?.hasOwnProperty('tucmc')) fetchPendingArticleList()
+    }, [user?.roles, user?.uid])
 
-    if (user?.roles['tucmc']) return (
+    if (user?.roles?.hasOwnProperty('tucmc')) return (
         <div>
             {pendingArticleList.map((val, key) => {
                 return (

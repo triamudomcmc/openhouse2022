@@ -32,40 +32,35 @@ export default function Scan() {
         }
     }
 
-    try {
-        if (user?.roles['tucmc'] || user?.roles['aic']) {
-            return (
-                <div>
-                        <QrReader
-                            onResult={(result, error) => {
-                                handleQrUid(result, error)
-                            }}
-                            constraints={{ facingMode:  "environment"  }}
-                            containerStyle={{ width: "50%", height: "50%" }}
-                        />
-                    {
-                    /* Fallback procedure, manually click button ! */
-                    /* <button onClick={getUidData} type="button">Query</button> */
-                    }
-                        
-                    {uidData ?
-                        <div>
-                            <h1>{uidData.onSite ? 'Marked' : 'Something went wrong please consider re-scan'}</h1>
-                            <p>Name: {uidData.name}</p>
-                            <p>Email: {uidData.email}</p>
-                        </div>
-                    : null
-                    }
-                </div>
-            )
-        }
-        else {
-            return false
-        }
-    }
-    catch {
+    if (user?.roles?.hasOwnProperty('tucmc') || user?.roles?.hasOwnProperty('aic')) {
         return (
-            <div><h5>Access Denied</h5></div>
+            <div>
+                    <QrReader
+                        onResult={(result, error) => {
+                            handleQrUid(result, error)
+                        }}
+                        constraints={{ facingMode:  "environment"  }}
+                        containerStyle={{ width: "50%", height: "50%" }}
+                    />
+                {
+                /* Fallback procedure, manually click button ! */
+                /* <button onClick={getUidData} type="button">Query</button> */
+                }
+                    
+                {uidData ?
+                    <div>
+                        <h1>{uidData.onSite ? 'Marked' : 'Something went wrong please consider re-scan'}</h1>
+                        <p>Name: {uidData.name}</p>
+                        <p>Email: {uidData.email}</p>
+                    </div>
+                : null
+                }
+            </div>
+        )
+    }
+    else {
+        return (
+            <h1>Access Denied</h1>
         )
     }
 }
