@@ -1,10 +1,11 @@
 import QuillEditor from '@components/common/QuillEditor'
 import { FC } from 'react'
+import ReviewRenderer from './reviewsRender'
 
 export const MainRenderer:FC<{
     description: string
     mainArticle: string
-    reviews?: Object
+    reviews?: any[]
 }> = ({description, mainArticle, reviews}) => {
     return (
         <div>
@@ -20,20 +21,10 @@ export const MainRenderer:FC<{
 
             <br />
             <h1><u>Reviews</u></h1>
-            {reviews
-            ? Object.keys(reviews).map((key, i) => {
-                return ( 
-                    <div key={i}>
-                        <h5>Name: {reviews[key]['name']}</h5>
-                        <h5>{reviews[key]['social']}</h5>
-                        <h5>Year: {reviews[key]['year']}</h5>
-                        <h5>{reviews[key]['review']}</h5>
-                        <br />
-                    </div>
-                )
-            })
-            : null
-            }
+            <ReviewRenderer
+                rawData={reviews}
+                editable={false}
+            />
         </div>
     )
 }

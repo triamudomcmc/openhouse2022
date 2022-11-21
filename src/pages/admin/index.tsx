@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 import { useAuth } from '@lib/auth'
 
@@ -27,7 +28,7 @@ export default function AdminIndex() {
             {pendingArticleList.map((val, key) => {
                 return (
                     <div key={val}>
-                        {val}
+                        <Link href={`/clubs/${val}`}><u>{val}</u></Link>
                     </div>
                 )
             })}

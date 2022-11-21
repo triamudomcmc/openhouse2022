@@ -18,7 +18,7 @@ const ViewArticle = ({clubId}) => {
     const [ifPendArticle, setIfPendArticle] = useState<boolean>(false)
     const [description, setDescription] = useState('')
     const [mainArticle, setMainArticle] = useState('')
-    const [reviews, setReviews] = useState({})
+    const [reviews, setReviews] = useState([])
 
     async function fetchInitialData() {
         const res = await fetch(`/api/${clubId}/prodcontent`)
@@ -33,7 +33,7 @@ const ViewArticle = ({clubId}) => {
     useEffect(() => {
         fetchInitialData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [description, mainArticle])
+    }, [])
 
     async function ifAppr() {
         const res = await fetch(`/api/${clubId}/clubApprArticle`,{
@@ -69,8 +69,7 @@ const ViewArticle = ({clubId}) => {
                     mainArticle={mainArticle}
                     reviews={reviews}
                 />
-                
-                {ifPendArticle}
+
                 {ifPendArticle && user?.roles['tucmc']
                 ? <button className='bg-lime hover:bg-green-100 text-green-800 font-semibold py-2 px-4 border border-green-400 rounded shadow' onClick={ifAppr} type='submit'>Approve</button>
                 : null

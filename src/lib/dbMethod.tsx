@@ -107,6 +107,7 @@ export const updateArticleToPending = async (clubId: string, data) : Promise<voi
   const finalData = {
     Description: data.Description,
     MainArticle: data.MainArticle,
+    Reviews: data.Reviews
   }
   
   return await setDoc(clubRef, finalData, {merge: true})
