@@ -2,6 +2,8 @@ import { FC } from "react"
 
 import QuillEditor from "@components/common/QuillEditor"
 
+const MAX_REVIEWS = 3
+
 const ReviewRenderer:FC<{
     rawData: any[]
     setReviews?: any
@@ -25,7 +27,7 @@ const ReviewRenderer:FC<{
           )
         })}
   
-        {rawData.length < 3 && (
+        {rawData.length < MAX_REVIEWS && (
             <div
               onClick={() => {
                 setReviews((prev) => [
@@ -38,8 +40,9 @@ const ReviewRenderer:FC<{
                   },
                 ])
               }}
-              className="flex cursor-pointer items-center space-x-2 rounded-full bg-white px-6 py-3 shadow-md"
+              className="flex items-center justify-center px-6 py-3 space-x-2 bg-white rounded-full shadow-md cursor-pointer"
             >
+              <p>Add Review</p>
             </div>
           )}
       </div>
@@ -109,7 +112,7 @@ const ReviewRenderer:FC<{
                   return after
                 })
               }}
-              className="mt-2 flex cursor-pointer justify-center rounded-md bg-red-100 py-1 shadow-md"
+              className="flex justify-center py-1 mt-2 bg-red-100 rounded-md shadow-md cursor-pointer"
             >
             <h3><u>Delete</u></h3>
           </div>
