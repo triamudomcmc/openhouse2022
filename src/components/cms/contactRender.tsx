@@ -4,13 +4,20 @@ import { FC } from "react"
 import QuillEditor from "@components/common/QuillEditor"
 
 const ContactRenderer:FC<{
-    rawData: any[]
+    rawData: {[key: string]: string}
     setContacts?: any
     editable: boolean
   }> = ({rawData, setContacts, editable}) => {
     return (
       <div>
-        {rawData.map((ref, index) => {
+        <ReviewCard 
+              first={rawData.First ?? "IG: XXXXXXXXXXXXXXX"}
+              second={rawData.Second ?? "FB: XXXXXXXXXXXXXXX"}
+              third={rawData.Third ?? "อื่นๆ XXXXXXXXXXXXXXX"}
+              setContacts={setContacts}
+              editable={editable}
+            />
+        {/* {rawData.map((ref, index) => {
           return (
             <div key={index}>
             <ReviewCard 
@@ -23,8 +30,7 @@ const ContactRenderer:FC<{
             />
             </div>
           )
-        })}
-  
+        })} */}
       </div>
     )
   }
@@ -40,6 +46,7 @@ const ContactRenderer:FC<{
     return (
       <div>
         <h1
+          suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
             setContacts((prev) => {
@@ -50,6 +57,7 @@ const ContactRenderer:FC<{
           }}
         >{first}</h1>
         <h1
+          suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
             setContacts((prev) => {
@@ -60,6 +68,7 @@ const ContactRenderer:FC<{
           }}
         >{second}</h1>
         <h1
+          suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
             setContacts((prev) => {

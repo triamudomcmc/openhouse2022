@@ -105,8 +105,18 @@ export const updateArticleToPending = async (clubId: string, data) : Promise<voi
 
   data = JSON.parse(data)
   const finalData = {
-    Description: data.Description,
-    MainArticle: data.MainArticle,
+    Info: {
+      nameTH: data.Info?.nameTH,
+      nameEN: data.Info?.nameEN,
+      member: data.Info?.member
+    },
+    Contacts: data.Contacts || [''],
+    ClubArticle: data.ClubArticle,
+    ClubArticleDes: data.ClubArticleDes || '',
+    Advantage: data.Advantage,
+    AdvantageDes: data.AdvantageDes || '',
+    Work: data.Work,
+    WorkDes: data.workDes || '',
     Reviews: data.Reviews
   }
   

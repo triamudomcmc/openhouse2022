@@ -62,6 +62,7 @@ const ReviewRenderer:FC<{
     return (
       <div>
         <h1
+          suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
             setReviews((prev) => {
@@ -71,8 +72,9 @@ const ReviewRenderer:FC<{
             })
           }}
         >{name}</h1>
-        <h1>เตรียมอุดม
+        <h1>เตรียมอุดม</h1>
         <h1
+          suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
             setReviews((prev) => {
@@ -81,8 +83,9 @@ const ReviewRenderer:FC<{
               return prev
             })
           }}
-        >{year}</h1></h1>
+        >{year}</h1>
         <h1
+          suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
             setReviews((prev) => {

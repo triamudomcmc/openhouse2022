@@ -8,7 +8,7 @@ import { useAuth } from '@lib/auth'
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
   return {
     props: {
-      clubId: params.clubId,
+      clubId: params?.clubId,
     }
   }
 }
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 const Editor = ({clubId}) => {
     const {user} = useAuth()
     const [info, setInfo] = useState({})
-    const [contacts, setContacts] = useState([''])
+    const [contacts, setContacts] = useState({})
     const [clubArticle, setClubArticle] = useState('')
     const [clubArticleDes, setClubArticleDes] = useState('')
     const [advantage, setAdvantage] = useState('')
@@ -44,31 +44,31 @@ const Editor = ({clubId}) => {
         
         //Mock Data
         // if (dataFetch.nonexisted) {
-          dataFetch={
-            Info: {
-              nameTH: 'ชมรมคอนเท้นจ้อกจ้อก',
-              nameEN: 'JokJok club',
-              member: 50
-            },
-            Contacts: [''],
-            ClubArticle: '',
-            ClubArticleDes: '',
-            Advantage: '',
-            AdvantageDes: '',
-            Work: '',
-            WorkDes: '',
-            Reviews: []
-          }
+          // dataFetch={
+          //   Info: {
+          //     nameTH: 'ชมรมคอนเท้นจ้อกจ้อก',
+          //     nameEN: 'JokJok club',
+          //     member: 50
+          //   },
+          //   Contacts: {},
+          //   ClubArticle: '',
+          //   ClubArticleDes: '',
+          //   Advantage: '',
+          //   AdvantageDes: '',
+          //   Work: '',
+          //   WorkDes: '',
+          //   Reviews: []
+          // }
         // }   
 
         setInfo(dataFetch.Info != null ? dataFetch.Info : '')
-        setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : ['']);
+        setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {});
         setClubArticle(dataFetch?.ClubArticle)
         setClubArticleDes(dataFetch?.ClubArticleDes)
         setAdvantage(dataFetch?.Advantage)
         setAdvantageDes(dataFetch?.AdvantageDes)
         setWork(dataFetch?.Work)
-        setWork(dataFetch?.workDes)
+        setWorkDes(dataFetch?.WorkDes)
         setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
       }
       if (user?.uid && user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) fetchInitialData()
@@ -80,6 +80,7 @@ const Editor = ({clubId}) => {
         method: 'POST',
         body: JSON.stringify({
           executerUid: user?.uid,
+          "Info": info,
           "Contacts": contacts,
           "ClubArticle": clubArticle,
           "ClubArticleDes": clubArticleDes,
@@ -124,7 +125,7 @@ const Editor = ({clubId}) => {
                     <input className='opacity-0 w-[771px] h-[420px]' type='file' />
                   </div>
                   <div>
-                  <QuillEditor 
+                  <QuillEditor
                     placeholder='Image Description'
                     value={clubArticleDes}
                     onChange={(txt) => {
