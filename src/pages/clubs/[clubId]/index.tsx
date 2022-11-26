@@ -8,7 +8,7 @@ import { MainRenderer } from '@components/cms/mainRender'
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
         props: {
-            clubId: params.clubId,
+            clubId: params?.clubId,
         },
       }
 }
@@ -16,17 +16,29 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 const ViewArticle = ({clubId}) => {
     const {user} = useAuth()
     const [ifPendArticle, setIfPendArticle] = useState<boolean>(false)
-    const [description, setDescription] = useState('')
-    const [mainArticle, setMainArticle] = useState('')
+    const [info, setInfo] = useState({})
+    const [contacts, setContacts] = useState({})
+    const [clubArticle, setClubArticle] = useState('')
+    const [clubArticleDes, setClubArticleDes] = useState('')
+    const [advantage, setAdvantage] = useState('')
+    const [advantageDes, setAdvantageDes] = useState('')
+    const [work, setWork] = useState('')
+    const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
 
     async function fetchInitialData() {
         const res = await fetch(`/api/${clubId}/prodcontent`)
         const clubFetch = await res?.json()
         if (clubFetch) {
-            setDescription(clubFetch?.Description)
-            setMainArticle(clubFetch?.MainArticle)
-            setReviews(clubFetch?.Reviews)
+            setInfo(clubFetch.Info != null ? clubFetch.Info : '')
+            setContacts(clubFetch?.Contacts != null ? clubFetch.Contacts : {})
+            setClubArticle(clubFetch?.ClubArticle)
+            setClubArticleDes(clubFetch?.ClubArticleDes)
+            setAdvantage(clubFetch?.Advantage)
+            setAdvantageDes(clubFetch?.AdvantageDes)
+            setWork(clubFetch?.Work)
+            setWorkDes(clubFetch?.WorkDes)
+            setReviews(clubFetch?.Reviews != null ? clubFetch.Reviews : [])
         }
     }
 
@@ -55,24 +67,36 @@ const ViewArticle = ({clubId}) => {
         const pendFetch = await res?.json()
         if (!pendFetch.nonexisted) {
             setIfPendArticle(true)
-            setDescription(pendFetch.Description)
-            setMainArticle(pendFetch.MainArticle)
-            setReviews(pendFetch?.Reviews)
+            setInfo(pendFetch.Info != null ? pendFetch.Info : '')
+            setContacts(pendFetch?.Contacts != null ? pendFetch.Contacts : {})
+            setClubArticle(pendFetch?.ClubArticle)
+            setClubArticleDes(pendFetch?.ClubArticleDes)
+            setAdvantage(pendFetch?.Advantage)
+            setAdvantageDes(pendFetch?.AdvantageDes)
+            setWork(pendFetch?.Work)
+            setWorkDes(pendFetch?.WorkDes)
+            setReviews(pendFetch?.Reviews != null ? pendFetch.Reviews : [])
         }
     }
 
     if (!ifPendArticle && user?.roles?.hasOwnProperty('tucmc')) loadPending()
-    if (description || mainArticle || reviews) return (
+    if (info) return (
             <div>
                 <MainRenderer 
-                    description={description}
-                    mainArticle={mainArticle}
+                    editable={false}
+                    info={info}
+                    contacts={contacts}
+                    clubArticle={clubArticle}
+                    clubArticleDes={clubArticleDes}
+                    advantage={advantage}
+                    advantageDes={advantageDes}
+                    work={work}
+                    workDes={workDes}
                     reviews={reviews}
-                    setReviews={setReviews}
                 />
 
                 {ifPendArticle && user?.roles?.hasOwnProperty('tucmc')
-                ? <button className='bg-lime hover:bg-green-100 text-green-800 font-semibold py-2 px-4 border border-green-400 rounded shadow' onClick={ifAppr} type='submit'>Approve</button>
+                ? <button className='px-4 py-2 font-semibold text-green-800 bg-lime border border-lime-400 rounded shadow hover:bg-lime-100' onClick={ifAppr} type='submit'>Approve</button>
                 : null
                 }
             </div>

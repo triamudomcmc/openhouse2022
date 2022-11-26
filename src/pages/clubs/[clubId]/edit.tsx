@@ -1,9 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useRef, FC } from 'react'
 import { GetServerSideProps } from 'next'
 import QuillEditor from '@components/common/QuillEditor'
 import ReviewRenderer from '@components/cms/reviewsRender'
 import ContactRenderer from '@components/cms/contactRender'
 import { useAuth } from '@lib/auth'
+import { toBase64 } from 'src/utilities/imgToBase'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
   return {
@@ -15,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 
 const Editor = ({clubId}) => {
     const {user} = useAuth()
-    const [info, setInfo] = useState({})
+    const [info, setInfo] = useState<{[key: string]: string}>({})
     const [contacts, setContacts] = useState({})
     const [clubArticle, setClubArticle] = useState('')
     const [clubArticleDes, setClubArticleDes] = useState('')
@@ -24,6 +28,8 @@ const Editor = ({clubId}) => {
     const [work, setWork] = useState('')
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
+
+    const [thumbnailImage, setThumbnailImage] = useState()
     
     useEffect(() => {
       const fetchInitialData = async () => {
@@ -62,7 +68,7 @@ const Editor = ({clubId}) => {
         // }   
 
         setInfo(dataFetch.Info != null ? dataFetch.Info : '')
-        setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {});
+        setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {})
         setClubArticle(dataFetch?.ClubArticle)
         setClubArticleDes(dataFetch?.ClubArticleDes)
         setAdvantage(dataFetch?.Advantage)
@@ -93,16 +99,45 @@ const Editor = ({clubId}) => {
       })
     }
 
+    const uploader = useRef(null)
+    const doUpload = async (e) => {
+      const data = await toBase64(e.target.files[0])
+      //@ts-ignore
+      setThumbnailImage(data)
+    }
+
     if (user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) return (
         <div>
           <div className='w-[1029px] mr-auto ml-auto'>
             <div className='ml-auto mr-auto w-[771px] mt-[150px]'>
               <div className='flex w-[771px] h-[240px] rounded-[31.18px] shadow-md '>
-                <div className='w-[280px] h-[240px] bg-[#D9D9D9] rounded-[31.18px]'>
+                <div className={`relative w-[280px] h-[240px] bg-[#D9D9D9] rounded-[31.18px]`}>
+                  {!thumbnailImage
+                  ? null
+                  : <img 
+                      alt={thumbnailImage}
+                      src={thumbnailImage}
+                      width="768"
+                      height="432"
+                      className="mb-[0px] h-[54vw] object-cover sm:h-[240px] md:rounded-2xl"
+                    />
+                  }
                   <input 
-                   className='opacity-0 w-[280px] h-[240px]'
-                  type='file' 
+                   className='hidden'
+                   ref={uploader}
+                   onChange={doUpload}
+                   type="file"
+                   accept="image/png, image/jpeg, image/heif"
                   />
+                  <motion.div
+                      onClick={() => {
+                        uploader.current.click()
+                      }}
+                      initial={{ opacity: 0.4 }}
+                      whileHover={{ opacity: 1 }}
+                      className="absolute top-0 opacity-0 w-[280px] h-[240px] flex cursor-pointer items-center justify-center"
+                  >
+                  </motion.div>
                 </div>
                 <div className='text-center w-[485px]'>
                   <div className='h-[120px] mt-[20px]'>
