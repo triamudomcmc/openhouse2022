@@ -25,6 +25,7 @@ const QuillEditor:FC<{
                 onChange={(v) => {onChange(v)}} 
                 ref={quillRef}
                 readOnly={readOnly}
+                className={className}
                 modules={{
                     toolbar: [
                       [

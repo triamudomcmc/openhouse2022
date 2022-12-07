@@ -1,106 +1,74 @@
 import { useState, useEffect } from 'react'
 import { GetServerSideProps } from 'next'
-
-import QuillEditor from '@components/common/QuillEditor'
+import Link from 'next/link'
 import { useAuth } from '@lib/auth'
-import { MainRenderer } from '@components/cms/mainRender'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
         props: {
             clubId: params?.clubId,
         },
-      }
+    }
 }
 
-const ViewArticle = ({clubId}) => {
+const landingEdit = ({clubId}) => {
     const {user} = useAuth()
     const [ifPendArticle, setIfPendArticle] = useState<boolean>(false)
     const [info, setInfo] = useState({})
-    const [contacts, setContacts] = useState({})
-    const [clubArticle, setClubArticle] = useState('')
-    const [clubArticleDes, setClubArticleDes] = useState('')
-    const [advantage, setAdvantage] = useState('')
-    const [advantageDes, setAdvantageDes] = useState('')
-    const [work, setWork] = useState('')
-    const [workDes, setWorkDes] = useState('')
-    const [reviews, setReviews] = useState([])
-
-    async function fetchInitialData() {
-        const res = await fetch(`/api/${clubId}/prodcontent`)
-        const clubFetch = await res?.json()
-        if (clubFetch) {
-            setInfo(clubFetch.Info != null ? clubFetch.Info : '')
-            setContacts(clubFetch?.Contacts != null ? clubFetch.Contacts : {})
-            setClubArticle(clubFetch?.ClubArticle)
-            setClubArticleDes(clubFetch?.ClubArticleDes)
-            setAdvantage(clubFetch?.Advantage)
-            setAdvantageDes(clubFetch?.AdvantageDes)
-            setWork(clubFetch?.Work)
-            setWorkDes(clubFetch?.WorkDes)
-            setReviews(clubFetch?.Reviews != null ? clubFetch.Reviews : [])
-        }
-    }
 
     useEffect(() => {
-        fetchInitialData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    async function ifAppr() {
-        const res = await fetch(`/api/${clubId}/clubApprArticle`,{
+        const fetchInitialData = async () => {
+          const permBody = JSON.stringify({executerUid: user?.uid})
+          const res = await fetch(`/api/${clubId}/pendingcontent`, {
             method: 'POST',
-            body: JSON.stringify({
-                executerUid: user?.uid
+            body: permBody
+          })
+  
+          let dataFetch = await res?.json()
+          if (dataFetch.nonexisted) {
+            const res = await fetch(`/api/${clubId}/prodcontent`, {
+              method: 'POST',
+              body: permBody
             })
-        })
-        setIfPendArticle(false)
-    }
-
-    async function loadPending() {
-        const res = await fetch(`/api/${clubId}/pendingcontent`, {
-            method: 'POST',
-            body: JSON.stringify({
-                executerUid: user?.uid
-            })
-        })
-        const pendFetch = await res?.json()
-        if (!pendFetch.nonexisted) {
-            setIfPendArticle(true)
-            setInfo(pendFetch.Info != null ? pendFetch.Info : '')
-            setContacts(pendFetch?.Contacts != null ? pendFetch.Contacts : {})
-            setClubArticle(pendFetch?.ClubArticle)
-            setClubArticleDes(pendFetch?.ClubArticleDes)
-            setAdvantage(pendFetch?.Advantage)
-            setAdvantageDes(pendFetch?.AdvantageDes)
-            setWork(pendFetch?.Work)
-            setWorkDes(pendFetch?.WorkDes)
-            setReviews(pendFetch?.Reviews != null ? pendFetch.Reviews : [])
+            dataFetch = await res?.json()
+          }
+  
+          setInfo(dataFetch.Info != null ? dataFetch.Info : '')
         }
-    }
-
-    if (!ifPendArticle && user?.roles?.hasOwnProperty('tucmc')) loadPending()
+        if (user?.uid && user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) fetchInitialData()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [user?.uid])
+  
     if (info) return (
-            <div>
-                <MainRenderer 
-                    editable={false}
-                    info={info}
-                    contacts={contacts}
-                    clubArticle={clubArticle}
-                    clubArticleDes={clubArticleDes}
-                    advantage={advantage}
-                    advantageDes={advantageDes}
-                    work={work}
-                    workDes={workDes}
-                    reviews={reviews}
-                />
-
-                {ifPendArticle && user?.roles?.hasOwnProperty('tucmc')
-                ? <button className='px-4 py-2 font-semibold text-green-800 bg-lime border border-lime-400 rounded shadow hover:bg-lime-100' onClick={ifAppr} type='submit'>Approve</button>
-                : null
-                }
+        <div>
+            <div className='flex flex-col justify-center h-screen w-[310px] lg:w-[691px] mx-auto text-center'>
+                <p className='text-[15.3px] leading-[18px] lg:text-[30px] lg:leading-[36px]'>ข้อมูลหน่วยงาน</p>
+                <h1 className='text-[30px] leading-[36px] lg:text-[64px] lg:leading-[78px] font-[700] mt-[59.4px] lg:mt-[56px] text-blue-edit-300'>{info.nameTH}</h1>
+                <h1 className='text-[22.9px] leading-[28px] lg:text-[45px] lg:leading-[55px] mt-[3.23px] lg:mt-0 font-[500] opacity-60'>{info.nameEN}</h1>
+                <h1 className='text-[16.35px] leading-[20px] lg:text-[32px] lg:leading-[39px] mt-[4.7px] lg:mt-0 font-[500] opacity-60'>ชมรม {info.member} คน</h1>
+                <hr className="border-[0.96px] lg:border-[2px] mt-[23.6px] lg:mt-[42px]" />
+                <div className='lg:flex lg:mt-[52px] lg:h-[116px]'>
+                    <div className='flex flex-col justify-center text-center lg:text-left lg:w-[331px] mt-[37px] lg:mt-0'>
+                        <h1 className='text-[20.7px] leading-[25px] lg:text-[34px] lg:leading-[41px] font-[400]'>แก้ไขข้อมูลหน่วยงาน</h1>
+                        <p className='text-[15.2px] leading-[18.4px] lg:text-[25px] lg:leading-[30px] font-[400] lg:mt-[7px] text-[#5C5C5C] opacity-60'>ข้อมูลจะแสดงผลในหน้าเว็บไซต์</p>
+                    </div>
+                    <div className='border-[2px] border-[#5C5C5C] opacity-60 max-lg:hidden' />
+                    <div className='lg:w-[362px] justify-center flex flex-col'>
+                        <div className='relative flex flex-row justify-end max-lg:mt-[23.2px] max-lg:mx-auto'>
+                            <Link href={`/clubs/${[clubId]}/edit`}>
+                                <button className='w-[203.7px] h-[38.3px] lg:w-[335px] lg:h-[63px] bg-blue-edit-300 rounded-[13.4px] lg:rounded-[23.5px]'>
+                                    <p className='text-center text-[19.4px] leading-[24px] lg:text-[32px] lg:leading-[39px] font-500 text-white'>แก้ไข</p>
+                                </button>
+                            </Link>
+                        </div>
+                        <div className='lg:w-[335px] ml-[54px] lg:ml-[29px]'>
+                            <p className='text-left text-[17px] leading-[21px] lg:text-[28px] lg:leading-[33px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C]'>สถานะ :</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        )
+        </div>
+    )
 
     return (
         <>
@@ -109,4 +77,4 @@ const ViewArticle = ({clubId}) => {
     )
 }
 
-export default ViewArticle
+export default landingEdit

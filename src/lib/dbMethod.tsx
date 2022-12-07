@@ -116,7 +116,7 @@ export const updateArticleToPending = async (clubId: string, data) : Promise<voi
     Advantage: data.Advantage,
     AdvantageDes: data.AdvantageDes || '',
     Work: data.Work,
-    WorkDes: data.workDes || '',
+    WorkDes: data.WorkDes || '',
     Reviews: data.Reviews
   }
   
