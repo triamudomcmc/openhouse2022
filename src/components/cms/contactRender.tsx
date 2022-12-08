@@ -1,51 +1,36 @@
   
 import { FC } from "react"
 
-import QuillEditor from "@components/common/QuillEditor"
-
 const ContactRenderer:FC<{
+    classname: string
     rawData: {[key: string]: string}
     setContacts?: any
     editable: boolean
-  }> = ({rawData, setContacts, editable}) => {
+  }> = ({classname ,rawData, setContacts, editable}) => {
     return (
-      <div>
-        <ReviewCard 
+      <div className={classname}>
+        <ContactCard 
               first={rawData.First ?? "IG: XXXXXXXXXXXXXXX"}
               second={rawData.Second ?? "FB: XXXXXXXXXXXXXXX"}
               third={rawData.Third ?? "อื่นๆ XXXXXXXXXXXXXXX"}
               setContacts={setContacts}
               editable={editable}
             />
-        {/* {rawData.map((ref, index) => {
-          return (
-            <div key={index}>
-            <ReviewCard 
-              index={index}
-              first={ref.First ?? "IG: XXXXXXXXXXXXXXX"}
-              second={ref.Second ?? "FB: XXXXXXXXXXXXXXX"}
-              third={ref.Third ?? "อื่นๆ XXXXXXXXXXXXXXX"}
-              setContacts={setContacts}
-              editable={editable}
-            />
-            </div>
-          )
-        })} */}
       </div>
     )
   }
   
-  const ReviewCard:FC<{
-    index: number
+  const ContactCard:FC<{
     first: string
     second: string
     third: string
     setContacts: any
     editable: boolean
-  }> = ({index, first, second, third, setContacts, editable}) => {
+  }> = ({first, second, third, setContacts, editable}) => {
     return (
-      <div>
-        <h1
+      <div className={editable == false? "lg:text-xl text-left text-[17px] leading-[21px]" :"lg:text-[20px] lg:leading-[24.2px] text-left text-[17px]"}>
+        <p
+          className=""
           suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
@@ -55,8 +40,9 @@ const ContactRenderer:FC<{
               return prev
             })
           }}
-        >{first}</h1>
-        <h1
+        >{first}</p>
+        <p
+          className=""
           suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
@@ -66,8 +52,9 @@ const ContactRenderer:FC<{
               return prev
             })
           }}
-        >{second}</h1>
-        <h1
+        >{second}</p>
+        <p
+          className=""
           suppressContentEditableWarning={true}
           contentEditable={editable}
           onKeyUpCapture={(e) => {
@@ -77,7 +64,7 @@ const ContactRenderer:FC<{
               return prev
             })
           }}
-        >{third}</h1>
+        >{third}</p>
       </div>
     )
   }
