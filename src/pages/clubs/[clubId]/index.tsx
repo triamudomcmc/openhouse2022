@@ -11,10 +11,10 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
     }
 }
 
-const landingEdit = ({clubId}) => {
+const LandingEdit = ({clubId}) => {
     const {user} = useAuth()
-    const [ifPendArticle, setIfPendArticle] = useState<boolean>(false)
-    const [info, setInfo] = useState({})
+    const [info, setInfo] = useState<{[key: string]: string}>({})
+    const [status, setStatus] = useState('')
 
     useEffect(() => {
         const fetchInitialData = async () => {
@@ -23,7 +23,9 @@ const landingEdit = ({clubId}) => {
             method: 'POST',
             body: permBody
           })
-  
+
+          setStatus('Pending')
+          
           let dataFetch = await res?.json()
           if (dataFetch.nonexisted) {
             const res = await fetch(`/api/${clubId}/prodcontent`, {
@@ -31,6 +33,8 @@ const landingEdit = ({clubId}) => {
               body: permBody
             })
             dataFetch = await res?.json()
+
+            setStatus('Approved')
           }
   
           setInfo(dataFetch.Info != null ? dataFetch.Info : '')
@@ -39,13 +43,13 @@ const landingEdit = ({clubId}) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [user?.uid])
   
-    if (info) return (
+    if ((user?.club == clubId || user?.roles.hasOwnProperty('tucmc')) && info ) return (
         <div>
             <div className='flex flex-col justify-center h-screen w-[310px] lg:w-[691px] mx-auto text-center'>
                 <p className='text-[15.3px] leading-[18px] lg:text-[30px] lg:leading-[36px]'>ข้อมูลหน่วยงาน</p>
-                <h1 className='text-[30px] leading-[36px] lg:text-[64px] lg:leading-[78px] font-[700] mt-[59.4px] lg:mt-[56px] text-blue-edit-300'>{info.nameTH}</h1>
-                <h1 className='text-[22.9px] leading-[28px] lg:text-[45px] lg:leading-[55px] mt-[3.23px] lg:mt-0 font-[500] opacity-60'>{info.nameEN}</h1>
-                <h1 className='text-[16.35px] leading-[20px] lg:text-[32px] lg:leading-[39px] mt-[4.7px] lg:mt-0 font-[500] opacity-60'>ชมรม {info.member} คน</h1>
+                <h1 className='text-[30px] leading-[36px] lg:text-[64px] lg:leading-[78px] font-[700] mt-[59.4px] lg:mt-[56px] text-blue-edit-300'>{info?.nameTH}</h1>
+                <h1 className='text-[22.9px] leading-[28px] lg:text-[45px] lg:leading-[55px] mt-[3.23px] lg:mt-0 font-[500] opacity-60'>{info?.nameEN}</h1>
+                <h1 className='text-[16.35px] leading-[20px] lg:text-[32px] lg:leading-[39px] mt-[4.7px] lg:mt-0 font-[500] opacity-60'>ชมรม {info?.member} คน</h1>
                 <hr className="border-[0.96px] lg:border-[2px] mt-[23.6px] lg:mt-[42px]" />
                 <div className='lg:flex lg:mt-[52px] lg:h-[116px]'>
                     <div className='flex flex-col justify-center text-center lg:text-left lg:w-[331px] mt-[37px] lg:mt-0'>
@@ -62,7 +66,7 @@ const landingEdit = ({clubId}) => {
                             </Link>
                         </div>
                         <div className='lg:w-[335px] ml-[54px] lg:ml-[29px]'>
-                            <p className='text-left text-[17px] leading-[21px] lg:text-[28px] lg:leading-[33px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C]'>สถานะ :</p>
+                            <p className='text-left text-[17px] leading-[21px] lg:text-[28px] lg:leading-[33px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C]'>สถานะ : {status}</p>
                         </div>
                     </div>
                 </div>
@@ -77,4 +81,4 @@ const landingEdit = ({clubId}) => {
     )
 }
 
-export default landingEdit
+export default LandingEdit

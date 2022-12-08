@@ -10,22 +10,36 @@ const ImageUploader :FC<{
     // height: string
     // editable: boolean
     className?: string
+    uploadFunction?
+    purpose?
+    link?
 
-  }> = ({ className }) => {
+  }> = ({ className, uploadFunction, purpose, link }) => {
 
     const [image, setImage] = useState(null)
 
     const uploader = useRef(null)
-    const doUpload = async (e) => {
-        const data = await toBase64(e.target.files[0])
-        //@ts-ignore
-        setImage(data)
+    // const doUpload = async (e) => {
+    //     const data = await toBase64(e.target.files[0])
+    //     //@ts-ignore
+    //     setImage(data)
+    // }
+
+    async function setLocalImage(e) {
+      const data = await toBase64(e.target.files[0])
+      setImage(data)
     }
     
     return (
       <div className={`relative w-full h-full mx-auto`}>
           {!image
-            ? null
+            ? <img 
+                alt={link ? link : null}
+                src={link ? link : null}
+                width="768"
+                height="432"
+                className={`mb-[0px] w-full h-full object-cover bg-[#D9D9D9] ${className}`}
+              />
             : <img 
                 alt={image}
                 src={image}
@@ -37,7 +51,10 @@ const ImageUploader :FC<{
           <input 
             className='hidden'
             ref={uploader}
-            onChange={doUpload}
+            onChange={(e) => {
+              uploadFunction(e, purpose)
+              setLocalImage(e)
+            }}
             type="file"
             accept="image/png, image/jpeg, image/heif"
           />

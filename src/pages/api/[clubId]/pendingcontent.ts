@@ -1,3 +1,4 @@
+import { getImage } from '@handlers/gcpHandlers'
 import { executeOverPerm } from '@handlers/permCheck'
 import { getClubPendArticle } from '@lib/dbMethod'
 
@@ -7,8 +8,20 @@ export default async function viewContent(req, res) {
     if (req.method == 'POST') {
         return await executeOverPerm(req, res, ['tucmc', 'clubPresident'],
             async (req, res) => {
-                const clubArticle = await getClubPendArticle(clubId)
-                if (clubArticle) return res.json(clubArticle)
+                let finalData = {}
+                const clubPendArticle = await getClubPendArticle(clubId)
+                if (clubPendArticle) {
+                    finalData = clubPendArticle
+
+                    finalData['imageUrl'] = {}
+                    Object.keys(clubPendArticle?.Images).length != 0 ? finalData['imageUrl'] = await getImage(JSON.stringify(clubPendArticle?.Images), clubId) : false
+                    let reviewImageUrl = {}
+                    for (const index in finalData['Reviews']) {
+                        finalData['Reviews'][index]['Image'] ? reviewImageUrl[index] = finalData['Reviews'][index]['Image'] : null
+                    }
+                    finalData['reviewImageUrl'] = await getImage(JSON.stringify(reviewImageUrl), clubId)
+                    if (finalData) return res.json(finalData)
+                }
                 return res.json({nonexisted: true})
             }
         )

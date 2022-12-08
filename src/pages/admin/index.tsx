@@ -25,6 +25,7 @@ export default function AdminIndex() {
 
     if (user?.roles?.hasOwnProperty('tucmc')) return (
         <div>
+            <h1><b>Pending approval</b></h1>
             {pendingArticleList.map((val, key) => {
                 return (
                     <div key={val}>

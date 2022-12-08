@@ -5,10 +5,12 @@ import QuillEditor from '@components/common/QuillEditor'
 import ReviewRenderer from '@components/cms/reviewsRender'
 import ContactRenderer from '@components/cms/contactRender'
 import { useAuth } from '@lib/auth'
-import { ArrowCircleLeftIcon, InformationCircleIcon, PhotographIcon } from "@heroicons/react/outline"
-import ImageUploader from '@components/cms/imageDisplayUploader'
+import { toBase64 } from 'src/utilities/imgToBase'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { ArrowCircleLeftIcon, InformationCircleIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
-
+import ImageUploader from '@components/cms/imageDisplayUploader'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
   return {
@@ -29,6 +31,12 @@ const Editor = ({clubId}) => {
     const [work, setWork] = useState('')
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
+
+    const [status, setStatus] = useState<string>()
+
+    const [imagesName, setImagesName] = useState([])
+    const [imagesLink, setImagesLink] = useState<{[key: string]: string}>({})
+    const [reviewImagesLink, setReviewImagesLink] = useState({})
     
     useEffect(() => {
       const fetchInitialData = async () => {
@@ -38,15 +46,21 @@ const Editor = ({clubId}) => {
           body: permBody
         })
 
+        setStatus('Pending')
+
         let dataFetch = await res?.json()
+
         if (dataFetch.nonexisted) {
           const res = await fetch(`/api/${clubId}/prodcontent`, {
             method: 'POST',
             body: permBody
           })
           dataFetch = await res?.json()
+          setStatus('Approved')
         }
 
+        setReviewImagesLink(dataFetch?.reviewImageUrl)
+        setImagesLink(dataFetch?.imageUrl)
         setInfo(dataFetch.Info != null ? dataFetch.Info : '')
         setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {})
         setClubArticle(dataFetch?.ClubArticle)
@@ -62,13 +76,11 @@ const Editor = ({clubId}) => {
     }, [user?.uid])
 
     async function publishToPending() {
-      console.log(clubArticleDes)
-      console.log(advantageDes)
-      console.log(workDes)
-      const res = await fetch(`/api/${clubId}/publishToPending`, {
+      const pub = await fetch(`/api/${clubId}/publishToPending`, {
         method: 'POST',
         body: JSON.stringify({
           executerUid: user?.uid,
+          fileName: imagesName,
           "Info": info,
           "Contacts": contacts,
           "ClubArticle": clubArticle,
@@ -77,12 +89,81 @@ const Editor = ({clubId}) => {
           "AdvantageDes": advantageDes,
           "Work": work,
           "WorkDes": workDes,
-          "Reviews": reviews
+          "Reviews": reviews,
         })
       })
     }
 
-    if (user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) return (
+    const doUpload = async (e, purpose: string) => {
+      const ogFile = e.target.files[0]
+      const data = await toBase64(ogFile)
+
+      const getGCPPolicy = await fetch(`/api/${clubId}/getPolicy`, {
+        method: 'POST',
+        body: JSON.stringify({
+          executerUid: user?.uid,
+          purpose: purpose,
+          fileName: ogFile.name
+        })
+      })
+
+      let {url, fields} = await getGCPPolicy.json()
+
+      const formData = new FormData()
+      setImagesName((prev) => [...prev, fields.key])
+
+      Object.entries({ ...fields, file: ogFile }).forEach(([key, value]) => {
+        // @ts-ignore
+        formData.append(key, value)
+      })
+
+      const upload = await fetch(url, {
+        mode: 'cors',
+        method: 'POST',
+        body: formData,
+      }) 
+    }
+
+    const reviewDoUpload = async (e, purpose: string) => {
+      const ogFile = e.target.files[0]
+      let index: number
+      if (purpose.includes('profile-')) {
+        const tmp = purpose.split('-')
+        index = Number(tmp[1])
+      }
+
+      const getGCPPolicy = await fetch(`/api/${clubId}/getPolicy`, {
+        method: 'POST',
+        body: JSON.stringify({
+          executerUid: user?.uid,
+          purpose: purpose,
+          fileName: ogFile.name,
+          ReviewIndex: index,
+          Reviews: reviews
+        })
+      })
+
+      let {url, fields} = await getGCPPolicy.json()
+
+      const formData = new FormData()
+      setReviews((prev) => {
+        prev[index].Image = fields.key
+        return prev
+      })
+
+      Object.entries({ ...fields, file: ogFile }).forEach(([key, value]) => {
+        // @ts-ignore
+        formData.append(key, value)
+      })
+
+      const upload = await fetch(url, {
+        mode: 'cors',
+        method: 'POST',
+        body: formData,
+      }) 
+    }
+    
+    if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && status) return (
         <div>
             <div className='mx-auto pt-[104px] w-[311px] lg:w-[1000px] lg:pt-[178px]'>
               <button className='flex'>
@@ -90,7 +171,7 @@ const Editor = ({clubId}) => {
                   <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px]'>ย้อนกลับ</p>
               </button>
               <div className='lg:flex justify-between w-[225px] lg:w-[978px] mx-auto mt-[18px] lg:mt-[41px]'>
-                <p className='w-[108px] text-[14px] leading-[16px] lg:w-[290px] lg:text-xl'>สถานะ: </p>
+                <p className='w-[108px] text-[14px] leading-[16px] lg:w-[290px] lg:text-xl'>สถานะ: {status} </p>
                 <div className='mt-[16px] flex justify-between'>
                   <Link href={`/clubs/${[clubId]}/preview`}><button className='w-[106.8px] h-[28.8px] lg:w-[192px] lg:h-[52px] border-blue-edit-300 box-border border-[1.2px] lg:border-[2px] rounded-[112px] lg:rounded-[200px]'><p className='text-center text-[14px] leading-[17px] lg:text-xl font-500 text-blue-edit-300'>Preview</p></button></Link>
                   <button className='w-[108px] h-[30px] lg:w-[192px] lg:h-[52px] border-blue-edit-300 box-border border-2 rounded-[112px] lg:rounded-[200px] text-[24px] font-[400] bg-blue-edit-300  ml-[19px] ' onClick={publishToPending}><p className='text-center text-[14px] leading-[16.94px] lg:leading-[48px] lg:text-xl text-white'>ส่งการแก้ไข</p></button>
@@ -102,6 +183,9 @@ const Editor = ({clubId}) => {
                 <div className='w-[149px] h-[125.34px] rounded-[15px] mx-auto lg:mx-0 mt-[16px] lg:w-[280px] lg:h-[240px] lg:mt-0 bg-[#d9d9d9] lg:rounded-[31.18px]'>
                   <ImageUploader  
                   className='rounded-[15.5px] lg:rounded-[31.2px]'
+                  uploadFunction={doUpload}
+                  purpose='thumbnail'
+                  link={imagesLink.hasOwnProperty('thumbnail') ? imagesLink['thumbnail'] : null}
                   />
                 </div>
                 <div className='text-center lg:w-[485px]'>
@@ -127,9 +211,12 @@ const Editor = ({clubId}) => {
                   <div className='mt-[21px] lg:w-[771px] lg:h-[420px] w-full h-[168px] bg-[#D9D9D9] lg:mt-[62px] rounded-[6px] lg:rounded-[15px]'>
                     <ImageUploader 
                     className='rounded-[6px] lg:rounded-[15px]'
+                    uploadFunction={doUpload}
+                    purpose='first'
+                    link={imagesLink.hasOwnProperty('first') ? imagesLink['first'] : null}
                     />
                   </div>
-                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={clubArticleDes} onChange={(txt) => {setClubArticleDes(txt.target.value)}}/>
+                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={clubArticleDes} onChange={(txt) => {console.log(txt.target.innerText);setClubArticleDes(txt.target.innerText)}}/>
                 </div >
                 <div className='border-[1px] lg:border-2 border-gray-500 rounded-[20.5px] lg:rounded-[22px] w-full  mt-[16px] lg:mt-[41px]'>
                   <QuillEditor
@@ -149,9 +236,12 @@ const Editor = ({clubId}) => {
                   <div className='mt-[21px] lg:w-[771px] lg:h-[420px] w-full h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] lg:mt-[62px]'>
                   <ImageUploader 
                   className='rounded-[6px] lg:rounded-[15px]'
+                  uploadFunction={doUpload}
+                  purpose='second'
+                  link={imagesLink.hasOwnProperty('second') ? imagesLink['second'] : null}
                   />
                   </div>
-                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={advantageDes} onChange={(txt) => {setAdvantageDes(txt.target.value)}}/>
+                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={advantageDes} onChange={(txt) => {setAdvantageDes(txt.target.innerText)}}/>
                 </div >
                 <div className='border-[1px] lg:border-2 border-gray-500 rounded-[22px] w-full  mt-[16px] lg:mt-[41px] text-sm'>
                   <QuillEditor
@@ -172,9 +262,12 @@ const Editor = ({clubId}) => {
                   <div className='mt-[21px] lg:w-[771px] lg:h-[420px] w-full h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] lg:mt-[62px]'>
                   <ImageUploader 
                   className='rounded-[6px] lg:rounded-[15px]'
+                  uploadFunction={doUpload}
+                  purpose='third'
+                  link={imagesLink.hasOwnProperty('third') ? imagesLink['third'] : null}
                   />
                   </div>
-                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={workDes} onChange={(txt) => {setWorkDes(txt.target.value)}}/>
+                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={workDes} onChange={(txt) => {setWorkDes(txt.target.innerText)}}/>
                 </div >
                 <div className='border-[1px] lg:border-2 border-gray-500 rounded-[22px] w-full  mt-[16px] lg:mt-[41px] text-sm'>
                   <QuillEditor
@@ -195,6 +288,8 @@ const Editor = ({clubId}) => {
                   <ReviewRenderer
                     rawData={reviews}
                     setReviews={setReviews}
+                    reviewImagesLink={reviewImagesLink}
+                    reviewDoUpload={reviewDoUpload}
                     editable={true}
                   />
             </div>

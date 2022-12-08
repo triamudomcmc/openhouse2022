@@ -40,7 +40,7 @@ export default function QrGen() {
                 setStampData(Object.keys(uidData?.stamp))
             }
         }
-    }, [stampData, uidData?.stamp])
+    }, [uidData?.stamp])
 
     useEffect(() => {
         if (user?.club) setClubPanelUrl(`/clubs/${user?.club}/panel`)

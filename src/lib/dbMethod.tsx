@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer'
 import {
   DocumentData,
   getFirestore,
@@ -121,6 +122,18 @@ export const updateArticleToPending = async (clubId: string, data) : Promise<voi
   }
   
   return await setDoc(clubRef, finalData, {merge: true})
+}
+
+export const updateImage = async (clubId: string, file: string, field: string) : Promise<void> => {
+  const clubPendRef = getClubPendRef(clubId)
+
+  return await setDoc(clubPendRef, {Images: { [field]: file }}, {merge: true})
+}
+
+export const updateProfileImage = async (clubId: string, data) : Promise<void> => {
+  const clubPendRef = getClubPendRef(clubId)
+
+  return await setDoc(clubPendRef, {Reviews: data}, {merge: true})
 }
 
 export const movePendToProd = async (clubId: string) : Promise<void> => {

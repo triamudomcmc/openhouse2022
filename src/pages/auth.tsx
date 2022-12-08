@@ -9,7 +9,7 @@ export default function Sane() {
     if (!user?.uid) {
         return (
             <div>
-                <button onClick={() => signinWithGoogle('/account')}>Google</button>
+                <button onClick={() => signinWithGoogle(user?.club ? `/clubs/${user.club}` : '/account')}>Google</button>
             </div>
         )
     }
