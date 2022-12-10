@@ -59,8 +59,8 @@ const Editor = ({clubId}) => {
           setStatus('Approved')
         }
 
-        setReviewImagesLink(dataFetch?.reviewImageUrl)
-        setImagesLink(dataFetch?.imageUrl)
+        setReviewImagesLink(dataFetch?.reviewImageUrl ?? {})
+        setImagesLink(dataFetch?.imageUrl ?? {})
         setInfo(dataFetch.Info != null ? dataFetch.Info : '')
         setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {})
         setClubArticle(dataFetch?.ClubArticle)
@@ -185,7 +185,7 @@ const Editor = ({clubId}) => {
                   className='rounded-[15.5px] lg:rounded-[31.2px]'
                   uploadFunction={doUpload}
                   purpose='thumbnail'
-                  link={imagesLink.hasOwnProperty('thumbnail') ? imagesLink['thumbnail'] : null}
+                  link={imagesLink ?? imagesLink.hasOwnProperty('thumbnail') ? imagesLink['thumbnail'] : null}
                   />
                 </div>
                 <div className='text-center lg:w-[485px]'>
@@ -213,10 +213,10 @@ const Editor = ({clubId}) => {
                     className='rounded-[6px] lg:rounded-[15px]'
                     uploadFunction={doUpload}
                     purpose='first'
-                    link={imagesLink.hasOwnProperty('first') ? imagesLink['first'] : null}
+                    link={imagesLink ?? imagesLink.hasOwnProperty('first') ? imagesLink['first'] : null}
                     />
                   </div>
-                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={clubArticleDes} onChange={(txt) => {console.log(txt.target.innerText);setClubArticleDes(txt.target.innerText)}}/>
+                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={clubArticleDes} onChange={(txt) => {setClubArticleDes(txt.target.value)}}/>
                 </div >
                 <div className='border-[1px] lg:border-2 border-gray-500 rounded-[20.5px] lg:rounded-[22px] w-full  mt-[16px] lg:mt-[41px]'>
                   <QuillEditor
@@ -238,10 +238,10 @@ const Editor = ({clubId}) => {
                   className='rounded-[6px] lg:rounded-[15px]'
                   uploadFunction={doUpload}
                   purpose='second'
-                  link={imagesLink.hasOwnProperty('second') ? imagesLink['second'] : null}
+                  link={imagesLink ?? imagesLink.hasOwnProperty('second') ? imagesLink['second'] : null}
                   />
                   </div>
-                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={advantageDes} onChange={(txt) => {setAdvantageDes(txt.target.innerText)}}/>
+                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={advantageDes} onChange={(txt) => {setAdvantageDes(txt.target.value)}}/>
                 </div >
                 <div className='border-[1px] lg:border-2 border-gray-500 rounded-[22px] w-full  mt-[16px] lg:mt-[41px] text-sm'>
                   <QuillEditor
@@ -264,10 +264,10 @@ const Editor = ({clubId}) => {
                   className='rounded-[6px] lg:rounded-[15px]'
                   uploadFunction={doUpload}
                   purpose='third'
-                  link={imagesLink.hasOwnProperty('third') ? imagesLink['third'] : null}
+                  link={imagesLink ?? imagesLink.hasOwnProperty('third') ? imagesLink['third'] : null}
                   />
                   </div>
-                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={workDes} onChange={(txt) => {setWorkDes(txt.target.innerText)}}/>
+                  <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' placeholder='คำอธิบายรูปภาพ' value={workDes} onChange={(txt) => {setWorkDes(txt.target.value)}}/>
                 </div >
                 <div className='border-[1px] lg:border-2 border-gray-500 rounded-[22px] w-full  mt-[16px] lg:mt-[41px] text-sm'>
                   <QuillEditor

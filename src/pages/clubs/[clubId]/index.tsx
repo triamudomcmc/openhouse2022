@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import { useAuth } from '@lib/auth'
+import { MainRenderer } from '@components/cms/mainRender'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
@@ -14,32 +15,50 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 const LandingEdit = ({clubId}) => {
     const {user} = useAuth()
     const [info, setInfo] = useState<{[key: string]: string}>({})
+    const [contacts, setContacts] = useState({})
+    const [clubArticle, setClubArticle] = useState('')
+    const [clubArticleDes, setClubArticleDes] = useState('')
+    const [advantage, setAdvantage] = useState('')
+    const [advantageDes, setAdvantageDes] = useState('')
+    const [work, setWork] = useState('')
+    const [workDes, setWorkDes] = useState('')
+    const [reviews, setReviews] = useState([])
     const [status, setStatus] = useState('')
 
     useEffect(() => {
         const fetchInitialData = async () => {
-          const permBody = JSON.stringify({executerUid: user?.uid})
-          const res = await fetch(`/api/${clubId}/pendingcontent`, {
-            method: 'POST',
-            body: permBody
-          })
+            const permBody = JSON.stringify({executerUid: user?.uid})
+            let dataFetch
+            if (user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) {
+                const res = await fetch(`/api/${clubId}/pendingcontent`, {
+                method: 'POST',
+                body: permBody
+                })
+                
+                setStatus('Pending')
+                dataFetch = await res?.json()
+            }
 
-          setStatus('Pending')
-          
-          let dataFetch = await res?.json()
-          if (dataFetch.nonexisted) {
-            const res = await fetch(`/api/${clubId}/prodcontent`, {
-              method: 'POST',
-              body: permBody
-            })
-            dataFetch = await res?.json()
-
-            setStatus('Approved')
-          }
-  
-          setInfo(dataFetch.Info != null ? dataFetch.Info : '')
+            if (dataFetch.nonexisted) {
+              const res = await fetch(`/api/${clubId}/prodcontent`, {
+                method: 'POST',
+                body: permBody
+              })
+              dataFetch = await res?.json()
+              setStatus('Approved')
+            }
+            
+            setInfo(dataFetch.Info != null ? dataFetch.Info : '')
+            setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {})
+            setClubArticle(dataFetch?.ClubArticle)
+            setClubArticleDes(dataFetch?.ClubArticleDes)
+            setAdvantage(dataFetch?.Advantage)
+            setAdvantageDes(dataFetch?.AdvantageDes)
+            setWork(dataFetch?.Work)
+            setWorkDes(dataFetch?.WorkDes)
+            setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
         }
-        if (user?.uid && user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) fetchInitialData()
+        fetchInitialData()
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [user?.uid])
   
@@ -71,6 +90,23 @@ const LandingEdit = ({clubId}) => {
                     </div>
                 </div>
             </div>
+        </div>
+    )
+
+    if (info) return (
+        <div className='flex flex-col max-lg:bg-gradient-edit lg:bg-cream'>
+            <MainRenderer
+                // editable={false}
+                info={info}
+                contacts={contacts}
+                clubArticle={clubArticle}
+                clubArticleDes={clubArticleDes}
+                advantage={advantage}
+                advantageDes={advantageDes}
+                work={work}
+                workDes={workDes}
+                reviews={reviews}
+            />
         </div>
     )
 
