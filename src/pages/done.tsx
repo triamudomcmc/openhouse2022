@@ -9,7 +9,7 @@ export default function Done() {
             <div className="flex flex-col items-center justify-center w-screen h-screen bg-cream">
                 <DuckInTheMusuem classname="max-lg:hidden"  width="472" height="266"/>
                 <DuckInTheMusuem classname="lg:hidden"  width="250" />
-                <div className=" bg-[#4461AD] w-[240px] lg:w-[450px] mt-[4px] lg:mt-[12px]">
+                <div className=" bg-[#4461AD] w-[240px] lg:w-[440px] mt-[4px] lg:mt-[12px]">
                     <RegisteredSuccessfully classname="mx-auto max-lg:hidden" width="394" height="48"/>
                     <RegisteredSuccessfully classname="mx-auto lg:hidden" width="226" height="25"/>
                 </div>
