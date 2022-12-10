@@ -4,8 +4,11 @@ import { motion } from "framer-motion"
 import { CountDown } from '@components/common/Countdown'
 import { MailIcon } from '@heroicons/react/solid'
 import RomanTower from 'public/asset/background/romanTower'
+import { useAuth } from '@lib/auth'
 
 export default function Home() {
+  const {user, signinWithGoogle, signout} = useAuth()
+
   return (
     <div>
 
@@ -26,8 +29,9 @@ export default function Home() {
         <motion.div
         whileHover={{ scale: 1.05 }}
         >
-          <Link href={`/auth`}>
-            <button className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
+            <button 
+              onClick={() => signinWithGoogle('/account')}
+              className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
               <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
                 <svg className='max-lg:hidden' width="30" height="30" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_736_675)">
@@ -58,7 +62,6 @@ export default function Home() {
                 <p className='text-[14px] ml-[10px] lg:ml-[20px] lg:text-[20px] font-500 text-[#37498B]'>Sign up with Google</p>
               </div>
             </button>
-          </Link>
         </motion.div>
 
         {/* <motion.div

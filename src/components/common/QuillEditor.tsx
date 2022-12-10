@@ -22,7 +22,7 @@ const QuillEditor:FC<{
             <ForwardedReactQuill
                 value={value}
                 placeholder={placeholder ?? 'Type Something ...'}
-                onChange={(v) => {onChange(v)}} 
+                onChange={(v) => {onChange ?? false ? onChange(v) : null}} 
                 ref={quillRef}
                 readOnly={readOnly}
                 className={className}
