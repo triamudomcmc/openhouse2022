@@ -47,7 +47,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/common/topicTag.tsx"  ],
+, "src/components/common/topicTag.tsx", "public/asset/background/article.tsx.tmp"  ],
   "exclude": [
     "node_modules"
   ]
