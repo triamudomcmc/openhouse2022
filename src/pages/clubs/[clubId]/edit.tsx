@@ -86,6 +86,7 @@ const Editor = ({clubId}) => {
           executerUid: user?.uid,
           fileName: imagesName,
           "Info": info,
+          // "Images": imagesName,
           "Contacts": contacts,
           "ClubArticle": clubArticle,
           "ClubArticleDes": clubArticleDes,
@@ -107,7 +108,17 @@ const Editor = ({clubId}) => {
         body: JSON.stringify({
           executerUid: user?.uid,
           purpose: purpose,
-          fileName: ogFile.name
+          fileName: ogFile.name,
+          "Info": info,
+          // "Images": imagesName,
+          "Contacts": contacts,
+          "ClubArticle": clubArticle,
+          "ClubArticleDes": clubArticleDes,
+          "Advantage": advantage,
+          "AdvantageDes": advantageDes,
+          "Work": work,
+          "WorkDes": workDes,
+          "Reviews": reviews,
         })
       })
 
@@ -125,7 +136,7 @@ const Editor = ({clubId}) => {
         mode: 'cors',
         method: 'POST',
         body: formData,
-      }) 
+      })
     }
 
     const reviewDoUpload = async (e, purpose: string) => {
@@ -143,7 +154,16 @@ const Editor = ({clubId}) => {
           purpose: purpose,
           fileName: ogFile.name,
           ReviewIndex: index,
-          Reviews: reviews
+          "Info": info,
+          // "Images": imagesName,
+          "Contacts": contacts,
+          "ClubArticle": clubArticle,
+          "ClubArticleDes": clubArticleDes,
+          "Advantage": advantage,
+          "AdvantageDes": advantageDes,
+          "Work": work,
+          "WorkDes": workDes,
+          "Reviews": reviews,
         })
       })
 

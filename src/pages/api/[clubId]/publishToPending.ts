@@ -1,4 +1,3 @@
-import { downGCP } from '@handlers/gcpHandlers'
 import { executeOverPerm } from '@handlers/permCheck'
 import { updateArticleToPending } from '@lib/dbMethod'
 
@@ -8,7 +7,7 @@ export default async function updateStatus(req, res) {
         return await executeOverPerm(req, res, ['tucmc', 'clubPresident'],
         async (req, res) => {
             const result = await updateArticleToPending(clubId, req.body)
-            // const downloadImage = await downGCP(req.body, clubId)
+            
             return res.send({status: true})
         })
     }

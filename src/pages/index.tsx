@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { motion } from "framer-motion"
 import { CountDown } from '@components/common/Countdown'
 import { MailIcon } from '@heroicons/react/solid'
@@ -10,9 +11,11 @@ import KorChor from 'src/vectors/icons/korchor'
 
 export default function Home() {
   const {user, signinWithGoogle, signout} = useAuth()
-
+  // const Router = useRouter()
+  // if (user ?? false ? user?.club : false) return Router.push(`/clubs/${user?.club}`)
+  // else if (user ?? false ? user : false) return Router.push('/account')
   return (
-    <div className=''>
+    <div>
 
       {/* Countdown */}
       {/* <main className='main'>
@@ -32,7 +35,7 @@ export default function Home() {
         whileHover={{ scale: 1.05 }}
         >
             <button 
-              onClick={() => signinWithGoogle('/account')}
+              onClick={() => signinWithGoogle('/done')}
               className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
               <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
                 <GoogleIcon classname='max-lg:hidden' width='30' height='30'/>

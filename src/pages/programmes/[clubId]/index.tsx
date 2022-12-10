@@ -39,7 +39,7 @@ const LandingEdit = ({clubId}) => {
                 dataFetch = await res?.json()
             }
 
-            if (dataFetch.nonexisted) {
+            if (status == '') {
               const res = await fetch(`/api/${clubId}/prodcontent`, {
                 method: 'POST',
                 body: permBody

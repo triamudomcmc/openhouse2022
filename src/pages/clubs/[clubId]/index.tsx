@@ -35,18 +35,17 @@ const LandingEdit = ({clubId}) => {
                 method: 'POST',
                 body: permBody
                 })
-                
                 setStatus('Pending')
                 dataFetch = await res?.json()
             }
 
-            if (status == '') {
-              const res = await fetch(`/api/${clubId}/prodcontent`, {
-                method: 'POST',
-                body: permBody
-              })
-              dataFetch = await res?.json()
-              setStatus('Approved')
+            if ((status == '') || (dataFetch ?? false ? dataFetch.nonexisted : false)) {
+                const res = await fetch(`/api/${clubId}/prodcontent`, {
+                  method: 'POST',
+                  body: permBody
+                })
+                dataFetch = await res?.json()
+                setStatus('Approved')
             }
             
             setInfo(dataFetch.Info != null ? dataFetch.Info : '')
@@ -62,7 +61,7 @@ const LandingEdit = ({clubId}) => {
         fetchInitialData()
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [user?.uid])
-  
+
     if ((user?.club == clubId || user?.roles.hasOwnProperty('tucmc')) && info ) return (
         <div>
             <div className='flex flex-col justify-center h-screen w-[310px] lg:w-[691px] mx-auto text-center'>

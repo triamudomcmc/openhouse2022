@@ -107,7 +107,16 @@ const Editor = ({clubId}) => {
         body: JSON.stringify({
           executerUid: user?.uid,
           purpose: purpose,
-          fileName: ogFile.name
+          fileName: ogFile.name,
+          "Info": info,
+          "Contacts": contacts,
+          "ClubArticle": admission,
+          "ClubArticleDes": admissionDes,
+          "Advantage": extendedClass,
+          "AdvantageDes": extendedClassDes,
+          "Work": interest,
+          "WorkDes": interestDes,
+          "Reviews": reviews,
         })
       })
 
@@ -143,7 +152,15 @@ const Editor = ({clubId}) => {
           purpose: purpose,
           fileName: ogFile.name,
           ReviewIndex: index,
-          Reviews: reviews
+          "Info": info,
+          "Contacts": contacts,
+          "ClubArticle": admission,
+          "ClubArticleDes": admissionDes,
+          "Advantage": extendedClass,
+          "AdvantageDes": extendedClassDes,
+          "Work": interest,
+          "WorkDes": interestDes,
+          "Reviews": reviews,
         })
       })
 

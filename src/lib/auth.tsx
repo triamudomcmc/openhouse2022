@@ -50,7 +50,9 @@ function useProvideAuth() {
             const currentAccountId = await getCurrentUserId(rawUser.uid)
             const user = userFormatter(rawUser, currentAccountId)
             await createUser(user.uid, user)
-            setUser(rawUser)
+            const data = await getUserData(rawUser.uid)
+            setUser(data)
+            return data
         } else if (rawUser === null) {
             setUser(null)
             setLoading(null)
@@ -60,8 +62,12 @@ function useProvideAuth() {
     const signinWithGoogle = async (redirect: string) => {
         setLoading(true)
         const response = await signInWithPopup(auth, new GoogleAuthProvider())
-        handleUser(response.user)
-        if (redirect) {
+        const handleStatus = await handleUser(response.user)
+        
+        // if (handleStatus ?? false ? handleStatus?.club : false) {
+        //     Router.push(`/clubs/${handleStatus?.club}`)
+        // }
+         if (redirect) {
             Router.push(redirect)
         }
     }
