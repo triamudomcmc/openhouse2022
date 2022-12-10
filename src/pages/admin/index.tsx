@@ -62,7 +62,7 @@ export default function AdminIndex() {
             }
         }
         fetchClubInfo()
-    }, [focusClub])
+    }, [focusClub, sus, user?.uid])
 
     async function queryClubInfo(clubId: string) {
         setFocusClub(clubId)
