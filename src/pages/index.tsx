@@ -3,14 +3,14 @@ import Link from 'next/link'
 import { motion } from "framer-motion"
 import { CountDown } from '@components/common/Countdown'
 import { MailIcon } from '@heroicons/react/solid'
-import RomanTower from 'public/asset/background/romanTower'
+import RomanTower from 'src/vectors/romanTower'
 import { useAuth } from '@lib/auth'
 
 export default function Home() {
   const {user, signinWithGoogle, signout} = useAuth()
 
   return (
-    <div>
+    <div className=''>
 
       {/* Countdown */}
       {/* <main className='main'>
@@ -20,10 +20,10 @@ export default function Home() {
         <CountDown until={+new Date(2023, 0, 14, 9, 0, 0, 0)} />
       </main> */}
       
-      <section className='flex flex-col items-center justify-center w-screen h-screen bg-login-edit'>
-        <div className='max-lg:hidden'>
-          <RomanTower classname='absolute top-0 right-0 h-screen' />
-          <RomanTower classname='absolute top-0 left-0 h-screen transform -scale-x-100' />
+      <section className='relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-login-edit'>
+        <div className=''>
+          <RomanTower classname='absolute top-0 left-[-60px] lg:left-0 h-screen transform -scale-x-100' />
+          <RomanTower classname='absolute top-0 h-screen -right-[60px] lg:right-0' />
         </div>
         <p className='text-[28px] lg:text-[40px] font-[700] text-[#37498B]'>Register / ลงทะเบียน</p>
         <motion.div
