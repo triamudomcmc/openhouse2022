@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import { GetServerSideProps } from 'next'
-
 import QuillEditor from '@components/common/QuillEditor'
 import { useAuth } from '@lib/auth'
 import { MainRenderer } from '@components/cms/mainRender'
+import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
+import Link from 'next/link'
+import Tooltip from '@components/common/tooltip'
+import ArticleBackground from 'public/asset/background/article'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
@@ -81,7 +84,18 @@ const ViewArticle = ({clubId}) => {
 
     if (!ifPendArticle && user?.roles?.hasOwnProperty('tucmc')) loadPending()
     if (info) return (
-        <div className='flex flex-col max-lg:bg-gradient-edit lg:bg-cream'>
+        <div className='flex flex-col max-lg:bg-gradient-edit lg:bg-cream bg-article'>
+            {/* <ArticleBackground classname=''/> */}
+            <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[178px] flex '>
+                <Link href={`/clubs/${[clubId]}/edit`}>
+                    <button className='flex'>
+                        <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
+                        <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px]'>ย้อนกลับ</p>
+                    </button>
+                </Link>
+                {/* <p className='flex items-center justify-center'> preview</p> */}
+            </div>
+            <p className='flex justify-center text-[14px] lg:text-[24px] text-blue-edit-300'> preview</p>
             <MainRenderer
                 // editable={false}
                 info={info}

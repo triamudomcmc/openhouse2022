@@ -17,7 +17,7 @@ const ReviewRenderer:FC<{
     editable: boolean
   }> = ({rawData, setReviews, reviewImagesLink, editable, reviewDoUpload}) => {
     return (
-      <div className="lg:mt-[64px]">
+      <div className="lg:mt-[64px] mb-[60px] lg:mb-[216px]">
         {rawData.map((ref, index) => {
           return (
             <div key={index}>
@@ -79,7 +79,7 @@ const ReviewRenderer:FC<{
     }
     
     return (
-        <div className="lg:flex mt-[26px] lg:mt-[41px]">
+      <div className="lg:flex mt-[26px] lg:mt-[41px]">
         <div className={ editable == false? "border border-1 border-white bg-white bg-opacity-50 rounded-[22.55px] lg:rounded-[28.84px] w-[325px] lg:w-[703px]" : "border border-1 rounded-[22.55px] lg:rounded-[28.84px] w-[325px] lg:w-[703px]"}>
               <QuillEditor
                 value={review}
@@ -93,13 +93,14 @@ const ReviewRenderer:FC<{
                 }}
                 readOnly={!editable}
               />
-        
+        </div>
         {editable
         ? <div>
             <div className="flex lg:flex-col mt-[30px] lg:mt-0 lg:ml-[50px]">
               <div className="flex lg:flex-col lg:w-[170px]">
                 <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
                   <ImageUploader 
+                    editable={editable}
                     className="rounded-[9.2px] lg:rounded-[24.3px]"
                     uploadFunction={reviewDoUpload}
                     purpose={`profile-${index}`}
@@ -176,7 +177,6 @@ const ReviewRenderer:FC<{
                 readOnly={!editable}
               />
             </div> */}
-        </div>
       </div>
     )
   }

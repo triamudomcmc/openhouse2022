@@ -9,22 +9,26 @@ export default function Sane() {
     if (!user?.uid) {
         return (
             <div>
-                <button onClick={() => signinWithGoogle(user?.club ? `/clubs/${user.club}` : '/account')}>Google</button>
+                <div className='flex flex-col items-center justify-center w-screen h-screen '>
+                    <button onClick={() => signinWithGoogle('/account')}>Google</button>
+                </div>
             </div>
         )
     }
 
     return (
         <div>
-            {user?.email ? 
-                <>
-                    <h3>
-                        Welcome! {user.email}
-                    </h3>
-                </>
-            : <h3>sussy</h3>}
-            <br/>
-            <button onClick={() => signout()}>Sign Out</button>
+            <div className='flex flex-col items-center justify-center w-screen h-screen '>
+                {user?.email ? 
+                    <>
+                        <h3>
+                            Welcome! {user.email}
+                        </h3>
+                    </>
+                : <h3>sussy</h3>}
+                <br/>
+                <button onClick={() => signout()}>Sign Out</button>
+            </div>
         </div>
     )
 }

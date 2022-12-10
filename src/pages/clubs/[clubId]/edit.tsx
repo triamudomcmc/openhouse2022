@@ -6,11 +6,13 @@ import ReviewRenderer from '@components/cms/reviewsRender'
 import ContactRenderer from '@components/cms/contactRender'
 import { useAuth } from '@lib/auth'
 import { toBase64 } from 'src/utilities/imgToBase'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowCircleLeftIcon, InformationCircleIcon } from '@heroicons/react/outline'
-import Link from 'next/link'
 import ImageUploader from '@components/cms/imageDisplayUploader'
+import Link from 'next/link'
+import { motion, AnimatePresence } from "framer-motion"
+import Tooltip from '@components/common/tooltip'
+
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
   return {
@@ -31,6 +33,8 @@ const Editor = ({clubId}) => {
     const [work, setWork] = useState('')
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
+    // const [status, setStatus] = useState()
+    // const [isHover, setHover] = useState(false);
 
     const [status, setStatus] = useState<string>()
 
@@ -182,6 +186,7 @@ const Editor = ({clubId}) => {
               <div className='w-[328px] h-[330px] rounded-[27px] flex flex-col lg:flex-row lg:w-[771px] lg:h-[240px] lg:rounded-[31.18px] shadow-[2px_2px_4px_rgba(0,0,0,0.3)] mt-[27px]'>
                 <div className='w-[149px] h-[125.34px] rounded-[15px] mx-auto lg:mx-0 mt-[16px] lg:w-[280px] lg:h-[240px] lg:mt-0 bg-[#d9d9d9] lg:rounded-[31.18px]'>
                   <ImageUploader  
+                  editable={true}
                   className='rounded-[15.5px] lg:rounded-[31.2px]'
                   uploadFunction={doUpload}
                   purpose='thumbnail'
@@ -203,13 +208,20 @@ const Editor = ({clubId}) => {
                 </div>
               </div>
               <div>
-                <div className='flex mt-[63px] lg:mt-[90px]'>
+                <div className='flex mt-[63px] lg:mt-[90px] relative'>
                   <h1 className='font-display font-[800]'>ชมรมนี้ทำอะไร</h1>
-                  <InformationCircleIcon className='w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] ml-[12px] lg:ml-[25px] my-auto text-orange' />
+                  <div className='z-10'>
+                    <Tooltip
+                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-50'
+                    text='ใช้ภาษาทางการหรือกึ่งทางการ เน้นเข้าใจง่าย                 
+                    งดใช้คําลงท้าย เช่น นะคะ นะครับ ค่ะ ครับ นะ จ้ะ นะจ๊ะ เป็นต้น งดใช้ข้อความเชิญชวน เช่น อย่าลืมมาสมัครชมรมเราเยอะ ๆ นะ เป็นต้น
+                    งดใช้อิโมจิหรืออิโมติคอน เช่น ^_^ หรือ 🥺 เนื้อความในหัวข้อที่ 1. และ 2. ต้องอธิบายรายละเอียดไม่ตํ่ากว่า 150 คํา' />
+                  </div>
                 </div>
                 <div className='w-full mx-auto'>
                   <div className='mt-[21px] lg:w-[771px] lg:h-[420px] w-full h-[168px] bg-[#D9D9D9] lg:mt-[62px] rounded-[6px] lg:rounded-[15px]'>
                     <ImageUploader 
+                    editable={true}
                     className='rounded-[6px] lg:rounded-[15px]'
                     uploadFunction={doUpload}
                     purpose='first'
@@ -228,13 +240,20 @@ const Editor = ({clubId}) => {
                 </div>
               </div>
               <div>
-                <div className='flex mt-[63px] lg:mt-[90px]'>
+                <div className='flex mt-[63px] lg:mt-[90px] relative'>
                   <h1 className='font-display font-[800]'>ประโยชน์ที่ได้รับจากการเข้าชมรม</h1>
-                  <InformationCircleIcon className='w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] ml-[12px] lg:ml-[25px] my-auto text-orange' />
+                  <div className='z-10'>
+                    <Tooltip 
+                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-50'
+                    text='ใช้ภาษาทางการหรือกึ่งทางการ เน้นเข้าใจง่าย                 
+                    งดใช้คําลงท้าย เช่น นะคะ นะครับ ค่ะ ครับ นะ จ้ะ นะจ๊ะ เป็นต้น งดใช้ข้อความเชิญชวน เช่น อย่าลืมมาสมัครชมรมเราเยอะ ๆ นะ เป็นต้น
+                    งดใช้อิโมจิหรืออิโมติคอน เช่น ^_^ หรือ 🥺 เนื้อความในหัวข้อที่ 1. และ 2. ต้องอธิบายรายละเอียดไม่ตํ่ากว่า 150 คํา' />
+                  </div>
                 </div>
                 <div className='w-full mx-auto'>
                   <div className='mt-[21px] lg:w-[771px] lg:h-[420px] w-full h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] lg:mt-[62px]'>
                   <ImageUploader 
+                  editable={true}
                   className='rounded-[6px] lg:rounded-[15px]'
                   uploadFunction={doUpload}
                   purpose='second'
@@ -254,13 +273,21 @@ const Editor = ({clubId}) => {
                 </div>
               </div>
               <div>
-                <div className='flex mt-[63px] lg:mt-[90px]'>
+                <div className='flex mt-[63px] lg:mt-[90px] relative'>
                   <h1 className='font-display font-[800]'>ผลงานของชมรม</h1>
-                  <InformationCircleIcon className='w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] ml-[12px] lg:ml-[25px] my-auto text-orange' />
+                   <div className='z-10'>
+                    <Tooltip 
+                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-50'
+                    text='ใช้ภาษาทางการหรือกึ่งทางการ เน้นเข้าใจง่าย งดใช้คําลงท้าย เช่น นะคะ นะครับ ค่ะ ครับ นะ จ้ะ นะจ๊ะ เป็นต้น 
+                    งดใช้ข้อความเชิญชวน เช่น อย่าลืมมาสมัครชมรมเราเยอะ ๆ นะ เป็นต้น งดใช้อิโมจิหรืออิโมติคอน เช่น ^_^ หรือ 🥺
+                    ในหัวข้อที่ 3. ให้ยกตัวอย่างผลงานที่ผ่านมา เช่น ผลงานการแข่งขันนอกโรงเรียน การจัด Event การจัดการแสดง เป็นต้น ชมรมที่ไม่มีผลงานให้เว้นว่างไว้และผลงานที่ผ่านมาไม่รวมการจัดซุ้ม    
+                    Open House ในปีก่อน ๆ' />
+                  </div>
                 </div>
                 <div className='w-full mx-auto'>
                   <div className='mt-[21px] lg:w-[771px] lg:h-[420px] w-full h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] lg:mt-[62px]'>
                   <ImageUploader 
+                  editable={true}
                   className='rounded-[6px] lg:rounded-[15px]'
                   uploadFunction={doUpload}
                   purpose='third'
@@ -283,7 +310,12 @@ const Editor = ({clubId}) => {
             <div className='mx-auto w-[325px] lg:w-[901px]'>
                 <div className='flex mt-[35px] lg:mt-[85px]'>
                   <h1 className='font-display font-[800]'>รีวิวจากรุ่นพี่</h1>
-                  <InformationCircleIcon className='w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] ml-[12px] lg:ml-[25px] my-auto text-orange' />
+                  <div className='z-10 '>
+                    <Tooltip 
+                     className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-50'
+                     text='ไม่จําเป็นต้องใช้ภาษาทางการ ระบุรุ่นและช่องทางการติดตามรุ่นพี่ เช่น Facebook Instagram แนบภาพถ่ายบุคคลอัตราส่วน 1:1 พร้อมข้อความรีวิว
+                     รีวิวจากรุ่นพี่มีได้อย่างน้อย 1 คน และรวมทั้งหมดไม่เกิน 3 คน' />
+                  </div>
                 </div>
                   <ReviewRenderer
                     rawData={reviews}

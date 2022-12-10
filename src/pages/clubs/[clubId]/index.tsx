@@ -39,7 +39,7 @@ const LandingEdit = ({clubId}) => {
                 dataFetch = await res?.json()
             }
 
-            if (dataFetch.nonexisted) {
+            if (status = '') {
               const res = await fetch(`/api/${clubId}/prodcontent`, {
                 method: 'POST',
                 body: permBody
@@ -85,7 +85,9 @@ const LandingEdit = ({clubId}) => {
                             </Link>
                         </div>
                         <div className='lg:w-[335px] ml-[54px] lg:ml-[29px]'>
-                            <p className='text-left text-[17px] leading-[21px] lg:text-[28px] lg:leading-[33px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C]'>สถานะ : {status}</p>
+                            <p className='text-left text-[17px] leading-[21px] lg:text-[28px] lg:leading-[33px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C]'>สถานะ : 
+                            <span className={`ml-[5px] ${status == 'Approved'? 'text-[#19C57C]': status == 'Pending' ? 'text-[#FCB52B]': 'text-[#E80808]'}`}> 
+                            {status == 'Approved'? 'ผ่านการตรวจสอบ': status == 'Pending' ? 'อยู่ระหว่างการตรวจสอบ': 'ไม่ผ่านการตรวจสอบ'} </span> </p>
                         </div>
                     </div>
                 </div>

@@ -48,8 +48,16 @@
   }
   /* inject custom styles here */
   .ql-editor p {
-    font-size: 20px !important;
-    line-height: 34px;
+    font-size: 16px !important;
+    line-height: 27px;
+    font-weight: 400;
+  }
+
+  @screen lg{
+    .ql-editor p {
+      font-size: 18px !important;
+      line-height: 30px;
+    }
   }
   /* end */
   .ql-editor p,

@@ -49,6 +49,7 @@ export default function QrGen() {
     if (user?.uid) {
         return (
             <div>
+                <div className='flex flex-col items-center justify-center w-screen h-screen'>
                 <Image 
                     text={user?.uid}
                     options={{
@@ -83,13 +84,16 @@ export default function QrGen() {
                     </div>
                 : <div><p>Nothing yet...</p></div>
                 }
+                </div>
             </div>
         )
     }
     return (
         <div>
+            <div className='flex flex-col items-center justify-center w-screen h-screen'>
             <h3>Please sign up to view your QR code</h3>
             <Link href='auth'><u>Click here to Sign Up</u></Link>
+            </div>
         </div>
     )
 }

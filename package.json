@@ -16,7 +16,7 @@
     "dotenv": "^16.0.3",
     "firebase": "^9.12.1",
     "firebase-admin": "^11.1.0",
-    "framer-motion": "^7.6.15",
+    "framer-motion": "^7.6.19",
     "next": "12.2.4",
     "next-qrcode": "^2.2.2",
     "postcss": "^8.4.18",

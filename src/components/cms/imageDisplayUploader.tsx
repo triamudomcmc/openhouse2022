@@ -8,7 +8,7 @@ const ImageUploader :FC<{
 
     // width: string
     // height: string
-    // editable: boolean
+    editable: boolean
     className?: string
     uploadFunction?
     purpose?

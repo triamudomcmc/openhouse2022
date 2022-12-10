@@ -36,8 +36,6 @@ module.exports = {
     colors: {
       'blue-edit': {
         300:'#4565DB',
-        400: '3b5ed3',
-        500:'3058cc'
       },
       'blue-text': '#37498B',
       'white': '#ffffff',

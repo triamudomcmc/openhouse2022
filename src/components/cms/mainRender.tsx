@@ -2,8 +2,6 @@ import QuillEditor from '@components/common/QuillEditor'
 import { FC } from 'react'
 import ContactRenderer from './contactRender'
 import ReviewRenderer from './reviewsRender'
-import { ArrowCircleLeftIcon, InformationCircleIcon } from "@heroicons/react/outline"
-import TopicTag from '@components/common/topicTag'
 
 export const MainRenderer:FC<{
     info?: {[key: string]: string}
@@ -15,16 +13,9 @@ export const MainRenderer:FC<{
     work?: string
     workDes?: string
     reviews?: any[]
-    // editable: boolean
-}> = ({info, contacts, clubArticle, clubArticleDes, advantage, advantageDes, work, workDes, reviews, }) => {
+}> = ({info, contacts, clubArticle, clubArticleDes, advantage, advantageDes, work, workDes, reviews}) => {
     return (
           <div className='mb-[86px]'>
-            <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[178px] flex'>
-              <button className='flex'>
-                  <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
-                  <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px]'>ย้อนกลับ</p>
-              </button>
-            </div>
             <div className='mx-auto mt-[18px] w-[308px] lg:w-[771px] lg:mt-[27px]'>
                 <div className='text-center lg:mb-[41px]'>
                   <div className='mt-[20px] lg:mt-[29px]'>
@@ -40,7 +31,7 @@ export const MainRenderer:FC<{
                 </div>
               <hr className='border-gray-500 lg:border-[1px]'/>
               <div>
-                <div className='flex mt-[45px] lg:mt-[55px] w-[194px] h-[39px] lg:w-[346px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
+                <div className='flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] w-[194px] h-[39px] lg:w-[346px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
                   <svg width="41" height="41" viewBox="0 0 41 41" className='ml-[-20.5px] lg:hidden' fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.6921 0.952503C19.8719 0.0732477 21.1281 0.0732422 21.3079 0.952497L24.379 15.9783C24.4452 16.3019 24.6981 16.5548 25.0217 16.621L40.0475 19.6921C40.9268 19.8719 40.9268 21.1281 40.0475 21.3079L25.0217 24.379C24.6981 24.4452 24.4452 24.6981 24.379 25.0217L21.3079 40.0475C21.1281 40.9268 19.8719 40.9268 19.6921 40.0475L16.621 25.0217C16.5548 24.6981 16.3019 24.4452 15.9783 24.379L0.952503 21.3079C0.0732477 21.1281 0.0732422 19.8719 0.952497 19.6921L15.9783 16.621C16.3019 16.5548 16.5548 16.3019 16.621 15.9783L19.6921 0.952503Z" fill="#F06A23"/>
                   </svg>
@@ -55,10 +46,14 @@ export const MainRenderer:FC<{
                   </div>
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{clubArticleDes}</p>
                 </div >
-                <p className='mt-[21px] font-texts font-[400] text-sm'>{clubArticle}</p>
+                <QuillEditor
+                    className='lg:mt-[46px]'
+                    value={clubArticle}
+                    readOnly={true}
+                  />
               </div>
               <div>
-              <div className='flex mt-[45px] lg:mt-[55px] w-[319px] h-[39px] lg:w-[576px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
+              <div className='flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] w-[319px] h-[39px] lg:w-[576px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
                   <svg width="41" height="41" viewBox="0 0 41 41" className='ml-[-20.5px] lg:hidden' fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.6921 0.952503C19.8719 0.0732477 21.1281 0.0732422 21.3079 0.952497L24.379 15.9783C24.4452 16.3019 24.6981 16.5548 25.0217 16.621L40.0475 19.6921C40.9268 19.8719 40.9268 21.1281 40.0475 21.3079L25.0217 24.379C24.6981 24.4452 24.4452 24.6981 24.379 25.0217L21.3079 40.0475C21.1281 40.9268 19.8719 40.9268 19.6921 40.0475L16.621 25.0217C16.5548 24.6981 16.3019 24.4452 15.9783 24.379L0.952503 21.3079C0.0732477 21.1281 0.0732422 19.8719 0.952497 19.6921L15.9783 16.621C16.3019 16.5548 16.5548 16.3019 16.621 15.9783L19.6921 0.952503Z" fill="#F06A23"/>
                   </svg>
@@ -72,10 +67,14 @@ export const MainRenderer:FC<{
                   </div>
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{advantageDes}</p>
                 </div >
-                <p className='mt-[21px] font-texts font-[400] text-sm'>{advantage}</p>
+                <QuillEditor
+                    className='lg:mt-[46px]'
+                    value={advantage}
+                    readOnly={true}
+                  />
               </div>
               <div>
-              <div className='flex mt-[45px] lg:mt-[55px] w-[195px] h-[39px] lg:w-[352px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
+              <div className='flex mt-[45px] ml-[-15px] lg:ml-[-50px] lg:mt-[55px] w-[195px] h-[39px] lg:w-[352px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
                   <svg width="41" height="41" viewBox="0 0 41 41" className='ml-[-20.5px] lg:hidden' fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.6921 0.952503C19.8719 0.0732477 21.1281 0.0732422 21.3079 0.952497L24.379 15.9783C24.4452 16.3019 24.6981 16.5548 25.0217 16.621L40.0475 19.6921C40.9268 19.8719 40.9268 21.1281 40.0475 21.3079L25.0217 24.379C24.6981 24.4452 24.4452 24.6981 24.379 25.0217L21.3079 40.0475C21.1281 40.9268 19.8719 40.9268 19.6921 40.0475L16.621 25.0217C16.5548 24.6981 16.3019 24.4452 15.9783 24.379L0.952503 21.3079C0.0732477 21.1281 0.0732422 19.8719 0.952497 19.6921L15.9783 16.621C16.3019 16.5548 16.5548 16.3019 16.621 15.9783L19.6921 0.952503Z" fill="#F06A23"/>
                   </svg>
@@ -89,7 +88,11 @@ export const MainRenderer:FC<{
                   </div>
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{workDes}</p>
                 </div >
-                <p className='mt-[21px] font-texts font-[400] text-sm'>{work}</p>
+                <QuillEditor
+                    className='lg:mt-[46px]'
+                    value={work}
+                    readOnly={true}
+                  />
               </div>
             </div>
             <div className='mx-auto w-[325px] lg:w-[901px]'>
@@ -104,7 +107,6 @@ export const MainRenderer:FC<{
                 </div>
                   <ReviewRenderer
                     rawData={reviews}
-                    // setReviews={setReviews}
                     editable={false}
                   />
             </div>
