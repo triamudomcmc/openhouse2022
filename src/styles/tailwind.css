@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~quill/dist/quill.snow.css";
+@import "~quill/dist/quill.bubble.css";
+
+
+@layer base {
+    @font-face {
+        font-family: 'Bai Jamjuree';
+        src: url('/public/fonts/BaiJamjuree-Medium.ttf') ;
+    }
+    @font-face {
+        font-family: 'NotoSansThai';
+        src: url('/public/fonts/NotoSansThai-VariableFont_wdth\,wght.ttf');
+    }
+
+    div {
+        @apply font-display;
+        font-weight: 400;
+        font-size: 10px;
+        padding: 0;
+    }
+    
+    h1{
+        @apply text-md ;
+        font-weight: 800;
+    }
+
+    @screen lg{
+        h1 {
+            @apply text-2xl;
+            font-weight: 800;
+        }
+        h2{
+            @apply text-xl;
+        }
+        div{
+            font-size: 16px;
+        }
+    }
+
+    body {
+        display: flex;
+        min-height: 100vh;
+    }
+      
+    #__next {
+        flex: 1 1 auto;
+    }
+
+    .bg-gradient-edit{
+        background: linear-gradient(180deg, #FFF6E8 -1.61%, #FFDA98 46.55%, #FFBD97 69.3%, #B8BDDD 90.47%);
+    }
+
+    .bg-gradient-landing{
+        background: linear-gradient(0deg, #EC9E6D 3.37%, #576AAE 95.73%) ;
+    }
+
+    .bg-login-edit{
+        background: linear-gradient(180deg, rgba(255, 246, 232, 0.58) 24.33%, #F2C69C 100%);
+    }
+
+    .bg-article{
+        background-image: url('https://www.google.com/search?q=post+card+shop&tbm=isch&ved=2ahUKEwjAiKXW6uz7AhU0SHwKHT7nBTUQ2-cCegQIABAA&oq=post+card+shop&gs_lcp=CgNpbWcQAzIHCAAQgAQQGDIJCAAQgAQQChAYOgQIIxAnOgQIABBDOgcIABCxAxBDOgUIABCABDoHCAAQgAQQCjoICAAQCBAeEAo6BggAEAgQHlCuGViUM2CYNmgAcAB4AIABXogBnQmSAQIxNJgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=ylGTY8D7IrSQ8QO-zpeoAw&bih=755&biw=1470&rlz=1C5CHFA_enTH1030TH1033#imgrc=ZVBj0-W6w8Eh-M');
+    }
+}

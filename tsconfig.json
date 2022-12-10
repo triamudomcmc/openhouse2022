@@ -1,15 +1,34 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@config/*": ["src/config/*"],
-      "@components/*": ["src/components/*"],
-      "@lib/*": ["src/lib/*"],
-      "@pages/*": ["src/pages/*"],
-      "@ctypes/*": ["src/types/*"],
-      "@styles/*": ["src/styles/*"],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@handlers/*": [
+        "src/handlers/*"
+      ],
+      "@ctypes/*": [
+        "src/types/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -24,6 +43,12 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "src/components/common/topicTag.tsx", "public/asset/background/article.tsx.tmp"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

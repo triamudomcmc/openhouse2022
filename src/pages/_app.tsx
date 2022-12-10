@@ -1,4 +1,5 @@
-import '@styles/globals.css'
+import '@styles/tailwind.css'
+import '@styles/quill.bubble.css'
 
 import { AuthProvider } from "@lib/auth"
 import { AppProps } from 'next/app'

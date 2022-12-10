@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer'
 import {
   DocumentData,
   getFirestore,
@@ -7,6 +8,7 @@ import {
   updateDoc,
   getDoc,
   addDoc,
+  deleteDoc,
 } from 'firebase/firestore'
 import firebaseApp from './firebase'
 
@@ -29,7 +31,7 @@ export const createUser = async (uid: string, data: DocumentData): Promise<void>
     return undefined
   }
   else {
-    return setDoc(userRef, data, { merge: true })
+    return await setDoc(userRef, data, { merge: true })
   }
 }
 
@@ -37,11 +39,8 @@ export const getUserData = async (uid: string): Promise<null | DocumentData> => 
   const userRef = getUserRef(uid)
   const doc = await getDoc(userRef)
 
-  if (doc.exists()) {
-    return doc.data()
-  } else {
-    return null
-  }
+  if (doc.exists()) return doc.data()
+  return null
 }
 
 export const getCurrentUserId = async (uid: string): Promise<string> => {
@@ -75,4 +74,74 @@ export const stamp = async (club: string,uid: string): Promise<void> => {
   const userRef = getUserRef(uid)
 
   return await updateDoc(userRef, {[`stamp.${club}`]: true})
+}
+
+export const getClubProdRef = (clubId: string) => {
+  return doc(db, "prodAppr", clubId)
+}
+
+export const getClubPendRef = (clubId: string) => {
+  return doc(db, "pendingAppr", clubId)
+}
+
+export const getClubProdArticle = async (clubId: string): Promise<null | DocumentData> => {
+  const clubRef = getClubProdRef(clubId)
+  const doc = await getDoc(clubRef)
+
+  if (doc.exists()) return doc.data()
+  return undefined
+}
+
+export const getClubPendArticle = async (clubId: string): Promise<null | DocumentData> => {
+  const clubRef = getClubPendRef(clubId)
+  const doc = await getDoc(clubRef)
+
+  if (doc.exists()) return doc.data()
+  return undefined
+  //return await getClubProdArticle(clubId)
+}
+
+export const updateArticleToPending = async (clubId: string, data) : Promise<void> => {
+  const clubRef = getClubPendRef(clubId)
+
+  data = JSON.parse(data)
+  const finalData = {
+    Info: {
+      nameTH: data.Info?.nameTH,
+      nameEN: data.Info?.nameEN,
+      member: data.Info?.member
+    },
+    // Images: data.Images ?? {},
+    Contacts: data.Contacts ?? [''],
+    ClubArticle: data.ClubArticle,
+    ClubArticleDes: data.ClubArticleDes ?? '',
+    Advantage: data.Advantage,
+    AdvantageDes: data.AdvantageDes ?? '',
+    Work: data.Work,
+    WorkDes: data.WorkDes ?? '',
+    Reviews: data.Reviews
+  }
+  
+  return await setDoc(clubRef, finalData, {merge: true})
+}
+
+export const updateImage = async (clubId: string, file: string, field: string) : Promise<void> => {
+  const clubPendRef = getClubPendRef(clubId)
+
+  return await setDoc(clubPendRef, {Images: { [field]: file }}, {merge: true})
+}
+
+export const updateProfileImage = async (clubId: string, data) : Promise<void> => {
+  const clubPendRef = getClubPendRef(clubId)
+
+  return await setDoc(clubPendRef, {Reviews: data}, {merge: true})
+}
+
+export const movePendToProd = async (clubId: string) : Promise<void> => {
+  const clubPendRef = getClubPendRef(clubId)
+  const clubProdRef = getClubProdRef(clubId)
+
+  const pendDoc = await getClubPendArticle(clubId)
+  await setDoc(clubProdRef, pendDoc)
+  return await deleteDoc(clubPendRef)
 }
