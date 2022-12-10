@@ -9,8 +9,8 @@ export default function notFound() {
             <div className="flex flex-col items-center justify-center w-screen h-screen bg-cream">
                 <DuckInTheMusuem classname="max-lg:hidden" width="472" height="266"/>
                 <DuckInTheMusuem classname="lg:hidden" width="250"/>
-                <div className=" bg-[#4461AD] w-[230px] lg:w-[468px] mt-[4px] lg:mt-[12px]">
-                    <YouGotLostInTheMusuem classname="mx-auto max-lg:hidden" width="466" height="38"/>
+                <div className=" bg-[#4461AD] w-[230px] lg:w-[478px] mt-[4px] lg:mt-[12px]">
+                    <YouGotLostInTheMusuem classname="mx-auto max-lg:hidden" width="466" height="48"/>
                     <YouGotLostInTheMusuem classname="mx-auto lg:hidden" width="226" height="25"/>
                 </div>
                 <div className="lg:mt-[2px] mt-[1px]">
