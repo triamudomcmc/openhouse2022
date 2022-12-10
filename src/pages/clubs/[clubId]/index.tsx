@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import { useAuth } from '@lib/auth'
 import { MainRenderer } from '@components/cms/mainRender'
+import { PencilIcon } from '@heroicons/react/solid'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
@@ -79,15 +80,20 @@ const LandingEdit = ({clubId}) => {
                     <div className='lg:w-[362px] justify-center flex flex-col'>
                         <div className='relative flex flex-row justify-end max-lg:mt-[23.2px] max-lg:mx-auto'>
                             <Link href={`/clubs/${[clubId]}/edit`}>
-                                <button className='w-[203.7px] h-[38.3px] lg:w-[335px] lg:h-[63px] bg-blue-edit-300 rounded-[13.4px] lg:rounded-[23.5px]'>
-                                    <p className='text-center text-[19.4px] leading-[24px] lg:text-[32px] lg:leading-[39px] font-500 text-white'>แก้ไข</p>
+                                <button className='w-[203.7px] h-[38.3px] lg:w-[335px] lg:h-[63px] bg-blue-edit-300 rounded-[13.4px] lg:rounded-[23.5px] flex flex-row items-center justify-center'>
+                                    <p className='text-[19.4px] leading-[24px] lg:text-[32px] lg:leading-[39px] font-500 text-white'>แก้ไข</p>
+                                    <PencilIcon className='w-[16px] lg:w-[26px] text-white ml-[5px] lg:ml-[10px] mb-[1px] lg:mb-[3px]' />
                                 </button>
                             </Link>
                         </div>
                         <div className='lg:w-[335px] ml-[54px] lg:ml-[29px]'>
-                            <p className='text-left text-[17px] leading-[21px] lg:text-[28px] lg:leading-[33px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C]'>สถานะ : 
-                            <span className={`ml-[5px] ${status == 'Approved'? 'text-[#19C57C]': status == 'Pending' ? 'text-[#FCB52B]': 'text-[#E80808]'}`}> 
-                            {status == 'Approved'? 'ผ่านการตรวจสอบ': status == 'Pending' ? 'อยู่ระหว่างการตรวจสอบ': 'ไม่ผ่านการตรวจสอบ'} </span> </p>
+                            <p className='text-left text-[17px] leading-[21px] lg:text-[24px] lg:leading-[30px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C] flex flex-row'>สถานะ : 
+                            <span className={`ml-[5px] ${status == 'Approved'? 'text-[#19C57C]': status == 'Pending' ? 'text-[#FCB52B]': 'text-[#E80808]'} flex flex-row items-center`}> 
+                            <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="10" fill={`${status == 'Approved'? '#19C57C': status == 'Pending' ? '#FCB52B': '#E80808'}`}/>
+                            </svg>
+                            <p className='lg:ml-[5px]'>{status == 'Approved'? 'ผ่านการตรวจสอบ': status == 'Pending' ? 'อยู่ระหว่างการตรวจสอบ': 'ไม่ผ่านการตรวจสอบ'}</p>
+                            </span> </p>
                         </div>
                     </div>
                 </div>
