@@ -47,7 +47,7 @@ export const MainRenderer:FC<{
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{clubArticleDes}</p>
                 </div >
                 <QuillEditor
-                    className='lg:mt-[46px]'
+                    className='lg:mt-[46px] mt-[21px]'
                     value={clubArticle}
                     readOnly={true}
                   />
@@ -68,7 +68,7 @@ export const MainRenderer:FC<{
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{advantageDes}</p>
                 </div >
                 <QuillEditor
-                    className='lg:mt-[46px]'
+                    className='lg:mt-[46px] mt-[21px]'
                     value={advantage}
                     readOnly={true}
                   />
@@ -89,7 +89,7 @@ export const MainRenderer:FC<{
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{workDes}</p>
                 </div >
                 <QuillEditor
-                    className='lg:mt-[46px]'
+                    className='lg:mt-[46px] mt-[21px]'
                     value={work}
                     readOnly={true}
                   />

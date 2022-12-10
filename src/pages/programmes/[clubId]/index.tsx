@@ -3,7 +3,6 @@ import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import { useAuth } from '@lib/auth'
 import { MainRenderer } from '@components/cms/mainRender'
-import { PencilIcon } from '@heroicons/react/solid'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
@@ -40,7 +39,7 @@ const LandingEdit = ({clubId}) => {
                 dataFetch = await res?.json()
             }
 
-            if (status == '') {
+            if (dataFetch.nonexisted) {
               const res = await fetch(`/api/${clubId}/prodcontent`, {
                 method: 'POST',
                 body: permBody
@@ -79,10 +78,9 @@ const LandingEdit = ({clubId}) => {
                     <div className='border-[2px] border-[#5C5C5C] opacity-60 max-lg:hidden' />
                     <div className='lg:w-[362px] justify-center flex flex-col'>
                         <div className='relative flex flex-row justify-end max-lg:mt-[23.2px] max-lg:mx-auto'>
-                            <Link href={`/clubs/${[clubId]}/edit`}>
-                                <button className='w-[203.7px] h-[38.3px] lg:w-[335px] lg:h-[63px] bg-blue-edit-300 rounded-[13.4px] lg:rounded-[23.5px] flex flex-row items-center justify-center'>
-                                    <p className='text-[19.4px] leading-[24px] lg:text-[32px] lg:leading-[39px] font-500 text-white'>แก้ไข</p>
-                                    <PencilIcon className='w-[16px] lg:w-[26px] text-white ml-[5px] lg:ml-[10px] mb-[1px] lg:mb-[3px]' />
+                            <Link href={`/programmes/${[clubId]}/edit`}>
+                                <button className='w-[203.7px] h-[38.3px] lg:w-[335px] lg:h-[63px] bg-blue-edit-300 rounded-[13.4px] lg:rounded-[23.5px]'>
+                                    <p className='text-center text-[19.4px] leading-[24px] lg:text-[32px] lg:leading-[39px] font-500 text-white'>แก้ไข</p>
                                 </button>
                             </Link>
                         </div>
