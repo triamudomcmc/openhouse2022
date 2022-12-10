@@ -5,6 +5,7 @@ import { CountDown } from '@components/common/Countdown'
 import { MailIcon } from '@heroicons/react/solid'
 import RomanTower from 'src/vectors/romanTower'
 import { useAuth } from '@lib/auth'
+import GoogleIcon from 'src/vectors/icons/google'
 
 export default function Home() {
   const {user, signinWithGoogle, signout} = useAuth()
@@ -22,8 +23,8 @@ export default function Home() {
       
       <section className='relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-login-edit'>
         <div className=''>
-          <RomanTower classname='absolute top-0 left-[-60px] lg:left-0 h-screen transform -scale-x-100' />
-          <RomanTower classname='absolute top-0 h-screen -right-[60px] lg:right-0' />
+          <RomanTower classname='absolute top-0 left-[-60px] min-[700px]:left-[-30px] lg:left-0 h-screen transform -scale-x-100' />
+          <RomanTower classname='absolute top-0 h-screen -right-[60px] min-[700px]:right-[-30px] lg:right-0' />
         </div>
         <p className='text-[28px] lg:text-[40px] font-[700] text-[#37498B]'>Register / ลงทะเบียน</p>
         <motion.div
@@ -33,32 +34,8 @@ export default function Home() {
               onClick={() => signinWithGoogle('/account')}
               className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
               <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
-                <svg className='max-lg:hidden' width="30" height="30" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_736_675)">
-              <path d="M8.63791 23.5673L7.28038 28.6352L2.31862 28.7401C0.83578 25.9898 -0.00531006 22.8431 -0.00531006 19.4991C-0.00531006 16.2655 0.781089 13.2162 2.17503 10.5312H2.1761L6.59346 11.3411L8.52853 15.732C8.12352 16.9127 7.90278 18.1802 7.90278 19.4991C7.90293 20.9305 8.16222 22.302 8.63791 23.5673Z" fill="#292E6E"/>
-              <path d="M38.6586 15.855C38.8826 17.0346 38.9993 18.2528 38.9993 19.4978C38.9993 20.8939 38.8526 22.2557 38.5729 23.5693C37.6237 28.0393 35.1433 31.9425 31.7073 34.7046L31.7062 34.7036L26.1423 34.4197L25.3548 29.5039C27.6348 28.1668 29.4166 26.0743 30.3552 23.5693H19.928V15.855H30.5073H38.6586Z" fill="#6C87B3"/>
-              <path d="M31.7118 34.7034L31.7129 34.7045C28.3712 37.3905 24.1261 38.9977 19.5051 38.9977C12.079 38.9977 5.62258 34.847 2.32898 28.7388L8.64827 23.5659C10.295 27.9609 14.5347 31.0895 19.5051 31.0895C21.6414 31.0895 23.6429 30.512 25.3604 29.5037L31.7118 34.7034Z" fill="#4565DB"/>
-              <path d="M31.9529 4.49073L25.6357 9.6625C23.8583 8.55145 21.7572 7.90963 19.5061 7.90963C14.4232 7.90963 10.1043 11.1817 8.54003 15.7343L2.18753 10.5336H2.18646C5.43184 4.27646 11.9697 0.00146484 19.5061 0.00146484C24.2375 0.00146484 28.5758 1.68684 31.9529 4.49073Z" fill="#2B388E"/>
-              </g>
-              <defs>
-              <clipPath id="clip0_736_675">
-              <rect width="39" height="39" fill="white"/>
-              </clipPath>
-              </defs>
-                </svg>
-                <svg className='lg:hidden' width="24" height="24" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_736_675)">
-              <path d="M8.63791 23.5673L7.28038 28.6352L2.31862 28.7401C0.83578 25.9898 -0.00531006 22.8431 -0.00531006 19.4991C-0.00531006 16.2655 0.781089 13.2162 2.17503 10.5312H2.1761L6.59346 11.3411L8.52853 15.732C8.12352 16.9127 7.90278 18.1802 7.90278 19.4991C7.90293 20.9305 8.16222 22.302 8.63791 23.5673Z" fill="#292E6E"/>
-              <path d="M38.6586 15.855C38.8826 17.0346 38.9993 18.2528 38.9993 19.4978C38.9993 20.8939 38.8526 22.2557 38.5729 23.5693C37.6237 28.0393 35.1433 31.9425 31.7073 34.7046L31.7062 34.7036L26.1423 34.4197L25.3548 29.5039C27.6348 28.1668 29.4166 26.0743 30.3552 23.5693H19.928V15.855H30.5073H38.6586Z" fill="#6C87B3"/>
-              <path d="M31.7118 34.7034L31.7129 34.7045C28.3712 37.3905 24.1261 38.9977 19.5051 38.9977C12.079 38.9977 5.62258 34.847 2.32898 28.7388L8.64827 23.5659C10.295 27.9609 14.5347 31.0895 19.5051 31.0895C21.6414 31.0895 23.6429 30.512 25.3604 29.5037L31.7118 34.7034Z" fill="#4565DB"/>
-              <path d="M31.9529 4.49073L25.6357 9.6625C23.8583 8.55145 21.7572 7.90963 19.5061 7.90963C14.4232 7.90963 10.1043 11.1817 8.54003 15.7343L2.18753 10.5336H2.18646C5.43184 4.27646 11.9697 0.00146484 19.5061 0.00146484C24.2375 0.00146484 28.5758 1.68684 31.9529 4.49073Z" fill="#2B388E"/>
-              </g>
-              <defs>
-              <clipPath id="clip0_736_675">
-              <rect width="39" height="39" fill="white"/>
-              </clipPath>
-              </defs>
-                </svg>
+                <GoogleIcon classname='max-lg:hidden' width='30' height='30'/>
+                <GoogleIcon classname='lg:hidden' width='24' height='24'/>
                 <p className='text-[14px] ml-[10px] lg:ml-[20px] lg:text-[20px] font-500 text-[#37498B]'>Sign up with Google</p>
               </div>
             </button>
