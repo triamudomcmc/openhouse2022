@@ -1,16 +1,42 @@
+import { FC, useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { motion } from "framer-motion"
-import { CountDown } from '@components/common/Countdown'
-import { MailIcon } from '@heroicons/react/solid'
-import RomanTower from 'src/vectors/romanTower'
+
 import { useAuth } from '@lib/auth'
-import GoogleIcon from 'src/vectors/icons/google'
-import KorChor from 'src/vectors/icons/korchor'
+import { CountDown } from '@components/common/Countdown'
+
+import { MailIcon } from '@heroicons/react/solid'
+import RomanTower from '@vectors/romanTower'
+import GoogleIcon from '@vectors/icons/google'
+import KorChor from '@vectors/icons/korchor'
+
+const OpeningTime = +new Date(2023, 0, 14, 9, 0, 0, 0)
 
 export default function Home() {
   const {user, signinWithGoogle, signout} = useAuth()
+  const [timeLeft, setTimeLeft] = useState(null)
+
+  useEffect(() => {
+    const calTimeLeft = () => {
+      const diff = OpeningTime - +new Date()
+
+      if (diff > 0) return {
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / 1000 / 60) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+        total: diff,
+      }
+      else return null
+    }
+    const timer = setInterval(() => {
+      setTimeLeft(calTimeLeft)
+    }, 1000)
+    return function cleanup() { clearInterval(timer) }
+  }, [])
+
   // const Router = useRouter()
   // if (user ?? false ? user?.club : false) return Router.push(`/clubs/${user?.club}`)
   // else if (user ?? false ? user : false) return Router.push('/account')
@@ -18,12 +44,9 @@ export default function Home() {
     <div>
 
       {/* Countdown */}
-      {/* <main className='main'>
-        <h1 className='title'>
-          Countdown
-        </h1>
-        <CountDown until={+new Date(2023, 0, 14, 9, 0, 0, 0)} />
-      </main> */}
+      <main className='main'>
+        <CountDown timeLeft={timeLeft}/>
+      </main>
       
       <section className='relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-login-edit'>
         <div className=''>
