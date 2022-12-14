@@ -54,8 +54,8 @@ export default function Home() {
         <div className="fixed left-0 top-auto w-full -z-10 max-lg:hidden">
           <CountDownBg className="object-cover min-h-screen" />
         </div>
-        <div className='fixed top-0 left-0 object-fill w-screen h-full mx-auto -z-10 lg:hidden'>
-          <CountDownBgPhone />
+        <div className='fixed left-0 top-auto w-full -z-10 lg:hidden'>
+          <CountDownBgPhone className="object-cover min-h-screen" />
         </div>
         {/* <div
           style={{ backgroundImage: 'url("/asset/bg-mobile.svg"' }}
