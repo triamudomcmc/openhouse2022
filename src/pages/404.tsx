@@ -1,7 +1,7 @@
 import Link from "next/link"
-import ThisPageCouldNotBeFound from "src/vectors/lost/couldNotFound"
-import DuckInTheMusuem from "src/vectors/lost/duckInTheMusuem"
-import YouGotLostInTheMusuem from "src/vectors/lost/youGotLostInTheMusuem"
+import ThisPageCouldNotBeFound from "@vectors/text/couldNotFound"
+import DuckInTheMusuem from "@vectors/common/duckInTheMusuem"
+import YouGotLostInTheMusuem from "@vectors/text/youGotLostInTheMusuem"
 
 export default function notFound() {
     return(
