@@ -14,7 +14,7 @@ const CountDownBg: FC<{
       height="100%"
       fill="none"
       viewBox="0 0 1512 980"
-      className={`min-h-[768px] mx-auto ${className}`}
+      className={`mx-auto ${className}`}
       {...restProps}
     >
       <g clipPath="url(#clip0_170_164)">
