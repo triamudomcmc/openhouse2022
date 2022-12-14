@@ -52,14 +52,17 @@ export default function Home() {
       {/* Countdown */}
       <main className="flex items-center justify-center h-screen overflow-hidden">
         <div className="fixed left-0 top-auto w-full -z-10 max-lg:hidden">
-          <CountDownBg className="min-h-screen object-cover" />
+          <CountDownBg className="object-cover min-h-screen" />
         </div>
-        <div
+        <div className='fixed top-0 left-0 object-fill w-screen h-full mx-auto -z-10 lg:hidden'>
+          <CountDownBgPhone />
+        </div>
+        {/* <div
           style={{ backgroundImage: 'url("/asset/bg-mobile.svg"' }}
-          className="absolute left-0 w-full h-screen bg-no-repeat object-cover top-auto -z-10 lg:hidden"
-        >
-          {/* <CountDownBgPhone className="w-full h-screen object-cover" /> */}
-        </div>
+          className="absolute left-0 top-auto object-cover w-full h-screen bg-no-repeat -z-10 lg:hidden"
+        > */}
+          {/* <CountDownBgPhone className="object-cover w-full h-screen" /> */}
+        {/* </div> */}
         {/* <div className='w-screen h-[68px] bg-white top-0 absolute opacity-70'></div> */}
         <div className="mt-[-30px]">
           <TriamUdom classname="w-[316px] lg:w-[732px]" />
