@@ -1,19 +1,19 @@
 import { FC } from "react";
 
-const CountDownBgPhone : FC<{
-    // width?:string;
-    // height?:string;
-    classname?: string;
-}> = ({ ...restProps }) => {
+const CountDownBgPhone: FC<{
+  // width?:string;
+  // height?:string;
+  className?: string;
+}> = ({ className, ...restProps }) => {
   return (
-      <svg
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       // width="375"
       // min-height="667"
-      height='100%'
+      height="100%"
       fill="none"
       viewBox="0 0 375 667"
-      className="mx-auto "
+      className={`${className}`}
       {...restProps}
     >
       <g clipPath="url(#clip0_243_106)">
@@ -184,6 +184,6 @@ const CountDownBgPhone : FC<{
       </defs>
     </svg>
   );
-}
+};
 
 export default CountDownBgPhone;
