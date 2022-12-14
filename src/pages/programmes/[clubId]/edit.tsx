@@ -247,7 +247,7 @@ const Editor = ({clubId}) => {
                     className='rounded-[6px] lg:rounded-[15px]'
                     uploadFunction={doUpload}
                     purpose='first'
-                    link={imagesLink ?? imagesLink.hasOwnProperty('first') ? imagesLink['first'] : null}
+                    link={imagesLink ?? false ? (imagesLink['first'] ?? null) : null}
                     />
                   </div>
                   <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' 
@@ -285,7 +285,7 @@ const Editor = ({clubId}) => {
                   className='rounded-[6px] lg:rounded-[15px]'
                   uploadFunction={doUpload}
                   purpose='second'
-                  link={imagesLink ?? imagesLink.hasOwnProperty('second') ? imagesLink['second'] : null}
+                  link={imagesLink ?? false ? (imagesLink['second'] ?? null) : null}
                   />
                   </div>
                   <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' 
@@ -324,7 +324,7 @@ const Editor = ({clubId}) => {
                   className='rounded-[6px] lg:rounded-[15px]'
                   uploadFunction={doUpload}
                   purpose='third'
-                  link={imagesLink ?? imagesLink.hasOwnProperty('third') ? imagesLink['third'] : null}
+                  link={imagesLink ?? false ? (imagesLink['third'] ?? null) : null}
                   />
                   </div>
                   <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' 
