@@ -7,6 +7,7 @@ import { AppProps } from 'next/app'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
+      <link rel="icon" href="/favicon.ico" />
       <Component {...pageProps} />
     </AuthProvider>
   )
