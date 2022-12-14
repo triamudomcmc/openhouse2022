@@ -18,9 +18,24 @@ export const getImage = async (req, ID) => {
 
     let finalUrl = {}
     for (let key in data) {
-        //@ts-ignore
-        const url = await gcpBucket.file(data[key]).getSignedUrl(gcpOptions)
-        finalUrl[key] = url
+        let onDefault = data[key].split('-')
+        if (data[key].includes('profile')) onDefault = `${ID}-${onDefault[1]}-${onDefault[2]}-default.jpg`
+        else onDefault = `${ID}-${onDefault[1]}-default.jpg`
+
+
+        let onErr = true
+        if ((data[key] ?? false) || (data[key] != '')) {
+            //@ts-ignore
+            const url = await gcpBucket.file(data[key]).getSignedUrl(gcpOptions)
+            const result = await fetch(`${url}`)
+            if (result.status == 404) onErr = true
+            else {
+                onErr = false
+                finalUrl[key] = url
+            }
+        }
+        if (onErr && fs.existsSync(process.cwd() + `/public/assets/images/organizations/${ID}/${data[key]}`)) finalUrl[key] = `/assets/images/organizations/${ID}/${data[key]}`
+        else if (onErr && fs.existsSync(process.cwd() + `/public/assets/images/organizations/${ID}/${onDefault}`)) finalUrl[key] = `/assets/images/organizations/${ID}/${onDefault}`
     }
     return finalUrl
 }

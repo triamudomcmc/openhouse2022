@@ -4,10 +4,10 @@ import { useRouter } from 'next/router'
 import { motion } from "framer-motion"
 import { CountDown } from '@components/common/Countdown'
 import { MailIcon } from '@heroicons/react/solid'
-import RomanTower from 'src/vectors/romanTower'
+import RomanTower from '@vectors/romanTower'
 import { useAuth } from '@lib/auth'
-import GoogleIcon from 'src/vectors/icons/google'
-import KorChor from 'src/vectors/icons/korchor'
+import GoogleIcon from '@vectors/icons/google'
+import KorChor from '@vectors/icons/korchor'
 
 export default function Home() {
   const {user, signinWithGoogle, signout} = useAuth()

@@ -28,7 +28,10 @@
       ],
       "@styles/*": [
         "src/styles/*"
-      ]
+      ],
+      "@vectors/*": [
+        "src/vectors/*"
+      ],
     },
     "allowJs": true,
     "skipLibCheck": true,

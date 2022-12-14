@@ -1,7 +1,7 @@
 import Link from "next/link"
-import KorChor from "src/vectors/icons/korchor"
-import DuckInTheMusuem from "src/vectors/lost/duckInTheMusuem"
-import RegisteredSuccessfully from "src/vectors/lost/registeredSuccessfully"
+import KorChor from "@vectors/icons/korchor"
+import DuckInTheMusuem from "@vectors/lost/duckInTheMusuem"
+import RegisteredSuccessfully from "@vectors/lost/registeredSuccessfully"
 
 export default function Done() {
     return(

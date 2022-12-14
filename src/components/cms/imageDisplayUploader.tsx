@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useRef, FC } from 'react'
 import { toBase64 } from 'src/utilities/imgToBase'
 import { motion } from 'framer-motion'
