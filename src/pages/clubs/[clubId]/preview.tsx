@@ -6,7 +6,7 @@ import { MainRenderer } from '@components/cms/mainRender'
 import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
 import Link from 'next/link'
 import Tooltip from '@components/common/tooltip'
-import ArticleBackground from 'public/asset/background/article'
+// import ArticleBackground from 'public/asset/background/article'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {

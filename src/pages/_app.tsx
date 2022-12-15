@@ -8,7 +8,7 @@ import { Navbar } from '@components/common/Nav/Navbar'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
-      <Navbar />
+      <link rel="icon" href="/favicon.ico" />
       <Component {...pageProps} />
     </AuthProvider>
   )
