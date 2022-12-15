@@ -1,8 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useRef, FC } from 'react'
-import { toBase64 } from 'src/utilities/imgToBase'
+import Image from 'next/image'
+
+import { toBase64 } from '@utilities/imgToBase'
+
 import { motion } from 'framer-motion'
 import { PhotographIcon } from "@heroicons/react/outline"
-
 
 const ImageUploader :FC<{
 

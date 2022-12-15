@@ -23,6 +23,9 @@
       "@handlers/*": [
         "src/handlers/*"
       ],
+      "@utilities/*": [
+        "src/utilities/*"
+      ],
       "@ctypes/*": [
         "src/types/*"
       ],
