@@ -13,4 +13,19 @@ export const clubs = [
     'ก30912',   'ก30913',   'ก30953',   'ก30905-3',
     'ก30950',   'ก30920',   'ก30922',   'ก30928',
     'ก30952-1', 'ก30952-4', 'ก30911'
-  ]
+]
+
+export const programmes = [
+  'gifted-thai',
+  'arts-korean',
+  'sci-math',
+  'arts-chinese',
+  'gifted-math',
+  'arts-japanese',
+  'arts-german',
+  'arts-french',
+  'arts-math',
+  'arts-espanol',
+  'gifted-science',
+  'gifted-english'
+]

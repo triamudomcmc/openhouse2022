@@ -18,6 +18,7 @@ export const getImage = async (req, ID) => {
 
     let finalUrl = {}
     for (let key in data) {
+        // onDefault will break on programmes
         let onDefault = data[key].split('-')
         if (data[key].includes('profile')) onDefault = `${ID}-${onDefault[1]}-${onDefault[2]}-default.jpg`
         else onDefault = `${ID}-${onDefault[1]}-default.jpg`
