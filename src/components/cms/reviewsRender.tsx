@@ -80,23 +80,9 @@ const ReviewRenderer:FC<{
     
     return (
       <div className="lg:flex mt-[26px] lg:mt-[41px]">
-        <div className={ editable == false? "border border-1 border-white bg-white bg-opacity-50 rounded-[22.55px] lg:rounded-[28.84px] w-[325px] lg:w-[703px]" : "border border-1 rounded-[22.55px] lg:rounded-[28.84px] w-[325px] lg:w-[703px]"}>
-              <QuillEditor
-                value={review}
-                onChange={(txt) => {
-                  setReviews
-                  ? setReviews((prev) => {
-                      prev[index].Review = txt.trim()
-                      return prev
-                    })
-                  : null
-                }}
-                readOnly={!editable}
-              />
-        </div>
-        {editable
-        ? <div>
-            <div className="flex lg:flex-col mt-[30px] lg:mt-0 lg:ml-[50px]">
+        {(index % 2 == 0)
+        ? <div className="max-lg:hidden">
+            <div className="flex lg:flex-col mt-[30px] lg:mt-0 ">
               <div className="flex lg:flex-col lg:w-[170px]">
                 <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
                   <ImageUploader 
@@ -165,18 +151,215 @@ const ReviewRenderer:FC<{
               </div>
             </div>
           : null }
-          {/* <div className="border border-1 rounded-[22.55px] lg:rounded-[28.84px] w-[246px] lg:w-[703px] hidden">
-              <QuillEditor
-                value={review}
-                onChange={(txt) => {
-                  setReviews((prev) => {
+        <div className={` ${ editable == false? " border-white bg-white bg-opacity-50" : ""} border border-1 rounded-[22.55px] lg:rounded-[28.84px] w-[325px] lg:w-[703px]`}>
+            <QuillEditor
+              value={review}
+              onChange={(txt) => {
+                setReviews
+                ? setReviews((prev) => {
                     prev[index].Review = txt.trim()
                     return prev
                   })
-                }}
-                readOnly={!editable}
-              />
-            </div> */}
+                : null
+              }}
+              readOnly={!editable}
+            />
+        </div>
+        {(( index % 2 == 1))
+        ? <div className="max-lg:hidden">
+            <div className="flex lg:flex-col mt-[30px] lg:mt-0 lg:ml-[30px] ">
+              <div className="flex lg:flex-col lg:w-[170px]">
+                <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
+                  <ImageUploader 
+                    editable={editable}
+                    className="rounded-[9.2px] lg:rounded-[24.3px]"
+                    uploadFunction={reviewDoUpload}
+                    purpose={`profile-${index}`}
+                    link={index in reviewImagesLink ? reviewImagesLink[index] : null}
+                  />
+                </div>
+                <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
+                  <p
+                    className='text-[15px] leading-[18.15px] font-[900] font-display lg:text-xl'
+                    suppressContentEditableWarning={true}
+                    contentEditable={editable}
+                    onKeyUpCapture={(e) => {
+                      setReviews((prev) => {
+                        const inp = e.target as HTMLElement
+                        prev[index].Name = inp.innerText
+                        return prev
+                      })
+                    } }
+                  >{name}</p>
+                  <div className="flex font-display text-xs font-[400] lg:text-md">
+                    <p>เตรียมอุดม</p>
+                    <p
+                      suppressContentEditableWarning={true}
+                      contentEditable={editable}
+                      onKeyUpCapture={(e) => {
+                        setReviews((prev) => {
+                          const inp = e.target as HTMLElement
+                          prev[index].Year = inp.innerText
+                          return prev
+                        })
+                      } }
+                    >:  {year}</p>
+                  </div>
+                  <p className="font-display text-xs font-[400] lg:text-md"
+                    suppressContentEditableWarning={true}
+                    contentEditable={editable}
+                    onKeyUpCapture={(e) => {
+                      setReviews((prev) => {
+                        const inp = e.target as HTMLElement
+                        prev[index].Social = inp.innerText
+                        return prev
+                      })
+                    } }
+                  >{social}</p>
+                </div>
+              </div>
+                {editable
+                  ? <div
+                    onClick={() => {
+                      setReviews((prev) => {
+                        const after = [...prev]
+                        if (index >= 0)
+                          after.splice(index, 1)
+                        return after
+                      })
+                    } }
+                    className="flex justify-center mt-2 rounded-[34.6px] lg:rounded-[46px] w-[34.6px] h-[34.6px] lg:w-[46px] lg:h-[46px] shadow-[0_4px_4px_rgba(0,0,0,0.25)] cursor-pointer ml-[20px]"
+                  >
+                    <TrashIcon className="w-[18.5px] h-[18.5px] lg:w-[24px] lg:h-[24px] my-auto text-[#F68D55]" />
+                  </div>
+                  : null}
+              </div>
+            </div>
+          : null }
+
+          
+          <div className="lg:hidden">
+            <div className="flex lg:flex-col mt-[30px] lg:mt-0 ">
+              <div className="flex lg:flex-col lg:w-[170px]">
+                <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
+                  <ImageUploader 
+                    editable={editable}
+                    className="rounded-[9.2px] lg:rounded-[24.3px]"
+                    uploadFunction={reviewDoUpload}
+                    purpose={`profile-${index}`}
+                    link={index in reviewImagesLink ? reviewImagesLink[index] : null}
+                  />
+                </div>
+                <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
+                  <p
+                    className='text-[15px] leading-[18.15px] font-[900] font-display lg:text-xl'
+                    suppressContentEditableWarning={true}
+                    contentEditable={editable}
+                    onKeyUpCapture={(e) => {
+                      setReviews((prev) => {
+                        const inp = e.target as HTMLElement
+                        prev[index].Name = inp.innerText
+                        return prev
+                      })
+                    } }
+                  >{name}</p>
+                  <div className="flex font-display text-xs font-[400] lg:text-md">
+                    <p>เตรียมอุดม</p>
+                    <p
+                      suppressContentEditableWarning={true}
+                      contentEditable={editable}
+                      onKeyUpCapture={(e) => {
+                        setReviews((prev) => {
+                          const inp = e.target as HTMLElement
+                          prev[index].Year = inp.innerText
+                          return prev
+                        })
+                      } }
+                    >:  {year}</p>
+                  </div>
+                  <p className="font-display text-xs font-[400] lg:text-md"
+                    suppressContentEditableWarning={true}
+                    contentEditable={editable}
+                    onKeyUpCapture={(e) => {
+                      setReviews((prev) => {
+                        const inp = e.target as HTMLElement
+                        prev[index].Social = inp.innerText
+                        return prev
+                      })
+                    } }
+                  >{social}</p>
+                </div>
+              </div>
+                {editable
+                  ? <div
+                    onClick={() => {
+                      setReviews((prev) => {
+                        const after = [...prev]
+                        if (index >= 0)
+                          after.splice(index, 1)
+                        return after
+                      })
+                    } }
+                    className="flex justify-center mt-2 rounded-[34.6px] lg:rounded-[46px] w-[34.6px] h-[34.6px] lg:w-[46px] lg:h-[46px] shadow-[0_4px_4px_rgba(0,0,0,0.25)] cursor-pointer ml-[20px]"
+                  >
+                    <TrashIcon className="w-[18.5px] h-[18.5px] lg:w-[24px] lg:h-[24px] my-auto text-[#F68D55]" />
+                  </div>
+                  : null}
+              </div>
+            </div>
+          
+          {/* {!editable && 
+          <div className="flex lg:flex-col lg:w-[170px]">
+          <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
+            <ImageUploader 
+              editable={false}
+              className="rounded-[9.2px] lg:rounded-[24.3px]"
+              uploadFunction={reviewDoUpload}
+              purpose={`profile-${index}`}
+              // link={index in reviewImagesLink ? reviewImagesLink[index] : null}
+            />
+          </div>
+          <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
+            <p
+              className='text-[15px] leading-[18.15px] font-[900] font-display lg:text-xl'
+              suppressContentEditableWarning={true}
+              contentEditable={editable}
+              onKeyUpCapture={(e) => {
+                setReviews((prev) => {
+                  const inp = e.target as HTMLElement
+                  prev[index].Name = inp.innerText
+                  return prev
+                })
+              } }
+            >{name}</p>
+            <div className="flex font-display text-xs font-[400] lg:text-md">
+              <p>เตรียมอุดม</p>
+              <p
+                suppressContentEditableWarning={true}
+                contentEditable={editable}
+                onKeyUpCapture={(e) => {
+                  setReviews((prev) => {
+                    const inp = e.target as HTMLElement
+                    prev[index].Year = inp.innerText
+                    return prev
+                  })
+                } }
+              >:  {year}</p>
+            </div>
+            <p className="font-display text-xs font-[400] lg:text-md"
+              suppressContentEditableWarning={true}
+              contentEditable={editable}
+              onKeyUpCapture={(e) => {
+                setReviews((prev) => {
+                  const inp = e.target as HTMLElement
+                  prev[index].Social = inp.innerText
+                  return prev
+                })
+              } }
+            >{social}</p>
+          </div>
+        </div> */}
+          {/* } */}
       </div>
     )
   }

@@ -6,7 +6,7 @@ import { MainRenderer } from '@components/cms/mainRender'
 import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
 import Link from 'next/link'
 import Tooltip from '@components/common/tooltip'
-// import ArticleBackground from 'public/asset/background/article'
+import { ArticleBackground } from '@vectors/background/articlebg'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
@@ -27,12 +27,14 @@ const ViewArticle = ({clubId}) => {
     const [work, setWork] = useState('')
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
-    // const [status, setStatus] = useState()
+        // const [status, setStatus] = useState()
     // const [isHover, setHover] = useState(false);
 
     const [status, setStatus] = useState<string>()
 
-    const [imagesName, setImagesName] = useState([])
+
+    // const topic = ["ชมรมนี้ทำอะไร","ประโยชน์ที่ได้รับจากการเข้าชมรม","ผลงานของชมรม"]
+
     const [imagesLink, setImagesLink] = useState<{[key: string]: string}>({})
     const [reviewImagesLink, setReviewImagesLink] = useState({})
     
@@ -74,9 +76,9 @@ const ViewArticle = ({clubId}) => {
     }, [user?.uid])
 
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && info) return (
-        <div className='flex flex-col max-lg:bg-gradient-edit lg:bg-cream bg-article'>
-            {/* <ArticleBackground classname=''/> */}
-            <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[178px] flex '>
+        <div className='flex flex-col overflow-hidden max-lg:bg-gradient-edit lg:bg-cream'>
+            <ArticleBackground classname='max-lg:hidden' />
+            <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[305px] flex max-[1080px]:ml-[30px] z-10 '>
                 <Link href={`/clubs/${[clubId]}/edit`}>
                     <button className='flex'>
                         <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
@@ -85,9 +87,12 @@ const ViewArticle = ({clubId}) => {
                 </Link>
                 {/* <p className='flex items-center justify-center'> preview</p> */}
             </div>
-            <p className='flex justify-center text-[14px] lg:text-[24px] text-blue-edit-300'> preview</p>
+            <p className='flex justify-center text-[14px] lg:text-[24px] text-blue-edit-300 z-10'> preview</p>
             <MainRenderer
                 // editable={false}
+                first='ชมรมนี้ทำอะไร'
+                second='ประโยชน์ที่ได้รับจากการเข้าชมรม'
+                third='ผลงานของชมรม'
                 info={info}
                 contacts={contacts}
                 clubArticle={clubArticle}

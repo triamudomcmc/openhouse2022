@@ -11,7 +11,8 @@ import { ArrowCircleLeftIcon, InformationCircleIcon } from '@heroicons/react/out
 import ImageUploader from '@components/cms/imageDisplayUploader'
 import Link from 'next/link'
 import { motion, AnimatePresence } from "framer-motion"
-import Tooltip from '@components/common/tooltip'
+import TooltipHover from '@components/common/tooltip'
+// import Tooltip from '@components/common/tooltip'
 
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
@@ -190,14 +191,26 @@ const Editor = ({clubId}) => {
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && status) return (
         <div>
             <div className='mx-auto pt-[104px] w-[311px] lg:w-[1000px] lg:pt-[178px]'>
-              <button className='flex'>
+              <button className='flex max-lg:ml-0 max-[1080px]:ml-[30px]'>
                   <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
-                  <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px]'>ย้อนกลับ</p>
+                  <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px] '>ย้อนกลับ</p>
               </button>
               <div className='lg:flex justify-between w-[225px] lg:w-[978px] mx-auto mt-[18px] lg:mt-[41px]'>
-                <p className='w-[200px] text-[14px] leading-[16px] lg:w-[350px] lg:text-xl'>สถานะ:
+                {/* <p className='w-[200px] text-[14px] leading-[16px] lg:w-[350px] lg:text-xl'>สถานะ:
                 <span className={`ml-[5px] ${status == 'Approved'? 'text-[#19C57C]': status == 'Pending' ? 'text-[#FCB52B]': 'text-[#E80808]'}`}> 
-                {status == 'Approved'? 'ผ่านการตรวจสอบ': status == 'Pending' ? 'อยู่ระหว่างการตรวจสอบ': 'ไม่ผ่านการตรวจสอบ'} </span> </p>
+                {status == 'Approved'? 'ผ่านการตรวจสอบ': status == 'Pending' ? 'อยู่ระหว่างการตรวจสอบ': 'ไม่ผ่านการตรวจสอบ'} </span> </p> */}
+                <div className='w-[220px] lg:w-[335px] lg:ml-[29px]'>
+                  <p className='text-left text-[16px] leading-[21px] lg:text-[24px] lg:leading-[30px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C] flex flex-row'>สถานะ : 
+                  <span className={`ml-[5px] ${status == 'Approved'? 'text-[#19C57C]': status == 'Pending' ? 'text-[#FCB52B]': 'text-[#E80808]'} flex flex-row items-center`}> 
+                  <svg className='max-lg:hidden' width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="10" fill={`${status == 'Approved'? '#19C57C': status == 'Pending' ? '#FCB52B': '#E80808'}`}/>
+                  </svg>
+                  <svg className='lg:hidden' width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="10" fill={`${status == 'Approved'? '#19C57C': status == 'Pending' ? '#FCB52B': '#E80808'}`}/>
+                  </svg>
+                  <p className='ml-[3px] lg:ml-[5px]'>{status == 'Approved'? 'ผ่านการตรวจสอบ': status == 'Pending' ? 'อยู่ระหว่างการตรวจสอบ': 'ไม่ผ่านการตรวจสอบ'}</p>
+                  </span> </p>
+              </div>
                 <div className='mt-[16px] flex justify-between'>
                   <Link href={`/clubs/${[clubId]}/preview`}><button className='w-[106.8px] h-[28.8px] lg:w-[192px] lg:h-[52px] border-blue-edit-300 box-border border-[1.2px] lg:border-[2px] rounded-[112px] lg:rounded-[200px]'><p className='text-center text-[14px] leading-[17px] lg:text-xl font-500 text-blue-edit-300'>Preview</p></button></Link>
                   <button className='w-[108px] h-[30px] lg:w-[192px] lg:h-[52px] border-blue-edit-300 box-border border-2 rounded-[112px] lg:rounded-[200px] text-[24px] font-[400] bg-blue-edit-300  ml-[19px] ' onClick={publishToPending}><p className='text-center text-[14px] leading-[16.94px] lg:leading-[48px] lg:text-xl text-white'>ส่งการแก้ไข</p></button>
@@ -233,8 +246,8 @@ const Editor = ({clubId}) => {
                 <div className='flex mt-[63px] lg:mt-[90px] relative'>
                   <h1 className='font-display font-[800]'>ชมรมนี้ทำอะไร</h1>
                   <div className='z-10'>
-                    <Tooltip
-                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-50'
+                    <TooltipHover
+                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-90'
                     text='ใช้ภาษาทางการหรือกึ่งทางการ เน้นเข้าใจง่าย                 
                     งดใช้คําลงท้าย เช่น นะคะ นะครับ ค่ะ ครับ นะ จ้ะ นะจ๊ะ เป็นต้น งดใช้ข้อความเชิญชวน เช่น อย่าลืมมาสมัครชมรมเราเยอะ ๆ นะ เป็นต้น
                     งดใช้อิโมจิหรืออิโมติคอน เช่น ^_^ หรือ 🥺 เนื้อความในหัวข้อที่ 1. และ 2. ต้องอธิบายรายละเอียดไม่ตํ่ากว่า 150 คํา' />
@@ -265,8 +278,8 @@ const Editor = ({clubId}) => {
                 <div className='flex mt-[63px] lg:mt-[90px] relative'>
                   <h1 className='font-display font-[800]'>ประโยชน์ที่ได้รับจากการเข้าชมรม</h1>
                   <div className='z-10'>
-                    <Tooltip 
-                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-50'
+                    <TooltipHover
+                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-90'
                     text='ใช้ภาษาทางการหรือกึ่งทางการ เน้นเข้าใจง่าย                 
                     งดใช้คําลงท้าย เช่น นะคะ นะครับ ค่ะ ครับ นะ จ้ะ นะจ๊ะ เป็นต้น งดใช้ข้อความเชิญชวน เช่น อย่าลืมมาสมัครชมรมเราเยอะ ๆ นะ เป็นต้น
                     งดใช้อิโมจิหรืออิโมติคอน เช่น ^_^ หรือ 🥺 เนื้อความในหัวข้อที่ 1. และ 2. ต้องอธิบายรายละเอียดไม่ตํ่ากว่า 150 คํา' />
@@ -298,8 +311,8 @@ const Editor = ({clubId}) => {
                 <div className='flex mt-[63px] lg:mt-[90px] relative'>
                   <h1 className='font-display font-[800]'>ผลงานของชมรม</h1>
                    <div className='z-10'>
-                    <Tooltip 
-                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-50'
+                    <TooltipHover
+                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-90'
                     text='ใช้ภาษาทางการหรือกึ่งทางการ เน้นเข้าใจง่าย งดใช้คําลงท้าย เช่น นะคะ นะครับ ค่ะ ครับ นะ จ้ะ นะจ๊ะ เป็นต้น 
                     งดใช้ข้อความเชิญชวน เช่น อย่าลืมมาสมัครชมรมเราเยอะ ๆ นะ เป็นต้น งดใช้อิโมจิหรืออิโมติคอน เช่น ^_^ หรือ 🥺
                     ในหัวข้อที่ 3. ให้ยกตัวอย่างผลงานที่ผ่านมา เช่น ผลงานการแข่งขันนอกโรงเรียน การจัด Event การจัดการแสดง เป็นต้น ชมรมที่ไม่มีผลงานให้เว้นว่างไว้และผลงานที่ผ่านมาไม่รวมการจัดซุ้ม    
@@ -333,8 +346,8 @@ const Editor = ({clubId}) => {
                 <div className='flex mt-[35px] lg:mt-[85px] relative'>
                   <h1 className='font-display font-[800]'>รีวิวจากรุ่นพี่</h1>
                   <div className='z-10'>
-                    <Tooltip 
-                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-50'
+                    <TooltipHover
+                    className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-90'
                     text='ไม่จําเป็นต้องใช้ภาษาทางการ
                     ระบุรุ่นและช่องทางการติดตามรุ่นพี่ เช่น Facebook Instagram
                     แนบภาพถ่ายบุคคลอัตราส่วน 1:1 พร้อมข้อความรีวิว

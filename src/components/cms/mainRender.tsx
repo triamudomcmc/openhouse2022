@@ -6,6 +6,9 @@ import ReviewRenderer from './reviewsRender'
 import ImageUploader from './imageDisplayUploader'
 
 export const MainRenderer:FC<{
+    first:string
+    second:string
+    third:string
     info: {[key: string]: string}
     contacts?: {[key: string]: string}
     clubArticle?: string
@@ -17,9 +20,9 @@ export const MainRenderer:FC<{
     reviews?: any[]
     reviewImagesLink?: {[key: string]: string}
     imagesLink?: {[key: string]: string}
-}> = ({info, contacts, clubArticle, clubArticleDes, advantage, advantageDes, work, workDes, reviews, reviewImagesLink, imagesLink}) => {
+}> = ({first, second, third, info, contacts, clubArticle, clubArticleDes, advantage, advantageDes, work, workDes, reviews, reviewImagesLink, imagesLink}) => {
     return (
-          <div className='mb-[86px]'>
+          <div className='mb-[86px] z-10'>
             <div className='mx-auto mt-[18px] w-[308px] lg:w-[771px] lg:mt-[27px]'>
                 <div className='text-center lg:mb-[41px]'>
                   <div className='mt-[20px] lg:mt-[29px]'>
@@ -38,7 +41,7 @@ export const MainRenderer:FC<{
                 <div className='flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] w-[194px] h-[39px] lg:w-[346px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
                   <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
                   <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
-                  <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>ชมรมนี้ทำอะไร</h1>
+                  <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>{first}</h1>
                   <p className='text-[23px] leading-[28px] lg:text-[40px] lg:leading-[48.5px] font-[900] text-blue-text ml-[9px] lg:ml-[18px] my-auto'>?</p>
                 </div>
                 <div className='w-full mx-auto'>
@@ -53,7 +56,7 @@ export const MainRenderer:FC<{
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{clubArticleDes}</p>
                 </div >
                 <QuillEditor
-                    className='lg:mt-[46px] mt-[21px]'
+                    className='lg:mt-[46px] mt-[21px] lg:backdrop-blur-[4px]'
                     value={clubArticle}
                     readOnly={true}
                   />
@@ -62,7 +65,7 @@ export const MainRenderer:FC<{
               <div className='flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] w-[319px] h-[39px] lg:w-[576px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
                   <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
                   <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
-                  <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>ประโยชน์ที่ได้รับจากการเข้าชมรม</h1>
+                  <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>{second}</h1>
                 </div>
                 <div className='w-full mx-auto'>
                   <div className='lg:w-[771px] lg:h-[420px] w-[308px] h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]'>
@@ -76,7 +79,7 @@ export const MainRenderer:FC<{
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{advantageDes}</p>
                 </div >
                 <QuillEditor
-                    className='lg:mt-[46px] mt-[21px]'
+                    className='lg:mt-[46px] mt-[21px] lg:backdrop-blur-[4px]'
                     value={advantage}
                     readOnly={true}
                   />
@@ -85,7 +88,7 @@ export const MainRenderer:FC<{
               <div className='flex mt-[45px] ml-[-15px] lg:ml-[-50px] lg:mt-[55px] w-[195px] h-[39px] lg:w-[352px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
                   <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
                   <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
-                  <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>ผลงานของชมรม</h1>
+                  <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>{third}</h1>
                 </div>
                 <div className='w-full mx-auto'>
                   <div className='lg:w-[771px] lg:h-[420px] w-[308px] h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]'>
@@ -99,7 +102,7 @@ export const MainRenderer:FC<{
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{workDes}</p>
                 </div >
                 <QuillEditor
-                    className='lg:mt-[46px] mt-[21px]'
+                    className='lg:mt-[46px] mt-[21px] lg:backdrop-blur-[4px]'
                     value={work}
                     readOnly={true}
                   />
