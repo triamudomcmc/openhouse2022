@@ -3,9 +3,10 @@ import { FC } from 'react'
 import WinkWInk from 'src/vectors/icons/winkWink'
 import ContactRenderer from './contactRender'
 import ReviewRenderer from './reviewsRender'
+import ImageUploader from './imageDisplayUploader'
 
 export const MainRenderer:FC<{
-    info?: {[key: string]: string}
+    info: {[key: string]: string}
     contacts?: {[key: string]: string}
     clubArticle?: string
     clubArticleDes?: string
@@ -14,7 +15,9 @@ export const MainRenderer:FC<{
     work?: string
     workDes?: string
     reviews?: any[]
-}> = ({info, contacts, clubArticle, clubArticleDes, advantage, advantageDes, work, workDes, reviews}) => {
+    reviewImagesLink?: {[key: string]: string}
+    imagesLink?: {[key: string]: string}
+}> = ({info, contacts, clubArticle, clubArticleDes, advantage, advantageDes, work, workDes, reviews, reviewImagesLink, imagesLink}) => {
     return (
           <div className='mb-[86px]'>
             <div className='mx-auto mt-[18px] w-[308px] lg:w-[771px] lg:mt-[27px]'>
@@ -40,6 +43,12 @@ export const MainRenderer:FC<{
                 </div>
                 <div className='w-full mx-auto'>
                   <div className='lg:w-[771px] lg:h-[420px] w-[308px] h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]'>
+                    <ImageUploader  
+                      editable={false}
+                      className='rounded-[15.5px] lg:rounded-[31.2px]'
+                      purpose='thumbnail'
+                      link={imagesLink ?? false ? (imagesLink['first'] ?? null) : null}
+                    />
                   </div>
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{clubArticleDes}</p>
                 </div >
@@ -57,6 +66,12 @@ export const MainRenderer:FC<{
                 </div>
                 <div className='w-full mx-auto'>
                   <div className='lg:w-[771px] lg:h-[420px] w-[308px] h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]'>
+                    <ImageUploader  
+                      editable={false}
+                      className='rounded-[15.5px] lg:rounded-[31.2px]'
+                      purpose='thumbnail'
+                      link={imagesLink ?? false ? (imagesLink['second'] ?? null) : null}
+                    />
                   </div>
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{advantageDes}</p>
                 </div >
@@ -74,6 +89,12 @@ export const MainRenderer:FC<{
                 </div>
                 <div className='w-full mx-auto'>
                   <div className='lg:w-[771px] lg:h-[420px] w-[308px] h-[168px] bg-[#D9D9D9] rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]'>
+                    <ImageUploader  
+                      editable={false}
+                      className='rounded-[15.5px] lg:rounded-[31.2px]'
+                      purpose='thumbnail'
+                      link={imagesLink ?? false ? (imagesLink['third'] ?? null) : null}
+                    />
                   </div>
                   <p className='text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]'>{workDes}</p>
                 </div >
@@ -92,6 +113,7 @@ export const MainRenderer:FC<{
                 </div>
                   <ReviewRenderer
                     rawData={reviews}
+                    reviewImagesLink={reviewImagesLink}
                     editable={false}
                   />
             </div>

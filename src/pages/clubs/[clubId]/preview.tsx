@@ -18,8 +18,7 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 
 const ViewArticle = ({clubId}) => {
     const {user} = useAuth()
-    const [ifPendArticle, setIfPendArticle] = useState<boolean>(false)
-    const [info, setInfo] = useState({})
+    const [info, setInfo] = useState<{[key: string]: string}>({})
     const [contacts, setContacts] = useState({})
     const [clubArticle, setClubArticle] = useState('')
     const [clubArticleDes, setClubArticleDes] = useState('')
@@ -28,62 +27,53 @@ const ViewArticle = ({clubId}) => {
     const [work, setWork] = useState('')
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
+    // const [status, setStatus] = useState()
+    // const [isHover, setHover] = useState(false);
 
-    async function fetchInitialData() {
-        const res = await fetch(`/api/${clubId}/prodcontent`)
-        const clubFetch = await res?.json()
-        if (clubFetch) {
-            setInfo(clubFetch.Info != null ? clubFetch.Info : '')
-            setContacts(clubFetch?.Contacts != null ? clubFetch.Contacts : {})
-            setClubArticle(clubFetch?.ClubArticle)
-            setClubArticleDes(clubFetch?.ClubArticleDes)
-            setAdvantage(clubFetch?.Advantage)
-            setAdvantageDes(clubFetch?.AdvantageDes)
-            setWork(clubFetch?.Work)
-            setWorkDes(clubFetch?.WorkDes)
-            setReviews(clubFetch?.Reviews != null ? clubFetch.Reviews : [])
-        }
-    }
+    const [status, setStatus] = useState<string>()
 
+    const [imagesName, setImagesName] = useState([])
+    const [imagesLink, setImagesLink] = useState<{[key: string]: string}>({})
+    const [reviewImagesLink, setReviewImagesLink] = useState({})
+    
     useEffect(() => {
-        fetchInitialData()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    async function ifAppr() {
-        const res = await fetch(`/api/${clubId}/clubApprArticle`,{
-            method: 'POST',
-            body: JSON.stringify({
-                executerUid: user?.uid
-            })
-        })
-        setIfPendArticle(false)
-    }
-
-    async function loadPending() {
+      const fetchInitialData = async () => {
+        const permBody = JSON.stringify({executerUid: user?.uid})
         const res = await fetch(`/api/${clubId}/pendingcontent`, {
-            method: 'POST',
-            body: JSON.stringify({
-                executerUid: user?.uid
-            })
+          method: 'POST',
+          body: permBody
         })
-        const pendFetch = await res?.json()
-        if (!pendFetch.nonexisted) {
-            setIfPendArticle(true)
-            setInfo(pendFetch.Info != null ? pendFetch.Info : '')
-            setContacts(pendFetch?.Contacts != null ? pendFetch.Contacts : {})
-            setClubArticle(pendFetch?.ClubArticle)
-            setClubArticleDes(pendFetch?.ClubArticleDes)
-            setAdvantage(pendFetch?.Advantage)
-            setAdvantageDes(pendFetch?.AdvantageDes)
-            setWork(pendFetch?.Work)
-            setWorkDes(pendFetch?.WorkDes)
-            setReviews(pendFetch?.Reviews != null ? pendFetch.Reviews : [])
-        }
-    }
 
-    if (!ifPendArticle && user?.roles?.hasOwnProperty('tucmc')) loadPending()
-    if (info) return (
+        setStatus('Pending')
+
+        let dataFetch = await res?.json()
+
+        if (dataFetch.nonexisted) {
+          const res = await fetch(`/api/${clubId}/prodcontent`, {
+            method: 'POST',
+            body: permBody
+          })
+          dataFetch = await res?.json()
+          setStatus('Approved')
+        }
+
+        setReviewImagesLink(dataFetch?.reviewImageUrl ?? {})
+        setImagesLink(dataFetch?.imageUrl ?? {})
+        setInfo(dataFetch.Info != null ? dataFetch.Info : '')
+        setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {})
+        setClubArticle(dataFetch?.ClubArticle)
+        setClubArticleDes(dataFetch?.ClubArticleDes)
+        setAdvantage(dataFetch?.Advantage)
+        setAdvantageDes(dataFetch?.AdvantageDes)
+        setWork(dataFetch?.Work)
+        setWorkDes(dataFetch?.WorkDes)
+        setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
+      }
+      if (user?.uid && user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) fetchInitialData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user?.uid])
+
+    if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && info) return (
         <div className='flex flex-col max-lg:bg-gradient-edit lg:bg-cream bg-article'>
             {/* <ArticleBackground classname=''/> */}
             <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[178px] flex '>
@@ -107,6 +97,8 @@ const ViewArticle = ({clubId}) => {
                 work={work}
                 workDes={workDes}
                 reviews={reviews}
+                reviewImagesLink={reviewImagesLink}
+                imagesLink={imagesLink}
             />
         </div>
     )
