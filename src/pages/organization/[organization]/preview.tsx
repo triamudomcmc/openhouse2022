@@ -90,9 +90,9 @@ const ViewArticle = ({clubId}) => {
             <p className='flex justify-center text-[14px] lg:text-[24px] text-blue-edit-300 z-10'> preview</p>
             <MainRenderer
                 // editable={false}
-                first='การรับสมัครและการสอบเข้า'
-                second='วิชาหรือหลักสูตรเพิ่มเติมที่เรียน'
-                third='ความน่าสนใจของสายการเรียน'
+                first='องค์กรนี้ทำอะไร'
+                second=''
+                third=''
                 info={info}
                 contacts={contacts}
                 clubArticle={clubArticle}

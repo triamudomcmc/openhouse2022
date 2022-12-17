@@ -90,7 +90,7 @@ const ReviewRenderer:FC<{
                     className="rounded-[9.2px] lg:rounded-[24.3px]"
                     uploadFunction={reviewDoUpload}
                     purpose={`profile-${index}`}
-                    link={index in reviewImagesLink ? reviewImagesLink[index] : null}
+                    link={reviewImagesLink ?? false ? (reviewImagesLink[index] ?? null) : null}
                   />
                 </div>
                 <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
@@ -175,7 +175,7 @@ const ReviewRenderer:FC<{
                     className="rounded-[9.2px] lg:rounded-[24.3px]"
                     uploadFunction={reviewDoUpload}
                     purpose={`profile-${index}`}
-                    link={index in reviewImagesLink ? reviewImagesLink[index] : null}
+                    link={reviewImagesLink ?? false ? (reviewImagesLink[index] ?? null) : null}
                   />
                 </div>
                 <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
@@ -247,7 +247,7 @@ const ReviewRenderer:FC<{
                     className="rounded-[9.2px] lg:rounded-[24.3px]"
                     uploadFunction={reviewDoUpload}
                     purpose={`profile-${index}`}
-                    link={index in reviewImagesLink ? reviewImagesLink[index] : null}
+                    link={reviewImagesLink ?? false ? (reviewImagesLink[index] ?? null) : null}
                   />
                 </div>
                 <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { QrReader } from "react-qr-reader"
 
 import { useAuth } from "@lib/auth";
@@ -12,25 +12,25 @@ export default function Scan() {
     function handleQrUid(result, error) {
         if (result) {
             setUid(result.text)
-            getUidData(result.text)
         }
         if (error) {
+            setUid(null)
             setUidData(null)
         }
     }
 
-    async function getUidData(fetchUid: string) {
-        if (fetchUid) {
-            const res = await fetch(`/api/qrinfo/onsite/${fetchUid}`, {
+    useEffect(() => {
+        const getUidData = async (uid) => {
+            const res = await fetch(`/api/qrinfo/onsite/${uid}`, {
                 method: 'POST',
                 body: JSON.stringify({
                     executerUid: user?.uid
                 })
             })
-            const tmp = await res.json()
-            if (tmp) setUidData(tmp)
+            if (res) setUidData(await res.json())
         }
-    }
+        if (uid) getUidData(uid)
+    }, [uid, user?.uid])
 
     if (user?.roles?.hasOwnProperty('tucmc') || user?.roles?.hasOwnProperty('aic')) {
         return (
