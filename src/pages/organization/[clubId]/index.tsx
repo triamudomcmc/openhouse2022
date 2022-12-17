@@ -78,7 +78,7 @@ const LandingEdit = ({clubId}) => {
                     <div className='border-[2px] border-[#5C5C5C] opacity-60 max-lg:hidden' />
                     <div className='lg:w-[362px] justify-center flex flex-col'>
                         <div className='relative flex flex-row justify-end max-lg:mt-[23.2px] max-lg:mx-auto'>
-                            <Link href={`/programmes/${[clubId]}/edit`}>
+                            <Link href={`/organization/${[clubId]}/edit`}>
                                 <button className='w-[203.7px] h-[38.3px] lg:w-[335px] lg:h-[63px] bg-blue-edit-300 rounded-[13.4px] lg:rounded-[23.5px]'>
                                     <p className='text-center text-[19.4px] leading-[24px] lg:text-[32px] lg:leading-[39px] font-500 text-white'>แก้ไข</p>
                                 </button>

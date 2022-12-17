@@ -217,7 +217,7 @@ const Editor = ({clubId}) => {
                   <div className='lg:h-[92px] mt-[20px] lg:mt-[29px]'>
                     <h1 className='h-[29px] text-xl lg:h-[34px] lg:text-[28px] lg:leading-[34px]' > {info.nameTH}</h1>
                     <h2 className='h-[24px] lg:h-[29px] font-[400px] text-md lg:text-xl text-gray-500 mt-[1px]'>{info.nameEN}</h2>
-                    <h2 className='h-[21px] text-[17px] leading-[21px] lg:h-[24px] lg:text-[20px] leading-md lg:mt-[5px] text-gray-500 mt-[3px]'>สายการเรียน {info.member} คน</h2>
+                    <h2 className='h-[21px] text-[17px] leading-[21px] lg:h-[24px] lg:text-[20px] leading-md lg:mt-[5px] text-gray-500 mt-[3px]'>องค์กร {info.member} คน</h2>
                   </div>
                   <ContactRenderer 
                     classname="mt-[3px] ml-[44px] mb-[22px] w-[207px] lg:w-[243px] lg:mx-auto lg:mt-[5px]"
