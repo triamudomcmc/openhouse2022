@@ -206,7 +206,7 @@ const Editor = ({clubId}) => {
                   </span> </p>
                 </div>              
                 <div className='mt-[16px] flex justify-between'>
-                  <Link href={`/programmes/${[clubId]}/preview`}><button className='w-[106.8px] h-[28.8px] lg:w-[192px] lg:h-[52px] border-blue-edit-300 box-border border-[1.2px] lg:border-[2px] rounded-[112px] lg:rounded-[200px]'><p className='text-center text-[14px] leading-[17px] lg:text-xl font-500 text-blue-edit-300'>Preview</p></button></Link>
+                  <Link href={`/organization/${[clubId]}/preview`}><button className='w-[106.8px] h-[28.8px] lg:w-[192px] lg:h-[52px] border-blue-edit-300 box-border border-[1.2px] lg:border-[2px] rounded-[112px] lg:rounded-[200px]'><p className='text-center text-[14px] leading-[17px] lg:text-xl font-500 text-blue-edit-300'>Preview</p></button></Link>
                   <button className='w-[108px] h-[30px] lg:w-[192px] lg:h-[52px] border-blue-edit-300 box-border border-2 rounded-[112px] lg:rounded-[200px] text-[24px] font-[400] bg-blue-edit-300  ml-[19px] ' onClick={publishToPending}><p className='text-center text-[14px] leading-[16.94px] lg:leading-[48px] lg:text-xl text-white'>ส่งการแก้ไข</p></button>
                 </div>
               </div>
