@@ -70,10 +70,16 @@ const ViewArticle = ({clubId}) => {
         setWork(dataFetch?.Work)
         setWorkDes(dataFetch?.WorkDes)
         setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
+        console.log(text)
       }
       if (user?.uid && user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) fetchInitialData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user?.uid])
+
+    const text = ['ชมรมนี้ทำอะไร ?','ประโยชน์ที่ได้รับจากการเข้าชมรม','ผลงานของชมรม']
+    const width = [194,319,195]
+    const widthLg = [346,576,352]
+
 
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && info) return (
         <div className='flex flex-col overflow-hidden max-lg:bg-gradient-edit lg:bg-cream'>
@@ -90,9 +96,10 @@ const ViewArticle = ({clubId}) => {
             <p className='flex justify-center text-[14px] lg:text-[24px] text-blue-edit-300 z-10'> preview</p>
             <MainRenderer
                 // editable={false}
-                first='ชมรมนี้ทำอะไร'
-                second='ประโยชน์ที่ได้รับจากการเข้าชมรม'
-                third='ผลงานของชมรม'
+                text={text}
+                // width={width}
+                // widthLg={widthLg}
+                type='clubs'
                 info={info}
                 contacts={contacts}
                 clubArticle={clubArticle}

@@ -32,8 +32,9 @@ const ViewArticle = ({clubId}) => {
 
     const [status, setStatus] = useState<string>()
 
-
-    // const topic = ["ชมรมนี้ทำอะไร","ประโยชน์ที่ได้รับจากการเข้าชมรม","ผลงานของชมรม"]
+    const text = ['ชมรมนี้ทำอะไร ?','ประโยชน์ที่ได้รับจากการเข้าชมรม','ผลงานของชมรม']
+    const width = [194,319,195]
+    const widthLg = [346,576,352]
 
     const [imagesLink, setImagesLink] = useState<{[key: string]: string}>({})
     const [reviewImagesLink, setReviewImagesLink] = useState({})
@@ -90,9 +91,10 @@ const ViewArticle = ({clubId}) => {
             <p className='flex justify-center text-[14px] lg:text-[24px] text-blue-edit-300 z-10'> preview</p>
             <MainRenderer
                 // editable={false}
-                first='องค์กรนี้ทำอะไร'
-                second=''
-                third=''
+                text={text}
+                // width={width}
+                // widthLg={widthLg}
+                type='organization'
                 info={info}
                 contacts={contacts}
                 clubArticle={clubArticle}
