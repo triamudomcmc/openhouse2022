@@ -15,6 +15,7 @@ import CountDownBg from "@vectors/background/countDown";
 import TriamUdom from "@vectors/text/triamUdom";
 import OpenHouse from "@vectors/text/openhouse";
 import CountDownBgPhone from "@vectors/background/countDownBgPhone";
+import { Navbar } from "@components/common/Nav/Navbar";
 
 const OpeningTime = +new Date(2023, 0, 14, 9, 0, 0, 0);
 

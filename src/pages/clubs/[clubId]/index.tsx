@@ -28,6 +28,9 @@ const LandingEdit = ({clubId}) => {
     const [reviews, setReviews] = useState([])
     const [status, setStatus] = useState('')
 
+    const [imagesLink, setImagesLink] = useState<{[key: string]: string}>({})
+    const [reviewImagesLink, setReviewImagesLink] = useState({})
+
     useEffect(() => {
         const fetchInitialData = async () => {
             const permBody = JSON.stringify({executerUid: user?.uid})
@@ -50,6 +53,8 @@ const LandingEdit = ({clubId}) => {
                 setStatus('Approved')
             }
             
+            setReviewImagesLink(dataFetch?.reviewImageUrl ?? {})
+            setImagesLink(dataFetch?.imageUrl ?? {})
             setInfo(dataFetch.Info != null ? dataFetch.Info : '')
             setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {})
             setClubArticle(dataFetch?.ClubArticle)

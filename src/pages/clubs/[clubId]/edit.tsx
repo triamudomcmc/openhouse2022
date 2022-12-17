@@ -12,6 +12,7 @@ import ImageUploader from '@components/cms/imageDisplayUploader'
 import Link from 'next/link'
 import { motion, AnimatePresence } from "framer-motion"
 import TooltipHover from '@components/common/tooltip'
+import { Navbar } from '@components/common/Nav/Navbar'
 // import Tooltip from '@components/common/tooltip'
 
 
@@ -189,16 +190,14 @@ const Editor = ({clubId}) => {
     }
     
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && status) return (
-        <div>
+        <div className='relative'>
+            <Navbar classname='bg-gray-300 bg-opacity-50 backdrop-blur-none' />
             <div className='mx-auto pt-[104px] w-[311px] lg:w-[1000px] lg:pt-[178px]'>
               <button className='flex max-lg:ml-0 max-[1080px]:ml-[30px]'>
                   <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
                   <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px] '>ย้อนกลับ</p>
               </button>
               <div className='lg:flex justify-between w-[225px] lg:w-[978px] mx-auto mt-[18px] lg:mt-[41px]'>
-                {/* <p className='w-[200px] text-[14px] leading-[16px] lg:w-[350px] lg:text-xl'>สถานะ:
-                <span className={`ml-[5px] ${status == 'Approved'? 'text-[#19C57C]': status == 'Pending' ? 'text-[#FCB52B]': 'text-[#E80808]'}`}> 
-                {status == 'Approved'? 'ผ่านการตรวจสอบ': status == 'Pending' ? 'อยู่ระหว่างการตรวจสอบ': 'ไม่ผ่านการตรวจสอบ'} </span> </p> */}
                 <div className='w-[220px] lg:w-[335px] lg:ml-[29px]'>
                   <p className='text-left text-[16px] leading-[21px] lg:text-[24px] lg:leading-[30px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C] flex flex-row'>สถานะ : 
                   <span className={`ml-[5px] ${status == 'Approved'? 'text-[#19C57C]': status == 'Pending' ? 'text-[#FCB52B]': 'text-[#E80808]'} flex flex-row items-center`}> 

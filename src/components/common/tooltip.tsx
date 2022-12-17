@@ -3,7 +3,7 @@ import { useState, FC } from "react";
 import { InformationCircleIcon } from '@heroicons/react/outline'
 
 
-const Tooltip : FC<{
+const TooltipHover : FC<{
 
     // width: string
     // height: string
@@ -14,7 +14,7 @@ const Tooltip : FC<{
     const [isHover, setHover] = useState(false);
   return (
     <div>
-        <AnimatePresence>{isHover && <Tooltip0 
+        <AnimatePresence>{isHover && <Tooltip 
             className={className}
             text={text} />}</AnimatePresence>
             <motion.h2
@@ -23,12 +23,30 @@ const Tooltip : FC<{
             whileHover={{ scale: 1.05 }}
             >
                 <InformationCircleIcon className='w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] ml-[12px] lg:ml-[25px] my-auto text-orange' />
-            </motion.h2>
+          </motion.h2>
     </div>
   );
 }
 
-const Tooltip0 :FC<{
+// export const TooltipClick : FC<{
+
+//   // width: string
+//   // height: string
+//   text: string
+//   className?: string
+
+// }> = ({ text, className }) => {
+  
+// return (
+//   <div>
+//     <button onClick={<Tooltip text={text}/>}>
+//       <InformationCircleIcon className='w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] ml-[12px] lg:ml-[25px] my-auto text-orange' />
+//     </button>
+//   </div>
+// );
+// }
+
+const Tooltip :FC<{
 
     // width: string
     // height: string
@@ -58,4 +76,4 @@ const Tooltip0 :FC<{
   );
 }
 
-export default Tooltip
+export default TooltipHover

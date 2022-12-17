@@ -12,6 +12,7 @@ import ImageUploader from '@components/cms/imageDisplayUploader'
 import Link from 'next/link'
 import { motion, AnimatePresence } from "framer-motion"
 import Tooltip from '@components/common/tooltip'
+import { Navbar } from '@components/common/Nav/Navbar'
 
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
@@ -185,7 +186,8 @@ const Editor = ({clubId}) => {
     }
     
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && status) return (
-        <div>
+        <div className='relative'>
+          <Navbar classname='bg-gray-300 bg-opacity-50 backdrop-blur-none' />
             <div className='mx-auto pt-[104px] w-[311px] lg:w-[1000px] lg:pt-[178px]'>
               <button className='flex'>
                   <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
