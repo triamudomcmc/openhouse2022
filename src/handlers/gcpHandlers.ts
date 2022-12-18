@@ -46,8 +46,8 @@ const getImage = async (req, ID) => {
                 finalUrl[key] = url
             }
         }
-        if (onErr && fs.existsSync(process.cwd() + `/public/assets/images/organizations/${ID}/${data[key]}`)) finalUrl[key] = `/assets/images/organizations/${ID}/${data[key]}`
-        else if (onErr && fs.existsSync(process.cwd() + `/public/assets/images/organizations/${ID}/${onDefault}`)) finalUrl[key] = `/assets/images/organizations/${ID}/${onDefault}`
+        if (onErr && (await fetch(`https://${process.env.VERCEL_URL}/assets/images/organizations/${ID}/${data[key]}`)).status == 200) finalUrl[key] = `/assets/images/organizations/${ID}/${data[key]}`
+        else if (onErr && (await fetch(`https://${process.env.VERCEL_URL}/assets/images/organizations/${ID}/${onDefault}`)).status == 200) finalUrl[key] = `/assets/images/organizations/${ID}/${onDefault}`
     }
     return finalUrl
 }
