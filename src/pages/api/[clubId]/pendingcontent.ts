@@ -1,4 +1,4 @@
-import { getImage } from '@handlers/gcpHandlers'
+import { handlers } from '@handlers/gcpHandlers'
 import { executeOverPerm } from '@handlers/permCheck'
 import { getClubPendArticle } from '@lib/dbMethod'
 
@@ -14,12 +14,12 @@ export default async function viewContent(req, res) {
                     finalData = clubPendArticle
 
                     finalData['imageUrl'] = {}
-                    Object.keys(clubPendArticle?.Images).length != 0 ? finalData['imageUrl'] = await getImage(JSON.stringify(clubPendArticle?.Images), clubId) : false
+                    Object.keys(clubPendArticle?.Images).length != 0 ? finalData['imageUrl'] = await handlers('getImage', JSON.stringify(clubPendArticle?.Images), clubId) : false
                     let reviewImageUrl = {}
                     for (const index in finalData['Reviews']) {
                         finalData['Reviews'][index]['Image'] ? reviewImageUrl[index] = finalData['Reviews'][index]['Image'] : null
                     }
-                    finalData['reviewImageUrl'] = await getImage(JSON.stringify(reviewImageUrl), clubId)
+                    finalData['reviewImageUrl'] = await handlers('getImage', JSON.stringify(reviewImageUrl), clubId)
                     if (finalData) return res.json(finalData)
                 }
                 return res.json({nonexisted: true})

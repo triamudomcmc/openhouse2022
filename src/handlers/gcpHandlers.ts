@@ -8,7 +8,18 @@ import { updateImage, updateProfileImage } from "@lib/dbMethod"
 const gcpStorage = new Storage(gcpCert)
 const gcpBucket = gcpStorage.bucket(process.env.GCP_BUCKET_NAME)
 
-export const getImage = async (req, ID) => {
+export const handlers = async (route, req, ID) => {
+    switch (route) {
+        case 'getImage': {
+            return getImage(req, ID)
+        }
+        case 'toGCP': {
+            return toGCP(req, ID)
+        }
+    }
+}
+
+const getImage = async (req, ID) => {
     const data = await JSON.parse(req)
     const gcpOptions = {
         version: 'v4',
@@ -41,7 +52,7 @@ export const getImage = async (req, ID) => {
     return finalUrl
 }
 
-export const toGCP = async (req, ID) => {
+const toGCP = async (req, ID) => {
     const data = JSON.parse(req)
     const gcpOptions = {
         expires: Date.now() + 1 * 60 * 1000, //  1 minute,
@@ -59,24 +70,4 @@ export const toGCP = async (req, ID) => {
     
     const [response] = await file.generateSignedPostPolicyV4(gcpOptions)
     return response
-}
-
-export const downGCP = async (req, ID) => {
-    const data = JSON.parse(req)
-    const tmpFileName = data.fileName
-
-    for (let index in tmpFileName) {
-        const gcpOptions = {
-            destination: `public/images/${ID}/${tmpFileName[index]}.jpg`
-        }
-        
-        if (!fs.existsSync(`public/images/${ID}`)) fs.mkdirSync(`public/images/${ID}`)
-        await gcpBucket.file(tmpFileName[index]).download(gcpOptions)
-        await delGCP(tmpFileName[index])
-    }
-    return true
-}
-
-export const delGCP = async (fileName) => {
-    return await gcpBucket.file(fileName).delete()
 }
