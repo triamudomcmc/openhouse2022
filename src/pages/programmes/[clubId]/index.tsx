@@ -40,11 +40,11 @@ const LandingEdit = ({clubId}) => {
               setStatus('Approved')
             }
             
-            setInfo(dataFetch.Info != null ? dataFetch.Info : '')
+            setInfo(dataFetch ?? false ? (dataFetch.Info != null ? dataFetch.Info : ''): '')
         }
         fetchInitialData()
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [user?.uid])
+      }, [user?.uid, status])
   
     if ((user?.club == clubId || user?.roles.hasOwnProperty('tucmc')) && info ) return (
         <div>

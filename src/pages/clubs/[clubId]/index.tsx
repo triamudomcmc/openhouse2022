@@ -47,7 +47,7 @@ const LandingEdit = ({clubId}) => {
         }
         fetchInitialData()
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [user?.uid])
+      }, [user?.uid, status])
 
     if ((user?.club == clubId || user?.roles.hasOwnProperty('tucmc')) && info ) return (
         <div>

@@ -50,6 +50,10 @@ export default function Home() {
   // else if (user ?? false ? user : false) return Router.push('/account')
   return (
     <div>
+      {user?.club
+      ? <Navbar classname='bg-cream bg-opacity-50 backdrop-blur-none' />
+      : null}
+      
       {/* Countdown */}
       <main className="flex items-center justify-center h-screen overflow-hidden">
         <div className="fixed left-0 top-auto w-full -z-10 max-lg:hidden">

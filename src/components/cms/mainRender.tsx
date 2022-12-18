@@ -31,7 +31,9 @@ export const MainRenderer:FC<{
                   <div className='mt-[20px] lg:mt-[29px]'>
                     <h1 className='text-xl lg:text-[64px] lg:leading-[77.45px] text-blue-text' > {info.nameTH}</h1>
                     <h2 className='font-[400px] text-md lg:text-[45px] lg:leading-[54.5px] text-black opacity-60'>{info.nameEN}</h2>
-                    <h2 className='text-[17px] leading-[21px] lg:text-[32px] lg:leading-[38px] lg:mt-0 text-black opacity-60 mt-[3px]'>สมาชิก {info.member} คน</h2>
+                    {info?.nameEN?.includes('AIC') || info?.nameEN?.includes('TUCMC') || info?.nameEN?.includes('TUSC') || info?.nameEN?.includes('TUPRO')
+                    ? null
+                    :<h2 className='text-[17px] leading-[21px] lg:text-[32px] lg:leading-[38px] lg:mt-0 text-black opacity-60 mt-[3px]'>สมาชิก {info?.member} คน</h2>}
                   </div>
                   <ContactRenderer 
                     classname="mt-[3px] ml-[44px] mb-[22px] w-[207px] lg:w-[280px] lg:mx-auto lg:mt-[5px] text-gray-500"

@@ -32,7 +32,7 @@ const ViewArticle = ({clubId}) => {
 
     const [status, setStatus] = useState<string>()
 
-    const text = ['ชมรมนี้ทำอะไร ?','ประโยชน์ที่ได้รับจากการเข้าชมรม','ผลงานของชมรม']
+    const text = ['องค์กรนี้ทำอะไร ?','ตำแหน่งหน้าที่','ผลงานขององค์กร']
     const width = [194,319,195]
     const widthLg = [346,576,352]
 

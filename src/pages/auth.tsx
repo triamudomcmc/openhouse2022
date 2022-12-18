@@ -8,12 +8,21 @@ import RomanTower from 'src/vectors/romanTower'
 import { useAuth } from '@lib/auth'
 import GoogleIcon from 'src/vectors/icons/google'
 import KorChor from 'src/vectors/icons/korchor'
+import { Navbar } from '@components/common/Nav/Navbar'
 
 export default function Auth() {
+  const router = useRouter()
   const {user, signinWithGoogle, signout} = useAuth()
   // const Router = useRouter()
   // if (user ?? false ? user?.club : false) return Router.push(`/clubs/${user?.club}`)
   // else if (user ?? false ? user : false) return Router.push('/account')
+
+  // if (user?.club) {
+  //   if (user?.club.includes('ก')) router.push(`/clubs/${[user?.club]}`)
+  //   else if (user?.club.includes('sci') || user?.club.includes('arts') || user?.club.includes('gifted')) router.push(`/programmes/${user?.club}`)
+  //   else if (user?.club.includes('tu') || user?.club.includes('aic')) router.push(`/organization/${user?.club}`)
+  // }
+  
   return (
     <div>
 
@@ -24,7 +33,10 @@ export default function Auth() {
         </h1>
         <CountDown until={+new Date(2023, 0, 14, 9, 0, 0, 0)} />
       </main> */}
-      
+      {user?.club
+      ? <Navbar classname='bg-cream bg-opacity-50 backdrop-blur-none' />
+      : null}
+
       <section className='relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-login-edit'>
         <div className=''>
           <RomanTower classname='absolute top-0 left-[-60px] min-[700px]:left-[-30px] lg:left-0 h-screen transform -scale-x-100' />
@@ -32,13 +44,22 @@ export default function Auth() {
         </div>
         { user?.uid
         ? <div>
-            <button 
-                onClick={signout}>
-                <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
-                    <p className='text-[14px] ml-[10px] lg:ml-[20px] lg:text-[20px] font-500 text-[#37498B]'>Sign Out</p>
-                </div>
-            </button>
-         </div>
+            <p className='text-[28px] lg:text-[40px] font-[700] text-[#37498B]'>Sign out / ออกจากระบบ</p>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+              >
+              <button 
+                  onClick={signout}
+                  className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-cream rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
+                  <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="orange" className="w-9 h-9">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                      </svg>
+                      <p className='text-[24px] ml-[20px] lg:ml-[40px] lg:text-[30px] font-500 text-[orange]'>Sign out</p>
+                  </div>
+              </button>
+              </motion.div>
+          </div>
         : <div>
             <p className='text-[28px] lg:text-[40px] font-[700] text-[#37498B]'>Register / ลงทะเบียน</p> 
                 <motion.div

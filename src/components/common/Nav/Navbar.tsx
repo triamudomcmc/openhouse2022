@@ -67,8 +67,8 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                             </Link>
                         </div>
                         <div  className='px-[40px]'>
-                            <Link href={`/clubs/${[user?.club]}/edit`} >
-                                แก้ไขข้อมูลหน่วยงาน
+                            <Link href={`/clubs/${[user?.club]}`} >
+                                ข้อมูลหน่วยงาน
                             </Link>
                         </div>
                     </div>

@@ -189,10 +189,12 @@ const Editor = ({clubId}) => {
         <div className='relative'>
           <Navbar classname='bg-gray-300 bg-opacity-50 backdrop-blur-none' />
             <div className='mx-auto pt-[104px] w-[311px] lg:w-[1000px] lg:pt-[178px]'>
-              <button className='flex'>
+              <Link href={`/programmes/${[clubId]}`}>
+                <button className='flex'>
                   <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
                   <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px]'>ย้อนกลับ</p>
-              </button>
+                </button>
+              </Link>
               <div className='lg:flex justify-between w-[225px] lg:w-[978px] mx-auto mt-[18px] lg:mt-[41px]'>
                 {/* <p className='w-[108px] text-[14px] leading-[16px] lg:w-[290px] lg:text-xl'>สถานะ: {status} </p> */}
                 <div className='w-[220px] lg:w-[335px] lg:ml-[29px]'>

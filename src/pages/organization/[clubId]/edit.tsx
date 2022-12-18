@@ -189,10 +189,12 @@ const Editor = ({clubId}) => {
         <div className='relative'>
             <Navbar classname='bg-gray-300 bg-opacity-50 backdrop-blur-none' />
             <div className='mx-auto pt-[104px] w-[311px] lg:w-[1000px] lg:pt-[178px]'>
-              <button className='flex'>
+              <Link href={`/organization/${[clubId]}`}>
+                <button className='flex'>
                   <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
                   <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px]'>ย้อนกลับ</p>
-              </button>
+                </button>
+              </Link>
               <div className='lg:flex justify-between w-[225px] lg:w-[978px] mx-auto mt-[18px] lg:mt-[41px]'>
                 {/* <p className='w-[108px] text-[14px] leading-[16px] lg:w-[290px] lg:text-xl'>สถานะ: {status} </p> */}
                 <div className='w-[220px] lg:w-[335px] lg:ml-[29px]'>
@@ -219,7 +221,7 @@ const Editor = ({clubId}) => {
                   <div className='lg:h-[92px] mt-[20px] lg:mt-[29px]'>
                     <h1 className='h-[29px] text-xl lg:h-[34px] lg:text-[28px] lg:leading-[34px]' > {info.nameTH}</h1>
                     <h2 className='h-[24px] lg:h-[29px] font-[400px] text-md lg:text-xl text-gray-500 mt-[1px]'>{info.nameEN}</h2>
-                    <h2 className='h-[21px] text-[17px] leading-[21px] lg:h-[24px] lg:text-[20px] leading-md lg:mt-[5px] text-gray-500 mt-[3px]'>องค์กร {info.member} คน</h2>
+                    {/* <h2 className='h-[21px] text-[17px] leading-[21px] lg:h-[24px] lg:text-[20px] leading-md lg:mt-[5px] text-gray-500 mt-[3px]'>องค์กร {info.member} คน</h2> */}
                   </div>
                   <ContactRenderer 
                     classname="mt-[3px] ml-[44px] mb-[22px] w-[207px] lg:w-[243px] lg:mx-auto lg:mt-[5px]"
@@ -269,7 +271,7 @@ const Editor = ({clubId}) => {
               </div>
               <div>
                 <div className='flex mt-[63px] lg:mt-[90px] relative'>
-                  <h1 className='font-display font-[800]'></h1>
+                  <h1 className='font-display font-[800]'>ตำแหน่งหน้าที่</h1>
                   <div className='z-10'>
                     <Tooltip 
                     className='top-[25px] lg:top-[50px] right-0 mx-[5px] lg:mx-[10px] bg-white bg-opacity-90'
