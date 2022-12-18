@@ -41,9 +41,12 @@ const ViewArticle = ({clubId}) => {
     useEffect(() => {
       const fetchInitialData = async () => {
         const permBody = JSON.stringify({executerUid: user?.uid})
-        const res = await fetch(`/api/${clubId}/pendingcontent`, {
+        const res = await fetch(`/api/${clubId}/handlers`, {
           method: 'POST',
-          body: permBody
+          body: JSON.stringify({
+            executerUid: user?.uid,
+            act: 'pendingcontent'
+          })
         })
 
         setStatus('Pending')
@@ -51,9 +54,12 @@ const ViewArticle = ({clubId}) => {
         let dataFetch = await res?.json()
 
         if (dataFetch.nonexisted) {
-          const res = await fetch(`/api/${clubId}/prodcontent`, {
+          const res = await fetch(`/api/${clubId}/handlers`, {
             method: 'POST',
-            body: permBody
+            body: JSON.stringify({
+                executerUid: user?.uid,
+                act: 'prodcontent'
+            })
           })
           dataFetch = await res?.json()
           setStatus('Approved')

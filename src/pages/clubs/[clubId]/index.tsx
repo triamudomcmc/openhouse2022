@@ -27,23 +27,29 @@ const LandingEdit = ({clubId}) => {
             const permBody = JSON.stringify({executerUid: user?.uid})
             let dataFetch
             if (user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) {
-                const res = await fetch(`/api/${clubId}/pendingcontent`, {
+                const res = await fetch(`/api/${clubId}/handlers`, {
                 method: 'POST',
-                body: permBody
+                body: JSON.stringify({
+                    executerUid: user?.uid,
+                    act: 'pendingcontent'
+                })
                 })
                 setStatus('Pending')
                 dataFetch = await res?.json()
             }
 
             if ((status == '') || (dataFetch ?? false ? dataFetch.nonexisted : false)) {
-                const res = await fetch(`/api/${clubId}/prodcontent`, {
+                const res = await fetch(`/api/${clubId}/handlers`, {
                   method: 'POST',
-                  body: permBody
+                  body: JSON.stringify({
+                    executerUid: user?.uid,
+                    act: 'prodcontent'
+                  })
                 })
                 dataFetch = await res?.json()
                 setStatus('Approved')
             }
-            setInfo(dataFetch.Info != null ? dataFetch.Info : '')
+            dataFetch ? setInfo(dataFetch.Info != null ? dataFetch.Info : '') : null
         }
         fetchInitialData()
       // eslint-disable-next-line react-hooks/exhaustive-deps

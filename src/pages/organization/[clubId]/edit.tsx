@@ -46,9 +46,12 @@ const Editor = ({clubId}) => {
     useEffect(() => {
       const fetchInitialData = async () => {
         const permBody = JSON.stringify({executerUid: user?.uid})
-        const res = await fetch(`/api/${clubId}/pendingcontent`, {
+        const res = await fetch(`/api/${clubId}/handlers`, {
           method: 'POST',
-          body: permBody
+          body: JSON.stringify({
+            executerUid: user?.uid,
+            act: 'pendingcontent'
+          })
         })
 
         setStatus('Pending')
@@ -56,9 +59,12 @@ const Editor = ({clubId}) => {
         let dataFetch = await res?.json()
 
         if (dataFetch.nonexisted) {
-          const res = await fetch(`/api/${clubId}/prodcontent`, {
+          const res = await fetch(`/api/${clubId}/handlers`, {
             method: 'POST',
-            body: permBody
+            body: JSON.stringify({
+              executerUid: user?.uid,
+              act: 'prodconent'
+            })
           })
           dataFetch = await res?.json()
           setStatus('Approved')
@@ -103,10 +109,11 @@ const Editor = ({clubId}) => {
       const ogFile = e.target.files[0]
       const data = await toBase64(ogFile)
 
-      const getGCPPolicy = await fetch(`/api/${clubId}/getPolicy`, {
+      const getGCPPolicy = await fetch(`/api/${clubId}/handlers`, {
         method: 'POST',
         body: JSON.stringify({
           executerUid: user?.uid,
+          act: 'getPolicy',
           purpose: purpose,
           fileName: ogFile.name,
           "Info": info,
@@ -146,10 +153,11 @@ const Editor = ({clubId}) => {
         index = Number(tmp[1])
       }
 
-      const getGCPPolicy = await fetch(`/api/${clubId}/getPolicy`, {
+      const getGCPPolicy = await fetch(`/api/${clubId}/handlers`, {
         method: 'POST',
         body: JSON.stringify({
           executerUid: user?.uid,
+          act: 'getPolicy',
           purpose: purpose,
           fileName: ogFile.name,
           ReviewIndex: index,

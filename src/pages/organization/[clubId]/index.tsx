@@ -22,9 +22,12 @@ const LandingEdit = ({clubId}) => {
             const permBody = JSON.stringify({executerUid: user?.uid})
             let dataFetch
             if (user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) {
-                const res = await fetch(`/api/${clubId}/pendingcontent`, {
+                const res = await fetch(`/api/${clubId}/handlers`, {
                 method: 'POST',
-                body: permBody
+                body: JSON.stringify({
+                    executerUid: user?.uid,
+                    act: 'pendingcontent'
+                })
                 })
                 
                 setStatus('Pending')
@@ -32,9 +35,12 @@ const LandingEdit = ({clubId}) => {
             }
 
             if (status == '') {
-              const res = await fetch(`/api/${clubId}/prodcontent`, {
+              const res = await fetch(`/api/${clubId}/handlers`, {
                 method: 'POST',
-                body: permBody
+                body: JSON.stringify({
+                    executerUid: user?.uid,
+                    act: 'prodcontent'
+                })
               })
               dataFetch = await res?.json()
               setStatus('Approved')
