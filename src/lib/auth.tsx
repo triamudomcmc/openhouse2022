@@ -64,10 +64,13 @@ function useProvideAuth() {
         const response = await signInWithPopup(auth, new GoogleAuthProvider())
         const handleStatus = await handleUser(response.user)
         
-        // if (handleStatus ?? false ? handleStatus?.club : false) {
-        //     Router.push(`/clubs/${handleStatus?.club}`)
-        // }
-         if (redirect) {
+        if (handleStatus ?? false ? handleStatus?.club : false) {
+            if (handleStatus?.club.includes('ก')) Router.push({pathname: `/clubs/${handleStatus?.club}`, query: {onLoad: true}})
+            else if (handleStatus?.club.includes('sci') || handleStatus?.club.includes('arts') || handleStatus?.club.includes('gifted')) Router.push(`/programmes/${handleStatus?.club}`)
+            else if (handleStatus?.club.includes('tu') || handleStatus?.club == 'aic') Router.push(`/organization/${handleStatus?.club}`)
+            else false
+        }
+        else if (redirect) {
             Router.push(redirect)
         }
     }

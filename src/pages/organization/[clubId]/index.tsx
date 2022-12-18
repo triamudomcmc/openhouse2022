@@ -15,14 +15,6 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 const LandingEdit = ({clubId}) => {
     const {user} = useAuth()
     const [info, setInfo] = useState<{[key: string]: string}>({})
-    const [contacts, setContacts] = useState({})
-    const [clubArticle, setClubArticle] = useState('')
-    const [clubArticleDes, setClubArticleDes] = useState('')
-    const [advantage, setAdvantage] = useState('')
-    const [advantageDes, setAdvantageDes] = useState('')
-    const [work, setWork] = useState('')
-    const [workDes, setWorkDes] = useState('')
-    const [reviews, setReviews] = useState([])
     const [status, setStatus] = useState('')
 
     useEffect(() => {
@@ -49,14 +41,6 @@ const LandingEdit = ({clubId}) => {
             }
             
             setInfo(dataFetch.Info != null ? dataFetch.Info : '')
-            setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {})
-            setClubArticle(dataFetch?.ClubArticle)
-            setClubArticleDes(dataFetch?.ClubArticleDes)
-            setAdvantage(dataFetch?.Advantage)
-            setAdvantageDes(dataFetch?.AdvantageDes)
-            setWork(dataFetch?.Work)
-            setWorkDes(dataFetch?.WorkDes)
-            setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
         }
         fetchInitialData()
       // eslint-disable-next-line react-hooks/exhaustive-deps

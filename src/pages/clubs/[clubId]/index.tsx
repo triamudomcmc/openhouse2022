@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useAuth } from '@lib/auth'
 import { MainRenderer } from '@components/cms/mainRender'
@@ -16,20 +17,10 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 }
 
 const LandingEdit = ({clubId}) => {
+    const router = useRouter()
     const {user} = useAuth()
     const [info, setInfo] = useState<{[key: string]: string}>({})
-    const [contacts, setContacts] = useState({})
-    const [clubArticle, setClubArticle] = useState('')
-    const [clubArticleDes, setClubArticleDes] = useState('')
-    const [advantage, setAdvantage] = useState('')
-    const [advantageDes, setAdvantageDes] = useState('')
-    const [work, setWork] = useState('')
-    const [workDes, setWorkDes] = useState('')
-    const [reviews, setReviews] = useState([])
     const [status, setStatus] = useState('')
-
-    const [imagesLink, setImagesLink] = useState<{[key: string]: string}>({})
-    const [reviewImagesLink, setReviewImagesLink] = useState({})
 
     useEffect(() => {
         const fetchInitialData = async () => {
@@ -52,18 +43,7 @@ const LandingEdit = ({clubId}) => {
                 dataFetch = await res?.json()
                 setStatus('Approved')
             }
-            
-            setReviewImagesLink(dataFetch?.reviewImageUrl ?? {})
-            setImagesLink(dataFetch?.imageUrl ?? {})
             setInfo(dataFetch.Info != null ? dataFetch.Info : '')
-            setContacts(dataFetch?.Contacts != null ? dataFetch.Contacts : {})
-            setClubArticle(dataFetch?.ClubArticle)
-            setClubArticleDes(dataFetch?.ClubArticleDes)
-            setAdvantage(dataFetch?.Advantage)
-            setAdvantageDes(dataFetch?.AdvantageDes)
-            setWork(dataFetch?.Work)
-            setWorkDes(dataFetch?.WorkDes)
-            setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
         }
         fetchInitialData()
       // eslint-disable-next-line react-hooks/exhaustive-deps
