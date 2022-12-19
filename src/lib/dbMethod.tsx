@@ -16,22 +16,28 @@ const adminDb = getDB()
 
 
 
-export const getClubProdArticle = async (clubId: string): Promise<null | DocumentData> => {
-  const clubDoc = await adminDb.collection("prodAppr").doc(clubId).get()
+const getClubProd = async (clubId: string) => {
+  return await adminDb.collection("prodAppr").doc(clubId).get()
+}
 
+const getClubPend = async (clubId: string) => {
+  return await adminDb.collection("pendingAppr").doc(clubId).get()
+}
+
+export const getClubProdArticle = async (clubId: string): Promise<null | DocumentData> => {
+  const clubDoc = await getClubProd(clubId)
   if (clubDoc.exists) return clubDoc.data()
   return undefined
 }
 
 export const getClubPendArticle = async (clubId: string): Promise<null | DocumentData> => {
-  const clubDoc = await adminDb.collection("pendingAppr").doc(clubId).get()
+  const clubDoc = await getClubPend(clubId)
   if (clubDoc.exists) return clubDoc.data()
   return undefined
   //return await getClubProdArticle(clubId)
 }
 
 export const updateArticleToPending = async (clubId: string, data) : Promise<void> => {
-  const clubRef = getClubPendRef(clubId)
 
   data = JSON.parse(data)
   const finalData = {
@@ -50,27 +56,25 @@ export const updateArticleToPending = async (clubId: string, data) : Promise<voi
     WorkDes: data.WorkDes ?? '',
     Reviews: data.Reviews
   }
-  
-  return await setDoc(clubRef, finalData, {merge: true})
+  await adminDb.collection("pendingAppr").doc(clubId).set(finalData, {merge: true})
+
+  return
 }
 
 export const updateImage = async (clubId: string, file: string, field: string) : Promise<void> => {
-  const clubPendRef = getClubPendRef(clubId)
 
-  return await setDoc(clubPendRef, {Images: { [field]: file }}, {merge: true})
+  await adminDb.collection("pendingAppr").doc(clubId).set({Images: { [field]: file }}, {merge: true})
+  return 
 }
 
 export const updateProfileImage = async (clubId: string, data) : Promise<void> => {
-  const clubPendRef = getClubPendRef(clubId)
 
-  return await setDoc(clubPendRef, {Reviews: data}, {merge: true})
+  await adminDb.collection("pendingAppr").doc(clubId).set({Reviews: data}, {merge: true})
 }
 
 export const movePendToProd = async (clubId: string) : Promise<void> => {
-  const clubPendRef = getClubPendRef(clubId)
-  const clubProdRef = getClubProdRef(clubId)
 
-  const pendDoc = await getClubPendArticle(clubId)
-  await setDoc(clubProdRef, pendDoc)
-  return await deleteDoc(clubPendRef)
+  const pendDoc = await getClubPend(clubId)
+  await adminDb.collection("prodAppr").doc(clubId).set(pendDoc.data())
+  await pendDoc.ref.delete()
 }
