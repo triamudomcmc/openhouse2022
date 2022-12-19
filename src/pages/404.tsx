@@ -17,11 +17,11 @@ export default function notFound() {
                     <ThisPageCouldNotBeFound classname="max-lg:hidden" width="380" height="26"/>
                     <ThisPageCouldNotBeFound classname="lg:hidden" width="170"/>
                 </div>
-                {/* <Link href='/'>
+                <Link href='/'>
                     <button className="bg-[#4461AD] text-cream text-[14px] lg:text-[20px] mt-[10px] lg:mt-[30px] w-[100px] h-[25px] lg:w-[150px] lg:h-[40px] rounded-[20px]">
                         กลับสู่หน้าแรก
                     </button> 
-                </Link> */}
+                </Link>
             </div>
         </div>
     )

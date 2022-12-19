@@ -34,7 +34,7 @@
       ],
       "@vectors/*": [
         "src/vectors/*"
-      ]
+      ],
     },
     "allowJs": true,
     "skipLibCheck": true,

@@ -38,5 +38,5 @@ next-env.d.ts
 # Custom
 package-lock.json
 yarn.lock
-
+/.idea
 

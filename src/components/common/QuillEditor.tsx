@@ -21,7 +21,7 @@ const QuillEditor:FC<{
         <>
             <ForwardedReactQuill
                 value={value}
-                placeholder={placeholder ?? 'Type Something ...'}
+                placeholder={placeholder ?? 'พิมพ์ข้อมูล...'}
                 onChange={(v) => {onChange ?? false ? onChange(v) : null}} 
                 ref={quillRef}
                 readOnly={readOnly}
