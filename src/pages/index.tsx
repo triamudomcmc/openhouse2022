@@ -17,7 +17,7 @@ import OpenHouse from "@vectors/text/openhouse";
 import CountDownBgPhone from "@vectors/background/countDownBgPhone";
 import { Navbar } from "@components/common/Nav/Navbar";
 
-const OpeningTime = +new Date(2023, 0, 14, 9, 0, 0, 0);
+const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0);
 
 export default function Home() {
   const { user, signinWithGoogle, signout } = useAuth();
