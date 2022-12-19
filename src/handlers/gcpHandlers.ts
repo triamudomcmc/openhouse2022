@@ -5,9 +5,12 @@ import { getFirestore } from "@lib/firebase-admin"
 import { gcpCert } from "@config/gcpConfig"
 import { updateImage, updateProfileImage } from "@lib/dbMethod"
 import { dirListing } from "./listing"
+import * as dotenv from "dotenv"
+
+dotenv.config()
 
 const gcpStorage = new Storage(gcpCert)
-const gcpBucket = gcpStorage.bucket(process.env.GCP_BUCKET_NAME)
+const gcpBucket = gcpStorage.bucket(process.env.GCP_BUCKET_NAME || "")
 
 export const handlers = async (route, req, ID) => {
     switch (route) {
