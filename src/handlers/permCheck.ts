@@ -1,4 +1,4 @@
-import { getUserData } from '@lib/dbMethod'
+import { getUserData } from '@lib/clientDB'
 
 export const executeOverPerm = async (req, res, perms, callback: (req, res) => any) => {
     const uid = (JSON.parse(req.body)).executerUid

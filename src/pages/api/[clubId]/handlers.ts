@@ -46,7 +46,8 @@ async function getPendContent(req, res) {
                     finalData['imageUrl'] = {}
                     Object.keys(clubPendArticle?.Images).length != 0 ? finalData['imageUrl'] = await handlers('getImage', JSON.stringify(clubPendArticle?.Images), clubId) : false
                     let reviewImageUrl = {}
-                    for (const index of finalData['Reviews']) {
+                
+                    for (const index in finalData['Reviews']) {
                         finalData['Reviews'][index]['Image'] ? reviewImageUrl[index] = finalData['Reviews'][index]['Image'] : null
                     }
                     finalData['reviewImageUrl'] = await handlers('getImage', JSON.stringify(reviewImageUrl), clubId)
@@ -70,7 +71,7 @@ async function getProdContent(req, res) {
         finalData['imageUrl'] = {}
         Object.keys(clubArticle?.Images).length != 0 ? finalData['imageUrl'] = await handlers('getImage', JSON.stringify(clubArticle?.Images), clubId) : false
         let reviewImageUrl = {}
-        for (const index of finalData['Reviews']) {
+        for (const index in finalData['Reviews']) {
             finalData['Reviews'][index]['Image'] ? reviewImageUrl[index] = finalData['Reviews'][index]['Image'] : null
         }
         finalData['reviewImageUrl'] = await handlers('getImage', JSON.stringify(reviewImageUrl), clubId)

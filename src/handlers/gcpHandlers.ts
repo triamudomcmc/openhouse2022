@@ -7,8 +7,6 @@ import { updateImage, updateProfileImage } from "@lib/dbMethod"
 import { dirListing } from "./listing"
 import * as dotenv from "dotenv"
 
-dotenv.config()
-
 const gcpStorage = new Storage(gcpCert)
 const gcpBucket = gcpStorage.bucket(process.env.GCP_BUCKET_NAME || "")
 

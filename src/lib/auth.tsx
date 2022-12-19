@@ -9,7 +9,7 @@ import {
     GoogleAuthProvider,
 } from 'firebase/auth'
 import firebaseApp from "./firebase"
-import { createUser, getCurrentUserId, getUserData } from './dbMethod'
+import { createUser, getCurrentUserId, getUserData } from './clientDB'
 import { IAuthContext, IInitialUserData, IUserData } from '@ctypes/account'
 
 interface actProp {
