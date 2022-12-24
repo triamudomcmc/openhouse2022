@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { useAuth } from '@lib/auth'
 import { MainRenderer } from '@components/cms/mainRender'
+import { CheckIcon, XIcon } from '@heroicons/react/outline'
 
 export default function AdminIndex() {
     const {user} = useAuth()
@@ -39,12 +40,19 @@ export default function AdminIndex() {
     useEffect(() => {
         const fetchClubInfo = async () => {
             if (user?.uid) {
-                const res = await fetch(`/api/${focusClub}/pendingcontent`, {
+                // const res = await fetch(`/api/${focusClub}/pendingcontent`, {
+                //     method: 'POST',
+                //     body: JSON.stringify({
+                //         executerUid: user?.uid
+                //     })
+                // })
+                const res = await fetch(`/api/${focusClub}/handlers`, {
                     method: 'POST',
                     body: JSON.stringify({
-                        executerUid: user?.uid
+                      executerUid: user?.uid,
+                      act: 'pendingcontent'
                     })
-                })
+                  })
                 const dataFetch = await res.json()
 
                 if (dataFetch.nonexisted) setSus(true)
@@ -65,7 +73,12 @@ export default function AdminIndex() {
     }, [focusClub])
 
     async function queryClubInfo(clubId: string) {
-        setFocusClub(clubId)
+        if(focusClub != clubId){
+            setFocusClub(clubId)
+        }
+        else{
+            setFocusClub('')
+        }
     }
 
     async function approve(clubId: string) {
@@ -85,13 +98,18 @@ export default function AdminIndex() {
             <div className='mt-[150px] lg:mt-[249px] max-w-[1151px] w-full mx-[100px]'>
                 <div>
                     <h1 className='lg:text-[36px] font-[700] text-center'>ตรวจสอบข้อมูลหน่วยงานบนเว็บไซต์</h1>
-                    <div className='lg:mt-[103px] mt-[50px] lg:text-[30px] font-[500]'><p>หน่วยงานที่มีสถานะรอการตรวจสอบ</p></div>
+                    <div className='lg:mt-[103px] mt-[50px] lg:text-[30px] font-[500] flex'>
+                        <svg className='mr-4 ' width="23" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="10" fill='#FCB52B'/>
+                        </svg>
+                        <p>หน่วยงานที่มีสถานะรอการตรวจสอบ</p>
+                    </div>
                     <hr className='lg:border-[1px] lg:mt-[23px]'/>
                 </div>
                 {pendingArticleList.map((val, key) => {
                 return (
-                    <div key={val} className='mt-6 border-2 border-gray-300 rounded-[20px] lg:min-h-[106px] '>
-                            <div className='flex items-center lg:h-[106px] lg:mx-[25px]'>
+                    <div key={val} className='mt-6'>
+                            <div className='flex items-center lg:h-[106px] lg:mx-[25px]  border-2 border-gray-300 rounded-[20px]'>
                                 <div className='flex justify-between w-full'>
                                     <div><h5 className='lg:text-[25px] lg:leading-[50px]'>{val}</h5></div>
                                     <div className='lg:w-[228px] h-[50px] rounded-xl bg-blue-edit-300 text-center '>
@@ -101,9 +119,11 @@ export default function AdminIndex() {
                             </div>
                             {!sus && (val==focusClub)
                             ? <div>
-                                <button onClick={() => approve(val)}><b>APPR</b></button>
+                                <button onClick={() => approve(val)} className='w-[52px] h-[52px] bg-[#19C57C] rounded-xl'><CheckIcon className='w-[30px] mx-auto text-white'/></button>
+                                <button onClick={() => approve(val)} className='w-[52px] h-[52px] bg-[#E80808] rounded-xl'><XIcon className='w-[30px] mx-auto text-white'/></button>
                                 <MainRenderer
                                     text={['','','']}
+                                    // type={'dataCheck'}
                                     info={info}
                                     contacts={contacts}
                                     clubArticle={clubArticle}
