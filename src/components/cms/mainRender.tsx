@@ -10,7 +10,7 @@ export const MainRenderer:FC<{
     text: string[]
     // width: Number[]
     // widthLg: Number[]
-    type: string
+    type?: string
     info: {[key: string]: string}
     contacts?: {[key: string]: string}
     clubArticle?: string
