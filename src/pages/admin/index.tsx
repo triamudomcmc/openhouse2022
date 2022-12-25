@@ -109,18 +109,25 @@ export default function AdminIndex() {
                 {pendingArticleList.map((val, key) => {
                 return (
                     <div key={val} className='mt-6'>
-                            <div className='flex items-center lg:h-[106px] lg:mx-[25px]  border-2 border-gray-300 rounded-[20px]'>
+                            <div className='flex items-center lg:h-[106px] border-2 border-gray-300 rounded-[20px]'>
                                 <div className='flex justify-between w-full'>
-                                    <div><h5 className='lg:text-[25px] lg:leading-[50px]'>{val}</h5></div>
-                                    <div className='lg:w-[228px] h-[50px] rounded-xl bg-blue-edit-300 text-center '>
+                                    <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px]'>{val}</h5></div>
+                                    <div className='lg:w-[228px] h-[50px] rounded-xl bg-blue-edit-300 text-center mr-[25px]'>
                                         <button onClick={() => queryClubInfo(val)}><p className='text-white lg:text-[20px] lg:leading-[50px]'>ดูข้อมูลหน่วยงาน</p></button>
                                     </div>
                                 </div>
                             </div>
                             {!sus && (val==focusClub)
-                            ? <div>
-                                <button onClick={() => approve(val)} className='w-[52px] h-[52px] bg-[#19C57C] rounded-xl'><CheckIcon className='w-[30px] mx-auto text-white'/></button>
-                                <button onClick={() => approve(val)} className='w-[52px] h-[52px] bg-[#E80808] rounded-xl'><XIcon className='w-[30px] mx-auto text-white'/></button>
+                            ? <div className='mt-6 border-2 border-gray-500 rounded-[22px] mx-[-50px]'>
+                                <div className='flex items-center lg:h-[106px] bg-[#3A3A3A] rounded-[20px]'>
+                                    <div className='flex justify-between w-full'>
+                                        <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px] text-white'>{val}</h5></div>
+                                        <div className='mr-[50px]'>
+                                            <button onClick={() => approve(val)} className='w-[52px] h-[52px] bg-[#19C57C] rounded-xl mx-3'><CheckIcon className='w-[30px] mx-auto text-white'/></button>
+                                            <button onClick={() => approve(val)} className='w-[52px] h-[52px] bg-[#E80808] rounded-xl mx-3'><XIcon className='w-[30px] mx-auto text-white'/></button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <MainRenderer
                                     text={['','','']}
                                     // type={'dataCheck'}

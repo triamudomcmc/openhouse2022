@@ -90,7 +90,7 @@ const ViewArticle = ({clubId}) => {
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && info) return (
         <div className='flex flex-col overflow-hidden max-lg:bg-gradient-edit lg:bg-cream'>
             <ArticleBackground classname='max-lg:hidden' />
-            <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[305px] flex max-[1080px]:ml-[30px] z-10 '>
+            <div className='mx-auto mt-[104px] w-[311px] lg:w-full lg:max-w-[1000px] lg:mt-[305px] flex max-[1080px]:ml-[30px] z-10 '>
                 <Link href={`/clubs/${[clubId]}/edit`}>
                     <button className='flex'>
                         <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
