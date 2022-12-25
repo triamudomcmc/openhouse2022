@@ -11,6 +11,7 @@ export default function AdminIndex() {
     const [focusClub, setFocusClub] = useState<string>()
     const [sus, setSus] = useState(false)
 
+    const [type, setType] = useState<string>('')
     const [info, setInfo] = useState<{[key: string]: string}>({})
     const [contacts, setContacts] = useState({})
     const [clubArticle, setClubArticle] = useState('')
@@ -39,7 +40,20 @@ export default function AdminIndex() {
 
     useEffect(() => {
         const fetchClubInfo = async () => {
-            if (user?.uid) {
+            if (focusClub == '') {
+                setInfo({})
+                setContacts({})
+                setClubArticle('')
+                setClubArticleDes('')
+                setAdvantage('')
+                setAdvantageDes('')
+                setWork('')
+                setWorkDes('')
+                setReviews([])
+                setType('')
+            }
+
+            if (user?.uid && focusClub != '') {
                 // const res = await fetch(`/api/${focusClub}/pendingcontent`, {
                 //     method: 'POST',
                 //     body: JSON.stringify({
@@ -66,6 +80,7 @@ export default function AdminIndex() {
                     setWork(dataFetch?.Work)
                     setWorkDes(dataFetch?.WorkDes)
                     setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
+                    setType(dataFetch?.type ?? '')
                 }
             }
         }
@@ -73,10 +88,10 @@ export default function AdminIndex() {
     }, [focusClub])
 
     async function queryClubInfo(clubId: string) {
-        if(focusClub != clubId){
+        if(focusClub != clubId) {
             setFocusClub(clubId)
         }
-        else{
+        else {
             setFocusClub('')
         }
     }
