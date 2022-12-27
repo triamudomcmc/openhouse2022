@@ -73,8 +73,11 @@ export const updateProfileImage = async (clubId: string, data) : Promise<void> =
 }
 
 export const movePendToProd = async (clubId: string) : Promise<void> => {
-
   const pendDoc = await getClubPend(clubId)
   await adminDb.collection("prodAppr").doc(clubId).set(pendDoc.data())
   await pendDoc.ref.delete()
+}
+
+export const declinePend = async (clubId: string) : Promise<void> => {
+  await adminDb.collection('pendingAppr').doc(clubId).set({decliened: true}, {merge: true})
 }
