@@ -25,14 +25,6 @@ export default function Auth() {
   
   return (
     <div>
-
-      {/* Countdown */}
-      {/* <main className='main'>
-        <h1 className='title'>
-          Countdown
-        </h1>
-        <CountDown until={+new Date(2023, 0, 14, 9, 0, 0, 0)} />
-      </main> */}
       {user?.club || user?.roles?.hasOwnProperty('tucmc') 
       ? <Navbar classname='bg-opacity-50 bg-cream backdrop-blur-none' />
       : null}

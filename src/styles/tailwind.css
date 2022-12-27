@@ -65,4 +65,8 @@
     .bg-article{
         background-image: url('https://www.google.com/search?q=post+card+shop&tbm=isch&ved=2ahUKEwjAiKXW6uz7AhU0SHwKHT7nBTUQ2-cCegQIABAA&oq=post+card+shop&gs_lcp=CgNpbWcQAzIHCAAQgAQQGDIJCAAQgAQQChAYOgQIIxAnOgQIABBDOgcIABCxAxBDOgUIABCABDoHCAAQgAQQCjoICAAQCBAeEAo6BggAEAgQHlCuGViUM2CYNmgAcAB4AIABXogBnQmSAQIxNJgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=ylGTY8D7IrSQ8QO-zpeoAw&bih=755&biw=1470&rlz=1C5CHFA_enTH1030TH1033#imgrc=ZVBj0-W6w8Eh-M');
     }
+
+    .bg-qr-reader{
+        background: linear-gradient(180deg, #8087CD 0%, #E29E78 100%);
+    }
 }

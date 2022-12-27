@@ -34,27 +34,32 @@ export default function Scan() {
 
     if (user?.roles?.hasOwnProperty('tucmc') || user?.roles?.hasOwnProperty('aic')) {
         return (
-            <div>
-                    <QrReader
-                        onResult={(result, error) => {
-                            handleQrUid(result, error)
-                        }}
-                        constraints={{ facingMode:  "environment"  }}
-                        containerStyle={{ width: "50%", height: "50%" }}
-                    />
-                {
-                /* Fallback procedure, manually click button ! */
-                /* <button onClick={getUidData} type="button">Query</button> */
-                }
-                    
-                {uidData ?
-                    <div>
-                        <h1>{uidData.onSite ? 'Marked' : 'Something went wrong please consider re-scan'}</h1>
-                        <p>Name: {uidData.name}</p>
-                        <p>Email: {uidData.email}</p>
+            <div className="flex items-center justify-center w-screen h-screen bg-cream">
+                <div>
+                    <div className='h-[230px] w-[290px] flex items-center justify-center rounded-[5px] bg-qr-reader'>
+                        <QrReader
+                            className="w-[240px]"
+                            onResult={(result, error) => {
+                                handleQrUid(result, error)
+                            }}
+                            constraints={{ facingMode:  "environment"  }}
+                            // containerStyle={{ 'border-radius':'40px'}}
+                        />
                     </div>
-                : null
-                }
+                    {
+                    /* Fallback procedure, manually click button ! */
+                    /* <button onClick={getUidData} type="button">Query</button> */
+                    }
+                        
+                    {uidData ?
+                        <div className="mt-[24px]">
+                            <h1>{uidData.onSite ? 'Marked' : 'Something went wrong please consider re-scan'}</h1>
+                            <p className="mt-[8px]">Name: {uidData.name}</p>
+                            <p>Email: {uidData.email}</p>
+                        </div>
+                    : null
+                    }
+                </div>
             </div>
         )
     }
