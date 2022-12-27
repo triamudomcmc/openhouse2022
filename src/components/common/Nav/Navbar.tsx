@@ -43,7 +43,7 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
         },
       }
       
- if(user?.roles.hasOwnProperty('clubPresident') ){
+ if(user?.roles.hasOwnProperty('clubPresident') ||  user?.roles.hasOwnProperty('tucmc')){
     return (
         // <div className="relative">
         <div className={`sticky top-0 w-screen bg-white bg-opacity-50 backdrop-blur-[5px] ${classname} z-99`}>
@@ -61,16 +61,25 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                 </Link>
                 <div className="flex">
                     <div className="flex items-center">
-                        <div  className='px-[10px]'>
+                        <div  className='px-[40px]'>
                             <Link href={`/`}>
                                 หน้าแรก
                             </Link>
                         </div>
+                        {user?.roles.hasOwnProperty('tucmc') &&
+                            <div  className='px-[40px]'>
+                                <Link href={`/admin`} >
+                                    ตรวจสอบข้อมูลหน่วยงาน
+                                </Link>
+                            </div>
+                        }
+                        {user?.roles.hasOwnProperty('clubPresident') &&
                         <div  className='px-[40px]'>
                             <Link href={`/clubs/${[user?.club]}`} >
                                 ข้อมูลหน่วยงาน
                             </Link>
                         </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -122,11 +131,20 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                                     <span>หน้าแรก</span>
                                 </Link>  
                             </div>
+                            {user?.roles.hasOwnProperty('tucmc') &&
+                                <div  className='flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]'>
+                                    <Link href={`/admin`} >
+                                        แก้ไขข้อมูลหน่วยงาน
+                                    </Link>
+                                </div> 
+                            }
+                            {user?.roles.hasOwnProperty('clubPresident') &&
                             <div  className='flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]'>
                                 <Link href={`/clubs/${[user?.club]}/edit`} >
                                     แก้ไขข้อมูลหน่วยงาน
                                 </Link>
-                            </div>       
+                            </div> 
+                            }     
                         </>
                         </div>
                     </motion.nav>

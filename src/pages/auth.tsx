@@ -33,8 +33,8 @@ export default function Auth() {
         </h1>
         <CountDown until={+new Date(2023, 0, 14, 9, 0, 0, 0)} />
       </main> */}
-      {user?.club
-      ? <Navbar classname='bg-cream bg-opacity-50 backdrop-blur-none' />
+      {user?.club || user?.roles?.hasOwnProperty('tucmc') 
+      ? <Navbar classname='bg-opacity-50 bg-cream backdrop-blur-none' />
       : null}
 
       <section className='relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-login-edit'>
