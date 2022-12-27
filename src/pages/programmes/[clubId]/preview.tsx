@@ -100,7 +100,7 @@ const ViewArticle = ({clubId}) => {
                 // text={text}
                 // width={width}
                 // widthLg={widthLg}
-                type='programme'
+                type='programmes'
                 info={info}
                 contacts={contacts}
                 clubArticle={clubArticle}
