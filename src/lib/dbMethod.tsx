@@ -79,5 +79,5 @@ export const movePendToProd = async (clubId: string) : Promise<void> => {
 }
 
 export const declinePend = async (clubId: string) : Promise<void> => {
-  await adminDb.collection('pendingAppr').doc(clubId).set({decliened: true}, {merge: true})
+  await adminDb.collection('pendingAppr').doc(clubId).set({declined: true}, {merge: true})
 }

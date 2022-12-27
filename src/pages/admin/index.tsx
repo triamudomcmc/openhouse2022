@@ -115,7 +115,7 @@ export default function AdminIndex() {
         approve()
     }
 
-    async function decline(clubId: string) {
+    async function decline(clubId: string, key: number) {
         const decline = async () => {
             const res = await fetch(`/api/${focusClub}/clubDecArticle`, {
                 method: 'POST',
@@ -125,6 +125,8 @@ export default function AdminIndex() {
             })
         }
         decline()
+        pendingArticleList.splice(key, 1)
+        setFocusClub('')
     }
 
     if (user?.roles?.hasOwnProperty('tucmc')) return (
@@ -194,7 +196,7 @@ export default function AdminIndex() {
                                         <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px] text-white'>{val.nameEN}</h5></div>
                                         <div className='mr-[50px]'>
                                             <button onClick={() => approve(val.id)} className='w-[52px] h-[52px] bg-[#19C57C] rounded-xl mx-3'><CheckIcon className='w-[30px] mx-auto text-white'/></button>
-                                            <button onClick={() => decline(val.id)} className='w-[52px] h-[52px] bg-[#E80808] rounded-xl mx-3'><XIcon className='w-[30px] mx-auto text-white'/></button>
+                                            <button onClick={() => decline(val.id, key)} className='w-[52px] h-[52px] bg-[#E80808] rounded-xl mx-3'><XIcon className='w-[30px] mx-auto text-white'/></button>
                                         </div>
                                     </div>
                                 </div>
