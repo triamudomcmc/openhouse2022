@@ -32,9 +32,9 @@ const ViewArticle = ({clubId}) => {
 
     const [status, setStatus] = useState<string>()
 
-    const text = ['การรับสมัครและการสอบเข้า','วิชาหรือหลักสูตรเพิ่มเติมที่เรียน','ความน่าสนใจของสายการเรียน']
-    const width = [279,311,300]
-    const widthLg = [504,558,548]
+    // const text = ['การรับสมัครและการสอบเข้า','วิชาหรือหลักสูตรเพิ่มเติมที่เรียน','ความน่าสนใจของสายการเรียน']
+    // const width = [279,311,300]
+    // const widthLg = [504,558,548]
 
     const [imagesLink, setImagesLink] = useState<{[key: string]: string}>({})
     const [reviewImagesLink, setReviewImagesLink] = useState({})
@@ -97,10 +97,10 @@ const ViewArticle = ({clubId}) => {
             <p className='flex justify-center text-[14px] lg:text-[24px] text-blue-edit-300 z-10'> preview</p>
             <MainRenderer
                 // editable={false}
-                text={text}
+                // text={text}
                 // width={width}
                 // widthLg={widthLg}
-                type='programmes'
+                type='programme'
                 info={info}
                 contacts={contacts}
                 clubArticle={clubArticle}

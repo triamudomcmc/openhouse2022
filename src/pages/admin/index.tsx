@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
-
+import { motion } from 'framer-motion'
 import { useAuth } from '@lib/auth'
 import { MainRenderer } from '@components/cms/mainRender'
 import { CheckIcon, XIcon } from '@heroicons/react/outline'
+import { HamburgerButton } from '@components/common/Nav/Hamburger'
 
 export default function AdminIndex() {
     const {user} = useAuth()
@@ -11,6 +12,8 @@ export default function AdminIndex() {
     const [pendingArticleList, setPendingArticleList] = useState<Array<{[key: string]: string}>>([])
     const [focusClub, setFocusClub] = useState<string>('')
     const [sus, setSus] = useState(false)
+    const [name, setName] = useState('')
+    const [focusType, setFocusType] = useState('')
 
     const [type, setType] = useState<string>('')
     const [info, setInfo] = useState<{[key: string]: string}>({})
@@ -22,6 +25,26 @@ export default function AdminIndex() {
     const [work, setWork] = useState('')
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
+
+    const panel = useRef(null)
+    const [reveal, setReveal] = useState(false)
+    const variants = {
+        close: {
+            opacity: 0,
+            // transition: {
+            //   type: "tween",
+            //   stiffness: 100,
+            // },
+          },
+        open: {
+          opacity: 1,
+        //   transition: {
+        //     type: "tween",
+        //     stiffness: 100,
+        //   },
+        },
+      }
+
 
     useEffect(() => {
         const fetchPendingArticleList = async () => {
@@ -42,26 +65,8 @@ export default function AdminIndex() {
 
     useEffect(() => {
         const fetchClubInfo = async () => {
-            if (focusClub == '') {
-                setInfo({})
-                setContacts({})
-                setClubArticle('')
-                setClubArticleDes('')
-                setAdvantage('')
-                setAdvantageDes('')
-                setWork('')
-                setWorkDes('')
-                setReviews([])
-                setType('')
-            }
 
             if (user?.uid && focusClub != '') {
-                // const res = await fetch(`/api/${focusClub}/pendingcontent`, {
-                //     method: 'POST',
-                //     body: JSON.stringify({
-                //         executerUid: user?.uid
-                //     })
-                // })
                 const res = await fetch(`/api/${focusClub}/handlers`, {
                     method: 'POST',
                     body: JSON.stringify({
@@ -123,18 +128,45 @@ export default function AdminIndex() {
     }
 
     if (user?.roles?.hasOwnProperty('tucmc')) return (
-        <div className='flex justify-center'>
+        <div className='flex justify-center mb-[100px]'>
             <div className='mt-[150px] lg:mt-[249px] max-w-[1151px] w-full mx-[100px]'>
-                <div>
+                <div className='relative'>
                     <h1 className='lg:text-[36px] font-[700] text-center'>ตรวจสอบข้อมูลหน่วยงานบนเว็บไซต์</h1>
-                    <div className='lg:mt-[103px] mt-[50px] lg:text-[30px] font-[500] flex'>
-                        <svg className='mr-4 ' width="23" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="10" fill='#FCB52B'/>
-                        </svg>
-                        <p>หน่วยงานที่มีสถานะรอการตรวจสอบ</p>
+                    <div className='lg:mt-[103px] mt-[50px] flex justify-between'>
+                        <div className='lg:text-[30px] font-[500] flex'>
+                            <svg className='mr-4 ' width="23" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="10" fill='#FCB52B'/>
+                            </svg>
+                            <p>หน่วยงานที่มีสถานะรอการตรวจสอบ</p>
+                        </div>
+                        <HamburgerButton
+                        classname='text-black'
+                        reveal={reveal}
+                        toggle={() => {
+                        setReveal(!reveal)
+                        }}
+                        />
                     </div>
-                    <hr className='lg:border-[1px] lg:mt-[23px]'/>
+                        <motion.nav
+                        ref={panel}
+                        animate={reveal ? "open" : "close"}
+                        variants={variants}
+                        className="absolute z-[99] right-0"
+                         >
+                            <div className={`flex flex-col w-full text-black bg-white bg-opacity-90 font-display text-center`}>
+                                <div className='text-[20px] font-[500] px-[20px] py-[5px]'>
+                                    <button onClick={()=>setFocusType('club')}>ชมรม</button>
+                                </div>
+                                <div className='text-[20px] font-[500] px-[20px] py-[5px]'>
+                                    <button onClick={()=>setFocusType('programme')}>สายการเรียน</button>
+                                </div>
+                                <div className='text-[20px] font-[500] px-[20px] py-[5px]'>
+                                    <button onClick={()=>setFocusType('organization')}>องค์กรนักเรียน</button>
+                                </div>
+                            </div>
+                        </motion.nav>
                 </div>
+                <hr className='lg:border-[1px] lg:mt-[23px]'/>
                 {load
                 ? <div>Loading...</div>
                 : null}
@@ -144,14 +176,20 @@ export default function AdminIndex() {
                             <div className='flex items-center lg:h-[106px] border-2 border-gray-300 rounded-[20px]'>
                                 <div className='flex justify-between w-full'>
                                     <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px]'>{val.nameEN}</h5></div>
-                                    <div className='lg:w-[228px] h-[50px] rounded-xl bg-blue-edit-300 text-center mr-[25px]'>
-                                        <button onClick={() => queryClubInfo(val.id)}><p className='text-white lg:text-[20px] lg:leading-[50px]'>ดูข้อมูลหน่วยงาน</p></button>
-                                    </div>
+                                    <motion.div 
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className='lg:w-[228px] h-[50px] rounded-xl bg-blue-edit-300 active:bg-blue-text text-center mr-[25px] '
+                                    onClick={() => queryClubInfo(val.id)}>
+                                        <p className='text-white lg:text-[20px] lg:leading-[50px]'>ดูข้อมูลหน่วยงาน</p>
+                                    </motion.div>
                                 </div>
                             </div>
                             {!sus && (val.id==focusClub)
-                            ? <div className='mt-6 border-2 border-gray-500 rounded-[22px] mx-[-50px]'>
-                                <div className='flex items-center lg:h-[106px] bg-[#3A3A3A] rounded-[20px]'>
+                            ?<motion.div
+                            >
+                             <div className='mt-6 border-2 border-gray-500 rounded-[22px] mx-[-50px]'>
+                                <div className='flex items-center lg:h-[106px] bg-[#3A3A3A] rounded-[20px] mb-[100px]'>
                                     <div className='flex justify-between w-full'>
                                         <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px] text-white'>{val.nameEN}</h5></div>
                                         <div className='mr-[50px]'>
@@ -161,8 +199,8 @@ export default function AdminIndex() {
                                     </div>
                                 </div>
                                 <MainRenderer
-                                    text={['','','']}
-                                    // type={'dataCheck'}
+                                    type={'club'}
+                                    page={'admin'}
                                     info={info}
                                     contacts={contacts}
                                     clubArticle={clubArticle}
@@ -174,6 +212,7 @@ export default function AdminIndex() {
                                     reviews={reviews}
                                 />
                             </div>
+                            </motion.div>
                             : null}
                     </div>
                     )
