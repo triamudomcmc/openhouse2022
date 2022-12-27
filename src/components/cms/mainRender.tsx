@@ -7,10 +7,11 @@ import ImageUploader from './imageDisplayUploader'
 import classNames from 'classnames';
 
 export const MainRenderer:FC<{
-    text: string[]
+    // text?: string[]
     // width: Number[]
     // widthLg: Number[]
-    type: string
+    page?:string
+    type?: string
     info: {[key: string]: string}
     contacts?: {[key: string]: string}
     clubArticle?: string
@@ -22,8 +23,20 @@ export const MainRenderer:FC<{
     reviews?: any[]
     reviewImagesLink?: {[key: string]: string}
     imagesLink?: {[key: string]: string}
-}> = ({text,type,  info, contacts, clubArticle, clubArticleDes, advantage, advantageDes, work, workDes, reviews, reviewImagesLink, imagesLink}) => {
+}> = ({type, page, info, contacts, clubArticle, clubArticleDes, advantage, advantageDes, work, workDes, reviews, reviewImagesLink, imagesLink}) => {
   
+
+  let text
+  if(type == 'organization'){
+    text = ['องค์กรนี้ทำอะไร ?','ตำแหน่งหน้าที่','ผลงานขององค์กร']
+  }
+  else if(type == 'programme'){
+    text = ['การรับสมัครและการสอบเข้า','วิชาหรือหลักสูตรเพิ่มเติมที่เรียน','ความน่าสนใจของสายการเรียน']
+  }
+  else{
+    text = ['ชมรมนี้ทำอะไร ?','ประโยชน์ที่ได้รับจากการเข้าชมรม','ผลงานของชมรม']
+  }
+
   return (
           <div className='mb-[86px] z-10'>
             <div className='mx-auto mt-[18px] w-[308px] lg:w-[771px] lg:mt-[27px]'>
@@ -44,9 +57,12 @@ export const MainRenderer:FC<{
               <hr className='border-gray-500 lg:border-[1px]'/>
               <div>
                 <div className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] 
-                ${type == 'organization'? 'w-[194px] lg:w-[346px]': type == 'programmes'?'w-[279px] lg:w-[504px]':'w-[194px] lg:w-[346px]'} h-[39px] l lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
-                  <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
-                  <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
+                ${page == 'admin' ? 'shadow-none': type == 'organization'? 'w-[194px] lg:w-[346px]': type == 'programme'?'w-[279px] lg:w-[504px]':'w-[194px] lg:w-[346px]'} h-[39px] l lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
+                  {page != 'admin' &&
+                    <div>
+                      <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
+                      <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
+                    </div>}
                   <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>{text[0]}</h1>
                   {/* <p className='text-[23px] leading-[28px] lg:text-[40px] lg:leading-[48.5px] font-[900] text-blue-text ml-[9px] lg:ml-[18px] my-auto'>?</p> */}
                 </div>
@@ -69,9 +85,12 @@ export const MainRenderer:FC<{
               </div>
               <div>
               <div className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] 
-              ${type == 'organization'? 'w-[319px] lg:w-[576px]': type == 'programmes'?'w-[311px] lg:w-[558px]':'w-[319px] lg:w-[576px]'} lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
-                  <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
-                  <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
+              ${page == 'admin' ? 'shadow-none': type == 'organization'? 'w-[172px] lg:w-[305px]': type == 'programme'?'w-[311px] lg:w-[558px]':'w-[319px] lg:w-[576px]'} lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
+                  {page != 'admin' &&
+                    <div>
+                      <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
+                      <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
+                    </div>}
                   <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>{text[1]}</h1>
                 </div>
                 <div className='w-full mx-auto'>
@@ -93,9 +112,12 @@ export const MainRenderer:FC<{
               </div>
               <div>
               <div className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px]
-                ${type == 'organization'? 'w-[195px] lg:w-[352px]': type == 'programmes'?'w-[200px] lg:w-[548px]':'w-[195px] lg:w-[352px]'} lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
-                  <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
-                  <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
+                ${page == 'admin' ? 'shadow-none': type == 'organization'? 'w-[210px] lg:w-[367px]': type == 'programme'?'w-[200px] lg:w-[548px]':'w-[195px] lg:w-[352px]'} lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
+                  {page != 'admin' &&
+                    <div>
+                      <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
+                      <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
+                    </div>}
                   <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>{text[2]}</h1>
                 </div>
                 <div className='w-full mx-auto'>

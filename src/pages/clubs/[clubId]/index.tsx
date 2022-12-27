@@ -7,6 +7,7 @@ import { MainRenderer } from '@components/cms/mainRender'
 import { PencilIcon } from '@heroicons/react/solid'
 import { ArrowCircleLeftIcon } from '@heroicons/react/outline'
 import { ArticleBackground } from '@vectors/background/articlebg'
+import { motion } from 'framer-motion'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     return {
@@ -70,14 +71,15 @@ const LandingEdit = ({clubId}) => {
                     </div>
                     <div className='border-[2px] border-[#5C5C5C] opacity-60 max-lg:hidden' />
                     <div className='lg:w-[362px] justify-center flex flex-col'>
-                        <div className='relative flex flex-row justify-end max-lg:mt-[23.2px] max-lg:mx-auto'>
+                        <motion.div className='relative flex flex-row justify-end max-lg:mt-[23.2px] max-lg:mx-auto'
+                        whileHover={{ scale: 1.05 }}>
                             <Link href={`/clubs/${[clubId]}/edit`}>
                                 <button className='w-[203.7px] h-[38.3px] lg:w-[335px] lg:h-[63px] bg-blue-edit-300 rounded-[13.4px] lg:rounded-[23.5px] flex flex-row items-center justify-center'>
                                     <p className='text-[19.4px] leading-[24px] lg:text-[32px] lg:leading-[39px] font-500 text-white'>แก้ไข</p>
                                     <PencilIcon className='w-[16px] lg:w-[26px] text-white ml-[5px] lg:ml-[10px] mb-[1px] lg:mb-[3px]' />
                                 </button>
                             </Link>
-                        </div>
+                        </motion.div>
                         <div className='w-[220px] lg:w-[335px] ml-[54px] lg:ml-[29px]'>
                             <p className='text-left text-[16px] leading-[21px] lg:text-[24px] lg:leading-[30px] mt-[25.7px] lg:mt-[9px] text-[#5C5C5C] flex flex-row'>สถานะ : 
                             <span className={`ml-[5px] ${status == 'Approved'? 'text-[#19C57C]': status == 'Pending' ? 'text-[#FCB52B]': 'text-[#E80808]'} flex flex-row items-center`}> 

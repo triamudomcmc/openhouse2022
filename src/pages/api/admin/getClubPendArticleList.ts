@@ -9,7 +9,16 @@ export default async function getClubPendArticle(req, res) {
             async (req, res) => {
                 let pendingList = []
                 const pendSnap = await db.collection('pendingAppr').listDocuments()
-                pendSnap.map((doc) => {pendingList.push(doc.id)})
+
+                for (let doc of pendSnap) {
+                    const nameTH = (await doc.get()).data().Info?.nameTH ?? ''
+                    const nameEN = (await doc.get()).data().Info?.nameEN ?? ''
+                    pendingList.push({
+                        id: doc.id,
+                        nameEN: nameEN,
+                        nameTH: nameTH
+                    })
+                }
 
                 return res.json({value: pendingList})
             }
