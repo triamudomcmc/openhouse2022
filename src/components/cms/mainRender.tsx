@@ -30,7 +30,7 @@ export const MainRenderer:FC<{
   if(type == 'organization'){
     text = ['องค์กรนี้ทำอะไร ?','ตำแหน่งหน้าที่','ผลงานขององค์กร']
   }
-  else if(type == 'programme'){
+  else if(type == 'programmes'){
     text = ['การรับสมัครและการสอบเข้า','วิชาหรือหลักสูตรเพิ่มเติมที่เรียน','ความน่าสนใจของสายการเรียน']
   }
   else{
@@ -57,7 +57,7 @@ export const MainRenderer:FC<{
               <hr className='border-gray-500 lg:border-[1px]'/>
               <div>
                 <div className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] 
-                ${page == 'admin' ? 'shadow-none': type == 'organization'? 'w-[194px] lg:w-[346px]': type == 'programme'?'w-[279px] lg:w-[504px]':'w-[194px] lg:w-[346px]'} h-[39px] l lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
+                ${page == 'admin' ? '': type == 'organization'? 'w-[194px] lg:w-[346px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]': type == 'programmes'?'w-[279px] lg:w-[504px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]':'w-[194px] lg:w-[346px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'} h-[39px] l lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] `}>
                   {page != 'admin' &&
                     <div>
                       <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
@@ -85,7 +85,7 @@ export const MainRenderer:FC<{
               </div>
               <div>
               <div className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] 
-              ${page == 'admin' ? 'shadow-none': type == 'organization'? 'w-[172px] lg:w-[305px]': type == 'programme'?'w-[311px] lg:w-[558px]':'w-[319px] lg:w-[576px]'} lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
+                ${page == 'admin' ? '': type == 'organization'? 'w-[194px] lg:w-[346px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]': type == 'programmes'?'w-[279px] lg:w-[504px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]':'w-[194px] lg:w-[346px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'} h-[39px] l lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] `}>
                   {page != 'admin' &&
                     <div>
                       <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
@@ -112,7 +112,7 @@ export const MainRenderer:FC<{
               </div>
               <div>
               <div className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px]
-                ${page == 'admin' ? 'shadow-none': type == 'organization'? 'w-[210px] lg:w-[367px]': type == 'programme'?'w-[200px] lg:w-[548px]':'w-[195px] lg:w-[352px]'} lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]`}>
+                ${page == 'admin' ? '': type == 'organization'? 'w-[194px] lg:w-[346px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]': type == 'programmes'?'w-[279px] lg:w-[504px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]':'w-[194px] lg:w-[346px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'} h-[39px] l lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] `}>
                   {page != 'admin' &&
                     <div>
                       <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
@@ -139,9 +139,15 @@ export const MainRenderer:FC<{
               </div>
             </div>
             <div className='mx-auto w-[325px] lg:w-[901px]'>
-            <div className='flex mt-[45px] lg:mt-[55px] w-[153px] h-[39px] lg:w-[292px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'>
-                  <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
-                  <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
+            <div className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] 
+                ${page == 'admin' ? '': 'shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'} flex mt-[45px] lg:mt-[55px] w-[153px] h-[39px] lg:w-[292px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px]`}>
+            {/* <div className=' shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]'> */}
+            {page != 'admin' &&
+              <div>
+                <WinkWInk width="41" height="41" classname='ml-[-20.5px] lg:hidden'/>
+                <WinkWInk width="70" height="70" classname='ml-[-35px] max-lg:hidden'/>
+              </div>
+            }
                   <h1 className='font-display font-[800] text-blue-text ml-[10px] my-auto'>รีวิวจากรุ่นพี่</h1>
                 </div>
                   <ReviewRenderer

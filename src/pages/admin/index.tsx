@@ -27,6 +27,9 @@ export default function AdminIndex() {
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
 
+    const [imagesLink, setImagesLink] = useState<{[key: string]: string}>({})
+    const [reviewImagesLink, setReviewImagesLink] = useState({})
+
     const panel = useRef(null)
     const [reveal, setReveal] = useState(false)
     const variants = {
@@ -81,6 +84,8 @@ export default function AdminIndex() {
                     setWorkDes(dataFetch?.WorkDes)
                     setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
                     setType(dataFetch?.type ?? '')
+                    setReviewImagesLink(dataFetch?.reviewImageUrl ?? {})
+                    setImagesLink(dataFetch?.imageUrl ?? {})
                 }
             }
         }
@@ -215,7 +220,7 @@ export default function AdminIndex() {
                                     </div>
                                 </div>
                                 <MainRenderer
-                                    type={'club'}
+                                    type={val.type}
                                     page={'admin'}
                                     info={info}
                                     contacts={contacts}
@@ -226,6 +231,8 @@ export default function AdminIndex() {
                                     work={work}
                                     workDes={workDes}
                                     reviews={reviews}
+                                    reviewImagesLink={reviewImagesLink}
+                                    imagesLink={imagesLink}
                                 />
                             </div>
                             </motion.div>
