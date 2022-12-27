@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
-
+import { motion } from 'framer-motion'
 import { useAuth } from '@lib/auth'
 import { MainRenderer } from '@components/cms/mainRender'
 import { CheckIcon, XIcon } from '@heroicons/react/outline'
+import { HamburgerButton } from '@components/common/Nav/Hamburger'
 
 export default function AdminIndex() {
     const {user} = useAuth()
-    const [pendingArticleList, setPendingArticleList] = useState<Array<string>>([])
+    const [pendingArticleList, setPendingArticleList] = useState<{id:string; nameTH: string; nameEn:string}[]>([])
     const [focusClub, setFocusClub] = useState<string>()
     const [sus, setSus] = useState(false)
+    const [name, setName] = useState('')
 
     const [type, setType] = useState<string>('')
     const [info, setInfo] = useState<{[key: string]: string}>({})
@@ -21,6 +23,11 @@ export default function AdminIndex() {
     const [work, setWork] = useState('')
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
+
+    // const buttonRef = useRef(null)
+    const [reveal, setReveal] = useState(false)
+
+
 
     useEffect(() => {
         const fetchPendingArticleList = async () => {
@@ -40,26 +47,8 @@ export default function AdminIndex() {
 
     useEffect(() => {
         const fetchClubInfo = async () => {
-            if (focusClub == '') {
-                setInfo({})
-                setContacts({})
-                setClubArticle('')
-                setClubArticleDes('')
-                setAdvantage('')
-                setAdvantageDes('')
-                setWork('')
-                setWorkDes('')
-                setReviews([])
-                setType('')
-            }
 
             if (user?.uid && focusClub != '') {
-                // const res = await fetch(`/api/${focusClub}/pendingcontent`, {
-                //     method: 'POST',
-                //     body: JSON.stringify({
-                //         executerUid: user?.uid
-                //     })
-                // })
                 const res = await fetch(`/api/${focusClub}/handlers`, {
                     method: 'POST',
                     body: JSON.stringify({
@@ -109,43 +98,59 @@ export default function AdminIndex() {
     }
 
     if (user?.roles?.hasOwnProperty('tucmc')) return (
-        <div className='flex justify-center'>
+        <div className='flex justify-center mb-[100px]'>
             <div className='mt-[150px] lg:mt-[249px] max-w-[1151px] w-full mx-[100px]'>
                 <div>
                     <h1 className='lg:text-[36px] font-[700] text-center'>ตรวจสอบข้อมูลหน่วยงานบนเว็บไซต์</h1>
-                    <div className='lg:mt-[103px] mt-[50px] lg:text-[30px] font-[500] flex'>
-                        <svg className='mr-4 ' width="23" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="10" fill='#FCB52B'/>
-                        </svg>
-                        <p>หน่วยงานที่มีสถานะรอการตรวจสอบ</p>
+                    <div className='lg:mt-[103px] mt-[50px] flex justify-between'>
+                        <div className='lg:text-[30px] font-[500] flex'>
+                            <svg className='mr-4 ' width="23" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="10" fill='#FCB52B'/>
+                            </svg>
+                            <p>หน่วยงานที่มีสถานะรอการตรวจสอบ</p>
+                        </div>
+                        {/* <HamburgerButton
+                        classname='text-black'
+                        // ref={buttonRef}
+                        reveal={reveal}
+                        toggle={() => {
+                        setReveal(!reveal)
+                        }}
+                        /> */}
                     </div>
-                    <hr className='lg:border-[1px] lg:mt-[23px]'/>
                 </div>
+                <hr className='lg:border-[1px] lg:mt-[23px]'/>
                 {pendingArticleList.map((val, key) => {
                 return (
-                    <div key={val} className='mt-6'>
+                    <div key={val.id} className='mt-6'>
                             <div className='flex items-center lg:h-[106px] border-2 border-gray-300 rounded-[20px]'>
                                 <div className='flex justify-between w-full'>
-                                    <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px]'>{val}</h5></div>
-                                    <div className='lg:w-[228px] h-[50px] rounded-xl bg-blue-edit-300 text-center mr-[25px]'>
-                                        <button onClick={() => queryClubInfo(val)}><p className='text-white lg:text-[20px] lg:leading-[50px]'>ดูข้อมูลหน่วยงาน</p></button>
-                                    </div>
+                                    <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px]'>{val.nameTH}</h5></div>
+                                    <motion.div 
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className='lg:w-[228px] h-[50px] rounded-xl bg-blue-edit-300 active:bg-blue-text text-center mr-[25px] '
+                                    onClick={() => queryClubInfo(val.id)}>
+                                        <p className='text-white lg:text-[20px] lg:leading-[50px]'>ดูข้อมูลหน่วยงาน</p>
+                                    </motion.div>
                                 </div>
                             </div>
-                            {!sus && (val==focusClub)
-                            ? <div className='mt-6 border-2 border-gray-500 rounded-[22px] mx-[-50px]'>
-                                <div className='flex items-center lg:h-[106px] bg-[#3A3A3A] rounded-[20px]'>
+                            {!sus && (val.id==focusClub)
+                            ?<motion.div
+                            >
+                             <div className='mt-6 border-2 border-gray-500 rounded-[22px] mx-[-50px]'>
+                                <div className='flex items-center lg:h-[106px] bg-[#3A3A3A] rounded-[20px] mb-[100px]'>
                                     <div className='flex justify-between w-full'>
-                                        <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px] text-white'>{val}</h5></div>
+                                        <div className='ml-[45px]'><h5 className='lg:text-[25px] lg:leading-[50px] text-white'>{val.nameTH}</h5></div>
                                         <div className='mr-[50px]'>
-                                            <button onClick={() => approve(val)} className='w-[52px] h-[52px] bg-[#19C57C] rounded-xl mx-3'><CheckIcon className='w-[30px] mx-auto text-white'/></button>
-                                            <button onClick={() => approve(val)} className='w-[52px] h-[52px] bg-[#E80808] rounded-xl mx-3'><XIcon className='w-[30px] mx-auto text-white'/></button>
+                                            <button onClick={() => approve(val.id)} className='w-[52px] h-[52px] bg-[#19C57C] rounded-xl mx-3'><CheckIcon className='w-[30px] mx-auto text-white'/></button>
+                                            <button className='w-[52px] h-[52px] bg-[#E80808] rounded-xl mx-3'><XIcon className='w-[30px] mx-auto text-white'/></button>
                                         </div>
                                     </div>
                                 </div>
                                 <MainRenderer
-                                    text={['','','']}
-                                    // type={'dataCheck'}
+                                    type={'club'}
+                                    page={'admin'}
                                     info={info}
                                     contacts={contacts}
                                     clubArticle={clubArticle}
@@ -157,6 +162,7 @@ export default function AdminIndex() {
                                     reviews={reviews}
                                 />
                             </div>
+                            </motion.div>
                             : null}
                     </div>
                     )
