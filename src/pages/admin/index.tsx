@@ -177,7 +177,7 @@ export default function AdminIndex() {
                 ? <div>Loading...</div>
                 : null}
                 {pendingArticleList.map((val, key) => {
-                if(val.type == focusType || focusType == ''){
+                if((val.type == focusType || focusType == '') && val.id != 'ก30930'){
                 return (
                     <div key={val.id} className='mt-6'>
                             <div className='flex items-center lg:h-[106px] border-2 border-gray-300 rounded-[20px]'>
