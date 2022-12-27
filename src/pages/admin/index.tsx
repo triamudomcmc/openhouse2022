@@ -12,6 +12,7 @@ export default function AdminIndex() {
     const [focusClub, setFocusClub] = useState<string>()
     const [sus, setSus] = useState(false)
     const [name, setName] = useState('')
+    const [focusType, setFocusType] = useState('')
 
     const [type, setType] = useState<string>('')
     const [info, setInfo] = useState<{[key: string]: string}>({})
@@ -24,9 +25,24 @@ export default function AdminIndex() {
     const [workDes, setWorkDes] = useState('')
     const [reviews, setReviews] = useState([])
 
-    // const buttonRef = useRef(null)
+    const panel = useRef(null)
     const [reveal, setReveal] = useState(false)
-
+    const variants = {
+        close: {
+            opacity: 0,
+            // transition: {
+            //   type: "tween",
+            //   stiffness: 100,
+            // },
+          },
+        open: {
+          opacity: 1,
+        //   transition: {
+        //     type: "tween",
+        //     stiffness: 100,
+        //   },
+        },
+      }
 
 
     useEffect(() => {
@@ -100,7 +116,7 @@ export default function AdminIndex() {
     if (user?.roles?.hasOwnProperty('tucmc')) return (
         <div className='flex justify-center mb-[100px]'>
             <div className='mt-[150px] lg:mt-[249px] max-w-[1151px] w-full mx-[100px]'>
-                <div>
+                <div className='relative'>
                     <h1 className='lg:text-[36px] font-[700] text-center'>ตรวจสอบข้อมูลหน่วยงานบนเว็บไซต์</h1>
                     <div className='lg:mt-[103px] mt-[50px] flex justify-between'>
                         <div className='lg:text-[30px] font-[500] flex'>
@@ -109,15 +125,32 @@ export default function AdminIndex() {
                             </svg>
                             <p>หน่วยงานที่มีสถานะรอการตรวจสอบ</p>
                         </div>
-                        {/* <HamburgerButton
+                        <HamburgerButton
                         classname='text-black'
-                        // ref={buttonRef}
                         reveal={reveal}
                         toggle={() => {
                         setReveal(!reveal)
                         }}
-                        /> */}
+                        />
                     </div>
+                        <motion.nav
+                        ref={panel}
+                        animate={reveal ? "open" : "close"}
+                        variants={variants}
+                        className="absolute z-[99] right-0"
+                         >
+                            <div className={`flex flex-col w-full text-black bg-white bg-opacity-90 font-display text-center`}>
+                                <div className='text-[20px] font-[500] px-[20px] py-[5px]'>
+                                    <button onClick={()=>setFocusType('club')}>ชมรม</button>
+                                </div>
+                                <div className='text-[20px] font-[500] px-[20px] py-[5px]'>
+                                    <button onClick={()=>setFocusType('programme')}>สายการเรียน</button>
+                                </div>
+                                <div className='text-[20px] font-[500] px-[20px] py-[5px]'>
+                                    <button onClick={()=>setFocusType('organization')}>องค์กรนักเรียน</button>
+                                </div>
+                            </div>
+                        </motion.nav>
                 </div>
                 <hr className='lg:border-[1px] lg:mt-[23px]'/>
                 {pendingArticleList.map((val, key) => {
