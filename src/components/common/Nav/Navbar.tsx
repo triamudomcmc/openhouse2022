@@ -89,6 +89,7 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                     </Link>
                     <div className="flex">
                         <HamburgerButton
+                            classname="lg:hidden"
                             ref={buttonRef}
                             reveal={reveal}
                             toggle={() => {

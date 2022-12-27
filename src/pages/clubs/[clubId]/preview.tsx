@@ -76,21 +76,21 @@ const ViewArticle = ({clubId}) => {
         setWork(dataFetch?.Work)
         setWorkDes(dataFetch?.WorkDes)
         setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
-        console.log(text)
+        // console.log(text)
       }
       if (user?.uid && user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) fetchInitialData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user?.uid])
 
-    const text = ['ชมรมนี้ทำอะไร ?','ประโยชน์ที่ได้รับจากการเข้าชมรม','ผลงานของชมรม']
-    const width = [194,319,195]
-    const widthLg = [346,576,352]
+    // const text = ['ชมรมนี้ทำอะไร ?','ประโยชน์ที่ได้รับจากการเข้าชมรม','ผลงานของชมรม']
+    // const width = [194,319,195]
+    // const widthLg = [346,576,352]
 
 
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && info) return (
         <div className='flex flex-col overflow-hidden max-lg:bg-gradient-edit lg:bg-cream'>
             <ArticleBackground classname='max-lg:hidden' />
-            <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[305px] flex max-[1080px]:ml-[30px] z-10 '>
+            <div className='mx-auto mt-[104px] w-[311px] lg:w-full lg:max-w-[1000px] lg:mt-[305px] flex max-[1080px]:ml-[30px] z-10 '>
                 <Link href={`/clubs/${[clubId]}/edit`}>
                     <button className='flex'>
                         <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
@@ -102,10 +102,10 @@ const ViewArticle = ({clubId}) => {
             <p className='flex justify-center text-[14px] lg:text-[24px] text-blue-edit-300 z-10'> preview</p>
             <MainRenderer
                 // editable={false}
-                text={text}
+                // text={text}
                 // width={width}
                 // widthLg={widthLg}
-                type='clubs'
+                type='club'
                 info={info}
                 contacts={contacts}
                 clubArticle={clubArticle}

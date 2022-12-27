@@ -8,10 +8,24 @@ export default async function getClubPendArticle(req, res) {
         return await executeOverPerm(req, res, ['tucmc'],
             async (req, res) => {
                 let pendingList = []
-                const pendSnap = await db.collection('pendingAppr').listDocuments()
-                pendSnap.map((doc) => {pendingList.push(doc.id)})
+                const pendSnap = await db.collection('pendingAppr').get()
 
-                return res.json({value: pendingList})
+                pendSnap.forEach(doc => {
+                    const data = doc.data()
+                    if (!data.declined) {
+                        const nameTH = data.Info?.nameTH ?? ''
+                        const nameEN = data.Info?.nameEN ?? ''
+                        const type = data.type ?? ''
+                        pendingList.push({
+                            id: doc.id,
+                            nameEN: nameEN,
+                            nameTH: nameTH,
+                            type: type
+                        })
+                    }
+                })
+
+                if (pendingList.length > 0) return res.json({value: pendingList})
             }
         )
     }

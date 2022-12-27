@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div>
       {user?.club
-      ? <Navbar classname='bg-cream bg-opacity-50 backdrop-blur-none' />
+      ? <Navbar classname='bg-opacity-50 bg-cream backdrop-blur-none' />
       : null}
       
       {/* Countdown */}
