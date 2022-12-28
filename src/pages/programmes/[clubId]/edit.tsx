@@ -195,7 +195,7 @@ const Editor = ({clubId}) => {
     
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && status) return (
         <div className='relative'>
-          <Navbar classname='bg-gray-300 bg-opacity-50 backdrop-blur-none' />
+          {/* <Navbar classname='bg-gray-300 bg-opacity-50 backdrop-blur-none' /> */}
             <div className='mx-auto pt-[104px] w-[311px] lg:w-[1000px] lg:pt-[178px]'>
               <Link href={`/programmes/${[clubId]}`}>
                 <button className='flex'>
@@ -265,7 +265,7 @@ const Editor = ({clubId}) => {
                   <input type='text' className='w-full text-xs text-center border-hidden mt-[4px] lg:text-sm lg:mt-[14px]' 
                   placeholder='คำอธิบายรูปภาพ' 
                   value={admissionDes} 
-                  onChange={(txt) => {setAdmission(txt.target.value)}
+                  onChange={(txt) => {setAdmissionDes(txt.target.value)}
                   }/>
                 </div >
                 <div className='border-[1px] lg:border-2 border-gray-500 rounded-[20.5px] lg:rounded-[22px] w-full  mt-[16px] lg:mt-[41px]'>

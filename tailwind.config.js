@@ -20,6 +20,7 @@ module.exports = {
       mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
     },
     screens: {
+      xs: "500px",
       sm: "640px",
       // md: "768px",
       lg: "768px",

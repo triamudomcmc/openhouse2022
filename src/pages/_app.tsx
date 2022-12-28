@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       <link rel="icon" href="/favicon.ico" />
+      <Navbar classname=' z-[99]'/>
       <Component {...pageProps} />
     </AuthProvider>
   )

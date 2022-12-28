@@ -1,18 +1,49 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { motion } from "framer-motion"
-import { CountDown } from '@components/common/Countdown'
-import { MailIcon } from '@heroicons/react/solid'
-import RomanTower from 'src/vectors/romanTower'
+
 import { useAuth } from '@lib/auth'
-import GoogleIcon from 'src/vectors/icons/google'
-import KorChor from 'src/vectors/icons/korchor'
+
+import { MailIcon } from '@heroicons/react/solid'
 import { Navbar } from '@components/common/Nav/Navbar'
+import KorChor from '@vectors/icons/korchor'
+import RomanTower from '@vectors/romanTower'
+import GoogleIcon from '@vectors/icons/google'
+import { IUserQuestionData } from '@ctypes/account'
+import { FirstQA } from '@components/auth/FirstQA'
+import { SecondQA } from '@components/auth/SecondQA'
+
+function combineObjects (obj1: Record<string, any>, obj2: Record<string, any>) {
+  return {...obj1, ...obj2}
+}
+
 
 export default function Auth() {
   const router = useRouter()
   const {user, signinWithGoogle, signout} = useAuth()
+
+  const [data, setData] = useState<IUserQuestionData>({ 
+    username: '',
+    prefix: '',
+    firstname: '',
+    lastname: '',
+    status: 'student',
+    school: '',
+    grade: '',
+    news: [],
+    purpose: []
+  })
+  const [page, setPage] = useState<Number>(1)
+
+  const submitData = async (submittedData) => {
+    submittedData.executerUid = user?.uid
+    const res = await fetch(`/api/auth/qa`, {
+      method: 'POST',
+      body: JSON.stringify(submittedData)
+    })
+  }
   // const Router = useRouter()
   // if (user ?? false ? user?.club : false) return Router.push(`/clubs/${user?.club}`)
   // else if (user ?? false ? user : false) return Router.push('/account')
@@ -23,19 +54,24 @@ export default function Auth() {
   //   else if (user?.club.includes('tu') || user?.club.includes('aic')) router.push(`/organization/${user?.club}`)
   // }
   
+  if (user?.qa ?? false) {
+    return (
+      <div>
+      {page==1 
+      ? <FirstQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} /> 
+      : null}
+      {page==2
+      ? <SecondQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} submitData={(_data: IUserQuestionData) => submitData(combineObjects(data, _data))}/>
+      : null}
+      </div>
+    )
+  }
+
   return (
     <div>
-
-      {/* Countdown */}
-      {/* <main className='main'>
-        <h1 className='title'>
-          Countdown
-        </h1>
-        <CountDown until={+new Date(2023, 0, 14, 9, 0, 0, 0)} />
-      </main> */}
-      {user?.club
-      ? <Navbar classname='bg-cream bg-opacity-50 backdrop-blur-none' />
-      : null}
+      {/* {user?.club || user?.roles?.hasOwnProperty('tucmc') 
+      ? <Navbar classname='bg-opacity-50 bg-cream backdrop-blur-none' />
+      : null} */}
 
       <section className='relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-login-edit'>
         <div className=''>

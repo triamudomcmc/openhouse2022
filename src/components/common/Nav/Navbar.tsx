@@ -43,11 +43,11 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
         },
       }
       
- if(user?.roles.hasOwnProperty('clubPresident') ){
+//  if(user?.roles.hasOwnProperty('clubPresident') ||  user?.roles.hasOwnProperty('tucmc')){
     return (
         // <div className="relative">
-        <div className={`sticky top-0 w-screen bg-white bg-opacity-50 backdrop-blur-[5px] ${classname} z-99`}>
-            <div  className="flex lg:h-[68px]  w-full max-w-[1202px] mx-auto justify-between max-lg:hidden">
+        <div className={`sticky top-0 w-screen bg-white bg-opacity-50 backdrop-blur-[5px] ${classname} z-99 mb-[-68px]`}>
+            <div  className="flex flex-shrink-0 lg:h-[68px]  w-full max-w-[1202px] mx-auto justify-between max-lg:hidden">
                 <Link href="/" passHref>
                 <div className="flex flex-shrink-0 space-x-2 cursor-pointer">
                     <OPHLogo classname="w-[82px] mb-[-15px]" />
@@ -59,23 +59,56 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                     </div>
                 </div>
                 </Link>
-                <div className="flex">
-                    <div className="flex items-center">
-                        <div  className='px-[10px]'>
+                {/* <div className="flex"> */}
+                    <div className={`flex items-center w-full justify-evenly ${user?.roles.hasOwnProperty('tucmc') || user?.roles.hasOwnProperty('clubPresident')? 'max-w-[600px]': 'max-w-[500px]'}`}>
+                        <div  className=' px-full hover:underline'>
                             <Link href={`/`}>
                                 หน้าแรก
                             </Link>
                         </div>
-                        <div  className='px-[40px]'>
+                        <div  className=' hover:underline'>
+                            <Link href={`/clubs`}>
+                                ชมรม
+                            </Link>
+                        </div>
+                        <div className="cursor-pointer hover:underline">
+                            <Link href={`/moreInfo`}>
+                                ข้อมูลเพิ่มเติม
+                            </Link>
+                        </div>
+                        {user?.roles.hasOwnProperty('tucmc') &&
+                            <div  className=' hover:underline'>
+                                <Link href={`/admin`} >
+                                    ตรวจสอบข้อมูลหน่วยงาน
+                                </Link>
+                            </div>
+                        }
+                        {user?.roles.hasOwnProperty('clubPresident') &&
+                        <div  className=' hover:underline'>
                             <Link href={`/clubs/${[user?.club]}`} >
                                 ข้อมูลหน่วยงาน
                             </Link>
                         </div>
+                        }
+                        {!user &&
+                            <div className='cursor-pointer hover:underline'>
+                                <Link href={`/auth`} >
+                                    Sign in
+                                </Link>
+                            </div>
+                        }
+                        {user &&
+                            <div className='cursor-pointer hover:underline'>
+                                <Link href={`/account`} >
+                                    account
+                                </Link>
+                            </div>
+                        }
                     </div>
-                </div>
+                {/* </div> */}
             </div>
             <div className="w-screen lg:hidden">
-                <div  className="flex h-[50px] backdrop-blur-[5px] w-full max-w-[700px] mx-auto justify-between lg:hidden">
+                <div  className="flex h-[50px]  w-screen max-w-[700px] mx-auto justify-between lg:hidden">
                     <Link href="/" passHref>
                         <div className="left-0 flex flex-shrink-0 cursor-pointer">
                             <OPHLogo classname="w-[60px] mb-[-10px]" />
@@ -122,22 +155,56 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                                     <span>หน้าแรก</span>
                                 </Link>  
                             </div>
+                            <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
+                                <Link href="/clubs" passHref>
+                                    <span>ขมรม</span>
+                                </Link>  
+                            </div>
+                            {user?.roles.hasOwnProperty('tucmc') &&
+                                <div  className='flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]'>
+                                    <Link href={`/admin`} >
+                                        แก้ไขข้อมูลหน่วยงาน
+                                    </Link>
+                                </div> 
+                            }
+                            {user?.roles.hasOwnProperty('clubPresident') &&
                             <div  className='flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]'>
                                 <Link href={`/clubs/${[user?.club]}/edit`} >
                                     แก้ไขข้อมูลหน่วยงาน
                                 </Link>
-                            </div>       
+                            </div> 
+                            } 
+                            <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
+                                <Link href="/moreInfo" passHref>
+                                    <span>ข้อมูลเพิ่มเดิม</span>
+                                </Link>  
+                            </div> 
+                            {user &&
+                                <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
+                                    <Link href="/account" passHref>
+                                        <span>account</span>
+                                    </Link>  
+                                </div>
+                            } 
+                            {!user &&
+                                <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
+                                    <Link href="/auth" passHref>
+                                        <span>Sign in</span>
+                                    </Link>  
+                                </div>
+                            }   
                         </>
                         </div>
                     </motion.nav>
-            </div>
+                </div>
         </div>
         // </div>
-    )}
-    return(
-        <div></div>
     )
 }
+    // return(
+    //     <div></div>
+    // )
+// }
                 {/* {mainLinks.map((value, index) => {
                     return (
                     <div key={value?.Name}>
