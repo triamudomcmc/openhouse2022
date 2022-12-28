@@ -5,6 +5,9 @@ import {
     onAuthStateChanged,
     User,
     signInWithPopup,
+    signInWithEmailLink,
+    sendSignInLinkToEmail,
+    isSignInWithEmailLink,
     signOut,
     GoogleAuthProvider,
 } from 'firebase/auth'
@@ -59,6 +62,33 @@ function useProvideAuth() {
         }
     }
 
+    const sendSigninWithEmail = async (email: string, emailLink: string) => {
+        await sendSignInLinkToEmail(auth, email, {
+          url: emailLink,
+          handleCodeInApp: true,
+        })
+          .then(() => {
+            // The link was successfully sent. Inform the user.
+            window.localStorage.setItem("emailForSignIn", email)
+          })
+          .catch((error) => {
+            const errorCode = error.code
+            const errorMessage = error.message
+    
+            console.error(`${errorCode} - ${errorMessage}`)
+          })
+    }
+
+    const signinWithEmail = async (email:string) => {
+        setLoading(true)
+        
+        if (isSignInWithEmailLink(auth, window.location.href)) {
+            const response = await signInWithEmailLink(auth, email, window.location.href)
+            window.localStorage.removeItem("emailForSignIn")
+            handleUser(response.user)
+        }
+    }
+
     const signinWithGoogle = async (redirect: string) => {
         setLoading(true)
         const response = await signInWithPopup(auth, new GoogleAuthProvider())
@@ -87,6 +117,8 @@ function useProvideAuth() {
         loading,
         setLoading,
         signinWithGoogle,
+        signinWithEmail,
+        sendSigninWithEmail,
         signout
     }
 }

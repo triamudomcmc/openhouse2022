@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, {useEffect, useState} from 'react'
 import { useQRCode } from 'next-qrcode'
-import Router from 'next/router'
+import {useRouter} from 'next/router'
 import Link from 'next/link'
 
 import {useAuth} from '@lib/auth'
+import notFound from './404'
 
 export default function QrGen() {
     const {Image} = useQRCode()
+    const router = useRouter()
     const {user} = useAuth()
     const [uidData, setUidData] = useState(null)
     const [stampData, setStampData] = useState(null)
@@ -45,6 +47,17 @@ export default function QrGen() {
     useEffect(() => {
         if (user?.club) setClubPanelUrl(`/clubs/${user?.club}/panel`)
     }, [clubPanelUrl, user?.club])
+
+    useEffect(() => {
+        if (user?.Info ?? true) {
+            router.push({
+                pathname: "/auth",
+                query: {
+                  method: "email",
+                },
+            })
+        }
+    }, [router, user])
 
     if (user?.uid) {
         return (
@@ -86,10 +99,8 @@ export default function QrGen() {
             </div>
         )
     }
+
     return (
-        <div>
-            <h3>Please sign up to view your QR code</h3>
-            <Link href='auth'><u>Click here to Sign Up</u></Link>
-        </div>
+        notFound()
     )
 }
