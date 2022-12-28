@@ -167,13 +167,7 @@ export default function Directions() {
   }, [currentTab]);
 
   return (
-    <main
-      className="min-h-screen text-white"
-      style={{
-        background:
-          "linear-gradient(143.61deg, rgba(255, 142, 74, 0.86) 3.94%, #9196C5 84.45%)",
-      }}
-    >
+    <main className="min-h-screen text-white bg-normal-gradient">
       <div className="pt-32 pb-24">
         <h1 className="text-6xl font-black text-center">การเดินทาง</h1>
 

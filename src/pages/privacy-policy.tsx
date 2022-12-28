@@ -6,13 +6,7 @@ import { NextPage } from "next";
 
 const PP: NextPage<{ content: string }> = ({ content }) => {
   return (
-    <main
-      style={{
-        background:
-          "linear-gradient(143.61deg, rgba(255, 142, 74, 0.86) 3.94%, #9196C5 84.45%)",
-      }}
-      className="flex flex-col items-center justify-center flex-1 w-full min-h-full px-8 pt-[6.5rem] pb-[2rem]"
-    >
+    <main className="flex flex-col items-center justify-center flex-1 w-full min-h-full px-8 pt-[6.5rem] pb-[2rem] bg-normal-gradient">
       <h1 className="text-xl mt-4 mb-4 font-bold text-white md:text-4xl">
         นโยบายความเป็นส่วนตัว
       </h1>

@@ -88,6 +88,14 @@
     background: linear-gradient(180deg, #8087cd 0%, #e29e78 100%);
   }
 
+  .bg-normal-gradient {
+    background: linear-gradient(
+      143.61deg,
+      rgba(255, 142, 74, 0.86) 3.94%,
+      #9196c5 84.45%
+    );
+  }
+
   .register-button {
     background: linear-gradient(
       97.31deg,

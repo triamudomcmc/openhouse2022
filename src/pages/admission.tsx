@@ -47,13 +47,7 @@ export default function Admission({ query }: any) {
   const { width } = useWindowDimensions();
 
   return (
-    <main
-      className="min-h-screen w-full flex flex-col pt-[6.5rem] pb-[2rem] items-center text-white"
-      style={{
-        background:
-          "linear-gradient(143.61deg, rgba(255, 142, 74, 0.86) 3.94%, #9196C5 84.45%)",
-      }}
-    >
+    <main className="min-h-screen w-full flex flex-col pt-[6.5rem] pb-[2rem] items-center text-white bg-normal-gradient">
       <div className="text-center mb-8 px-4">
         <h1 className="text-3xl sm:text-4xl">
           การสอบเข้าศึกษาต่อ
