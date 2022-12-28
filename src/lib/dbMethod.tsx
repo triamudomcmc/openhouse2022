@@ -8,9 +8,13 @@ import {
   getDoc,
   addDoc,
   deleteDoc,
+  FieldValue,
+  Firestore,
 } from 'firebase/firestore'
 
 import { getFirestore as getDB } from './firebase-admin'
+import { IUserQuestionData } from '@ctypes/account'
+import { firestore } from 'firebase-admin'
 
 const adminDb = getDB()
 
@@ -59,6 +63,22 @@ export const updateArticleToPending = async (clubId: string, data) : Promise<voi
   await adminDb.collection("pendingAppr").doc(clubId).set(finalData, {merge: true})
 
   return
+}
+
+export const updateUserQA = async (uid: string, data: IUserQuestionData) : Promise<void> => {
+  const finalData = {
+    username: data.username,
+    prefix: data.prefix,
+    firstname: data.firstname,
+    lastname: data.lastname,
+    status: data.status,
+    school: data.school,
+    grade: data.grade,
+    news: data.news,
+    purpose: data.purpose
+  }
+  await adminDb.collection('account').doc(uid).set({Info: finalData}, {merge: true})
+  await adminDb.collection('account').doc(uid).update({qa: firestore.FieldValue.delete()})
 }
 
 export const updateImage = async (clubId: string, file: string, field: string) : Promise<void> => {
