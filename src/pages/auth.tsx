@@ -25,9 +25,9 @@ export default function Auth() {
   
   return (
     <div>
-      {user?.club || user?.roles?.hasOwnProperty('tucmc') 
+      {/* {user?.club || user?.roles?.hasOwnProperty('tucmc') 
       ? <Navbar classname='bg-opacity-50 bg-cream backdrop-blur-none' />
-      : null}
+      : null} */}
 
       <section className='relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-login-edit'>
         <div className=''>
