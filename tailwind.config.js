@@ -2,7 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 // /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
     fontFamily: {
@@ -26,31 +26,33 @@ module.exports = {
       lg: "768px",
       xl: "1280px",
     },
-    
+
     fontSize: {
-      'xs': ['12px', '15px'],
-      'sm': ['16px', '27.2px'],
-      'md': ['20px', '24.2px'],
-      'xl': ['24px', '29px'],
-      '2xl': ['36px', '44px']
+      xs: ["12px", "15px"],
+      sm: ["16px", "27.2px"],
+      md: ["20px", "24.2px"],
+      xl: ["24px", "29px"],
+      "2xl": ["36px", "44px"],
+      "3xl": ["48px", "56px"],
+      "4xl": ["64px", "72px"],
+      "5xl": ["80px", "88px"],
+      "6xl": ["96px", "104px"],
     },
     colors: {
-      'blue-edit': {
-        300:'#4565DB',
+      "blue-edit": {
+        300: "#4565DB",
       },
-      'blue-text': '#37498B',
-      'white': '#ffffff',
-      'gray': {
-        300: '#D9D9D9',
-        500: '#828282'
+      "blue-text": "#37498B",
+      white: "#ffffff",
+      gray: {
+        300: "#D9D9D9",
+        500: "#828282",
       },
-      'cream': '#FFF6E8',
-      'orange': '#F68D55',
-      'black': '000000',
-  }
+      cream: "#FFF6E8",
+      orange: "#F68D55",
+      black: "000000",
+    },
   },
 
-  plugins: [],
-}
-
-
+  plugins: [require("@tailwindcss/typography")],
+};
