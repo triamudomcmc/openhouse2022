@@ -199,7 +199,7 @@ const Editor = ({clubId}) => {
     
     if ((user?.club == clubId || user?.roles?.hasOwnProperty('tucmc')) && status) return (
         <div className='relative'>
-            <Navbar classname='bg-gray-300 bg-opacity-50 backdrop-blur-none' />
+            {/* <Navbar classname='bg-gray-300 bg-opacity-50 backdrop-blur-none' /> */}
             <div className='mx-auto pt-[104px] w-[311px] lg:w-[1000px] lg:pt-[178px]'>
               <Link href={`/clubs/${[clubId]}`}>
                 <button className='flex max-lg:ml-0 max-[1080px]:ml-[30px]'>

@@ -73,4 +73,8 @@
     .bg-qr-reader{
         background: linear-gradient(180deg, #8087CD 0%, #E29E78 100%);
     }
+
+    .register-button{
+        background: linear-gradient(97.31deg, #DCE3FF -7.96%, #A6A8D7 33.16%, #3E378B 111.68%);
+    }
 }
