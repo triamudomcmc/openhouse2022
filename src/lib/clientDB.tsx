@@ -53,6 +53,7 @@ export const createUser = async (uid: string, data: DocumentData): Promise<void>
       return undefined
     }
     else {
+      data.qa = true
       return await setDoc(userRef, data, { merge: true })
     }
   }

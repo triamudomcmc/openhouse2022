@@ -15,6 +15,19 @@ export interface IUserData extends IInitialUserData {
     roles?: JSON | null
     club?: JSON | null
     onSite?: boolean | null
+    qa?: boolean | null
+}
+
+export interface IUserQuestionData {
+    username?: string
+    prefix?: string
+    firstname?: string
+    lastname?: string
+    status?: string
+    school?: string
+    grade?: string
+    news?: string[]
+    purpose?: string[]
 }
 
 export interface IAuthContext {
