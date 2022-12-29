@@ -46,7 +46,7 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
 //  if(user?.roles.hasOwnProperty('clubPresident') ||  user?.roles.hasOwnProperty('tucmc')){
     return (
         // <div className="relative">
-        <div className={`sticky top-0 w-screen bg-white bg-opacity-50 backdrop-blur-[5px] ${classname} z-99 mb-[-68px]`}>
+        <div className={`fixed top-0 w-screen bg-white bg-opacity-50 backdrop-blur-[5px] ${classname} z-99`}>
             <div  className="flex flex-shrink-0 lg:h-[68px]  w-full max-w-[1202px] mx-auto justify-between max-lg:hidden">
                 <Link href="/" passHref>
                 <div className="flex flex-shrink-0 space-x-2 cursor-pointer">
