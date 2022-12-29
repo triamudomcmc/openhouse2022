@@ -28,19 +28,19 @@
     font-weight: 800;
   }
 
-  @screen lg {
+  /* @screen lg { */
     /*อย่า set ใส่ element ได้ม้าย ไปตั้ง break point แยกในแต่ละอันเอา*/
-    h1 {
+    /* h1 {
       @apply text-2xl;
       font-weight: 800;
-    }
-    h2 {
+    } */
+    /* h2 {
       @apply text-xl;
-    }
-    div {
+    } */
+    /* div {
       font-size: 16px;
-    }
-  }
+    } */
+  /* } */
 
   body {
     display: flex;
@@ -105,6 +105,10 @@
       #a6a8d7 33.16%,
       #3e378b 111.68%
     );
+  }
+
+  .footer-button{
+    background: linear-gradient(97.13deg, #F7EBDA -7.68%, #ED9F6E 39.07%, rgba(129, 140, 248, 0.81) 107.39%);
   }
 
   #privacy-policy ol,
