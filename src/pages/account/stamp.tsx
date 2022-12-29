@@ -89,7 +89,7 @@ export default function QrGen() {
     return (
         <div>
             <h3>Please sign up to view your QR code</h3>
-            <Link href='auth'><u>Click here to Sign Up</u></Link>
+            <Link href='@pages/auth'><u>Click here to Sign Up</u></Link>
         </div>
     )
 }

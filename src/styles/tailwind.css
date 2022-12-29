@@ -18,7 +18,8 @@
   div {
     @apply font-display;
     font-weight: 400;
-    font-size: 10px;
+    /*font-size: 10px;*/
+    /*ใครใช้จะสาปนะคะนะคะนะคะนะคะนะคะ*/
     padding: 0;
   }
 
@@ -28,6 +29,7 @@
   }
 
   @screen lg {
+    /*อย่า set ใส่ element ได้ม้าย ไปตั้ง break point แยกในแต่ละอันเอา*/
     h1 {
       @apply text-2xl;
       font-weight: 800;

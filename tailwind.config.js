@@ -51,6 +51,10 @@ module.exports = {
       cream: "#FFF6E8",
       orange: "#F68D55",
       black: "000000",
+      "purple": "#1B0C76",
+      "deep-turquoise": "#004373",
+      'bright-orange': '#E96F26',
+
     },
   },
 
