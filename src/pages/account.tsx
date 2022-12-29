@@ -49,7 +49,7 @@ export default function QrGen() {
     }, [clubPanelUrl, user?.club])
 
     useEffect(() => {
-        if (user?.Info ?? true) {
+        if (!(user?.Info ?? false)) {
             router.push({
                 pathname: "/auth",
                 query: {
