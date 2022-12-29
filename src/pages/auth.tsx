@@ -127,6 +127,23 @@ export default function Auth() {
                           </div>
                         </button>
                     </motion.div>
+                    <div className="text-blue-text text-center w-full font-display mt-[25px]">
+                      <p className="leading-2">
+                        การลงทะเบียนถือว่ายอมรับ
+                        <Link href="/privacy-policy" passHref>
+                          <a target="_blank" className="text-orange underline mx-1 whitespace-nowrap">
+                            นโยบายความเป็นส่วนตัว
+                          </a>
+                        </Link>
+                        <br />
+                        และ
+                        <Link href="/tos" passHref>
+                          <a target="_blank" className="text-orange underline mx-1">
+                            ข้อตกลงการใช้งาน
+                          </a>
+                        </Link>
+                      </p>
+                    </div>
                   </div>
                 : <div>
                     <a
@@ -151,46 +168,48 @@ export default function Auth() {
                       {({ errors }) => (
                         <Form className="py-4 text-sm w-[20rem] sm:w-[24rem] text-gray-700 font-display" noValidate>
                           <>
-                            <label className="block my-1 text-white" htmlFor="email">
+                            <label className="block my-1 text-[22px] text-blue-text" htmlFor="email">
                               อีเมล
                             </label>
                             <Field
-                              className={
-                                errors.email ? "border-red-400" : "border-white"
-                              }
+                              className={`
+                                ${errors.email ? "border-orange" : "border-white"}
+                                border block w-full bg-white p-3 focus:outline-none rounded-md
+                              `}
                               id="email"
                               name="email"
                               placeholder="mail@example.com"
                               type="email"
                             />
                             {errors.email ? (
-                              <p className="mt-1 text-red-400">{errors.email as string}</p>
+                              <p className="mt-1 text-orange">{errors.email as string}</p>
                             ) : (
                               <div className="h-6" aria-hidden></div>
                             )}
                           </>
                           <>
-                            <label className="block my-1 font-display text-white" htmlFor="verify">
+                            <label className="block my-1 font-display text-[22px] text-blue-text" htmlFor="verify">
                               ยืนยันอีเมล
                             </label>
                             <Field
-                              className={
-                                errors.verify ? "border-red-400" : "border-white"
-                              }
+                              className={`
+                                ${errors.verify ? "border-orange" : "border-white"}
+                                border block w-full bg-white p-3 focus:outline-none rounded-md
+                              `}
                               id="verify"
                               name="verify"
                               placeholder="mail@example.com"
                               type="email"
                             />
                             {errors.verify ? (
-                              <p className="mt-1 text-red-400">{errors.verify  as string}</p>
+                              <p className="mt-1 text-orange">{errors.verify  as string}</p>
                             ) : (
                               <div className="h-6" aria-hidden></div>
                             )}
                           </>
                           {/* submit */}
                           <div className="py-6 text-white">
-                            <button className="w-full p-3 mb-3 bg-red-400 rounded-full" type="submit">
+                            <button className="w-full p-3 mb-3 bg-orange rounded-full" type="submit">
                               ยืนยันอีเมล
                             </button>
                           </div>
