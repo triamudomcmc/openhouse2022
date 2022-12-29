@@ -3,10 +3,11 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { motion } from "framer-motion"
+import { Field, Form, Formik } from 'formik'
 
 import { useAuth } from '@lib/auth'
 
-import { MailIcon } from '@heroicons/react/solid'
+import { ArrowLeftIcon, MailIcon } from '@heroicons/react/solid'
 import { Navbar } from '@components/common/Nav/Navbar'
 import KorChor from '@vectors/icons/korchor'
 import RomanTower from '@vectors/romanTower'
@@ -14,6 +15,7 @@ import GoogleIcon from '@vectors/icons/google'
 import { IUserQuestionData } from '@ctypes/account'
 import { FirstQA } from '@components/auth/FirstQA'
 import { SecondQA } from '@components/auth/SecondQA'
+import { sendSignInLinkToEmail } from 'firebase/auth'
 
 function combineObjects (obj1: Record<string, any>, obj2: Record<string, any>) {
   return {...obj1, ...obj2}
@@ -22,7 +24,8 @@ function combineObjects (obj1: Record<string, any>, obj2: Record<string, any>) {
 
 export default function Auth() {
   const router = useRouter()
-  const {user, signinWithGoogle, signout} = useAuth()
+  const auth = useAuth()
+  const {user, signinWithGoogle, signinWithEmail, signout} = useAuth()
 
   const [data, setData] = useState<IUserQuestionData>({ 
     username: '',
@@ -36,6 +39,7 @@ export default function Auth() {
     purpose: []
   })
   const [page, setPage] = useState<Number>(1)
+  const [method, setMethod] = useState<string>('all')
 
   const submitData = async (submittedData) => {
     submittedData.executerUid = user?.uid
@@ -44,16 +48,12 @@ export default function Auth() {
       body: JSON.stringify(submittedData)
     })
   }
-  // const Router = useRouter()
-  // if (user ?? false ? user?.club : false) return Router.push(`/clubs/${user?.club}`)
-  // else if (user ?? false ? user : false) return Router.push('/account')
 
-  // if (user?.club) {
-  //   if (user?.club.includes('ก')) router.push(`/clubs/${[user?.club]}`)
-  //   else if (user?.club.includes('sci') || user?.club.includes('arts') || user?.club.includes('gifted')) router.push(`/programmes/${user?.club}`)
-  //   else if (user?.club.includes('tu') || user?.club.includes('aic')) router.push(`/organization/${user?.club}`)
-  // }
-  
+  const submitEmail = async (email: string) => {
+    await auth?.sendSigninWithEmail(email, `${window.location.protocol}//${window.location.host}/register/email/confirm`)
+    router.push('/register/email/sent')
+  }
+
   if (user?.qa ?? false) {
     return (
       <div>
@@ -80,37 +80,124 @@ export default function Auth() {
         </div>
         { user?.uid
         ? <div>
-            <p className='text-[28px] lg:text-[40px] font-[700] text-[#37498B]'>Sign out / ออกจากระบบ</p>
+              <p className='text-[28px] lg:text-[40px] font-[700] text-[#37498B]'>Sign out / ออกจากระบบ</p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
               >
-              <button 
-                  onClick={signout}
-                  className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-cream rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
-                  <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="orange" className="w-9 h-9">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-                      </svg>
-                      <p className='text-[24px] ml-[20px] lg:ml-[40px] lg:text-[30px] font-500 text-[orange]'>Sign out</p>
-                  </div>
-              </button>
+                <button 
+                    onClick={signout}
+                    className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-cream rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
+                    <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="orange" className="w-9 h-9">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                        </svg>
+                        <p className='text-[24px] ml-[20px] lg:ml-[40px] lg:text-[30px] font-500 text-[orange]'>Sign out</p>
+                    </div>
+                </button>
               </motion.div>
           </div>
         : <div>
             <p className='text-[28px] lg:text-[40px] font-[700] text-[#37498B]'>Register / ลงทะเบียน</p> 
-                <motion.div
-                whileHover={{ scale: 1.05 }}
-                >
-                    <button 
-                      onClick={() => signinWithGoogle('/done')}
-                      className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
-                      <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
-                        <GoogleIcon classname='max-lg:hidden' width='30' height='30'/>
-                        <GoogleIcon classname='lg:hidden' width='24' height='24'/>
-                        <p className='text-[14px] ml-[10px] lg:ml-[20px] lg:text-[20px] font-500 text-[#37498B]'>Sign up with Google</p>
-                      </div>
-                    </button>
-                </motion.div>
+                {method=='all'
+                ? <div>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                    >
+                        <button 
+                          onClick={() => signinWithGoogle('/done')}
+                          className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
+                          <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
+                            <GoogleIcon classname='max-lg:hidden' width='30' height='30'/>
+                            <GoogleIcon classname='lg:hidden' width='24' height='24'/>
+                            <p className='text-[14px] ml-[10px] lg:ml-[20px] lg:text-[20px] font-500 text-[#37498B]'>Sign up with Google</p>
+                          </div>
+                        </button>
+                    </motion.div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <button 
+                          onClick={() => setMethod('email')}
+                          className='w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]'>
+                          <div className='flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center'>
+                            <MailIcon className='max-lg:hidden' width='30' height='30'/>
+                            <MailIcon className='lg:hidden' width='24' height='24'/>
+                            <p className='text-[14px] ml-[10px] lg:ml-[20px] lg:text-[20px] font-500 text-[#37498B]'>Sign up with Email</p>
+                          </div>
+                        </button>
+                    </motion.div>
+                  </div>
+                : <div>
+                    <a
+                      className="font-display text-black text-center pb-2 hover:opacity-80 transition-opacity cursor-pointer"
+                      onClick={() => setMethod("all")}
+                    >
+                      <ArrowLeftIcon className="w-4 h-4 text-black inline mr-2" />
+                      ย้อนกลับ
+                    </a>
+                    <Formik
+                      initialValues={{
+                        email: "",
+                        verify: "",
+                      }}
+                      validate={validate}
+                      onSubmit={(data) => {
+                        submitEmail(data.email)
+                      }}
+                      validateOnChange={false}
+                      validateOnBlur={false}
+                    >
+                      {({ errors }) => (
+                        <Form className="py-4 text-sm w-[20rem] sm:w-[24rem] text-gray-700 font-display" noValidate>
+                          <>
+                            <label className="block my-1 text-white" htmlFor="email">
+                              อีเมล
+                            </label>
+                            <Field
+                              className={
+                                errors.email ? "border-red-400" : "border-white"
+                              }
+                              id="email"
+                              name="email"
+                              placeholder="mail@example.com"
+                              type="email"
+                            />
+                            {errors.email ? (
+                              <p className="mt-1 text-red-400">{errors.email as string}</p>
+                            ) : (
+                              <div className="h-6" aria-hidden></div>
+                            )}
+                          </>
+                          <>
+                            <label className="block my-1 font-display text-white" htmlFor="verify">
+                              ยืนยันอีเมล
+                            </label>
+                            <Field
+                              className={
+                                errors.verify ? "border-red-400" : "border-white"
+                              }
+                              id="verify"
+                              name="verify"
+                              placeholder="mail@example.com"
+                              type="email"
+                            />
+                            {errors.verify ? (
+                              <p className="mt-1 text-red-400">{errors.verify  as string}</p>
+                            ) : (
+                              <div className="h-6" aria-hidden></div>
+                            )}
+                          </>
+                          {/* submit */}
+                          <div className="py-6 text-white">
+                            <button className="w-full p-3 mb-3 bg-red-400 rounded-full" type="submit">
+                              ยืนยันอีเมล
+                            </button>
+                          </div>
+                        </Form>
+                      )}
+                    </Formik>
+                  </div>}
             </div> }
 
         {/* <motion.div
@@ -130,4 +217,22 @@ export default function Auth() {
       </section>
     </div>
   )
+}
+
+const validate = (values: any) => {
+  const errors: any = {}
+  if (
+    !values.email
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+  )
+    errors.email = "อีเมลไม่ถูกต้อง"
+
+  if (values.email !== values.verify) {
+    errors.verify = "อีเมลไม่ตรงกับอีเมลยืนยัน"
+  }
+
+  return errors
 }

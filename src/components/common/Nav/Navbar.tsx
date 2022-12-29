@@ -18,8 +18,8 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
     const [accountLinks, setAccountLinks] = useState([])
 
     useEffect(() => {
-        if (user?.roles.hasOwnProperty('tucmc') || user?.roles.hasOwnProperty('aic')) setAccountLinks((prev) => [...prev, {Name: 'QR Code Reader', Path: '/qrreader'}])
-        if (user?.roles.hasOwnProperty('clubPresident')) setAccountLinks((prev) => [...prev, {Name: 'Club Panel', Path: `/clubs/${user?.club}/panel`}])
+        if (user?.roles?.hasOwnProperty('tucmc') || user?.roles?.hasOwnProperty('aic')) setAccountLinks((prev) => [...prev, {Name: 'QR Code Reader', Path: '/qrreader'}])
+        if (user?.roles?.hasOwnProperty('clubPresident')) setAccountLinks((prev) => [...prev, {Name: 'Club Panel', Path: `/clubs/${user?.club}/panel`}])
     }, [user?.club, user?.roles, user?.uid])
 
     const buttonRef = useRef(null)
@@ -60,7 +60,7 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                 </div>
                 </Link>
                 {/* <div className="flex"> */}
-                    <div className={`flex items-center w-full justify-evenly ${user?.roles.hasOwnProperty('tucmc') || user?.roles.hasOwnProperty('clubPresident')? 'max-w-[600px]': 'max-w-[500px]'}`}>
+                    <div className={`flex items-center w-full justify-evenly ${user?.roles?.hasOwnProperty('tucmc') || user?.roles?.hasOwnProperty('clubPresident')? 'max-w-[600px]': 'max-w-[500px]'}`}>
                         <div  className=' px-full hover:underline'>
                             <Link href={`/`}>
                                 หน้าแรก
@@ -76,14 +76,14 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                                 ข้อมูลเพิ่มเติม
                             </Link>
                         </div>
-                        {user?.roles.hasOwnProperty('tucmc') &&
+                        {user?.roles?.hasOwnProperty('tucmc') &&
                             <div  className=' hover:underline'>
                                 <Link href={`/admin`} >
                                     ตรวจสอบข้อมูลหน่วยงาน
                                 </Link>
                             </div>
                         }
-                        {user?.roles.hasOwnProperty('clubPresident') &&
+                        {user?.roles?.hasOwnProperty('clubPresident') &&
                         <div  className=' hover:underline'>
                             <Link href={`/clubs/${[user?.club]}`} >
                                 ข้อมูลหน่วยงาน
@@ -160,14 +160,14 @@ export const Navbar: FC<{classname?:string}> = ({classname}) => {
                                     <span>ขมรม</span>
                                 </Link>  
                             </div>
-                            {user?.roles.hasOwnProperty('tucmc') &&
+                            {user?.roles?.hasOwnProperty('tucmc') &&
                                 <div  className='flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]'>
                                     <Link href={`/admin`} >
                                         แก้ไขข้อมูลหน่วยงาน
                                     </Link>
                                 </div> 
                             }
-                            {user?.roles.hasOwnProperty('clubPresident') &&
+                            {user?.roles?.hasOwnProperty('clubPresident') &&
                             <div  className='flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]'>
                                 <Link href={`/clubs/${[user?.club]}/edit`} >
                                     แก้ไขข้อมูลหน่วยงาน

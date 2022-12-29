@@ -15,7 +15,8 @@ export interface IUserData extends IInitialUserData {
     roles?: JSON | null
     club?: JSON | null
     onSite?: boolean | null
-    qa?: boolean | null
+    qa?: boolean
+    Info?: {[key: string]: string} | {[key: string]: any[]}
 }
 
 export interface IUserQuestionData {
@@ -35,5 +36,7 @@ export interface IAuthContext {
     loading: boolean
     setLoading: (loading: boolean) => void
     signinWithGoogle: (redirect: string) => Promise<void>
+    signinWithEmail: (email: string) => Promise<void>
+    sendSigninWithEmail: (email: string, emailLink: string) => Promise<void>
     signout: () => void
 }
