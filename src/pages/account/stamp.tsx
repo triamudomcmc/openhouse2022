@@ -9,6 +9,7 @@ import {useAuth} from '@lib/auth'
 export default function QrGen() {
     const {Image} = useQRCode()
     const {user} = useAuth()
+    const [loading, setLoading] = useState<boolean>(true)
     const [uidData, setUidData] = useState(null)
     const [stampData, setStampData] = useState(null)
     const [clubPanelUrl, setClubPanelUrl] = useState<string>('/')
@@ -23,6 +24,7 @@ export default function QrGen() {
             const tmp = await res.json()
             if (tmp) {
                 setUidData(tmp)
+                setLoading(false)
             }
         }
     }
@@ -42,11 +44,11 @@ export default function QrGen() {
         }
     }, [uidData?.stamp])
 
-    useEffect(() => {
-        if (user?.club) setClubPanelUrl(`/clubs/${user?.club}/panel`)
-    }, [clubPanelUrl, user?.club])
+    if (loading) return (
+        <div>Loading...</div>
+    )
 
-    if (user?.uid) {
+    if (uidData) {
         return (
             <div>
                 <Image 
@@ -63,16 +65,6 @@ export default function QrGen() {
                         },
                     }}
                 />
-                <h3>Account Information</h3>
-                <h5>Name:{uidData?.name}</h5>
-                <h5>ID: {uidData?.account_id}</h5>
-
-                {user?.club && clubPanelUrl
-                ?   <Link href={`${clubPanelUrl}`}>
-                        Club Panel
-                    </Link>
-                : null
-                }
 
                 <h3>Stamp journey ~</h3>
                 {stampData ? 
