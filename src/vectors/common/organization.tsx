@@ -3,12 +3,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export const Organization: FC<{
-    width?:string;
-    height?:string;
+  width?: string;
+  height?: string;
   classname?: string;
 }> = ({ classname, width, height }) => {
   return (
-
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
@@ -53,21 +52,20 @@ export const Organization: FC<{
         </linearGradient>
       </defs>
     </svg>
-
   );
-}
+};
 
 export const OrganizationPhone: FC<{
-  width?:string;
-  height?:string;
-classname?: string;
+  width?: string;
+  height?: string;
+  classname?: string;
 }> = ({ classname, width, height }) => {
-return (
-  <svg
+  return (
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
-    height={height}
-    className={classname}
+      height={height}
+      className={classname}
       fill="none"
       viewBox="0 0 325 1006"
     >
@@ -154,17 +152,15 @@ return (
         </linearGradient>
       </defs>
     </svg>
-
-);
-}
+  );
+};
 
 export const TUCMC: FC<{
-  width?:string;
-  height?:string;
-classname?: string;
+  width?: string;
+  height?: string;
+  classname?: string;
 }> = ({ classname, width, height }) => {
-return (
-
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
@@ -203,17 +199,16 @@ return (
         </linearGradient>
       </defs>
     </svg>
-
-);
-}
+  );
+};
 
 export const TUSC: FC<{
-  width?:string;
-  height?:string;
-classname?: string;
+  width?: string;
+  height?: string;
+  classname?: string;
 }> = ({ classname, width, height }) => {
-return (
-  <svg
+  return (
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
@@ -263,16 +258,15 @@ return (
         </linearGradient>
       </defs>
     </svg>
-
-);
-}
+  );
+};
 
 export const TUPRO: FC<{
-  width?:string;
-  height?:string;
-classname?: string;
+  width?: string;
+  height?: string;
+  classname?: string;
 }> = ({ classname, width, height }) => {
-return (
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
@@ -322,17 +316,15 @@ return (
         </linearGradient>
       </defs>
     </svg>
-
-);
-}
+  );
+};
 
 export const AIC: FC<{
-  width?:string;
-  height?:string;
-classname?: string;
+  width?: string;
+  height?: string;
+  classname?: string;
 }> = ({ classname, width, height }) => {
-return (
-
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
@@ -379,17 +371,15 @@ return (
         </linearGradient>
       </defs>
     </svg>
-
-);
-}
+  );
+};
 
 export const WinkWink: FC<{
-  width?:string;
-  height?:string;
-classname?: string;
+  width?: string;
+  height?: string;
+  classname?: string;
 }> = ({ classname, width, height }) => {
-return (
-
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
@@ -471,6 +461,5 @@ return (
         </filter>
       </defs>
     </svg>
-
-);
-}
+  );
+};

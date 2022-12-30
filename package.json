@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev-c": "doppler run --config dev --print-config -- next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
