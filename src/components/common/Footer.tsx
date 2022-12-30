@@ -12,9 +12,9 @@ import KorChor from "@vectors/icons/korchor"
 import { useAuth } from "@lib/auth"
 import { userAgent } from "next/server"
 
-const getButton = () => {
+const getButton = (user, signout) => {
   // const noAuth = auth?.user === null
-  const {user, signout} = useAuth()
+  // const {user, signout} = useAuth()
   if (!user) {
     return (
       <Link passHref href="/auth">
@@ -41,7 +41,7 @@ const getButton = () => {
 
 export const Footer: FC<{theme?: string}> = ({ theme }) => {
   // const auth = useAuth()
-  const {user} = useAuth()
+  const {user, signout} = useAuth()
 
   return (
     <footer className={`w-full px-8 pt-10 antialiased ${theme == 'light'? 'bg-white': "bg-blue-text"}`}>
@@ -92,7 +92,7 @@ export const Footer: FC<{theme?: string}> = ({ theme }) => {
                 <Tiktok  />
               </motion.a>
             </div>
-            {getButton()}
+            {getButton(user, signout)}
           </div>
         </div>
         <div className={`${theme == 'light'? 'text-deep-turquoise': 'text-white'} flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28`}>
