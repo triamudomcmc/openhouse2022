@@ -23,7 +23,7 @@ import RomanLanding from "@vectors/background/RomanLanding";
 // import ArtsEspanol from "@vectors/icons/programmes/arts-espanol";
 // import ArtsGerman from "@vectors/icons/programmes/arts-german";
 import { Footer } from "@components/common/Footer";
-import {AIC, Organization, OrganizationPhone, TUCMC, TUPRO, TUSC} from "@vectors/common/organization";
+import {AIC, Organization, OrganizationPhone, TUCMC, TUPRO, TUSC, WinkWink} from "@vectors/common/organization";
 import { LG, MD } from "@utilities/breakpoints";
 import { useWindowDimensions } from "@utilities/useWindowDimensions";
 
@@ -121,7 +121,8 @@ export default function Home() {
               <div className="w-[636px] bg-[#BCC2EB] mx-auto">
                 <p className="organization-text text-white text-center font-[600] text-[60px] leading-[84px] ">หน่วยงานนักเรียน</p>
               </div>
-              <Organization classname="absolute -z-10" />
+              <Organization classname="absolute -z-20" />
+              <WinkWink classname="absolute -z-10 w-[150px] -right-8 top-8"/>
               <Link href={'/organization/tucmc'}>
                 <button><TUCMC classname="w-[236px] hover:w-[240px] absolute left-[70px] hover:left-[68px] top-[120px]" /></button>
               </Link>
