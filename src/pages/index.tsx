@@ -13,13 +13,11 @@ import CountDownBgPhone from "@vectors/background/countDownBgPhone"
 import RomanLanding from "@vectors/background/RomanLanding"
 import StairPrograammes from "@vectors/background/StairProgramme"
 import BigFrame from "@vectors/common/bigFrame"
-import StairProgrammePhone from "@vectors/background/PhoneStairProgramme"
 import { Footer } from "@components/common/Footer"
 import { AIC, Organization, OrganizationPhone, TUCMC, TUPRO, TUSC, WinkWink } from "@vectors/common/organization"
 import { LG, MD } from "@utilities/breakpoints"
 import { useWindowDimensions } from "@utilities/useWindowDimensions"
 // import { ArtsChinese, ArtsEspanol, ArtsFrench, ArtsGerman, ArtsJapanese, ArtsKorean, ArtsMath, SciMath } from "@vectors/icons/programmes";
-import { Programme } from "@components/programme"
 import RomanTower from "@vectors/romanTower"
 import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate"
 
