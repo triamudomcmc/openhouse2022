@@ -12,7 +12,6 @@ export default function QrGen() {
     const {user} = useAuth()
     const [uidData, setUidData] = useState(null)
     const [stampData, setStampData] = useState(null)
-    const [clubPanelUrl, setClubPanelUrl] = useState<string>('/')
 
     async function getUidData(fetchUid: string) {
         if (fetchUid) {
@@ -43,10 +42,6 @@ export default function QrGen() {
         }
     }, [uidData?.stamp])
 
-    useEffect(() => {
-        if (user?.club) setClubPanelUrl(`/clubs/${user?.club}/panel`)
-    }, [clubPanelUrl, user?.club])
-
     if (user?.uid) {
         return (
           <PageContainer>
@@ -55,7 +50,7 @@ export default function QrGen() {
               <p className="font-bold -mt-2">เพื่อสะสมแสตมป์จากซุ้มต่าง ๆ</p>
               <div className="rounded-lg my-10">
                 <div className="w-48 h-48 rounded-2xl bg-gray-300"/>
-              </div>
+                </div>
                 <div className="flex flex-col items-center bg-white rounded-3xl py-6 w-full max-w-[380px] shadow-lg">
                   <span className="font-bold text-xl mb-6 mt-4">แสตมป์ของ Babyaraika</span>
                   <div className="flex flex-col space-y-3">

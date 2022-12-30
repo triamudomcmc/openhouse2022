@@ -13,7 +13,7 @@ export interface IUserData extends IInitialUserData {
     firstname: string
     lastname: string
     roles?: JSON | null
-    club?: JSON | null
+    club?: string | null
     onSite?: boolean | null
     qa?: boolean
     Info?: {[key: string]: string} | {[key: string]: any[]}

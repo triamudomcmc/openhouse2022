@@ -1,5 +1,11 @@
+import {useEffect, useState, ReactNode} from "react"
+import { QrReader } from "react-qr-reader"
+
+import { useAuth } from "@lib/auth"
+import { stamp } from "@lib/clientDB"
+
 import {PageContainer} from "@components/account/PageContainer"
-import {ReactNode} from "react"
+import notFound from "@pages/404"
 
 const FocusRing = () => {
   return (<svg width="144.6" height="142.8" viewBox="0 0 241 238" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,36 +16,90 @@ const FocusRing = () => {
     </svg>
   )
 }
+
 const Page = () => {
+  const {user} = useAuth()
+  const [uid, setUid] = useState<string | null>(null);
+  const [uidData, setUidData] = useState(null)
+  const [stampPress, setStampPress] = useState<boolean>(false)
+  const [buttonDisable, setButtonDisable] = useState<boolean>(true)
+  const [buttonNum, setButtonNum] = useState<number>(1)
+
+  function handleQrUid(result, error) {
+      if (result) {
+          setUid(result.text)
+          setButtonDisable(false)
+      }
+      if (error) {
+          setUid(null)
+          setUidData(null)
+          setStampPress(false)
+          setButtonNum(1)
+      }
+  }
+
+  function stampit() {
+    setStampPress(true)
+    stamp(user?.club, uid)
+  }
+
+  useEffect(() => {
+    const getUidData = async (uid) => {
+        const res = await fetch(`/api/qrinfo/onsite/${uid}`, {
+            method: 'POST',
+            body: JSON.stringify({
+                executerUid: user?.uid
+            })
+        })
+        if (res) setUidData(await res.json())
+    }
+    if (uid) getUidData(uid)
+  }, [uid, user?.uid])
+
+  useEffect(() => {
+    if (uidData?.stamp?.hasOwnProperty(user?.club)) setButtonNum(3)
+    if (stampPress) setButtonNum(2)
+  }, [uidData, stampPress, user?.club])
 
   const descriptionVariants: ReactNode[] = [
     <span key="marked" className="text-[#A7ADDE] text-lg font-semibold tracking-wide">MARKED</span>,
-    <div key="stamp" className="bg-bright-orange font-semibold text-white py-0.5 px-5 rounded-full"><span>STAMP</span></div>,
+    <div key="stamp" className="bg-bright-orange font-semibold text-white py-0.5 px-5 rounded-full" aria-disabled={buttonDisable} onClick={stampit}><span>STAMP</span></div>,
     <div key="stamped" className="bg-[#C9CCE9] font-semibold text-white py-0.5 px-5 rounded-full"><span className="text-[#E4E6FD]">STAMPED</span></div>,
     <span key="alrgot" className="text-[#A7ADDE] text-lg font-semibold tracking-wide">Already got one</span>,
   ]
 
-  return (<PageContainer>
+  if (user?.club) return (<PageContainer>
     <div className="flex flex-col items-center mt-10">
       <div style={{background: "linear-gradient(180deg, #8087CD 0%, #E29E78 100%)"}} className="flex items-center justify-center h-[191.4px] w-[191.4px] rounded-[26.9px]">
         <div className="h-[165.6px] w-[165.6px] bg-[#130D03] relative rounded-[25.56px]">
-          {/*Insert camera input inside here as absolute element*/}
+          <QrReader
+            className="absolute w-[165.6px]"
+            onResult={(result, error) => {
+                handleQrUid(result, error)
+            }}
+            constraints={{ facingMode:  "environment"  }}
+            containerStyle={{ 'border-radius':'25.56px'}}
+          />
           <div className="w-full h-full flex justify-center items-center absolute">
-            <FocusRing/>
+            <FocusRing />
           </div>
         </div>
       </div>
       <div className="flex flex-col items-center mt-4 w-[191px]">
         <div className="mb-2">
-          {descriptionVariants[2]}
+          {descriptionVariants[buttonNum]}
         </div>
         <div className="flex flex-col text-[#37498B] text-lg w-full">
-          <span className="font-semibold">ชื่อ : <span className="font-light">ปกรณ อิทธิฉันทกิจ์</span></span>
-          <span className="font-semibold">อีเมล : <span className="font-light">mows</span></span>
+          <span className="font-semibold">ชื่อ : <span className="font-light">{uidData?.Info?.firstname} {uidData?.Info?.lastname}</span></span>
+          <span className="font-semibold">อีเมล : <span className="font-light">{uidData?.email}</span></span>
         </div>
       </div>
     </div>
   </PageContainer>)
+
+  return (
+    notFound()
+  )
 }
 
 export default Page
