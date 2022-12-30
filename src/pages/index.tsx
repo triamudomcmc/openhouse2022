@@ -11,21 +11,17 @@ import TriamUdom from "@vectors/text/triamUdom";
 import OpenHouse from "@vectors/text/openhouse";
 import CountDownBgPhone from "@vectors/background/countDownBgPhone";
 import RomanLanding from "@vectors/background/RomanLanding";
-// import StairPrograammes from "@vectors/background/StairProgramme";
-// import BigFrame from "@vectors/common/bigFrame";
-// import StairProgrammePhone from "@vectors/background/PhoneStairProgramme";
-// import SciMath from "@vectors/icons/programmes/sci-math";
-// import ArtsMath from "@vectors/icons/programmes/arts-math";
-// import ArtsChinese from "@vectors/icons/programmes/arts-chinese";
-// import ArtsJapanese from "@vectors/icons/programmes/arts-japanese";
-// import ArtsKorean from "@vectors/icons/programmes/arts-korean";
-// import ArtsFrench from "@vectors/icons/programmes/arts-french";
-// import ArtsEspanol from "@vectors/icons/programmes/arts-espanol";
-// import ArtsGerman from "@vectors/icons/programmes/arts-german";
+import StairPrograammes from "@vectors/background/StairProgramme";
+import BigFrame from "@vectors/common/bigFrame";
+import StairProgrammePhone from "@vectors/background/PhoneStairProgramme";
 import { Footer } from "@components/common/Footer";
 import {AIC, Organization, OrganizationPhone, TUCMC, TUPRO, TUSC, WinkWink} from "@vectors/common/organization";
 import { LG, MD } from "@utilities/breakpoints";
 import { useWindowDimensions } from "@utilities/useWindowDimensions";
+// import { ArtsChinese, ArtsEspanol, ArtsFrench, ArtsGerman, ArtsJapanese, ArtsKorean, ArtsMath, SciMath } from "@vectors/icons/programmes";
+import { Programme } from "@components/programme";
+import RomanTower from "@vectors/romanTower";
+import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate";
 
 
 const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0);
@@ -93,27 +89,70 @@ export default function Home() {
       </main> 
 
       {/* <section className="relative flex items-center justify-center w-screen">
-          <div className="relative w-full -z-10 -left-1/4 lg:left-0">
+          <div className="relative w-full -z-10 -left-1/3 lg:left-0">
             <StairPrograammes className="object-cover h-full min-h-screen overflow-x-hidden bg-landing-programme" />
           </div>
-          <div className="absolute left-[20px] lg:left-[82px] top-[20px] lg:top-[50px]">
+          <div className="absolute flex left-[20px] lg:left-[82px] top-[100px]">
             <BigFrame classname="lg:w-[282px] w-[190px]"/>
+            <div className="font-[700] text-[50px] leading-[55px] lg:text-[85px] lg:leading-[90px] mt-[50px] lg:mt-[50px] text-[#404E81]">
+              <p>สาย</p>
+              <p>การ</p>
+              <p>เรียน</p>
+            </div>
           </div>
       </section>  */}
 
   
       {/* <section className="relative bg-[#F9DBC4] min-h-screen h-full">
-          <div>
-            <SciMath classname="w-[50px]" />
-            <ArtsMath classname="w-[50px]"/>
-            <ArtsChinese classname="w-[50px]"/>
-            <ArtsJapanese classname="w-[50px]"/>
-            <ArtsKorean classname="w-[50px]"/>
-            <ArtsFrench classname="w-[50px]"/>
-            <ArtsEspanol classname="w-[50px]"/>
-            <ArtsGerman classname="w-[50px]"/>
+        <div className="relative">
+          <RomanTower classname="absolute min-h-screen -left-[80px]"/>
+        </div>
+        <div className="flex flex-col sm:flex-row items-center ml-[100px] lg:mx-auto justify-evenly max-w-[270px] lg:max-w-[1000px] pt-10 sm:mt-0">
+          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col sm:space-y-20 lg:mt-20 lg:space-x-0">
+            <Programme width="220" height="280" name={"sci-math"} thainame={"วิทย์-คณิต"} />
+            <Programme width="244" height="253" name={"arts-math"} thainame={"ภาษา-คณิต"} />
           </div>
+          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:space-x-0">
+            <Programme width="327" height="176" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
+            <Programme width="235" height="303" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
+          </div>
+          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 sm:flex-col lg:space-y-20 lg:space-x-0">
+            <Programme width="241" height="290" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
+            <Programme width="385" height="212" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
+          </div>
+          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
+            <Programme width="247" height="208" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
+            <Programme width="235" height="354" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
+          </div>
+        </div>
       </section> */}
+      
+      {/* <section className="relative min-h-screen bg-clubs">
+        <div>
+          <ClubsBg />
+        </div>
+      </section> */}
+
+      <section className="relative flex justify-center w-screen h-screen bg-clubs">
+          <div className="relative w-full max-sm:hidden">
+            <ClubsBg classname="object-cover h-full min-h-screen overflow-x-hidden bg-clubs " />
+          </div>
+          <div className="absolute flex items-end justify-center h-full">
+            <ClubsGate classname="h-5/6 sm:h-screen" />
+          </div>
+          <div className="absolute flex items-center justify-center w-screen h-screen" >
+              <Link href={'/clubs'}>
+                <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                ><Sun classname="w-[350px] sm:w-[500px]"/></motion.button>
+              </Link>
+              <div className="absolute z-10 text-center text-white text-[14px] sm:text-[20px] mt-[300px] sm:mt-[400px]">
+                <p>คลิกชมรม</p>
+                <p>เพื่ออ่านข้อมูลชมรมที่สนใจ</p>
+              </div>
+          </div>
+      </section> 
 
       <section className="relative bg-[#1D0C55] min-h-screen">
         {width >= LG ? (
@@ -127,7 +166,7 @@ export default function Home() {
                 <button><TUCMC classname="w-[236px] hover:w-[240px] absolute left-[70px] hover:left-[68px] top-[120px]" /></button>
               </Link>
               <Link href={'/organization/tusc'}>
-                <button><TUSC classname="w-[150px] hover:w-[154px] absolute left-[372px] hover:left-[370px] top-[100px]" /></button>
+                <button><TUSC classname="w-[150px] hover:w-[154px] absolute left-[372px] hover:left-[370px] top-[106px]" /></button>
               </Link>
               <Link href={'/organization/tupro'}>
                 <button><TUPRO classname="w-[190px] hover:w-[194px] absolute left-[580px] hover:left-[578px] top-[145px]" /></button>

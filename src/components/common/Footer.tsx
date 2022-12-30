@@ -13,8 +13,6 @@ import { useAuth } from "@lib/auth"
 import { userAgent } from "next/server"
 
 const getButton = (user, signout) => {
-  // const noAuth = auth?.user === null
-  // const {user, signout} = useAuth()
   if (!user) {
     return (
       <Link passHref href="/auth">

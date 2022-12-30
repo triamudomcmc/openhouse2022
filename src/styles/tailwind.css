@@ -98,6 +98,10 @@
     );
   }
 
+  .bg-clubs{
+    background: linear-gradient(180deg, #2A3271 134.81%, #1B0852 195.13%);
+  }
+
   .register-button {
     background: linear-gradient(
       97.31deg,
