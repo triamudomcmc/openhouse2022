@@ -8,6 +8,7 @@ import {
   getDoc,
   addDoc,
   deleteDoc,
+  serverTimestamp,
 } from 'firebase/firestore'
 import firebaseApp from './firebase'
 
@@ -19,7 +20,7 @@ export const getUserRef = (uid: string) => {
 export const stamp = async (club: string,uid: string): Promise<void> => {
   const userRef = getUserRef(uid)
 
-  return await updateDoc(userRef, {[`stamp.${club}`]: true})
+  return await updateDoc(userRef, {[`stamp.${club}`]: {'timestamp': serverTimestamp()}})
 }
 
 export const getClubProdRef = (clubId: string) => {

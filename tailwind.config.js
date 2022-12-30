@@ -39,6 +39,7 @@ module.exports = {
       "6xl": ["96px", "104px"],
     },
     colors: {
+      "cyan-text": "#4461AD",
       "blue-edit": {
         300: "#4565DB",
       },

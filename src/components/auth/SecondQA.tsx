@@ -29,7 +29,7 @@ export const SecondQA: FC<{
                 validateOnBlur={false}
             >
             {({ errors, values }) => (
-              <Form className="py-4 px-4 text-sm w-[20rem] sm:w-[24rem] text-gray-700 font-display" noValidate>
+              <Form className="py-4 px-4 text-sm w-[20rem] sm:w-[24rem] text-blue-text font-display" noValidate>
                 <motion.div
                   layout={"position"}
                   initial={{ y: -20, opacity: 0 }}
@@ -37,10 +37,10 @@ export const SecondQA: FC<{
                   transition={{ }}
                   className="mb-4"
                 >
-                  <p className="w-full text-lg font-semibold mb-4  font-display" id="news-group">
+                  <p className="w-full text-lg font-semibold mb-4 text-deep-turquoise font-display" id="news-group">
                     ได้รับข่าวสารของ Triam Udom Online
                     <br />
-                    Open House 2022 จากที่ใดบ้าง
+                    Open House 2023 จากที่ใดบ้าง
                     <br />
                     <span className="text-sm font-light">(ตอบได้มากกว่า 1 ข้อ)</span>
                   </p>
@@ -99,36 +99,9 @@ export const SecondQA: FC<{
                       />
                       โรงเรียน
                     </label>
-                    <label
-                      className={
-                        values.news?.includes("other") ? "items-start" : "items-center"
-                      }
-                    >
-                      <div>
-                        <Field
-                          className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none "
-                          name="news"
-                          type="checkbox"
-                          value="other"
-                        />
-                      </div>
-                      <div className="flex flex-col w-full">
-                        <span>อื่น ๆ โปรดระบุ:</span>
-                        {values.news?.includes("other") && (
-                          <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-                            <Field
-                              className=" bg-transparent w-full px-0.5 py-4 border-b border-white font-display h-[1.15rem] focus:outline-none"
-                              name="otherNews"
-                              type="text"
-                              placeholder="ระบุช่องทางเพิ่มเติม"
-                            />
-                          </motion.div>
-                        )}
-                      </div>
-                    </label>
                   </div>
                   {errors.news ? (
-                    <p className="mt-1 text-red-400">{errors.news}</p>
+                    <p className="mt-1 text-orange">{errors.news}</p>
                   ) : (
                     <div className="h-6" aria-hidden></div>
                   )}
@@ -142,10 +115,10 @@ export const SecondQA: FC<{
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ }}
                 >
-                  <p className="w-full text-lg font-semibold mb-4  font-display" id="purpose-group">
+                  <p className="w-full text-lg font-semibold mb-4 text-deep-turquoise font-display" id="purpose-group">
                     จุดประสงค์ในการเข้าร่วม Triam Udom Online
                     <br />
-                    Open House 2022
+                    Open House 2023
                     <br />
                     <span className="text-sm font-light">(ตอบได้มากกว่า 1 ข้อ)</span>
                   </p>
@@ -215,7 +188,7 @@ export const SecondQA: FC<{
                     </label>
                   </div>
                   {errors.purpose ? (
-                    <p className="mt-1 text-red-400">{errors.purpose}</p>
+                    <p className="mt-1 text-orange">{errors.purpose}</p>
                   ) : (
                     <div className="h-6" aria-hidden></div>
                   )}
@@ -228,10 +201,10 @@ export const SecondQA: FC<{
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ }}
-                  className="py-6  flex justify-center space-x-2"
+                  className="py-6 flex justify-center space-x-2"
                 >
                   <button
-                    className="w-36 p-3 mb-3 bg-transparent border border-white rounded-full transition-colors hover:bg-white hover:text-gray-600"
+                    className="w-36 p-3 mb-3 bg-transparent border border-blue-text text-blue-text rounded-full transition-colors hover:bg-blue-text hover:text-white"
                     onClick={() => {
                       setData(formatData(values))
                       setPage(1)
@@ -239,7 +212,7 @@ export const SecondQA: FC<{
                   >
                     ย้อนกลับ
                   </button>
-                  <button className="w-36 p-3 mb-3 bg-red-400 rounded-full" type="submit">
+                  <button className="w-36 p-3 mb-3 bg-blue-text text-white rounded-full" type="submit">
                     ถัดไป
                   </button>
                 </motion.div>

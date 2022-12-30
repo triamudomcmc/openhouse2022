@@ -29,12 +29,12 @@ export default function Auth() {
   const {user, signinWithGoogle, signinWithEmail, signout} = useAuth()
 
   const [data, setData] = useState<IUserQuestionData>({ 
-    username: 'someone',
-    prefix: 'นาย',
-    firstname: 'ภารัล',
-    lastname: 'ศิริตระกูล',
-    status: 'teacher',
-    school: 'โรงเรียนเตรียมอุดมศึกษา',
+    username: '',
+    prefix: '',
+    firstname: '',
+    lastname: '',
+    status: 'student',
+    school: '',
     grade: '',
     news: [],
     purpose: []

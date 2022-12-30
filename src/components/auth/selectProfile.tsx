@@ -159,7 +159,7 @@ export const SelectProfile: FC<{
           </div>
         </div>
         <div className="flex justify-center space-x-2 mt-14">
-          <button onClick={() => {setPage(2)}} className="border border-blue-text text-blue-text rounded-full text-[14px] py-2 w-[130px]">
+          <button onClick={() => {setPage(2)}} className="border border-blue-text text-blue-text rounded-full text-[14px] py-2 w-[130px] hover:bg-blue-text hover:text-white">
             ย้อนกลับ
           </button>
           <button onClick={onSubmit} className="bg-bright-orange text-white rounded-full text-[14px] py-2 w-[130px]">

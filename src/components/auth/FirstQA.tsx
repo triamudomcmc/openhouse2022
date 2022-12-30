@@ -31,15 +31,16 @@ export const FirstQA: FC<{
                 validateOnBlur={false}
             >
             {({errors, values}) => (
-              <Form className="" noValidate>
+              <Form className="py-4 px-4 text-sm w-[20rem] sm:w-[24rem] font-display" noValidate>
                 <motion.div initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{delay: 0.4}}>
-                  <label className="" htmlFor="username">
+                  <label className="block my-1 text-blue-text" htmlFor="username">
                     ชื่อผู้ใช้ (username)
                   </label>
                   <Field
-                    className={
-                      errors.username ? "border-red-400" : "border-white"
-                    }
+                    className={`
+                      ${errors.username ? "border-orange" : "border-white"}
+                      border block w-full bg-white p-3 focus:outline-none rounded-md
+                    `}
                     id="username"
                     name="username"
                     placeholder="ความยาวไม่เกิน 24 ตัวอักษร"
@@ -47,113 +48,116 @@ export const FirstQA: FC<{
                     maxLength="32"
                   />
                   {errors.username ? (
-                    <p className="mt-1 text-red-400 mb-6">{errors.username}</p>
+                    <p className="mt-1 text-orange mb-6">{errors.username}</p>
                   ) : (
                     <div className="h-6" aria-hidden></div>
                   )}
                 </motion.div>
                 <motion.div initial={{y: -20, opacity:0}} animate={{y: 0, opacity: 1}} transition={{delay: 0.6}}>
-                  <label className="" htmlFor="prefix">
+                  <label className="block my-1 text-blue-text" htmlFor="prefix">
                     คำนำหน้าชื่อ
                   </label>
                   <Field
-                    className={
-                      errors.prefix ? "border-red-400" : "border-white"
-                    }
+                    className={`
+                      ${errors.prefix ? "border-orange" : "border-white"}
+                      border block w-full bg-white p-3 focus:outline-none rounded-md
+                    `}
                     id="prefix"
                     name="prefix"
                     placeholder="ด.ช./ด.ญ."
                     type="text"
                   />
                   {errors.prefix ? (
-                    <p className="mt-1 text-red-400 mb-6">{errors.prefix}</p>
+                    <p className="mt-1 text-orange mb-6">{errors.prefix}</p>
                   ) : (
                     <div className="h-6" aria-hidden></div>
                   )}
                 </motion.div>
                 <motion.div initial={{y: -20, opacity:0}} animate={{y: 0, opacity: 1}} transition={{delay: 0.6}}>
-                  <label className="" htmlFor="firstname">
+                  <label className="block my-1 text-blue-text" htmlFor="firstname">
                     ชื่อ (ไม่ต้องมีคำนำหน้า)
                   </label>
                   <Field
-                    className={
-                      errors.firstname ? "border-red-400" : "border-white"
-                    }
+                    className={`
+                      ${errors.firstname ? "border-orange" : "border-white"}
+                      border block w-full bg-white p-3 focus:outline-none rounded-md
+                    `}
                     id="firstname"
                     name="firstname"
                     placeholder="เรียนเด่น"
                     type="text"
                   />
                   {errors.firstname ? (
-                    <p className="mt-1 text-red-400 mb-6">{errors.firstname}</p>
+                    <p className="mt-1 text-orange mb-6">{errors.firstname}</p>
                   ) : (
                     <div className="h-6" aria-hidden></div>
                   )}
                 </motion.div>
                 <motion.div initial={{y: -20, opacity:0}} animate={{y: 0, opacity: 1}} transition={{delay: 0.8}}>
-                  <label className="block my-1 text-white" htmlFor="lastname">
+                  <label className="block my-1 text-blue-text" htmlFor="lastname">
                     นามสกุล
                   </label>
                   <Field
-                    className={
-                      errors.lastname ? "border-red-400" : "border-white"
-                    }
+                    className={`
+                      ${errors.lastname ? "border-orange" : "border-white"}
+                      border block w-full bg-white p-3 focus:outline-none rounded-md
+                    `}
                     id="lastname"
                     name="lastname"
                     placeholder="เล่นดี"
                     type="text"
                   />
                   {errors.lastname ? (
-                    <p className="mt-1 text-red-400 mb-6">{errors.lastname}</p>
+                    <p className="mt-1 text-orange mb-6">{errors.lastname}</p>
                   ) : (
                     <div className="h-6" aria-hidden></div>
                   )}
                 </motion.div>
                 {/* <hr className="text-white my-2 h-4" /> */}
                 <motion.div initial={{y: -20, opacity:0}} animate={{y: 0, opacity: 1}} transition={{delay: 1.0}}>
-                  <p className="" id="status-group">
+                  <p className="block my-1 text-blue-text" id="status-group">
                     สถานภาพ
                   </p>
-                  <div className="" role="group" aria-labelledby="status-group">
-                    <label className="">
+                  <div className="text-cyan-text flex flex-col space-y-4" role="group" aria-labelledby="status-group">
+                    <label className="flex items-center my-1 font-display">
                       <Field
-                        className=""
+                        className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                         name="status"
                         type="radio"
                         value="student"
                       />
                       นักเรียน
                     </label>
-                    <label className="">
+                    <label className="flex items-center my-1 font-display">
                       <Field
-                        className=""
+                        className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                         name="status"
                         type="radio"
                         value="teacher"
                       />
                       ครู / บุคลากรโรงเรียน
                     </label>
-                    <label className="">
+                    <label className="flex items-center my-1 font-display">
                       <Field
-                        className=""
+                        className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                         name="status"
                         type="radio"
                         value="alumini"
                       />
                       นักเรียนเก่าโรงเรียนเตรียมฯ
                     </label>
-                    <label className="">
+                    <label className="flex items-center my-1 font-display">
                       <Field
-                        className=""
+                        className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                         name="status"
                         type="radio"
                         value="parent"
                       />
                       ผู้ปกครอง
                     </label>
-                    <label className="">
+                    <label className="flex items-center my-1 font-display">
                       <Field
-                        className=""
+                        className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                         name="status"
                         type="radio"
                         value="other"
@@ -162,7 +166,7 @@ export const FirstQA: FC<{
                     </label>
                   </div>
                   {errors.status ? (
-                    <p className="mt-1 text-red-400 mb-6">{errors.status}</p>
+                    <p className="mt-1 text-orange mb-6">{errors.status}</p>
                   ) : (
                     <div className="h-6" aria-hidden></div>
                   )}
@@ -171,40 +175,42 @@ export const FirstQA: FC<{
                   <>
                     {/* <hr className="text-white my-2 h-4" /> */}
                     <motion.div initial={{y: -20, opacity:0}} animate={{y: 0, opacity: 1}} layout="position">
-                      <label className="block my-1 text-white" htmlFor="school">
+                      <label className="block my-1 text-blue-text" htmlFor="school">
                         โรงเรียน
                       </label>
                       <Field
-                        className={
-                          errors.school ? "border-red-400" : "border-white"
-                        }
+                        className={`
+                          ${errors.school ? "border-orange" : "border-white"}
+                          border block w-full bg-white p-3 focus:outline-none rounded-md
+                        `}
                         id="school"
                         name="school"
                         placeholder="โรงเรียนเตรียมอุดมศึกษา"
                         type="text"
                       />
                       {errors.school ? (
-                        <p className="mt-1 text-red-400 mb-6">{errors.school}</p>
+                        <p className="mt-1 text-orange mb-6">{errors.school}</p>
                       ) : (
                         <div className="h-6" aria-hidden></div>
                       )}
                     </motion.div>
                     {values.status === "student" && (
                       <motion.div initial={{y: -20, opacity:0}} animate={{y: 0, opacity: 1}} layout="position">
-                        <label className="block my-1 text-white" htmlFor="grade">
+                        <label className="block my-1 text-blue-text" htmlFor="grade">
                           ระดับชั้น
                         </label>
                         <Field
-                          className={
-                            errors.grade ? "border-red-400" : "border-white"
-                          }
+                          className={`
+                            ${errors.grade ? "border-orange" : "border-white"}
+                            border block w-full bg-white p-3 focus:outline-none rounded-md
+                          `}
                           id="grade"
                           name="grade"
                           placeholder="ม.3"
                           type="text"
                         />
                         {errors.grade ? (
-                          <p className="mt-1 text-red-400">{errors.grade}</p>
+                          <p className="mt-1 text-orange">{errors.grade}</p>
                         ) : (
                           <div className="h-6" aria-hidden></div>
                         )}
@@ -215,7 +221,7 @@ export const FirstQA: FC<{
                 {/* <hr className="text-white h-4" /> */}
                 {/* submit */}
                 <motion.div initial={{y: -20, opacity:0}} animate={{y: 0, opacity: 1}} layout={"position"} className="pt-8 pb-6">
-                  <button className="" type="submit">
+                  <button className="w-full p-3 mb-3 text-white bg-blue-text rounded-full" type="submit">
                     ถัดไป
                   </button>
                 </motion.div>
