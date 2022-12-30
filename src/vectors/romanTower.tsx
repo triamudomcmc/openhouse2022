@@ -87,4 +87,50 @@ const RomanTower: FC<{
   );
 };
 
-export default RomanTower;
+export default RomanTower
+
+export const RomanTowerRegist: FC<{
+  className
+}> = ({className}) => {
+  return (
+    <svg 
+      className={className}
+      viewBox="0 0 226 1228" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M50.4917 0V0.583279C22.4678 1.47355 0 24.6514 0 53.2323C0 81.8132 23.3482 105.943 52.1312 105.943C59.9949 105.943 67.4336 104.131 74.1132 100.969V982.588L225.133 982.802V0.245599L50.4613 0.0307057L50.4917 0Z" fill="url(#paint0_linear_1013_3225)"/>
+      <path d="M225 207H75V1228H225V207Z" fill="url(#paint1_linear_1013_3225)"/>
+      <path d="M81.8862 46.0487C75.6013 40.2772 67.3125 37.7292 58.5379 38.8651C46.1503 40.4614 36.7988 50.3159 36.7988 61.7666C36.7988 73.2174 46.2414 82.1816 58.7505 82.1816V79.1116C47.972 79.1116 39.835 71.6518 39.835 61.7666C39.835 51.8815 48.0327 43.3165 58.9326 41.9043C66.7963 40.8912 74.2349 43.163 79.8519 48.3204C85.985 53.9384 89.3855 62.4727 89.1426 71.7439C88.8693 82.4579 83.131 92.0974 74.1135 97.4084V100.969C84.9223 95.3515 91.8448 84.2077 92.1788 71.8053C92.452 61.6438 88.7175 52.2499 81.9165 46.018L81.8862 46.0487Z" fill="#D7915C"/>
+      <path d="M74.9326 192.422V1228H97.6129V252.847C97.6129 246.173 101.681 240.786 106.721 240.786C111.762 240.786 115.83 246.173 115.83 252.847V1228H141.182V252.847C141.182 246.173 145.251 240.786 150.291 240.786C155.331 240.786 159.399 246.173 159.399 252.847V1228H183.507V252.847C183.507 246.173 187.575 240.786 192.615 240.786C197.655 240.786 201.724 246.173 201.724 252.847V1228H225.649V192.422H74.9326Z" fill="url(#paint2_linear_1013_3225)"/>
+      <path d="M225.072 144.163H76.846C63.8207 144.163 53.2852 154.816 53.2852 167.986C53.2852 181.156 63.8207 191.808 76.846 191.808H225.072" fill="#EDC8A8"/>
+      <defs>
+      <linearGradient id="paint0_linear_1013_3225" x1="112.551" y1="264.903" x2="112.551" y2="8.38086" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#E3AA86"/>
+      <stop offset="0.34" stopColor="#E3AB88"/>
+      <stop offset="0.48" stopColor="#E5B28F"/>
+      <stop offset="0.58" stopColor="#E9BC9B"/>
+      <stop offset="0.64" stopColor="#EDC8A8"/>
+      <stop offset="0.69" stopColor="#EFCCAD"/>
+      <stop offset="0.82" stopColor="#F5D5B9"/>
+      <stop offset="0.95" stopColor="#F7D9BE"/>
+      </linearGradient>
+      <linearGradient id="paint1_linear_1013_3225" x1="150" y1="994.009" x2="150" y2="413.183" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#CC7754"/>
+      <stop offset="0.44" stopColor="#CE886F"/>
+      </linearGradient>
+      <linearGradient id="paint2_linear_1013_3225" x1="150.807" y1="353.916" x2="148.997" y2="1057.46" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#E3AA86"/>
+      <stop offset="0.02" stopColor="#E4AD89"/>
+      <stop offset="0.11" stopColor="#E9BC9A"/>
+      <stop offset="0.22" stopColor="#ECC5A4"/>
+      <stop offset="0.35" stopColor="#EDC8A8"/>
+      <stop offset="0.59" stopColor="#ECC5A5"/>
+      <stop offset="0.76" stopColor="#E9BD9B"/>
+      <stop offset="0.91" stopColor="#E4AF8B"/>
+      <stop offset="0.95" stopColor="#E3AA86"/>
+      </linearGradient>
+      </defs>
+    </svg>
+  )
+}

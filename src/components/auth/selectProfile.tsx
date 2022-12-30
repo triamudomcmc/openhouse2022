@@ -110,7 +110,7 @@ export const SelectProfile: FC<{
   }
 
   return (<div style={{background: "linear-gradient(360deg, #F4CBA5 -0.18%, #FFF6E8 102.34%)"}} className="py-24 min-h-screen">
-    <div className="fixed top-0 right-0 min-h-screen z-[1]">
+    {/* <div className="fixed top-0 right-0 min-h-screen z-[1]">
       <Pillar/>
       <div className="absolute top-[193px] right-0 min-h-screen">
         <ExtendablePillarTop/>
@@ -123,7 +123,7 @@ export const SelectProfile: FC<{
         <ExtendablePillarTop/>
         <ExtendablePillarBottom/>
       </div>
-    </div>
+    </div> */}
     <div className="flex flex-col items-center relative z-[1] px-6">
       <span className="text-2xl text-blue-text font-bold">ลงทะเบียน</span>
       <div className="mt-14">

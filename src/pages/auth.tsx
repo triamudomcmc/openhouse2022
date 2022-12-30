@@ -11,6 +11,7 @@ import { ArrowLeftIcon, MailIcon } from '@heroicons/react/solid'
 import { Navbar } from '@components/common/Nav/Navbar'
 import KorChor from '@vectors/icons/korchor'
 import RomanTower from '@vectors/romanTower'
+import RomanTowerRegist from '@vectors/romanTower'
 import GoogleIcon from '@vectors/icons/google'
 import { IUserQuestionData } from '@ctypes/account'
 import { FirstQA } from '@components/auth/FirstQA'
@@ -58,17 +59,21 @@ export default function Auth() {
 
   if (user?.qa ?? false) {
     return (
-      <div>
-      {page==1 
-      ? <FirstQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} /> 
-      : null}
-      {page==2
-      ? <SecondQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage}/>
-      : null}
-      {page==3
-      ? <SelectProfile setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} submitData={(_data: IUserQuestionData) => submitData(combineObjects(data, _data))}/>
-      : null}
-      </div>
+      <section className='relative flex flex-col items-center justify-center w-screen overflow-hidden pt-[6.5rem] pb-[2rem] bg-login-edit'>
+        <div className=''>
+          <RomanTowerRegist classname='absolute top-0 mt-[68px] h-full left-[-60px] min-[700px]:left-[-30px] lg:left-0 transform -scale-x-100 max-lg:hidden' />
+          <RomanTowerRegist classname='absolute top-0 mt-[68px] h-full -right-[60px] min-[700px]:right-[-30px] lg:right-0 max-lg:hidden' />
+        </div>
+        {page==1 
+        ? <FirstQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} /> 
+        : null}
+        {page==2
+        ? <SecondQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage}/>
+        : null}
+        {page==3
+        ? <SelectProfile setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} submitData={(_data: IUserQuestionData) => submitData(combineObjects(data, _data))}/>
+        : null}
+      </section>
     )
   }
 
