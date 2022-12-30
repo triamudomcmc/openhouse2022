@@ -111,6 +111,12 @@
     background: linear-gradient(97.13deg, #F7EBDA -7.68%, #ED9F6E 39.07%, rgba(129, 140, 248, 0.81) 107.39%);
   }
 
+  .organization-text{
+    background: linear-gradient(180deg, #8168D2 9.95%, #290F82 75.44%, #170847 125.3%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   #privacy-policy ol,
   #tos ol {
     counter-reset: item;
