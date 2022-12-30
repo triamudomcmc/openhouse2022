@@ -1,4 +1,4 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 // /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -52,12 +52,11 @@ module.exports = {
       cream: "#FFF6E8",
       orange: "#F68D55",
       black: "000000",
-      "purple": "#1B0C76",
+      purple: "#1B0C76",
       "deep-turquoise": "#004373",
-      'bright-orange': '#E96F26',
-
+      "bright-orange": "#E96F26",
     },
   },
 
   plugins: [require("@tailwindcss/typography")],
-};
+}

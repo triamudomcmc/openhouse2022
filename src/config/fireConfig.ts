@@ -20,5 +20,5 @@ export const fireConfig = {
   storageBucket: "tucmc-oph2023.appspot.com",
   messagingSenderId: "578053861085",
   appId: "1:578053861085:web:41bd06a737cacc1d25b534",
-  measurementId: "G-SV6HF6H8X8"
+  measurementId: "G-SV6HF6H8X8",
 }

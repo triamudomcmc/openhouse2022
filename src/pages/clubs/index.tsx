@@ -1,18 +1,18 @@
-import Router, { useRouter } from "next/router";
-import { ArrowCircleLeftIcon } from "@heroicons/react/outline";
-import { SearchIcon, UserIcon } from "@heroicons/react/solid";
-import Image from "next/image";
-import fs from "fs";
-import { GetStaticProps } from "next";
-import Link from "next/link";
-import { AnimateSharedLayout } from "framer-motion";
-import { useEffect, useState } from "react";
-import { searchKeyword } from "@utilities/text";
-import { useWindowDimensions } from "@utilities/useWindowDimensions";
-import { SM } from "@utilities/breakpoints";
+import Router, { useRouter } from "next/router"
+import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
+import { SearchIcon, UserIcon } from "@heroicons/react/solid"
+import Image from "next/image"
+import fs from "fs"
+import { GetStaticProps } from "next"
+import Link from "next/link"
+import { AnimateSharedLayout } from "framer-motion"
+import { useEffect, useState } from "react"
+import { searchKeyword } from "@utilities/text"
+import { useWindowDimensions } from "@utilities/useWindowDimensions"
+import { SM } from "@utilities/breakpoints"
 
 const Club = ({ data }: { data: any }) => {
-  const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions()
 
   return (
     <Link passHref href={data.path}>
@@ -38,86 +38,77 @@ const Club = ({ data }: { data: any }) => {
           </div>
           <div className="px-2">
             <div className="flex items-start justify-center space-x-1 py-2">
-              <h1 className="text-[15px] text-center font-light h-[45px]">
-                {data.title}
-              </h1>
+              <h1 className="text-[15px] text-center font-light h-[45px]">{data.title}</h1>
             </div>
           </div>
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = fs.readFileSync("./src/_data/_maps/clubsMap.json", {
     encoding: "utf8",
     flag: "r",
-  });
-  const obj = JSON.parse(data);
+  })
+  const obj = JSON.parse(data)
   const items = Object.values(obj) as [
     {
-      englishName: string;
-      imageURL: Array<{ url: string; description: string }>;
-      thaiName: string;
-      id: string;
+      englishName: string
+      imageURL: Array<{ url: string; description: string }>
+      thaiName: string
+      id: string
     }
-  ];
+  ]
 
   const objContents = items.map((item) => {
     return {
       path: `clubs/${item.englishName}`,
-      thumbnail:
-        item.id !== ""
-          ? `/assets/clubs/_thumbnails/${item.id.replace("ก", "")}.jpg`
-          : item.imageURL[0].url,
+      thumbnail: item.id !== "" ? `/assets/clubs/_thumbnails/${item.id.replace("ก", "")}.jpg` : item.imageURL[0].url,
       title: item.thaiName,
-    };
-  });
+    }
+  })
 
   return {
     props: {
       contents: objContents,
     },
-  };
-};
+  }
+}
 
 const Page = ({ contents }: { contents: any }) => {
-  const [sorted, setSorted] = useState(contents);
-  const [query, setQuery] = useState(setTimeout(() => {}, 10));
-  const router = useRouter();
-  const [searching, setSearching] = useState(false);
+  const [sorted, setSorted] = useState(contents)
+  const [query, setQuery] = useState(setTimeout(() => {}, 10))
+  const router = useRouter()
+  const [searching, setSearching] = useState(false)
 
-  const [searchContext, setSearchContext] = useState("");
+  const [searchContext, setSearchContext] = useState("")
 
   useEffect(() => {
-    clearTimeout(query);
-    setSearching(true);
+    clearTimeout(query)
+    setSearching(true)
 
     setQuery(
       setTimeout(() => {
-        const escaped = searchContext.replace("ชมรม", "");
+        const escaped = searchContext.replace("ชมรม", "")
         if (escaped !== "") {
-          const searchResult = searchKeyword(
-            contents,
-            escaped,
-            (obj) => obj.title
-          );
-          setSorted(searchResult);
+          const searchResult = searchKeyword(contents, escaped, (obj) => obj.title)
+          setSorted(searchResult)
         } else {
-          setSorted(contents);
+          setSorted(contents)
         }
-        setSearching(false);
+        setSearching(false)
       }, 400)
-    );
-  }, [searchContext, contents]);
+    )
+  }, [searchContext, contents])
 
   return (
     <main className="text-white px-8 pt-[6.5rem] pb-[2rem] min-h-full bg-normal-gradient">
       <div className="max-w-6xl mx-auto">
         <div
           onClick={() => {
-            router.push("/");
+            router.push("/")
           }}
           className="absolute flex items-center space-x-2 -mt-16 ml-6 sm:mt-0 cursor-pointer"
         >
@@ -134,7 +125,7 @@ const Page = ({ contents }: { contents: any }) => {
                 </div>
                 <input
                   onChange={(e) => {
-                    setTimeout(() => setSearchContext(e.target.value));
+                    setTimeout(() => setSearchContext(e.target.value))
                   }}
                   className="border bg-white bg-opacity-20 rounded-full placeholder:text-white py-2 pl-14 w-full border-opacity-40 pr-4"
                   placeholder="ค้นหาชมรม..."
@@ -158,7 +149,7 @@ const Page = ({ contents }: { contents: any }) => {
         </div>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

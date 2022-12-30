@@ -1,35 +1,26 @@
-import { FC } from "react";
+import { FC } from "react"
 
 const RomanLanding: FC<{
   // width?:string;
   // height?:string;
-  className?: string;
+  className?: string
 }> = ({ className, ...restProps }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-    //   width="1511"
-    //   height="1123"
-    height="100%"
-    // width='100%'
-    className={`${className}`}
+      //   width="1511"
+      //   height="1123"
+      height="100%"
+      // width='100%'
+      className={`${className}`}
       fill="none"
       viewBox="0 0 1511 1123"
     >
       <g clipPath="url(#clip0_671_3211)">
-        <path
-          fill="url(#paint0_linear_671_3211)"
-          d="M1627 1H-117v1126h1744V1z"
-        ></path>
-        <path
-          fill="#F4D0B3"
-          d="M149.5 990.707L-2 1085.65v15.67l1524-1.9v-13.77l-171.91-94.943H149.5z"
-        ></path>
+        <path fill="url(#paint0_linear_671_3211)" d="M1627 1H-117v1126h1744V1z"></path>
+        <path fill="#F4D0B3" d="M149.5 990.707L-2 1085.65v15.67l1524-1.9v-13.77l-171.91-94.943H149.5z"></path>
         <path fill="#FFE9D8" d="M1640 1100H-57v25.97h1697V1100z"></path>
-        <path
-          fill="url(#paint1_linear_671_3211)"
-          d="M1371 367.451H137v689.619h1234V367.451z"
-        ></path>
+        <path fill="url(#paint1_linear_671_3211)" d="M1371 367.451H137v689.619h1234V367.451z"></path>
         <path fill="#F4D0B3" d="M1314 1077H161v22h1153v-22z"></path>
         <path
           fill="#B7765F"
@@ -49,10 +40,7 @@ const RomanLanding: FC<{
           d="M1409 1H86v1226h1323V1zM356.957 469C280.265 469 218 531.265 218 607.957V981h277.914V607.957C495.914 531.265 433.65 469 356.957 469zm397 0c76.693 0 138.957 62.265 138.957 138.957V981H615V607.957C615 531.265 677.265 469 753.957 469zm535.953 138.957c0-76.692-62.26-138.957-138.95-138.957-76.7 0-138.96 62.265-138.96 138.957V981h277.91V607.957z"
           clipRule="evenodd"
         ></path>
-        <path
-          fill="#F9DBC4"
-          d="M1434 339H73a8 8 0 00-8 8v78a8 8 0 008 8h1361a8 8 0 008-8v-78a8 8 0 00-8-8z"
-        ></path>
+        <path fill="#F9DBC4" d="M1434 339H73a8 8 0 00-8 8v78a8 8 0 008 8h1361a8 8 0 008-8v-78a8 8 0 00-8-8z"></path>
         <path
           fill="url(#paint3_linear_671_3211)"
           d="M362 218.737c-250.8-40-343.5-143.667-358.5-190.5L-44-104.987c96.5-53.833 369.2-30.776 498 75.224s112.333 260.167 88 324c70.4 36.8 79.667 138.667 75.5 185 35.2 35.6 39.333 100.167 37 128 144-37.6 222.333 34.667 243.5 75.5v75.5c-10.8 14.4-51.167 9-70 4.5-256.8 149.6-305.333-1-297.5-95 15.2-53.2-12.333-91.833-28-104.5-48.8-42-32-97.5-17.5-120-197.2-28.8-164.167-161.667-123-224.5z"
@@ -149,14 +137,7 @@ const RomanLanding: FC<{
           <stop offset="0.735" stopColor="#E3B68D"></stop>
           <stop offset="0.969" stopColor="#E3C2A3"></stop>
         </linearGradient>
-        <linearGradient
-          id="paint2_linear_671_3211"
-          x1="754"
-          x2="754"
-          y1="29"
-          y2="981"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint2_linear_671_3211" x1="754" x2="754" y1="29" y2="981" gradientUnits="userSpaceOnUse">
           <stop stopColor="#F9DBC4" stopOpacity="0"></stop>
           <stop offset="0.256" stopColor="#E8C1AC" stopOpacity="0"></stop>
           <stop offset="0.38" stopColor="#D18E73"></stop>
@@ -220,19 +201,15 @@ const RomanLanding: FC<{
           <stop offset="1" stopColor="#F7EBDA"></stop>
         </linearGradient>
         <clipPath id="clip0_671_3211">
-          <path
-            fill="#fff"
-            d="M0 0H1512V1227H0z"
-            transform="translate(-1)"
-          ></path>
+          <path fill="#fff" d="M0 0H1512V1227H0z" transform="translate(-1)"></path>
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
 // export const getHeight: FC<{}> = ({}) =>{
 //   return RomanLanding.height
 // }
 
-export default RomanLanding;
+export default RomanLanding

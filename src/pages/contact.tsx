@@ -1,17 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
-function LinkELement({
-  href,
-  src,
-  alt,
-  text,
-}: {
-  href: string;
-  src: string;
-  alt: string;
-  text: string;
-}) {
+function LinkELement({ href, src, alt, text }: { href: string; src: string; alt: string; text: string }) {
   return (
     <Link href={href} passHref>
       <a>
@@ -21,7 +11,7 @@ function LinkELement({
         </div>
       </a>
     </Link>
-  );
+  )
 }
 
 function OPHContact() {
@@ -62,7 +52,7 @@ function OPHContact() {
         />
       </div>
     </div>
-  );
+  )
 }
 
 function TUCMCContact() {
@@ -81,7 +71,7 @@ function TUCMCContact() {
         text="tucmc_official"
       />
     </div>
-  );
+  )
 }
 
 export default function Contact() {
@@ -91,9 +81,7 @@ export default function Contact() {
         <h1 className="text-3xl text-center font-bold">
           ช่องทางการติดต่อ
           <br />
-          <span className="text-2xl text-center font-medium">
-            Triam Udom Open House 2023
-          </span>
+          <span className="text-2xl text-center font-medium">Triam Udom Open House 2023</span>
         </h1>
 
         <OPHContact />
@@ -104,5 +92,5 @@ export default function Contact() {
         <TUCMCContact />
       </div>
     </main>
-  );
+  )
 }

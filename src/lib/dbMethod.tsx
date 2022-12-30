@@ -10,15 +10,13 @@ import {
   deleteDoc,
   FieldValue,
   Firestore,
-} from 'firebase/firestore'
+} from "firebase/firestore"
 
-import { getFirestore as getDB } from './firebase-admin'
-import { IUserQuestionData } from '@ctypes/account'
-import { firestore } from 'firebase-admin'
+import { getFirestore as getDB } from "./firebase-admin"
+import { IUserQuestionData } from "@ctypes/account"
+import { firestore } from "firebase-admin"
 
 const adminDb = getDB()
-
-
 
 const getClubProd = async (clubId: string) => {
   return await adminDb.collection("prodAppr").doc(clubId).get()
@@ -41,31 +39,30 @@ export const getClubPendArticle = async (clubId: string): Promise<null | Documen
   //return await getClubProdArticle(clubId)
 }
 
-export const updateArticleToPending = async (clubId: string, data) : Promise<void> => {
-
+export const updateArticleToPending = async (clubId: string, data): Promise<void> => {
   data = JSON.parse(data)
   const finalData = {
     Info: {
       nameTH: data.Info?.nameTH,
       nameEN: data.Info?.nameEN,
-      member: data.Info?.member
+      member: data.Info?.member,
     },
     // Images: data.Images ?? {},
-    Contacts: data.Contacts ?? [''],
+    Contacts: data.Contacts ?? [""],
     ClubArticle: data.ClubArticle,
-    ClubArticleDes: data.ClubArticleDes ?? '',
+    ClubArticleDes: data.ClubArticleDes ?? "",
     Advantage: data.Advantage,
-    AdvantageDes: data.AdvantageDes ?? '',
+    AdvantageDes: data.AdvantageDes ?? "",
     Work: data.Work,
-    WorkDes: data.WorkDes ?? '',
-    Reviews: data.Reviews
+    WorkDes: data.WorkDes ?? "",
+    Reviews: data.Reviews,
   }
-  await adminDb.collection("pendingAppr").doc(clubId).set(finalData, {merge: true})
+  await adminDb.collection("pendingAppr").doc(clubId).set(finalData, { merge: true })
 
   return
 }
 
-export const updateUserQA = async (uid: string, data: IUserQuestionData) : Promise<void> => {
+export const updateUserQA = async (uid: string, data: IUserQuestionData): Promise<void> => {
   const finalData = {
     username: data.username,
     prefix: data.prefix,
@@ -76,29 +73,30 @@ export const updateUserQA = async (uid: string, data: IUserQuestionData) : Promi
     grade: data.grade,
     news: data.news,
     purpose: data.purpose,
-    profileIcon: data.profileIcon
+    profileIcon: data.profileIcon,
   }
-  await adminDb.collection('account').doc(uid).set({Info: finalData}, {merge: true})
-  await adminDb.collection('account').doc(uid).update({qa: firestore.FieldValue.delete()})
+  await adminDb.collection("account").doc(uid).set({ Info: finalData }, { merge: true })
+  await adminDb.collection("account").doc(uid).update({ qa: firestore.FieldValue.delete() })
 }
 
-export const updateImage = async (clubId: string, file: string, field: string) : Promise<void> => {
-
-  await adminDb.collection("pendingAppr").doc(clubId).set({Images: { [field]: file }}, {merge: true})
-  return 
+export const updateImage = async (clubId: string, file: string, field: string): Promise<void> => {
+  await adminDb
+    .collection("pendingAppr")
+    .doc(clubId)
+    .set({ Images: { [field]: file } }, { merge: true })
+  return
 }
 
-export const updateProfileImage = async (clubId: string, data) : Promise<void> => {
-
-  await adminDb.collection("pendingAppr").doc(clubId).set({Reviews: data}, {merge: true})
+export const updateProfileImage = async (clubId: string, data): Promise<void> => {
+  await adminDb.collection("pendingAppr").doc(clubId).set({ Reviews: data }, { merge: true })
 }
 
-export const movePendToProd = async (clubId: string) : Promise<void> => {
+export const movePendToProd = async (clubId: string): Promise<void> => {
   const pendDoc = await getClubPend(clubId)
   await adminDb.collection("prodAppr").doc(clubId).set(pendDoc.data())
   await pendDoc.ref.delete()
 }
 
-export const declinePend = async (clubId: string) : Promise<void> => {
-  await adminDb.collection('pendingAppr').doc(clubId).set({declined: true}, {merge: true})
+export const declinePend = async (clubId: string): Promise<void> => {
+  await adminDb.collection("pendingAppr").doc(clubId).set({ declined: true }, { merge: true })
 }

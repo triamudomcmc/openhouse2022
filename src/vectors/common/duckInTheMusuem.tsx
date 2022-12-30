@@ -1,13 +1,13 @@
-import { FC } from "react";
+import { FC } from "react"
 
 const DuckInTheMusuem: FC<{
-    width:string;
-    height?:string;
-  classname?: string;
+  width: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
-<svg
-    className={classname}
+    <svg
+      className={classname}
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
@@ -112,12 +112,9 @@ const DuckInTheMusuem: FC<{
         fill="#FEF2DD"
         d="M200.374 30.408s-.014-.04.006-.04c.309 0 2.748-.316 2.028-1.937-.781-1.765 1.569-1.511 1.748-1.484.006 0 .013.007.013.014l2.981 7.004v.02l-.535 1.335v.006c-.082.062-2.233 1.567-2.692 1.512-.459-.055-3.303-5.924-3.549-6.437v.007z"
       ></path>
-      <path
-        fill="#FCF1DC"
-        d="M200.305 30.36s.123.007.164 0c.048-.006-.109.171-.109.171l-.055-.17z"
-      ></path>
-                </svg>
-  );
+      <path fill="#FCF1DC" d="M200.305 30.36s.123.007.164 0c.048-.006-.109.171-.109.171l-.055-.17z"></path>
+    </svg>
+  )
 }
 
-export default DuckInTheMusuem;
+export default DuckInTheMusuem

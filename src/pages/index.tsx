@@ -1,46 +1,38 @@
-import { FC, useEffect, useState } from "react";
-import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { motion } from "framer-motion";
+import { FC, useEffect, useState } from "react"
+import Head from "next/head"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { motion } from "framer-motion"
 
-import { useAuth } from "@lib/auth";
-import { CountDown } from "@components/common/Countdown";
+import { useAuth } from "@lib/auth"
+import { CountDown } from "@components/common/Countdown"
 
-import TriamUdom from "@vectors/text/triamUdom";
-import OpenHouse from "@vectors/text/openhouse";
-import CountDownBgPhone from "@vectors/background/countDownBgPhone";
-import RomanLanding from "@vectors/background/RomanLanding";
-import StairPrograammes from "@vectors/background/StairProgramme";
-import BigFrame from "@vectors/common/bigFrame";
-import StairProgrammePhone from "@vectors/background/PhoneStairProgramme";
-import { Footer } from "@components/common/Footer";
-import {
-  AIC,
-  Organization,
-  OrganizationPhone,
-  TUCMC,
-  TUPRO,
-  TUSC,
-  WinkWink,
-} from "@vectors/common/organization";
-import { LG, MD } from "@utilities/breakpoints";
-import { useWindowDimensions } from "@utilities/useWindowDimensions";
+import TriamUdom from "@vectors/text/triamUdom"
+import OpenHouse from "@vectors/text/openhouse"
+import CountDownBgPhone from "@vectors/background/countDownBgPhone"
+import RomanLanding from "@vectors/background/RomanLanding"
+import StairPrograammes from "@vectors/background/StairProgramme"
+import BigFrame from "@vectors/common/bigFrame"
+import StairProgrammePhone from "@vectors/background/PhoneStairProgramme"
+import { Footer } from "@components/common/Footer"
+import { AIC, Organization, OrganizationPhone, TUCMC, TUPRO, TUSC, WinkWink } from "@vectors/common/organization"
+import { LG, MD } from "@utilities/breakpoints"
+import { useWindowDimensions } from "@utilities/useWindowDimensions"
 // import { ArtsChinese, ArtsEspanol, ArtsFrench, ArtsGerman, ArtsJapanese, ArtsKorean, ArtsMath, SciMath } from "@vectors/icons/programmes";
-import { Programme } from "@components/programme";
-import RomanTower from "@vectors/romanTower";
-import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate";
+import { Programme } from "@components/programme"
+import RomanTower from "@vectors/romanTower"
+import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate"
 
-const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0);
+const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0)
 
 export default function Home() {
-  const { user, signinWithGoogle, signout } = useAuth();
-  const [timeLeft, setTimeLeft] = useState(null);
-  const width = useWindowDimensions().width;
+  const { user, signinWithGoogle, signout } = useAuth()
+  const [timeLeft, setTimeLeft] = useState(null)
+  const width = useWindowDimensions().width
 
   useEffect(() => {
     const calTimeLeft = () => {
-      const diff = OpeningTime - +new Date();
+      const diff = OpeningTime - +new Date()
 
       if (diff > 0)
         return {
@@ -49,16 +41,16 @@ export default function Home() {
           minutes: Math.floor((diff / 1000 / 60) % 60),
           seconds: Math.floor((diff / 1000) % 60),
           total: diff,
-        };
-      else return null;
-    };
+        }
+      else return null
+    }
     const timer = setInterval(() => {
-      setTimeLeft(calTimeLeft);
-    }, 1000);
+      setTimeLeft(calTimeLeft)
+    }, 1000)
     return function cleanup() {
-      clearInterval(timer);
-    };
-  }, []);
+      clearInterval(timer)
+    }
+  }, [])
 
   return (
     <div className="w-screen overflow-x-hidden">
@@ -151,10 +143,7 @@ export default function Home() {
         </div>
         <div className="absolute flex items-center justify-center w-screen h-screen">
           <Link href={"/clubs"}>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Sun classname="w-[350px] sm:w-[500px]" />
             </motion.button>
           </Link>
@@ -199,9 +188,7 @@ export default function Home() {
         ) : (
           <div className="w-[325px] mx-auto relative pt-[150px]">
             <div className="w-[333px] bg-[#BCC2EB]">
-              <p className="organization-text text-center font-[600] text-[34px] leading-[47px] ">
-                หน่วยงานนักเรียน
-              </p>
+              <p className="organization-text text-center font-[600] text-[34px] leading-[47px] ">หน่วยงานนักเรียน</p>
             </div>
             <div className="mt-[50px] h-[1006px]">
               <OrganizationPhone />
@@ -232,5 +219,5 @@ export default function Home() {
 
       <Footer />
     </div>
-  );
+  )
 }

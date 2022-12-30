@@ -1,10 +1,4 @@
-export default function MRTMap({
-  fillColor,
-  className,
-}: {
-  fillColor: string;
-  className: string;
-}) {
+export default function MRTMap({ fillColor, className }: { fillColor: string; className: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -252,25 +246,14 @@ export default function MRTMap({
         ry="8.625"
         transform="rotate(8.389 -5611.654 2915.603)"
       ></rect>
-      <circle
-        r="9.324"
-        fill="#FFF"
-        stroke="none"
-        strokeWidth="1"
-        transform="translate(601.542 363.624)"
-      ></circle>
+      <circle r="9.324" fill="#FFF" stroke="none" strokeWidth="1" transform="translate(601.542 363.624)"></circle>
       <path
         fill="#FFF"
         stroke="#FFF"
         strokeWidth="0.308"
         d="M614.512 392.836l8.786 6.463v5.092l-8.786-3.33-5.921 6.071-12.798-7.833-9.168 5.092 7.449-11.555 14.517 6.463 5.921-6.463z"
       ></path>
-      <path
-        fill="#FFF"
-        stroke="none"
-        strokeWidth="1"
-        d="M431.702 395.452h154.991v82.458H431.702v-82.458z"
-      ></path>
+      <path fill="#FFF" stroke="none" strokeWidth="1" d="M431.702 395.452h154.991v82.458H431.702v-82.458z"></path>
       <path
         fill="#FFF"
         stroke="none"
@@ -539,5 +522,5 @@ export default function MRTMap({
         }}
       />
     </svg>
-  );
+  )
 }

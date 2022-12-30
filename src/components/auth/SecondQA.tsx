@@ -1,16 +1,16 @@
-import { FC } from "react";
-import { Field, Form, Formik } from "formik";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { FC } from "react"
+import { Field, Form, Formik } from "formik"
+import { motion } from "framer-motion"
+import Link from "next/link"
 
-import { IUserQuestionData } from "@ctypes/account";
-import { filterNullProperties } from "@utilities/filterNullObjProperties";
-import classNames from "classnames";
+import { IUserQuestionData } from "@ctypes/account"
+import { filterNullProperties } from "@utilities/filterNullObjProperties"
+import classNames from "classnames"
 
 export const SecondQA: FC<{
-  setData?;
-  data?;
-  setPage?;
+  setData?
+  data?
+  setPage?
 }> = ({ setData, data, setPage }) => {
   return (
     <div>
@@ -23,17 +23,14 @@ export const SecondQA: FC<{
         }}
         validate={validate}
         onSubmit={(data) => {
-          setData(formatData(data));
-          setPage(3);
+          setData(formatData(data))
+          setPage(3)
         }}
         validateOnChange={false}
         validateOnBlur={false}
       >
         {({ errors, values }) => (
-          <Form
-            className="py-4 px-4 text-sm w-[20rem] sm:w-[24rem] text-blue-text font-display"
-            noValidate
-          >
+          <Form className="py-4 px-4 text-sm w-[20rem] sm:w-[24rem] text-blue-text font-display" noValidate>
             <motion.div
               layout={"position"}
               initial={{ y: -20, opacity: 0 }}
@@ -41,23 +38,14 @@ export const SecondQA: FC<{
               transition={{}}
               className="mb-4"
             >
-              <p
-                className="w-full text-lg font-semibold mb-4 text-deep-turquoise font-display"
-                id="news-group"
-              >
+              <p className="w-full text-lg font-semibold mb-4 text-deep-turquoise font-display" id="news-group">
                 ได้รับข่าวสารของ Triam Udom
                 <br />
                 Open House 2023 จากที่ใดบ้าง
                 <br />
-                <span className="text-sm font-light">
-                  (ตอบได้มากกว่า 1 ข้อ)
-                </span>
+                <span className="text-sm font-light">(ตอบได้มากกว่า 1 ข้อ)</span>
               </p>
-              <div
-                className=" flex flex-col space-y-4"
-                role="group"
-                aria-labelledby="news-group"
-              >
+              <div className=" flex flex-col space-y-4" role="group" aria-labelledby="news-group">
                 <label className="flex items-center my-1 font-display">
                   <Field
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
@@ -164,23 +152,14 @@ export const SecondQA: FC<{
               animate={{ y: 0, opacity: 1 }}
               transition={{}}
             >
-              <p
-                className="w-full text-lg font-semibold mb-4 text-deep-turquoise font-display"
-                id="purpose-group"
-              >
+              <p className="w-full text-lg font-semibold mb-4 text-deep-turquoise font-display" id="purpose-group">
                 จุดประสงค์ในการเข้าร่วม Triam Udom
                 <br />
                 Open House 2023
                 <br />
-                <span className="text-sm font-light">
-                  (ตอบได้มากกว่า 1 ข้อ)
-                </span>
+                <span className="text-sm font-light">(ตอบได้มากกว่า 1 ข้อ)</span>
               </p>
-              <div
-                className=" flex flex-col space-y-4"
-                role="group"
-                aria-labelledby="purpose-group"
-              >
+              <div className=" flex flex-col space-y-4" role="group" aria-labelledby="purpose-group">
                 <label className="flex items-center my-1 font-display">
                   <Field
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
@@ -215,8 +194,7 @@ export const SecondQA: FC<{
                     type="checkbox"
                     value="find info (considers joining)"
                   />
-                  หาข้อมูลเกี่ยวกับโรงเรียนเตรียมอุดมศึกษา
-                  เพื่อประกอบการตัดสินใจ
+                  หาข้อมูลเกี่ยวกับโรงเรียนเตรียมอุดมศึกษา เพื่อประกอบการตัดสินใจ
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
@@ -246,12 +224,7 @@ export const SecondQA: FC<{
                   ชมบรรยากาศของโรงเรียน
                 </label>
                 <label
-                  className={classNames(
-                    "flex",
-                    values.purpose?.includes("other")
-                      ? "items-start"
-                      : "items-center"
-                  )}
+                  className={classNames("flex", values.purpose?.includes("other") ? "items-start" : "items-center")}
                 >
                   <div>
                     <Field
@@ -264,10 +237,7 @@ export const SecondQA: FC<{
                   <div className="flex flex-col w-full">
                     <span>อื่น ๆ โปรดระบุ :</span>
                     {values.purpose?.includes("other") && (
-                      <motion.div
-                        initial={{ y: -20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                      >
+                      <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
                         <Field
                           className=" bg-transparent px-0.5 py-4 border-b border-white font-display h-[1.15rem] focus:outline-none"
                           name="otherPurpose"
@@ -298,16 +268,13 @@ export const SecondQA: FC<{
               <button
                 className="w-36 p-3 mb-3 bg-transparent border border-blue-text text-blue-text rounded-full transition-colors hover:bg-blue-text hover:text-white"
                 onClick={() => {
-                  setData(formatData(values));
-                  setPage(1);
+                  setData(formatData(values))
+                  setPage(1)
                 }}
               >
                 ย้อนกลับ
               </button>
-              <button
-                className="w-36 p-3 mb-3 bg-blue-text text-white rounded-full"
-                type="submit"
-              >
+              <button className="w-36 p-3 mb-3 bg-blue-text text-white rounded-full" type="submit">
                 ถัดไป
               </button>
             </motion.div>
@@ -315,39 +282,37 @@ export const SecondQA: FC<{
         )}
       </Formik>
     </div>
-  );
-};
+  )
+}
 
-const validate = (
-  values: IUserQuestionData & { otherNews?: string; otherPurpose?: string }
-) => {
-  const errors: any = {};
+const validate = (values: IUserQuestionData & { otherNews?: string; otherPurpose?: string }) => {
+  const errors: any = {}
 
   if (values.news.length === 0) {
-    errors.news = "จำเป็นต้องเลือกอย่างน้อย 1 ตัวเลือก";
+    errors.news = "จำเป็นต้องเลือกอย่างน้อย 1 ตัวเลือก"
   }
 
   if (values.purpose.length === 0) {
-    errors.purpose = "จำเป็นต้องเลือกอย่างน้อย 1 ตัวเลือก";
+    errors.purpose = "จำเป็นต้องเลือกอย่างน้อย 1 ตัวเลือก"
   }
 
   if (values.news?.includes("other") && values.otherNews) {
     if (!values.otherNews) {
-      errors.otherNews = "จำเป็นต้องใส่";
+      errors.otherNews = "จำเป็นต้องใส่"
     }
   }
 
   if (values.purpose?.includes("other") && values.otherPurpose) {
     if (!values.otherPurpose) {
-      errors.otherPurpose = "จำเป็นต้องใส่";
+      errors.otherPurpose = "จำเป็นต้องใส่"
     }
   }
 
-  return errors;
-};
+  return errors
+}
 
 const formatData: (data: any) => IUserQuestionData = (data) => {
-  const _data: any = data;
+  const _data: any = data
 
   // news includes other
 
@@ -363,5 +328,5 @@ const formatData: (data: any) => IUserQuestionData = (data) => {
   //   _data.otherPurpose = null;
   // }
 
-  return filterNullProperties(_data) as IUserQuestionData;
-};
+  return filterNullProperties(_data) as IUserQuestionData
+}

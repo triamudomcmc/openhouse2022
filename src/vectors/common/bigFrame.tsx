@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from "react"
 
 const BigFrame: FC<{
-    width?:string;
-    height?:string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -35,15 +35,8 @@ const BigFrame: FC<{
         fillOpacity="0.7"
         d="M55.082 52.334a2492.63 2492.63 0 0029.627 302.367l131.577-1.743 27.884-304.98-189.088 4.356z"
       ></path>
-      <path
-        fill="url(#paint5_linear_671_2510)"
-        d="M56.5 83.5l-1.5-31L244 48l-3.5 37-184-1.5z"
-        opacity="0.5"
-      ></path>
-      <path
-        fill="url(#paint6_linear_671_2510)"
-        d="M41 346l2.39 19.948h212.966L258.843 346H41z"
-      ></path>
+      <path fill="url(#paint5_linear_671_2510)" d="M56.5 83.5l-1.5-31L244 48l-3.5 37-184-1.5z" opacity="0.5"></path>
+      <path fill="url(#paint6_linear_671_2510)" d="M41 346l2.39 19.948h212.966L258.843 346H41z"></path>
       <path
         fill="#7B2319"
         d="M146.5 304c31.204 0 56.5-11.193 56.5-25s-25.296-25-56.5-25S90 265.193 90 279s25.296 25 56.5 25z"
@@ -81,10 +74,7 @@ const BigFrame: FC<{
         fill="url(#paint13_linear_671_2510)"
         d="M222.384 108.974s3.486-7.843-4.357-3.486l-26.141 26.141a13.1 13.1 0 00-2.505 3.159c-2.774 4.915-1.423 10.16-.98 11.655-.989-.761-2.092-1.888-2.614-3.486-.867-2.654.372-5.067 0-5.228-.593-.257-3.766 5.841-4.357 6.971-6.097 11.661-7.026 11.612-10.457 18.299-1.582 3.083-3.564 7.944-4.357 14.813 0 0 0 4.357-1.742.872-1.743-3.486-.872-12.2-.872-12.2s0-2.614-2.614 5.229c-2.614 7.842-6.099 15.684-5.228 19.17.871 3.485 2.614 11.328 13.071 7.842 10.456-3.485 19.17-18.299 19.17-18.299s-3.486-.871-6.971 0c-3.486.872 9.585-6.099 11.328-7.842 1.742-1.743 3.485-3.486 1.742-3.486-1.742 0-6.971.872-6.971-.871 0-1.743 7.843-.871 10.457-5.228 2.614-4.357 6.099-12.199 6.099-12.199l-1.742-3.486 5.228-.871 14.813-37.469z"
       ></path>
-      <path
-        fill="#37498B"
-        d="M154.195 209.569L209.572 130h.396L150 222.133s5.873-10.889 4.195-12.564z"
-      ></path>
+      <path fill="#37498B" d="M154.195 209.569L209.572 130h.396L150 222.133s5.873-10.889 4.195-12.564z"></path>
       <path
         fill="#fff"
         d="M140.872 136.436c-14.83 1.439-15.997 2.606-17.436 17.436-1.439-14.83-2.605-15.997-17.436-17.436 14.831-1.439 15.997-2.605 17.436-17.436 1.439 14.831 2.606 15.997 17.436 17.436z"
@@ -153,14 +143,7 @@ const BigFrame: FC<{
           <stop offset="0.62" stopColor="#7D5863"></stop>
           <stop offset="0.88" stopColor="#E96F26"></stop>
         </linearGradient>
-        <linearGradient
-          id="paint5_linear_671_2510"
-          x1="149"
-          x2="149"
-          y1="34.5"
-          y2="103"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint5_linear_671_2510" x1="149" x2="149" y1="34.5" y2="103" gradientUnits="userSpaceOnUse">
           <stop stopColor="#664F64"></stop>
           <stop offset="1" stopColor="#664F64" stopOpacity="0"></stop>
         </linearGradient>
@@ -267,7 +250,7 @@ const BigFrame: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
+  )
 }
 
-export default BigFrame;
+export default BigFrame

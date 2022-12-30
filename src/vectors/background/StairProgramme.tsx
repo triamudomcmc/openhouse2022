@@ -1,13 +1,12 @@
-import { FC } from "react";
+import { FC } from "react"
 
 const StairPrograammes: FC<{
   // width?:string;
   // height?:string;
-  className?: string;
+  className?: string
 }> = ({ className, ...restProps }) => {
   return (
-
-      <svg
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       // width="1512"
       // height="949"
@@ -16,214 +15,42 @@ const StairPrograammes: FC<{
       height="100%"
       className={`${className} -z-10`}
     >
-      <path
-        fill="url(#paint0_linear_754_2411)"
-        d="M-10 25H1502V864H-10z"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M-238 60L1347 60"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M-238 151L1347 151"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M-238 242L1347 242"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M-238 334L1347 334"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M-238 425L1347 425"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M-238 516L1347 516"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M-238 607L1347 607"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M158 61L158 153"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M158 244L158 336"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M158 427L158 519"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M158 610L158 702"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M436 62L436 154"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M436 244L436 336"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M436 426L436 518"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M436 608L436 700"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M730 62L730 154"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M730 243L730 335"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M293 154L293 246"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M293 0L293 62"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M14 0L14 61"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M14 152L14 244"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M14 335L14 427"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M14 518L14 610"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M293 336L293 428"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M293 518L293 610"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M585 154L585 246"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M834 152L834 244"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M585 154L585 246"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M585 0L585 62"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M585 336L585 428"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M834 152L834 244"
-      ></path>
-      <path
-        stroke="#B7765F"
-        strokeOpacity="0.5"
-        strokeWidth="4"
-        d="M834 1L834 62"
-      ></path>
-      <path
-        fill="#ED7E31"
-        d="M-82.156 495.244S40.964 490.703 77 498.973L62.986 608.469H-114l31.844-113.225z"
-      ></path>
-      <path
-        fill="#C5692A"
-        d="M-77.307 501.374s115.499-4.125 149.303 3.389L58.85 604.244h-166.03l29.873-102.87z"
-      ></path>
-      <path
-        fill="#4D5985"
-        d="M-81.156 509.189s111.506-3.451 144.142 2.835l-12.691 83.22h-160.291l28.84-86.055z"
-      ></path>
+      <path fill="url(#paint0_linear_754_2411)" d="M-10 25H1502V864H-10z"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M-238 60L1347 60"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M-238 151L1347 151"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M-238 242L1347 242"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M-238 334L1347 334"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M-238 425L1347 425"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M-238 516L1347 516"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M-238 607L1347 607"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M158 61L158 153"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M158 244L158 336"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M158 427L158 519"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M158 610L158 702"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M436 62L436 154"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M436 244L436 336"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M436 426L436 518"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M436 608L436 700"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M730 62L730 154"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M730 243L730 335"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M293 154L293 246"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M293 0L293 62"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M14 0L14 61"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M14 152L14 244"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M14 335L14 427"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M14 518L14 610"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M293 336L293 428"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M293 518L293 610"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M585 154L585 246"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M834 152L834 244"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M585 154L585 246"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M585 0L585 62"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M585 336L585 428"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M834 152L834 244"></path>
+      <path stroke="#B7765F" strokeOpacity="0.5" strokeWidth="4" d="M834 1L834 62"></path>
+      <path fill="#ED7E31" d="M-82.156 495.244S40.964 490.703 77 498.973L62.986 608.469H-114l31.844-113.225z"></path>
+      <path fill="#C5692A" d="M-77.307 501.374s115.499-4.125 149.303 3.389L58.85 604.244h-166.03l29.873-102.87z"></path>
+      <path fill="#4D5985" d="M-81.156 509.189s111.506-3.451 144.142 2.835l-12.691 83.22h-160.291l28.84-86.055z"></path>
       <path
         fill="url(#paint1_linear_754_2411)"
         d="M7.032 538l-16.8-1.62-6.427 52.219L.025 587l7.007-49z"
@@ -234,26 +61,14 @@ const StairPrograammes: FC<{
         d="M20.691 536.38l-14.8 9.592L31.054 586l11.011-12-21.374-37.62z"
         opacity="0.5"
       ></path>
-      <path
-        fill="url(#paint3_linear_754_2411)"
-        d="M7.93 531.244l-16.8-1.62-6.427 52.22 16.22-1.6 7.008-49z"
-      ></path>
+      <path fill="url(#paint3_linear_754_2411)" d="M7.93 531.244l-16.8-1.62-6.427 52.22 16.22-1.6 7.008-49z"></path>
       <path
         fill="url(#paint4_linear_754_2411)"
         d="M21.593 529.624l-14.8 9.592 25.163 40.028 11.011-12-21.373-37.62z"
       ></path>
-      <path
-        fill="#BD4339"
-        d="M557 94l4.161 102 167.498-3.155L751 94H557z"
-      ></path>
-      <path
-        fill="#913B31"
-        d="M565 101l3.797 87 152.82-2.691L742 101H565z"
-      ></path>
-      <path
-        fill="#684F63"
-        d="M570 106l3.561 77 143.323-2.381L736 106H570z"
-      ></path>
+      <path fill="#BD4339" d="M557 94l4.161 102 167.498-3.155L751 94H557z"></path>
+      <path fill="#913B31" d="M565 101l3.797 87 152.82-2.691L742 101H565z"></path>
+      <path fill="#684F63" d="M570 106l3.561 77 143.323-2.381L736 106H570z"></path>
       <path
         fill="url(#paint5_linear_754_2411)"
         d="M575 174.293c2.42-13.055 13.439-22.595 26-23 11.04-.357 21.447 6.4 26 17 1.075-8.066 6.767-14.474 14-16 7.952-1.678 14.162 3.304 15 4 1.079-2.405 11.337-24.306 34.402-28.587 10.909-2.025 33.987 2.971 38.598 4.794-5.5 22.5-8.5 33-13 50.06H573.427l-.427-4.267 2-4z"
@@ -266,10 +81,7 @@ const StairPrograammes: FC<{
         fill="url(#paint6_linear_754_2411)"
         d="M1227.69 2.09L461.68 899.509v80.194h1055L1514.2 2.091h-286.51z"
       ></path>
-      <path
-        fill="#FFE9D8"
-        d="M572.953 708.618H-80v241.154h652.953V708.618z"
-      ></path>
+      <path fill="#FFE9D8" d="M572.953 708.618H-80v241.154h652.953V708.618z"></path>
       <path
         fill="url(#paint7_linear_754_2411)"
         fillOpacity="0.2"
@@ -332,15 +144,9 @@ const StairPrograammes: FC<{
         d="M690.824 472.894l-78.429 4.175C691.454 513.956 768.86 556.014 847.92 592.9c35.593-6.611 71.597-13.015 107.19-19.627-88.51-31.666-175.776-68.713-264.286-100.379zM689.988 385.062c25.514-3.48 51.027-7.977 76.54-11.457l265.532 76.209c-25.52 5.568-51.03 11.136-76.544 16.704-88.509-27.491-177.018-53.965-265.528-81.456z"
       ></path>
       <path fill="#AA6B6B" d="M393 746H-9.5L-19 889l468 7-56-150z"></path>
-      <path
-        fill="url(#paint18_linear_754_2411)"
-        d="M1096 494H1425V609H1096z"
-      ></path>
+      <path fill="url(#paint18_linear_754_2411)" d="M1096 494H1425V609H1096z"></path>
       <path fill="#FFE9D8" d="M1096 567v42h327l-50-42h-277z"></path>
-      <path
-        fill="url(#paint19_linear_754_2411)"
-        d="M1372.5 494v73.5L1401 591l24 19V494h-52.5z"
-      ></path>
+      <path fill="url(#paint19_linear_754_2411)" d="M1372.5 494v73.5L1401 591l24 19V494h-52.5z"></path>
       <path
         fill="url(#paint20_linear_754_2411)"
         d="M1206.73 581.103c-4.03-2.024-5.66-5.024-8.83-9.945-9.37-14.514-17.08-19.72-15.68-21.617 1.09-1.568 6.53.66 11.43 2.525 6.92 2.877 13.75 6.776 21.97 13.812 6.37 5.444 16.15 13.571 14.61 16.684-.85 1.432-4.3 1.045-11.32.657-6.14-.547-9.21-.82-12.18-2.116z"
@@ -396,27 +202,11 @@ const StairPrograammes: FC<{
       <path fill="#993C3C" d="M1368 593.5l1-72.5-7 1v71.5h6z"></path>
       <path fill="#DB9A9A" d="M1350 569l12 24.5V522l-12-9.5V569z"></path>
       <path fill="#D98686" d="M1356 512l13 9-7 1-12-9.5 6-.5z"></path>
-      <path
-        fill="#993C3C"
-        d="M1315.87 596.421l40.19-57.659-9.43-6.576-40.5 57.446 9.74 6.789z"
-      ></path>
-      <path
-        fill="#A53333"
-        d="M1308 568.5l-1.87 21.133 40.5-57.447-2.74-16.186-35.89 52.5z"
-      ></path>
-      <path
-        fill="#D98686"
-        d="M1349.68 520.031l6.38 18.732-9.43-6.577-2.74-16.186 5.79 4.031z"
-      ></path>
+      <path fill="#993C3C" d="M1315.87 596.421l40.19-57.659-9.43-6.576-40.5 57.446 9.74 6.789z"></path>
+      <path fill="#A53333" d="M1308 568.5l-1.87 21.133 40.5-57.447-2.74-16.186-35.89 52.5z"></path>
+      <path fill="#D98686" d="M1349.68 520.031l6.38 18.732-9.43-6.577-2.74-16.186 5.79 4.031z"></path>
       <defs>
-        <linearGradient
-          id="paint0_linear_754_2411"
-          x1="746"
-          x2="746"
-          y1="25"
-          y2="864"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint0_linear_754_2411" x1="746" x2="746" y1="25" y2="864" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFE9D8"></stop>
           <stop offset="0.233" stopColor="#FFD3B1"></stop>
           <stop offset="0.755" stopColor="#ED9F6E"></stop>
@@ -714,7 +504,7 @@ const StairPrograammes: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default StairPrograammes;
+export default StairPrograammes

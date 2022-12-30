@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from "react"
 
 const CountDownBgPhone: FC<{
   // width?:string;
   // height?:string;
-  className?: string;
+  className?: string
 }> = ({ className, ...restProps }) => {
   return (
     <svg
@@ -18,18 +18,9 @@ const CountDownBgPhone: FC<{
     >
       <g clipPath="url(#clip0_769_2506)">
         <path fill="#fff" d="M375 0H0v667h375V0z"></path>
-        <path
-          fill="url(#paint0_linear_769_2506)"
-          d="M510 177H-95v450h605V177z"
-        ></path>
-        <path
-          fill="#F4D0B3"
-          d="M-102.051 600L-178 657.511V667l764-1.15v-8.339L499.818 600h-601.869z"
-        ></path>
-        <path
-          fill="#F4D0B3"
-          d="M481.554 642.742H-95.93v11.019h577.484v-11.019z"
-        ></path>
+        <path fill="url(#paint0_linear_769_2506)" d="M510 177H-95v450h605V177z"></path>
+        <path fill="#F4D0B3" d="M-102.051 600L-178 657.511V667l764-1.15v-8.339L499.818 600h-601.869z"></path>
+        <path fill="#F4D0B3" d="M481.554 642.742H-95.93v11.019h577.484v-11.019z"></path>
         <path
           fill="#B7765F"
           fillRule="evenodd"
@@ -179,7 +170,7 @@ const CountDownBgPhone: FC<{
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default CountDownBgPhone;
+export default CountDownBgPhone

@@ -1,40 +1,18 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
-      "@config/*": [
-        "src/config/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@lib/*": [
-        "src/lib/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ],
-      "@handlers/*": [
-        "src/handlers/*"
-      ],
-      "@utilities/*": [
-        "src/utilities/*"
-      ],
-      "@ctypes/*": [
-        "src/types/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@vectors/*": [
-        "src/vectors/*"
-      ],
+      "@config/*": ["src/config/*"],
+      "@components/*": ["src/components/*"],
+      "@lib/*": ["src/lib/*"],
+      "@pages/*": ["src/pages/*"],
+      "@handlers/*": ["src/handlers/*"],
+      "@utilities/*": ["src/utilities/*"],
+      "@ctypes/*": ["src/types/*"],
+      "@styles/*": ["src/styles/*"],
+      "@vectors/*": ["src/vectors/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -52,9 +30,9 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/components/common/topicTag.tsx", "public/asset/background/article.tsx.tmp"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "**/*.tsx",
+    "src/components/common/topicTag.tsx",
+    "public/asset/background/article.tsx.tmp"
+  ],
+  "exclude": ["node_modules"]
 }

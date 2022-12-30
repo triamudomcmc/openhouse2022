@@ -1,31 +1,19 @@
 import type { FC } from "react"
 
 export const Roman: FC<{}> = ({}) => {
-    return (
-        <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="309"
-      height="1564"
-      fill="none"
-      viewBox="0 0 309 1564"
-    >
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="309" height="1564" fill="none" viewBox="0 0 309 1564">
       <g opacity="0.7">
         <path
           fill="url(#paint0_linear_503_765)"
           d="M73.77 0v.835C33.208 2.109.688 35.289.688 76.203c0 40.914 33.794 75.456 75.455 75.456 11.382 0 22.15-2.593 31.817-7.12V1406.59l218.589.31V.352L73.726.044 73.77 0z"
         ></path>
-        <path
-          fill="url(#paint1_linear_503_765)"
-          d="M324.482 295.623H109.146V1536.71h215.336V295.623z"
-        ></path>
+        <path fill="url(#paint1_linear_503_765)" d="M324.482 295.623H109.146V1536.71h215.336V295.623z"></path>
         <path
           fill="#D7915C"
           d="M119.208 65.916c-9.097-8.262-21.095-11.91-33.795-10.283-17.93 2.285-31.466 16.392-31.466 32.784S67.615 117.64 85.72 117.64v-4.395c-15.6 0-27.378-10.679-27.378-24.83 0-14.15 11.865-26.41 27.642-28.432 11.382-1.45 22.149 1.801 30.279 9.184 8.877 8.042 13.799 20.26 13.448 33.531a43.751 43.751 0 01-21.754 36.739v5.098c15.645-8.042 25.665-23.995 26.148-41.749.396-14.546-5.01-27.994-14.854-36.915l-.043.044z"
         ></path>
-        <path
-          fill="url(#paint2_linear_503_765)"
-          d="M324.482 251.324H109.146V1470.79h215.336V251.324z"
-        ></path>
+        <path fill="url(#paint2_linear_503_765)" d="M324.482 251.324H109.146V1470.79h215.336V251.324z"></path>
         <path
           fill="url(#paint3_linear_503_765)"
           d="M108.312 274.574V1406.59h32.828V340.625a13.167 13.167 0 0113.184-13.184 13.167 13.167 0 0113.184 13.184V1406.59h36.695V340.625a13.167 13.167 0 0113.184-13.184 13.167 13.167 0 0113.184 13.184V1406.59h34.893V340.625a13.167 13.167 0 0113.184-13.184 13.167 13.167 0 0113.184 13.184V1406.59h34.63V274.574h-218.15z"
@@ -38,12 +26,7 @@ export const Roman: FC<{}> = ({}) => {
           fill="#EDC8A8"
           d="M326.465 1372.48H111.92c-18.853 0-34.103 15.25-34.103 34.11 0 18.85 15.25 34.1 34.103 34.1h214.545"
         ></path>
-        <path
-          stroke="#D7915C"
-          strokeMiterlimit="10"
-          strokeWidth="5.895"
-          d="M95.302 1495.8h230.762"
-        ></path>
+        <path stroke="#D7915C" strokeMiterlimit="10" strokeWidth="5.895" d="M95.302 1495.8h230.762"></path>
         <path
           fill="#EDC8A8"
           d="M326.456 206.372H111.91c-18.853 0-34.102 15.249-34.102 34.102 0 18.853 15.249 34.102 34.102 34.102h214.546"
@@ -127,18 +110,12 @@ export const Roman: FC<{}> = ({}) => {
         </linearGradient>
       </defs>
     </svg>
-    )
+  )
 }
 
 export const Hai: FC<{}> = ({}) => {
-    return (
-        <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="755"
-      height="1378"
-      fill="none"
-      viewBox="0 0 755 1378"
-    >
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="755" height="1378" fill="none" viewBox="0 0 755 1378">
       <g opacity="0.5">
         <path
           fill="url(#paint0_radial_503_783)"
@@ -257,18 +234,18 @@ export const Hai: FC<{}> = ({}) => {
         </radialGradient>
       </defs>
     </svg>
-    )
+  )
 }
 
-export const ArticleRight: FC<{classname?:string}> = ({classname}) => {
-    return (
-        <div className={`${classname} relative`}>
-                <div className=" absolute top-[180px] right-0">
-                    <Roman />
-                </div>
-                <div  className=" absolute top-[2274px] right-0">
-                    <Hai/>
-                </div>
-        </div>
-    )
+export const ArticleRight: FC<{ classname?: string }> = ({ classname }) => {
+  return (
+    <div className={`${classname} relative`}>
+      <div className=" absolute top-[180px] right-0">
+        <Roman />
+      </div>
+      <div className=" absolute top-[2274px] right-0">
+        <Hai />
+      </div>
+    </div>
+  )
 }

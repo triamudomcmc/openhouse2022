@@ -1,11 +1,11 @@
-import { FC } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { FC } from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
 
 export const Organization: FC<{
-  width?: string;
-  height?: string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -18,11 +18,7 @@ export const Organization: FC<{
     >
       <path fill="url(#paint0_linear_903_2540)" d="M78 354H1143V581H78z"></path>
       <rect width="1221" height="31" y="332" fill="#FADCC5" rx="7"></rect>
-      <path
-        fill="url(#paint1_linear_903_2540)"
-        fillOpacity="0.5"
-        d="M23 0H1198V330H23z"
-      ></path>
+      <path fill="url(#paint1_linear_903_2540)" fillOpacity="0.5" d="M23 0H1198V330H23z"></path>
       <rect width="71" height="75" x="62" y="257" fill="#C4BFD7" rx="6"></rect>
       <rect width="71" height="75" x="377" y="257" fill="#C4BFD7" rx="6"></rect>
       <rect width="71" height="75" x="645" y="257" fill="#C4BFD7" rx="6"></rect>
@@ -52,13 +48,13 @@ export const Organization: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
 export const OrganizationPhone: FC<{
-  width?: string;
-  height?: string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -69,26 +65,10 @@ export const OrganizationPhone: FC<{
       fill="none"
       viewBox="0 0 325 1006"
     >
-      <path
-        fill="url(#paint0_linear_904_2550)"
-        fillOpacity="0.5"
-        d="M29 0H296V213H29z"
-      ></path>
-      <path
-        fill="url(#paint1_linear_904_2550)"
-        fillOpacity="0.5"
-        d="M29 213H296V426H29z"
-      ></path>
-      <path
-        fill="url(#paint2_linear_904_2550)"
-        fillOpacity="0.5"
-        d="M29 442H296V655H29z"
-      ></path>
-      <path
-        fill="url(#paint3_linear_904_2550)"
-        fillOpacity="0.5"
-        d="M29 668H296V881H29z"
-      ></path>
+      <path fill="url(#paint0_linear_904_2550)" fillOpacity="0.5" d="M29 0H296V213H29z"></path>
+      <path fill="url(#paint1_linear_904_2550)" fillOpacity="0.5" d="M29 213H296V426H29z"></path>
+      <path fill="url(#paint2_linear_904_2550)" fillOpacity="0.5" d="M29 442H296V655H29z"></path>
+      <path fill="url(#paint3_linear_904_2550)" fillOpacity="0.5" d="M29 668H296V881H29z"></path>
       <rect width="325" height="16" y="197" fill="#FADCC5" rx="3.613"></rect>
       <rect width="325" height="16" y="426" fill="#FADCC5" rx="3.613"></rect>
       <rect width="325" height="16" y="655" fill="#FADCC5" rx="3.613"></rect>
@@ -152,13 +132,13 @@ export const OrganizationPhone: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
 export const TUCMC: FC<{
-  width?: string;
-  height?: string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -199,13 +179,13 @@ export const TUCMC: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
 export const TUSC: FC<{
-  width?: string;
-  height?: string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -245,26 +225,19 @@ export const TUSC: FC<{
           <stop offset="0.839" stopColor="#E96F26"></stop>
           <stop offset="0.99" stopColor="#DB3C19"></stop>
         </linearGradient>
-        <linearGradient
-          id="paint1_linear_893_2542"
-          x1="88.5"
-          x2="88.5"
-          y1="0"
-          y2="298"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint1_linear_893_2542" x1="88.5" x2="88.5" y1="0" y2="298" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FDDE85"></stop>
           <stop offset="1" stopColor="#F9AB53"></stop>
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
 export const TUPRO: FC<{
-  width?: string;
-  height?: string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -303,26 +276,19 @@ export const TUPRO: FC<{
           <stop stopColor="#37298C"></stop>
           <stop offset="1" stopColor="#3C4F8F"></stop>
         </linearGradient>
-        <linearGradient
-          id="paint1_linear_893_2543"
-          x1="126"
-          x2="126"
-          y1="0"
-          y2="260"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint1_linear_893_2543" x1="126" x2="126" y1="0" y2="260" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FF7523"></stop>
           <stop offset="1" stopColor="#495EA8"></stop>
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
 export const AIC: FC<{
-  width?: string;
-  height?: string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -346,14 +312,7 @@ export const AIC: FC<{
         d="M28.03 166.116v-6.945h27.638v6.945H28.029zM17.288 177l20.263-46.398h8.736L66.694 177h-8.807L40.13 135.113h3.58L26.024 177H17.29zm57.68-46.398h8.163V177h-8.163v-46.398zm69.57 30.144c-.478 3.58-1.742 6.659-3.795 9.237-2.053 2.53-4.797 4.487-8.234 5.871-3.39 1.337-7.352 2.005-11.886 2.005-3.915 0-7.519-.525-10.812-1.575-3.246-1.05-6.086-2.578-8.521-4.583-2.387-2.052-4.248-4.558-5.585-7.518-1.289-3.007-1.933-6.444-1.933-10.311 0-3.914.644-7.351 1.933-10.31 1.337-2.96 3.198-5.466 5.585-7.518 2.435-2.101 5.275-3.676 8.521-4.726 3.293-1.05 6.897-1.575 10.812-1.575 4.582 0 8.568.692 11.957 2.076 3.437 1.384 6.182 3.365 8.235 5.943 2.052 2.578 3.293 5.68 3.723 9.308h-7.876c-.669-2.148-1.719-3.962-3.151-5.441-1.432-1.528-3.246-2.698-5.442-3.509-2.148-.811-4.63-1.217-7.446-1.217-3.533 0-6.707.668-9.523 2.005-2.817 1.288-5.036 3.198-6.659 5.728-1.576 2.482-2.363 5.561-2.363 9.236 0 3.628.787 6.707 2.363 9.237 1.623 2.482 3.842 4.368 6.659 5.657 2.816 1.289 5.99 1.933 9.523 1.933 2.816 0 5.298-.382 7.446-1.146 2.148-.811 3.938-1.957 5.37-3.437 1.433-1.527 2.483-3.317 3.151-5.37h7.948z"
       ></path>
       <defs>
-        <linearGradient
-          id="paint0_linear_893_2544"
-          x1="78"
-          x2="78"
-          y1="0"
-          y2="277"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint0_linear_893_2544" x1="78" x2="78" y1="0" y2="277" gradientUnits="userSpaceOnUse">
           <stop offset="0.031" stopColor="#E2A56B"></stop>
           <stop offset="0.494" stopColor="#E96F26"></stop>
           <stop offset="1" stopColor="#D86927"></stop>
@@ -371,13 +330,13 @@ export const AIC: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
 export const WinkWink: FC<{
-  width?: string;
-  height?: string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -420,15 +379,8 @@ export const WinkWink: FC<{
           <feGaussianBlur stdDeviation="2"></feGaussianBlur>
           <feComposite in2="hardAlpha" operator="out"></feComposite>
           <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
-          <feBlend
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_963_2584"
-          ></feBlend>
-          <feBlend
-            in="SourceGraphic"
-            in2="effect1_dropShadow_963_2584"
-            result="shape"
-          ></feBlend>
+          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_963_2584"></feBlend>
+          <feBlend in="SourceGraphic" in2="effect1_dropShadow_963_2584" result="shape"></feBlend>
         </filter>
         <filter
           id="filter1_d_963_2584"
@@ -449,17 +401,10 @@ export const WinkWink: FC<{
           <feGaussianBlur stdDeviation="2"></feGaussianBlur>
           <feComposite in2="hardAlpha" operator="out"></feComposite>
           <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
-          <feBlend
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_963_2584"
-          ></feBlend>
-          <feBlend
-            in="SourceGraphic"
-            in2="effect1_dropShadow_963_2584"
-            result="shape"
-          ></feBlend>
+          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_963_2584"></feBlend>
+          <feBlend in="SourceGraphic" in2="effect1_dropShadow_963_2584" result="shape"></feBlend>
         </filter>
       </defs>
     </svg>
-  );
-};
+  )
+}

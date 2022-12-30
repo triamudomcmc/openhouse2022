@@ -25,7 +25,6 @@ export const Tiktok: FC<{ fill?: string; className?: string }> = ({ fill = "#EEA
       fill="none"
       viewBox="0 0 41 41"
       className={className}
-
     >
       <path
         fill={fill}

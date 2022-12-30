@@ -29,15 +29,15 @@
   }
 
   /* @screen lg { */
-    /*อย่า set ใส่ element ได้ม้าย ไปตั้ง break point แยกในแต่ละอันเอา*/
-    /* h1 {
+  /*อย่า set ใส่ element ได้ม้าย ไปตั้ง break point แยกในแต่ละอันเอา*/
+  /* h1 {
       @apply text-2xl;
       font-weight: 800;
     } */
-    /* h2 {
+  /* h2 {
       @apply text-xl;
     } */
-    /* div {
+  /* div {
       font-size: 16px;
     } */
   /* } */
@@ -52,13 +52,7 @@
   }
 
   .bg-gradient-edit {
-    background: linear-gradient(
-      180deg,
-      #fff6e8 -1.61%,
-      #ffda98 46.55%,
-      #ffbd97 69.3%,
-      #b8bddd 90.47%
-    );
+    background: linear-gradient(180deg, #fff6e8 -1.61%, #ffda98 46.55%, #ffbd97 69.3%, #b8bddd 90.47%);
   }
 
   .bg-gradient-landing {
@@ -66,11 +60,7 @@
   }
 
   .bg-login-edit {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 246, 232, 0.58) 24.33%,
-      #f2c69c 100%
-    );
+    background: linear-gradient(180deg, rgba(255, 246, 232, 0.58) 24.33%, #f2c69c 100%);
   }
 
   .bg-article {
@@ -78,12 +68,7 @@
   }
 
   .bg-landing-programme {
-    background: linear-gradient(
-      180deg,
-      #ffe9d8 0%,
-      #ffd3b1 23.34%,
-      #ed9f6e 75.52%
-    );
+    background: linear-gradient(180deg, #ffe9d8 0%, #ffd3b1 23.34%, #ed9f6e 75.52%);
   }
 
   .bg-qr-reader {
@@ -91,32 +76,23 @@
   }
 
   .bg-normal-gradient {
-    background: linear-gradient(
-      143.61deg,
-      rgba(255, 142, 74, 0.86) 3.94%,
-      #9196c5 84.45%
-    );
+    background: linear-gradient(143.61deg, rgba(255, 142, 74, 0.86) 3.94%, #9196c5 84.45%);
   }
 
-  .bg-clubs{
-    background: linear-gradient(180deg, #2A3271 134.81%, #1B0852 195.13%);
+  .bg-clubs {
+    background: linear-gradient(180deg, #2a3271 134.81%, #1b0852 195.13%);
   }
 
   .register-button {
-    background: linear-gradient(
-      97.31deg,
-      #dce3ff -7.96%,
-      #a6a8d7 33.16%,
-      #3e378b 111.68%
-    );
+    background: linear-gradient(97.31deg, #dce3ff -7.96%, #a6a8d7 33.16%, #3e378b 111.68%);
   }
 
-  .footer-button{
-    background: linear-gradient(97.13deg, #F7EBDA -7.68%, #ED9F6E 39.07%, rgba(129, 140, 248, 0.81) 107.39%);
+  .footer-button {
+    background: linear-gradient(97.13deg, #f7ebda -7.68%, #ed9f6e 39.07%, rgba(129, 140, 248, 0.81) 107.39%);
   }
 
-  .organization-text{
-    background: linear-gradient(180deg, #8168D2 9.95%, #290F82 75.44%, #170847 125.3%);
+  .organization-text {
+    background: linear-gradient(180deg, #8168d2 9.95%, #290f82 75.44%, #170847 125.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

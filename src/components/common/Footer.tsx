@@ -37,16 +37,16 @@ const getButton = (user, signout) => {
   }
 }
 
-export const Footer: FC<{theme?: string}> = ({ theme }) => {
+export const Footer: FC<{ theme?: string }> = ({ theme }) => {
   // const auth = useAuth()
-  const {user, signout} = useAuth()
+  const { user, signout } = useAuth()
 
   return (
-    <footer className={`w-full px-8 pt-10 antialiased ${theme == 'light'? 'bg-white': "bg-blue-text"}`}>
+    <footer className={`w-full px-8 pt-10 antialiased ${theme == "light" ? "bg-white" : "bg-blue-text"}`}>
       <div className="flex flex-col items-center justify-between w-full max-w-6xl px-0 mx-auto sm:flex-row sm:items-start sm:px-20">
         <div className="flex justify-center">
           <div className="space-y-5 text-center sm:text-left">
-            <div className={`${theme == 'light'? 'text-[#37498B]': 'text-white'} font-semibold font-sans`}>
+            <div className={`${theme == "light" ? "text-[#37498B]" : "text-white"} font-semibold font-sans`}>
               <p>TRIAM UDOM ONLINE</p>
               <p className="-mt-1">OPEN HOUSE 2023</p>
             </div>
@@ -82,18 +82,18 @@ export const Footer: FC<{theme?: string}> = ({ theme }) => {
               >
                 <Youtube />
               </motion.a>
-              <motion.a
-                href="https://www.tiktok.com/@triamudom.oph"
-                target="_blank"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Tiktok  />
+              <motion.a href="https://www.tiktok.com/@triamudom.oph" target="_blank" whileHover={{ scale: 1.05 }}>
+                <Tiktok />
               </motion.a>
             </div>
             {getButton(user, signout)}
           </div>
         </div>
-        <div className={`${theme == 'light'? 'text-deep-turquoise': 'text-white'} flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28`}>
+        <div
+          className={`${
+            theme == "light" ? "text-deep-turquoise" : "text-white"
+          } flex flex-col sm:flex-row justify-between w-full max-w-md ml-0 mt-6 sm:mt-0 sm:ml-28`}
+        >
           <div className="flex flex-col space-y-2 text-center sm:text-right font-display">
             <Link passHref href="/">
               <a className="hover:underline">หน้าแรก</a>
@@ -130,7 +130,7 @@ export const Footer: FC<{theme?: string}> = ({ theme }) => {
         </div>
       </div>
       <div className="flex justify-center py-5 mt-10 border-t border-[#CBD5E0] border-opacity-30">
-        <KorChor classname="h-4 lg:h-8" fill={`${theme == 'light'? '': '#FDF1DB'}`}/>
+        <KorChor classname="h-4 lg:h-8" fill={`${theme == "light" ? "" : "#FDF1DB"}`} />
       </div>
     </footer>
   )

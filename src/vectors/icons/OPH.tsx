@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from "react"
 
 const OPHLogo: FC<{
-    width?:string;
-    height?:string;
-    classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -189,7 +189,7 @@ const OPHLogo: FC<{
         d="M11.58 40.791s4.557-2.449 9.33-4.352"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default OPHLogo;
+export default OPHLogo

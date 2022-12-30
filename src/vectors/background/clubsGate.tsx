@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from "react"
 
 export const ClubsGate: FC<{
-    width?:string;
-    height?:string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -38,10 +38,7 @@ export const ClubsGate: FC<{
         fill="#9691AB"
         d="M423.481 188.485c2.117-1.926 4.917-2.776 7.878-2.397 4.178.533 7.332 3.821 7.332 7.642s-3.185 6.812-7.407 6.812v-1.024c3.638 0 6.382-2.489 6.382-5.788 0-3.298-2.762-6.156-6.444-6.627-2.651-.339-5.159.419-7.058 2.141-2.068 1.874-3.216 4.722-3.135 7.816a10.204 10.204 0 005.072 8.564v1.188c-3.645-1.875-5.979-5.594-6.097-9.732-.087-3.391 1.174-6.525 3.464-8.605l.013.01z"
       ></path>
-      <path
-        fill="url(#paint5_linear_1018_3210)"
-        d="M375.09 231.79h50.198v284.264H375.09V231.79z"
-      ></path>
+      <path fill="url(#paint5_linear_1018_3210)" d="M375.09 231.79h50.198v284.264H375.09V231.79z"></path>
       <path
         fill="url(#paint6_linear_1018_3210)"
         d="M425.483 237.209v263.877h-7.649v-248.48a3.068 3.068 0 00-3.073-3.073 3.068 3.068 0 00-3.073 3.073v248.48h-8.555v-248.48a3.067 3.067 0 00-3.072-3.073 3.068 3.068 0 00-3.074 3.073v248.48h-8.138v-248.48a3.068 3.068 0 00-3.073-3.073 3.068 3.068 0 00-3.073 3.073v248.48h-8.07V237.209h50.85z"
@@ -54,12 +51,7 @@ export const ClubsGate: FC<{
         fill="#6678BA"
         d="M374.633 493.137h50.013a7.94 7.94 0 017.947 7.949 7.941 7.941 0 01-7.947 7.95h-50.013"
       ></path>
-      <path
-        stroke="#101C49"
-        strokeMiterlimit="10"
-        strokeWidth="5.895"
-        d="M428.517 521.881h-53.794"
-      ></path>
+      <path stroke="#101C49" strokeMiterlimit="10" strokeWidth="5.895" d="M428.517 521.881h-53.794"></path>
       <path
         fill="#6678BA"
         d="M374.633 221.311h50.011a7.945 7.945 0 017.952 7.949 7.945 7.945 0 01-7.952 7.949h-50.011"
@@ -72,10 +64,7 @@ export const ClubsGate: FC<{
         fill="#9691AB"
         d="M27.639 188.57c-2.121-1.926-4.918-2.776-7.878-2.397-4.18.533-7.335 3.821-7.335 7.642s3.186 6.812 7.407 6.812v-1.024c-3.637 0-6.383-2.489-6.383-5.788 0-3.298 2.766-6.156 6.444-6.628 2.653-.338 5.163.42 7.058 2.142 2.07 1.874 3.216 4.722 3.134 7.816a10.2 10.2 0 01-5.07 8.564v1.188c3.647-1.875 5.983-5.594 6.096-9.732.091-3.391-1.169-6.525-3.463-8.605l-.01.01z"
       ></path>
-      <path
-        fill="url(#paint9_linear_1018_3210)"
-        d="M75.489 231.79H25.293v284.264h50.196V231.79z"
-      ></path>
+      <path fill="url(#paint9_linear_1018_3210)" d="M75.489 231.79H25.293v284.264h50.196V231.79z"></path>
       <path
         fill="url(#paint10_linear_1018_3210)"
         d="M25.098 237.209v263.877h7.652v-248.48a3.068 3.068 0 013.073-3.073 3.07 3.07 0 013.073 3.073v248.48h8.554v-248.48a3.069 3.069 0 013.073-3.073c1.7 0 3.073 1.372 3.073 3.073v248.48h8.134v-248.48a3.068 3.068 0 013.073-3.073c1.7 0 3.074 1.372 3.074 3.073v248.48h8.072V237.209H25.098z"
@@ -88,12 +77,7 @@ export const ClubsGate: FC<{
         fill="#6678BA"
         d="M75.953 493.137H25.942a7.943 7.943 0 00-7.95 7.949 7.944 7.944 0 007.95 7.95h50.011"
       ></path>
-      <path
-        stroke="#101C49"
-        strokeMiterlimit="10"
-        strokeWidth="5.895"
-        d="M22.063 521.881h53.79"
-      ></path>
+      <path stroke="#101C49" strokeMiterlimit="10" strokeWidth="5.895" d="M22.063 521.881h53.79"></path>
       <path
         fill="#6678BA"
         d="M75.95 221.311H25.937a7.943 7.943 0 00-7.95 7.949 7.943 7.943 0 007.95 7.949h50.011"
@@ -271,14 +255,13 @@ export const ClubsGate: FC<{
         </linearGradient>
       </defs>
     </svg>
-          
-  );
+  )
 }
 
 export const ClubsBg: FC<{
-    width?:string;
-    height?:string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
     <svg
@@ -289,44 +272,18 @@ export const ClubsBg: FC<{
       fill="none"
       viewBox="0 0 1512 721"
     >
-      <path
-        fill="url(#paint0_linear_1016_3210)"
-        d="M1498 654H-14v67h1512v-67z"
-      ></path>
-      <path
-        fill="url(#paint1_linear_1016_3210)"
-        d="M1512 654H0v67h1512v-67z"
-      ></path>
-      <path
-        fill="url(#paint2_linear_1016_3210)"
-        d="M1419 42h-198v461h198V42z"
-      ></path>
-      <path
-        fill="url(#paint3_linear_1016_3210)"
-        d="M359 365H135v212h224V365z"
-      ></path>
+      <path fill="url(#paint0_linear_1016_3210)" d="M1498 654H-14v67h1512v-67z"></path>
+      <path fill="url(#paint1_linear_1016_3210)" d="M1512 654H0v67h1512v-67z"></path>
+      <path fill="url(#paint2_linear_1016_3210)" d="M1419 42h-198v461h198V42z"></path>
+      <path fill="url(#paint3_linear_1016_3210)" d="M359 365H135v212h224V365z"></path>
       <path fill="url(#paint4_linear_1016_3210)" d="M90 0H-51v295H90V0z"></path>
       <defs>
-        <linearGradient
-          id="paint0_linear_1016_3210"
-          x1="742"
-          x2="742"
-          y1="654"
-          y2="721"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint0_linear_1016_3210" x1="742" x2="742" y1="654" y2="721" gradientUnits="userSpaceOnUse">
           <stop stopColor="#324690"></stop>
           <stop offset="0.25" stopColor="#212470"></stop>
           <stop offset="1" stopColor="#26397E"></stop>
         </linearGradient>
-        <linearGradient
-          id="paint1_linear_1016_3210"
-          x1="756"
-          x2="756"
-          y1="654"
-          y2="721"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint1_linear_1016_3210" x1="756" x2="756" y1="654" y2="721" gradientUnits="userSpaceOnUse">
           <stop stopColor="#324690"></stop>
           <stop offset="0.25" stopColor="#212470"></stop>
           <stop offset="1" stopColor="#26397E"></stop>
@@ -343,14 +300,7 @@ export const ClubsBg: FC<{
           <stop offset="0.59" stopColor="#6275B8"></stop>
           <stop offset="1" stopColor="#304693"></stop>
         </linearGradient>
-        <linearGradient
-          id="paint3_linear_1016_3210"
-          x1="247"
-          x2="247"
-          y1="365"
-          y2="577"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="paint3_linear_1016_3210" x1="247" x2="247" y1="365" y2="577" gradientUnits="userSpaceOnUse">
           <stop stopColor="#888DB7"></stop>
           <stop offset="1" stopColor="#505898"></stop>
         </linearGradient>
@@ -367,18 +317,16 @@ export const ClubsBg: FC<{
         </linearGradient>
       </defs>
     </svg>
-          
-  );
+  )
 }
 
 export const Sun: FC<{
-    width?:string;
-    height?:string;
-  classname?: string;
+  width?: string
+  height?: string
+  classname?: string
 }> = ({ classname, width, height }) => {
   return (
-
-     <svg
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
@@ -387,20 +335,9 @@ export const Sun: FC<{
       viewBox="0 0 258 257"
     >
       <g filter="url(#filter0_f_1025_3234)">
-        <circle
-          cx="129.173"
-          cy="128.372"
-          r="69.731"
-          fill="url(#paint0_radial_1025_3234)"
-          fillOpacity="0.7"
-        ></circle>
+        <circle cx="129.173" cy="128.372" r="69.731" fill="url(#paint0_radial_1025_3234)" fillOpacity="0.7"></circle>
       </g>
-      <circle
-        cx="129.173"
-        cy="128.372"
-        r="69.731"
-        fill="url(#paint1_linear_1025_3234)"
-      ></circle>
+      <circle cx="129.173" cy="128.372" r="69.731" fill="url(#paint1_linear_1025_3234)"></circle>
       <path
         fill="#191C72"
         d="M93.633 142.499c-2.918 0-5.132-.64-6.642-1.92-1.484-1.305-2.227-3.173-2.227-5.605v-1.497c0-1.05.115-1.92.346-2.611a7.76 7.76 0 01.998-1.881c.41-.563.742-1.063.998-1.498.282-.46.423-.934.423-1.42 0-.461-.115-.781-.346-.96-.205-.205-.486-.307-.845-.307-.255 0-.524.038-.806.115-.256.077-.55.192-.883.346l-.921-3.609a7.192 7.192 0 012.303-.768c.845-.154 1.587-.231 2.227-.231 1.126 0 2.022.179 2.688.538.69.358 1.19.87 1.497 1.536.307.665.46 1.458.46 2.38 0 .793-.115 1.497-.345 2.112-.23.588-.525 1.203-.883 1.842a37.145 37.145 0 00-.883 1.651c-.23.512-.346 1.255-.346 2.227v1.459c0 .845.116 1.536.346 2.073.256.538.627.935 1.114 1.191.486.23 1.062.345 1.727.345 1.1 0 1.882-.294 2.342-.883.487-.614.73-1.433.73-2.457v-3.724c0-.768-.18-1.37-.538-1.805-.333-.46-.909-.691-1.728-.691h-.191v-3.033h.23c.793 0 1.382-.217 1.766-.653.384-.435.627-.985.73-1.651.127-.691.191-1.407.191-2.15h5.721c0 1.562-.205 2.854-.614 3.878-.41 1.024-1.127 1.715-2.15 2.073v.154c.614.179 1.087.461 1.42.845.333.358.563.793.691 1.305a6.96 6.96 0 01.192 1.689v3.916c0 2.534-.742 4.454-2.227 5.759-1.484 1.28-3.672 1.92-6.565 1.92zm26.439-.115c-1.817 0-3.289-.346-4.415-1.037-1.101-.691-1.881-1.574-2.342-2.649h-.307l-.615 3.302h-4.376v-21.04h5.759v10.06c0 1.458.166 2.661.499 3.608.332.922.819 1.613 1.459 2.074.64.46 1.407.691 2.303.691 1.075 0 1.894-.32 2.457-.96.564-.64.845-1.664.845-3.072V120.96h5.759v13.668c0 1.664-.269 3.072-.806 4.224-.512 1.152-1.293 2.035-2.342 2.649-1.05.589-2.342.883-3.878.883zm19.638.115c-1.51 0-3.033-.166-4.569-.499-1.51-.333-2.854-.806-4.031-1.421l1.612-4.568c.512.281 1.126.576 1.843.883.717.307 1.497.563 2.342.768a10.92 10.92 0 002.572.307c1.024 0 1.792-.141 2.304-.423.537-.307.806-.767.806-1.382 0-.461-.179-.832-.537-1.113-.333-.307-.832-.589-1.498-.845a33.047 33.047 0 00-2.38-.883c-1.357-.486-2.521-1.011-3.494-1.574-.972-.563-1.728-1.254-2.265-2.073-.512-.819-.768-1.843-.768-3.072 0-1.407.358-2.559 1.075-3.455.717-.896 1.728-1.561 3.033-1.997 1.306-.46 2.828-.691 4.569-.691 1.433 0 2.726.116 3.878.346 1.152.23 2.047.525 2.687.883v4.53c-.435-.204-1.011-.409-1.727-.614a17.504 17.504 0 00-2.266-.499 12.073 12.073 0 00-2.303-.23c-1.05 0-1.843.14-2.381.422-.537.281-.806.678-.806 1.19 0 .41.179.755.538 1.037.384.281.934.55 1.651.806.716.23 1.574.525 2.572.883 1.331.461 2.457.973 3.378 1.536.922.563 1.613 1.254 2.074 2.073.486.819.729 1.83.729 3.033 0 1.152-.269 2.24-.806 3.263-.512.999-1.395 1.818-2.649 2.458-1.254.614-2.982.921-5.183.921zm25.054-.115c-1.817 0-3.289-.346-4.415-1.037-1.101-.691-1.881-1.574-2.342-2.649h-.307l-.614 3.302h-4.377v-21.04h5.759v10.06c0 1.458.166 2.661.499 3.608.333.922.819 1.613 1.459 2.074.64.46 1.408.691 2.303.691 1.075 0 1.895-.32 2.458-.96.563-.64.844-1.664.844-3.072V120.96h5.759v13.668c0 1.664-.268 3.072-.806 4.224-.512 1.152-1.293 2.035-2.342 2.649-1.049.589-2.342.883-3.878.883z"
@@ -416,15 +353,8 @@ export const Sun: FC<{
           filterUnits="userSpaceOnUse"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
-          <feBlend
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          ></feBlend>
-          <feGaussianBlur
-            result="effect1_foregroundBlur_1025_3234"
-            stdDeviation="29.299"
-          ></feGaussianBlur>
+          <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+          <feGaussianBlur result="effect1_foregroundBlur_1025_3234" stdDeviation="29.299"></feGaussianBlur>
         </filter>
         <radialGradient
           id="paint0_radial_1025_3234"
@@ -451,5 +381,5 @@ export const Sun: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
+  )
 }
