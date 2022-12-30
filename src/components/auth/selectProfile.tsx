@@ -1,6 +1,7 @@
 import Image from "next/image"
-import {useEffect, useState} from "react"
+import {FC, useEffect, useState} from "react"
 import classnames from "classnames"
+import { IUserQuestionData } from "@ctypes/account"
 
 const Pillar = () => {
   return (
@@ -86,7 +87,12 @@ const ExtendablePillarBottom = () => {
   </svg>
 
 }
-const Page = () => {
+export const SelectProfile: FC<{
+  setData?
+  data?
+  setPage?
+  submitData?
+}> = ({setData, data, setPage, submitData}) => {
 
   const [profile, setProfile] = useState<string>("1")
 
@@ -99,8 +105,8 @@ const Page = () => {
   }
 
   const onSubmit = () => {
-    // HERE
-    console.log(profile)
+    setData(formatData(data, profile))
+    submitData(formatData(data, profile))
   }
 
   return (<div style={{background: "linear-gradient(360deg, #F4CBA5 -0.18%, #FFF6E8 102.34%)"}} className="py-24 min-h-screen">
@@ -153,7 +159,7 @@ const Page = () => {
           </div>
         </div>
         <div className="flex justify-center space-x-2 mt-14">
-          <button className="border border-blue-text text-blue-text rounded-full text-[14px] py-2 w-[130px]">
+          <button onClick={() => {setPage(2)}} className="border border-blue-text text-blue-text rounded-full text-[14px] py-2 w-[130px]">
             ย้อนกลับ
           </button>
           <button onClick={onSubmit} className="bg-bright-orange text-white rounded-full text-[14px] py-2 w-[130px]">
@@ -169,4 +175,9 @@ const Page = () => {
   </div>)
 }
 
-export default Page
+const formatData: (data: any, profile: string) => IUserQuestionData = (data, profile) => {
+  const _data: any = data
+  _data.profileIcon = profile
+
+  return _data as IUserQuestionData
+}

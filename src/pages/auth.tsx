@@ -16,6 +16,7 @@ import { IUserQuestionData } from '@ctypes/account'
 import { FirstQA } from '@components/auth/FirstQA'
 import { SecondQA } from '@components/auth/SecondQA'
 import { sendSignInLinkToEmail } from 'firebase/auth'
+import { SelectProfile } from '@components/auth/selectProfile'
 
 function combineObjects (obj1: Record<string, any>, obj2: Record<string, any>) {
   return {...obj1, ...obj2}
@@ -28,12 +29,12 @@ export default function Auth() {
   const {user, signinWithGoogle, signinWithEmail, signout} = useAuth()
 
   const [data, setData] = useState<IUserQuestionData>({ 
-    username: '',
-    prefix: '',
-    firstname: '',
-    lastname: '',
-    status: 'student',
-    school: '',
+    username: 'someone',
+    prefix: 'นาย',
+    firstname: 'ภารัล',
+    lastname: 'ศิริตระกูล',
+    status: 'teacher',
+    school: 'โรงเรียนเตรียมอุดมศึกษา',
     grade: '',
     news: [],
     purpose: []
@@ -47,6 +48,7 @@ export default function Auth() {
       method: 'POST',
       body: JSON.stringify(submittedData)
     })
+    if (res) router.push('/account')
   }
 
   const submitEmail = async (email: string) => {
@@ -61,7 +63,10 @@ export default function Auth() {
       ? <FirstQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} /> 
       : null}
       {page==2
-      ? <SecondQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} submitData={(_data: IUserQuestionData) => submitData(combineObjects(data, _data))}/>
+      ? <SecondQA setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage}/>
+      : null}
+      {page==3
+      ? <SelectProfile setData={(_data: IUserQuestionData) => setData(combineObjects(data, _data))} data={data} setPage={setPage} submitData={(_data: IUserQuestionData) => submitData(combineObjects(data, _data))}/>
       : null}
       </div>
     )

@@ -56,17 +56,6 @@ export const createUser = async (uid: string, data: DocumentData): Promise<void>
   }
 }
 
-export const updateUserProfile = async (uid: string, genres: string): Promise<void | {}> => {
-  if (uid && genres) {
-    const userRef = getUserRef(uid)
-    return await setDoc(userRef, { Info: { profileIcon: genres } }, { merge: true })
-  }
-  else {
-    return { status: 'failed' }
-  }
-}
-
-
 export const getUserData = async (uid: string): Promise<null | DocumentData> => {
   const userRef = getUserRef(uid)
   const doc = await getDoc(userRef)

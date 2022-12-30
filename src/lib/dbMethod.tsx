@@ -75,7 +75,8 @@ export const updateUserQA = async (uid: string, data: IUserQuestionData) : Promi
     school: data.school,
     grade: data.grade,
     news: data.news,
-    purpose: data.purpose
+    purpose: data.purpose,
+    profileIcon: data.profileIcon
   }
   await adminDb.collection('account').doc(uid).set({Info: finalData}, {merge: true})
   await adminDb.collection('account').doc(uid).update({qa: firestore.FieldValue.delete()})

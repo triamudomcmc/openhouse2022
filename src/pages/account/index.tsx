@@ -38,7 +38,7 @@ const Page = () => {
   if (accountData) return (<PageContainer>
     <div className="flex flex-col items-center mt-14">
       <div className="flex justify-end bg-[#D9D9D9] rounded-full w-[176px] h-[176px] sm:w-[194px] sm:h-[194px]">
-        <Image src="/assets/images/profile/babyaraika.png" height={194} width={194}/>
+        <Image src={`/assets/images/profile/${user?.Info?.profileIcon}.png`} height={194} width={194}/>
       </div>
       <div className="flex flex-col items-center text-purple mt-4">
         <span className="font-bold text-[28px] tracking-wide">{accountData?.Info?.username}</span>

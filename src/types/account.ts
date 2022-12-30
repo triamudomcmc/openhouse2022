@@ -29,6 +29,7 @@ export interface IUserQuestionData {
     grade?: string
     news?: string[]
     purpose?: string[]
+    profileIcon?: string
 }
 
 export interface IAuthContext {

@@ -10,8 +10,7 @@ export const SecondQA: FC<{
     setData?
     data?
     setPage?
-    submitData?
-}> = ({setData, data, setPage, submitData}) => {
+}> = ({setData, data, setPage}) => {
     return (
         <div>
             <Formik
@@ -24,7 +23,7 @@ export const SecondQA: FC<{
                 validate={validate}
                 onSubmit={(data) => {
                   setData(formatData(data))
-                  submitData(formatData(data))
+                  setPage(3)
                 }}
                 validateOnChange={false}
                 validateOnBlur={false}
@@ -241,32 +240,8 @@ export const SecondQA: FC<{
                     ย้อนกลับ
                   </button>
                   <button className="w-36 p-3 mb-3 bg-red-400 rounded-full" type="submit">
-                    ลงทะเบียน
+                    ถัดไป
                   </button>
-                </motion.div>
-
-                <motion.div
-                  layout={"position"}
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ }}
-                  className=" text-center w-full font-display"
-                >
-                  <p className="leading-2">
-                    การลงทะเบียนถือว่ายอมรับ
-                    <Link href="/privacy-policy" passHref>
-                      <a target="_blank" className="text-red-200 underline mx-1 whitespace-nowrap">
-                        นโยบายความเป็นส่วนตัว
-                      </a>
-                    </Link>
-                    <br />
-                    และ
-                    <Link href="/tos" passHref>
-                      <a target="_blank" className="text-red-200 underline mx-1">
-                        ข้อตกลงการใช้งาน
-                      </a>
-                    </Link>
-                  </p>
                 </motion.div>
               </Form>
             )}
