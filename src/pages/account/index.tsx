@@ -14,6 +14,10 @@ const Page = () => {
   const router = useRouter()
   const [loading, setLoading] = useState<boolean>(true)
   const [accountData, setAccountData] = useState<IUserData>()
+
+  const toAuth = () => {
+    if (router) router.push('/auth')
+  }
   
   useEffect(() => {
       const fetcher = async () => {
@@ -28,12 +32,8 @@ const Page = () => {
           }
       }
       if (user?.uid) fetcher()
-      // else router.push({pathname: `/auth`, query: { method: 'email' }})
+      // else router.push({pathname: `/auth`})
   }, [router, user?.uid])
-
-  if (loading) return (
-    <div>Loading...</div>
-  )
 
   if (accountData) return (<PageContainer>
     <div className="flex flex-col items-center mt-14">
@@ -58,6 +58,11 @@ const Page = () => {
       </div>
     </div>
   </PageContainer>)
+  else if (loading) return <div>Loading...</div>
+
+  return (
+    toAuth()
+  )
 }
 
 
