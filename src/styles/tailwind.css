@@ -109,10 +109,6 @@
     background: linear-gradient(180deg, #FED354 0%, #E96F26 100%);
   }
 
-  /* .bg-gifted{
-    background: linear-gradient(180deg, #5D6B9D 0.26%, #37498B 5.63%, #33266E 19.46%, #374789 23.16%, #33256D 27.81%, #384A8C 49.14%, #37498B 100%);
-  } */
-
   #privacy-policy ol,
   #tos ol {
     counter-reset: item;

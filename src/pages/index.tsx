@@ -26,7 +26,7 @@ import {
 import { LG, MD } from "@utilities/breakpoints"
 import { useWindowDimensions } from "@utilities/useWindowDimensions"
 // import { ArtsChinese, ArtsEspanol, ArtsFrench, ArtsGerman, ArtsJapanese, ArtsKorean, ArtsMath, SciMath } from "@vectors/icons/programmes";
-// import { Programme } from "@components/programme";
+import { Programme } from "@components/programme";
 import RomanTower, { RomanTowerClubs } from "@vectors/romanTower";
 import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate";
 import { MoreInfoBg, MoreInfoFlag, MoreInfoRight } from "@vectors/background/MoreInfo";
@@ -114,33 +114,82 @@ export default function Home() {
       </section> 
 
   
-      {/* <section className="relative min-h-screen bg-[#F9DBC4] flex justify-between">
-        <div className="h-full min-h-screen">
-          <RomanTowerClubs classname="absolute "/>
+      <section className="relative min-h-screen bg-[#F9DBC4]" >
+        {/* <div className="min-h-screen ">
+          <RomanTowerClubs classname="h-full -translate-x-1/3 lg:translate-x-0 "/>
         </div>
-        <div className="flex flex-col lg:flex-row items-start ml-[100px] lg:mx-auto justify-evenly w-screen">
-          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-40 lg:space-x-0">
-            <Programme width="220" height="280" name={"sci-math"} thainame={"วิทย์-คณิต"} />
-            <Programme width="244" height="253" name={"arts-math"} thainame={"ภาษา-คณิต"} />
+        <div className="flex flex-col items-center w-3/4 lg:w-10/12 lg:justify-evenly lg:items-start lg:flex-row lg:mt-[20px] xl:mb-[100px] ">
+          <div className="flex flex-row w-full justify-evenly mt-[10px] lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
+            <Programme width="220" height="280" className="z-10 mx-auto" name={"sci-math"} thainame={"วิทย์-คณิต"} />
+            <Programme width="244" height="253" className="z-10 mx-auto" name={"arts-math"} thainame={"ภาษา-คณิต"} />
           </div>
-          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
-            <Programme width="327" height="176" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
-            <Programme width="235" height="303" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
+          <div className="flex flex-row w-full justify-evenly mt-[10px] lg:flex-col lg:space-y-20 lg:space-x-0">
+            <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] lg:mt-0" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
+            <Programme width="235" height="303" className="z-10 mx-auto mt-[-20px] lg:mt-0" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
           </div>
-          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
-            <Programme width="241" height="290" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
-            <Programme width="385" height="212" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
+          <div className="flex flex-row w-full justify-evenly mt-[10px] lg:flex-col lg:space-y-20 lg:space-x-0">
+            <Programme width="241" height="290" className="z-10 mx-auto mt-[-60px] lg:mt-0" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
+            <Programme width="385" height="212" className="z-10 mx-auto" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
           </div>
-          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-40 lg:space-x-0">
-            <Programme width="247" height="208" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
-            <Programme width="235" height="354" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
+          <div className="flex flex-row w-full justify-evenly mt-[10px] lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
+            <Programme width="247" height="208" className="z-10 mx-auto" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
+            <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px] lg:mt-0" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
           </div>
+        </div> */}
+        {width >= LG ? (
+        <div className="relative min-h-screen w-screen bg-[#F9DBC4] flex justify-between">
+          <div className="min-h-screen ">
+            <RomanTowerClubs classname="h-full translate-x-0 "/>
+          </div>
+          <div className="flex w-11/12 justify-evenly items-start min-h-screen ml-[-50px] flex-row xl:mb-[100px] ">
+            <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
+              <Programme width="220" height="280" className="z-10 mx-auto" name={"sci-math"} thainame={"วิทย์-คณิต"} />
+              <Programme width="244" height="253" className="z-10 mx-auto" name={"arts-math"} thainame={"ภาษา-คณิต"} />
+            </div>
+            <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
+              <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] lg:mt-0" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
+              <Programme width="235" height="303" className="z-10 mx-auto mt-[-20px] lg:mt-0" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
+            </div>
+            <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
+              <Programme width="241" height="290" className="z-10 mx-auto mt-[-60px] lg:mt-0" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
+              <Programme width="385" height="212" className="z-10 mx-auto" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
+            </div>
+            <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
+              <Programme width="247" height="208" className="z-10 mx-auto" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
+              <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px] lg:mt-0" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
+            </div>
+          </div> 
         </div>
+        ):(
+          <div className="relative min-h-screen w-screen bg-[#F9DBC4] flex justify-between">
+            <div className="min-h-screen ">
+              <RomanTowerClubs classname="h-full -translate-x-1/3 "/>
+            </div>
+            <div className="flex flex-col items-center w-3/4 mt-[20px]">
+              <div className="flex flex-row w-full justify-evenly mt-[10px]">
+                <Programme width="220" height="280" className="z-10 mx-auto" name={"sci-math"} thainame={"วิทย์-คณิต"} />
+                <Programme width="244" height="253" className="z-10 mx-auto" name={"arts-math"} thainame={"ภาษา-คณิต"} />
+              </div>
+              <div className="flex flex-row w-full justify-evenly mt-[10px]">
+                <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] " name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
+                <Programme width="235" height="303" className="z-10 mx-auto mt-[-20px] " name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
+              </div>
+              <div className="flex flex-row w-full justify-evenly mt-[10px]">
+                <Programme width="241" height="290" className="z-10 mx-auto mt-[-60px]" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
+                <Programme width="385" height="212" className="z-10 mx-auto" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
+              </div>
+              <div className="flex flex-row w-full justify-evenly mt-[10px]">
+                <Programme width="247" height="208" className="z-10 mx-auto" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
+                <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px]" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
+              </div>
+            </div> 
+          </div>
+        )}
         <div className="absolute bottom-0">
           <Student classname="w-screen" />
         </div>
       </section>
-       */}
+      
       <section className="relative w-screen ">
         <div className=" min-w-screen">
           <GiftedBg classname="absolute -z-10" />
