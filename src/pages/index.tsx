@@ -14,12 +14,22 @@ import RomanLanding from "@vectors/background/RomanLanding"
 import StairPrograammes from "@vectors/background/StairProgramme"
 import BigFrame from "@vectors/common/bigFrame"
 import { Footer } from "@components/common/Footer"
-import { AIC, Organization, OrganizationPhone, TUCMC, TUPRO, TUSC, WinkWink } from "@vectors/common/organization"
+import {
+  AIC,
+  Organization,
+  OrganizationPhone,
+  TUCMC,
+  TUPRO,
+  TUSC,
+  WinkWink,
+} from "@vectors/common/organization";
 import { LG, MD } from "@utilities/breakpoints"
 import { useWindowDimensions } from "@utilities/useWindowDimensions"
 // import { ArtsChinese, ArtsEspanol, ArtsFrench, ArtsGerman, ArtsJapanese, ArtsKorean, ArtsMath, SciMath } from "@vectors/icons/programmes";
-import RomanTower from "@vectors/romanTower"
-import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate"
+// import { Programme } from "@components/programme";
+import RomanTower, { RomanTowerClubs } from "@vectors/romanTower";
+import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate";
+import { MoreInfoBg, MoreInfoFlag, MoreInfoRight } from "@vectors/background/MoreInfo";
 
 const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0)
 
@@ -88,7 +98,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* <section className="relative flex items-center justify-center w-screen">
+      <section className="relative flex items-center justify-center w-screen">
           <div className="relative w-full -z-10 -left-1/3 lg:left-0">
             <StairPrograammes className="object-cover h-full min-h-screen overflow-x-hidden bg-landing-programme" />
           </div>
@@ -100,15 +110,16 @@ export default function Home() {
               <p>เรียน</p>
             </div>
           </div>
-      </section>  */}
+      </section> 
 
-      {/* <section className="relative bg-[#F9DBC4] min-h-screen h-full">
-        <div className="relative">
-          <RomanTower classname="absolute min-h-screen -left-[80px]"/>
+  
+      {/* <section className="relative bg-[#F9DBC4]">
+        <div className="absolute h-full min-h-screen">
+          <RomanTowerClubs classname="absolute "/>
         </div>
-        <div className="flex flex-col sm:flex-row items-center ml-[100px] lg:mx-auto justify-evenly max-w-[270px] lg:max-w-[1000px] pt-10 sm:mt-0">
-          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col sm:space-y-20 lg:mt-20 lg:space-x-0">
-            <Programme width="220" height="280" name={"sci-math"} thainame={"วิทย์-คณิต"} />
+        <div className="flex flex-col lg:flex-row items-center ml-[100px] lg:mx-auto justify-evenly max-w-[270px] lg:max-w-[1000px]">
+          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-40 lg:space-x-0">
+            <Programme width="220" height="280" className="w-[50px]" name={"sci-math"} thainame={"วิทย์-คณิต"} />
             <Programme width="244" height="253" name={"arts-math"} thainame={"ภาษา-คณิต"} />
           </div>
           <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:space-x-0">
@@ -119,16 +130,10 @@ export default function Home() {
             <Programme width="241" height="290" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
             <Programme width="385" height="212" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
           </div>
-          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
+          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-40 lg:space-x-0">
             <Programme width="247" height="208" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
             <Programme width="235" height="354" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
           </div>
-        </div>
-      </section> */}
-
-      {/* <section className="relative min-h-screen bg-clubs">
-        <div>
-          <ClubsBg />
         </div>
       </section> */}
 
@@ -213,6 +218,56 @@ export default function Home() {
             </div>
           </div>
         )}
+      </section>
+
+      <section className="relative h-full min-h-screen bg-moreInfo">
+        <div className="z-0" >
+          <MoreInfoBg classname="absolute right-0 h-full min-h-screen xl:left-0"/>
+          <MoreInfoRight classname="absolute right-0 -translate-y-1/2 h-4/6 top-1/2 max-[1024px]:hidden" />
+        </div>
+        <div className="flex justify-center w-screen h-screen ">
+          <div className="relative top-0 z-10 h-3/4">
+            <MoreInfoFlag classname="w-full h-full" />
+            {/* <div className="h-full text-center -translate-y-1/2 absolue top-1/2">
+              <p>More</p>
+              <p>Info</p>
+            </div> */}
+          <div className="z-10 text-white lg:text-[30px] text-[24px] my-auto lg:leading-[65px] leading-[43px] text-center mt-[40px] min-[1025px]:hidden">
+            <div>
+                  <Link href={'/admission'}>
+                    <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }} 
+                    className="lg:w-[324px] w-[218px] rounded-[45px] moreInfo-button"><p className="">การสอบเข้าม.4</p></motion.button></Link>
+                </div>
+                <div className="mt-[20px]">
+                  <Link href={'/directions'}>
+                    <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }} 
+                    className="lg:w-[460px] w-[350px] rounded-[45px] moreInfo-button"><p>การเดินทางมาโรงเรียน</p></motion.button></Link>
+                </div>
+            </div>
+        </div>
+        <div className="z-10 flex items-center h-sceen">
+          <div className="z-10 text-white lg:text-[30px] text-[24px] lg:leading-[65px] leading-[43px] text-center my-auto max-[1025px]:hidden">
+              <div>
+                <Link href={'/admission'}>
+                  <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }} 
+                  className="lg:w-[324px] w-[218px] rounded-[45px] moreInfo-button"><p className="">การสอบเข้าม.4</p></motion.button></Link>
+              </div>
+              <div className="mt-[20px]">
+                <Link href={'/directions'}>
+                  <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }} 
+                  className="lg:w-[460px] w-[350px] rounded-[45px] moreInfo-button"><p>การเดินทางมาโรงเรียน</p></motion.button></Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <Footer />

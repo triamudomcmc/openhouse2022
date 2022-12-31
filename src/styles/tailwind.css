@@ -83,6 +83,10 @@
     background: linear-gradient(180deg, #2a3271 134.81%, #1b0852 195.13%);
   }
 
+  .bg-moreInfo{
+    background: linear-gradient(180deg, #354993 0%, #1D0C55 100%);
+  }
+
   .register-button {
     background: linear-gradient(97.31deg, #dce3ff -7.96%, #a6a8d7 33.16%, #3e378b 111.68%);
   }
@@ -95,6 +99,10 @@
     background: linear-gradient(180deg, #8168d2 9.95%, #290f82 75.44%, #170847 125.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .moreInfo-button{
+    background: linear-gradient(180deg, #FEF2DC -47.06%, #3C52A2 113.6%);
   }
 
   #privacy-policy ol,
