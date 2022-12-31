@@ -30,6 +30,7 @@ import { useWindowDimensions } from "@utilities/useWindowDimensions"
 import RomanTower, { RomanTowerClubs } from "@vectors/romanTower";
 import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate";
 import { MoreInfoBg, MoreInfoFlag, MoreInfoRight } from "@vectors/background/MoreInfo";
+import { GiftedBg, GiftedEng, GiftedMath, GiftedSci, GiftedSciMath, GiftedThai, Student } from "@vectors/icons/gifted"
 
 const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0)
 
@@ -113,20 +114,20 @@ export default function Home() {
       </section> 
 
   
-      {/* <section className="relative bg-[#F9DBC4]">
-        <div className="absolute h-full min-h-screen">
+      {/* <section className="relative min-h-screen bg-[#F9DBC4] flex justify-between">
+        <div className="h-full min-h-screen">
           <RomanTowerClubs classname="absolute "/>
         </div>
-        <div className="flex flex-col lg:flex-row items-center ml-[100px] lg:mx-auto justify-evenly max-w-[270px] lg:max-w-[1000px]">
+        <div className="flex flex-col lg:flex-row items-start ml-[100px] lg:mx-auto justify-evenly w-screen">
           <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-40 lg:space-x-0">
-            <Programme width="220" height="280" className="w-[50px]" name={"sci-math"} thainame={"วิทย์-คณิต"} />
+            <Programme width="220" height="280" name={"sci-math"} thainame={"วิทย์-คณิต"} />
             <Programme width="244" height="253" name={"arts-math"} thainame={"ภาษา-คณิต"} />
           </div>
-          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:space-x-0">
+          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
             <Programme width="327" height="176" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
             <Programme width="235" height="303" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
           </div>
-          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 sm:flex-col lg:space-y-20 lg:space-x-0">
+          <div className="flex flex-row flex-shrink-0 space-x-6 space-y-0 lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
             <Programme width="241" height="290" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
             <Programme width="385" height="212" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
           </div>
@@ -135,7 +136,68 @@ export default function Home() {
             <Programme width="235" height="354" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
           </div>
         </div>
-      </section> */}
+        <div className="absolute bottom-0">
+          <Student classname="w-screen" />
+        </div>
+      </section>
+       */}
+      <section className="relative w-screen ">
+        <div className=" min-w-screen">
+          <GiftedBg classname="absolute -z-10" />
+        </div>
+        <div className="">
+        <div className=" flex items-center justify-center rounded-[6px] w-[125px] h-[40px] lg:w-[333px] lg:h-[111px] gifted mx-auto">
+          <div className="text-[15px] lg:text-[40px] text-[#332B73]  font-[700] text-center">
+            <p>Gifted</p>
+            <p>Program</p>
+          </div>
+        </div>
+
+        <div className="lg:flex lg:items-end lg:min-h-screen lg:w-screen ">
+          <div className="flex mx-auto lg:w-1/2 ">
+            <div className="flex items-end w-screen">
+              <Link href={'/programmes/gifted-sci'}>
+                <motion.button 
+                className="w-1/2 "
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }} >
+                <GiftedSci classname="w-full " />
+                </motion.button>
+              </Link>
+              <Link href={'/programmes/gifted-math'}>
+                <motion.button 
+                className="w-1/2 "
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }} >
+                <GiftedMath classname="w-full" />
+                </motion.button>
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex mx-auto lg:w-1/2 ">
+            <div className="flex w-screen">
+              <Link href={'/programmes/gifted-eng'}>
+                <motion.button 
+                className="w-1/2 "
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }} >
+                <GiftedEng classname="w-full" />
+                </motion.button>
+              </Link>
+              <Link href={'/programmes/gifted-thai'}>
+                <motion.button 
+                className="w-1/2 "
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }} >
+                <GiftedThai classname="w-full" />
+                </motion.button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
 
       <section className="relative flex justify-center w-screen h-screen bg-clubs">
         <div className="relative w-full max-sm:hidden">
