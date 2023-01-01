@@ -17,10 +17,10 @@ export const getUserRef = (uid: string) => {
   return doc(db, "account", uid)
 }
 
-export const stamp = async (club: string, uid: string): Promise<void> => {
+export const stamp = async (club: string, clubName: string, uid: string): Promise<void> => {
   const userRef = getUserRef(uid)
 
-  return await updateDoc(userRef, { [`stamp.${club}`]: { timestamp: serverTimestamp() } })
+  return await updateDoc(userRef, { [`stamp.${club}`]: { timestamp: serverTimestamp(), nameTH: clubName } })
 }
 
 export const getClubProdRef = (clubId: string) => {

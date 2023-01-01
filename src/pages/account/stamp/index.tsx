@@ -41,31 +41,12 @@ function BlankStamp() {
 }
 
 export default function QrGen() {
-  const { Image } = useQRCode()
+  const QRCode = useQRCode().Image
   const { user } = useAuth()
   const [uidData, setUidData] = useState(null)
-  const [stampData, setStampData] = useState(null)
+  const [stampData, setStampData] = useState([])
 
-  const MockStampData: StampType[] = [
-    {
-      id: "1",
-      name: "(กช.) คณะกรรมการกิจกรรมพัฒนาผู้เรียน",
-    },
-    {
-      id: "2",
-      name: "โครงการพัฒนาความสามารถพิเศษด้านภาษาอังกฤษ",
-    },
-    {
-      id: "3",
-      name: "โครงการพัฒนาความสามารถพิเศษด้านภาษาจีน",
-    },
-    {
-      id: "4",
-      name: "โครงการพัฒนาความสามารถพิเศษด้านภาษาญี่ปุ่น",
-    },
-  ]
-
-  async function getUidData(fetchUid: string) {
+  async function getUidData(fetchUid: string): Promise<void> {
     if (fetchUid) {
       const res = await fetch(`/api/qrinfo/${fetchUid}`, {
         headers: {
@@ -88,9 +69,18 @@ export default function QrGen() {
 
   useEffect(() => {
     if (uidData?.stamp) {
-      if (Object.keys(uidData?.stamp)) {
-        setStampData(Object.keys(uidData?.stamp))
+      const uidStamp = uidData?.stamp
+      const data = []
+      let index = 0
+      for (let [key, value] of Object.entries(uidStamp)) {
+        const struct: {[key: string]: string} = {}
+        struct.id = index.toString()
+        // @ts-ignore
+        struct.name = value?.nameTH
+        data.push(struct)
+        index + 1
       }
+      setStampData(data)
     }
   }, [uidData?.stamp])
 
@@ -100,13 +90,28 @@ export default function QrGen() {
         <div className="flex flex-col items-center text-deep-turquoise">
           <h3 className="text-2xl font-bold mt-10">Scan here</h3>
           <p className="font-bold -mt-2">เพื่อสะสมแสตมป์จากซุ้มต่าง ๆ</p>
-          <div className="rounded-lg my-10">
-            <div className="w-48 h-48 rounded-2xl bg-gray-300" />
+          <div className="rounded-lg my-10 w-48 h-48 rounded-2xl bg-gray-300">
+            <div className="mt-[6px] ml-[6px]">
+              <QRCode
+                text={user?.uid}
+                options={{
+                  type: "image/jpeg",
+                  quality: 0.5,
+                  level: "M",
+                  scale: 4,
+                  width: 180,
+                  color: {
+                    dark: "#000000",
+                    light: "#D9D9D9",
+                  },
+                }}
+              />
+            </div>
           </div>
           <div className="flex flex-col items-center bg-white rounded-3xl py-6 w-full max-w-[380px] shadow-lg">
-            <span className="font-bold text-xl mb-6 mt-4">แสตมป์ของ {user?.username}</span>
+            <span className="font-bold text-xl mb-6 mt-4">แสตมป์ของ {user?.Info?.username}</span>
             <div className="flex flex-col space-y-3">
-              {groupByN(3, MockStampData).map((group, index) => (
+              {groupByN(3, stampData).map((group, index) => (
                 <div key={index} className="grid grid-cols-3 gap-2">
                   {group.map((stamp) => (
                     <Stamp name={stamp.name} key={stamp.id} />
@@ -116,7 +121,7 @@ export default function QrGen() {
                   ))}
                 </div>
               ))}
-              {Array.from({ length: 4 - Math.ceil(MockStampData.length / 3) }).map((_, index) => (
+              {Array.from({ length: 4 - Math.ceil(stampData.length / 3) }).map((_, index) => (
                 <div key={index} className="grid grid-cols-3 gap-2">
                   <BlankStamp key={index} />
                   <BlankStamp key={index} />

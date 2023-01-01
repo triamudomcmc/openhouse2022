@@ -6,6 +6,7 @@ import { stamp } from "@lib/clientDB"
 
 import { PageContainer } from "@components/account/PageContainer"
 import notFound from "@pages/404"
+import getNameOfClub from "@utilities/nameENofClub"
 
 const FocusRing = () => {
   return (
@@ -61,7 +62,8 @@ const Page = () => {
 
   function stampit() {
     setStampPress(true)
-    stamp(user?.club, uid)
+    const clubName = getNameOfClub(user?.club)
+    stamp(user?.club, clubName, uid)
   }
 
   useEffect(() => {
