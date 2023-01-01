@@ -205,7 +205,7 @@ export default function Home() {
         <div className="lg:flex lg:items-end lg:min-h-screen lg:w-screen ">
           <div className="flex mx-auto lg:w-1/2 ">
             <div className="flex items-end w-screen">
-              <Link href={'/programmes/gifted-sci'}>
+              <Link href={'/programmes/gifted-science'}>
                 <motion.button 
                 className="w-1/2 "
                 whileHover={{ scale: 1.05 }}
@@ -226,7 +226,7 @@ export default function Home() {
 
           <div className="flex mx-auto lg:w-1/2 ">
             <div className="flex w-screen">
-              <Link href={'/programmes/gifted-eng'}>
+              <Link href={'/programmes/gifted-english'}>
                 <motion.button 
                 className="w-1/2 "
                 whileHover={{ scale: 1.05 }}

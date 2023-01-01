@@ -203,7 +203,7 @@ export const SecondQA: FC<{
                     type="checkbox"
                     value="inspiration"
                   />
-                  หาแรงบันดาลใจในการสอบเข้าโรงเรียนเตรียมอุดทศึกษา
+                  หาแรงบันดาลใจในการสอบเข้าโรงเรียนเตรียมอุดมศึกษา
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
@@ -239,7 +239,7 @@ export const SecondQA: FC<{
                     {values.purpose?.includes("other") && (
                       <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
                         <Field
-                          className=" bg-transparent px-0.5 py-4 border-b border-white font-display h-[1.15rem] focus:outline-none"
+                          className=" bg-transparent px-0.5 py-4 border-b border-white font-display h-[1.15rem] w-full rounded-md block focus:outline-none"
                           name="otherPurpose"
                           type="text"
                           placeholder="ระบุเหตุผลเพิ่มเติม"
