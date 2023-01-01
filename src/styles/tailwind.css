@@ -105,6 +105,10 @@
     background: linear-gradient(180deg, #FEF2DC -47.06%, #3C52A2 113.6%);
   }
 
+  .gifted{
+    background: linear-gradient(180deg, #FED354 0%, #E96F26 100%);
+  }
+
   #privacy-policy ol,
   #tos ol {
     counter-reset: item;

@@ -106,7 +106,11 @@ function useProvideAuth() {
       else if (handleStatus?.club.includes("tu") || handleStatus?.club == "aic")
         Router.push(`/organization/${handleStatus?.club}`)
       else false
-    } else if (redirect) {
+    }
+    else if (handleStatus?.qa) {
+      Router.push(`/auth`)
+    }
+    else if (redirect) {
       Router.push(redirect)
     }
   }
