@@ -163,7 +163,7 @@ export default function Directions() {
   return (
     <main className="min-h-screen text-white bg-normal-gradient">
       <div className="pt-32 pb-24">
-        <h1 className="text-6xl font-black text-center">การเดินทาง</h1>
+        <h1 className="text-2xl font-black text-center">การเดินทาง</h1>
 
         {/* การเดินทาง */}
 
@@ -513,7 +513,7 @@ export default function Directions() {
         {/* Google Maps */}
 
         <div className="py-4 px-2">
-          <h2 className="text-5xl mt-8 mb-6 font-semibold text-center">Google Maps</h2>
+          <h2 className="text-2xl mt-8 mb-6 font-semibold text-center">Google Maps</h2>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.637467491092!2d100.52848511460412!3d13.740385290354828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ed3828ba8e5%3A0xf0db3be87e158217!2sTriam%20Udom%20Suksa%20School!5e0!3m2!1sen!2sth!4v1642656766845!5m2!1sen!2sth"
             width="600"
