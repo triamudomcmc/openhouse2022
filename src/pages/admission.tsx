@@ -290,6 +290,6 @@ export async function getServerSideProps({ query }: any) {
     props: {
       query,
     },
-    notFound: true, // ! uncomment this line
+    // notFound: true, // ! uncomment this line
   }
 }
