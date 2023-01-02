@@ -1,4 +1,5 @@
 import { TriamOPHMap } from "@components/map"
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 
 export default function Map() {
   return (
@@ -12,9 +13,21 @@ export default function Map() {
           <p className="text-xl font-bold text-blue-text text-center">Triam Udom Open House 2023</p>
         </div>
 
-        <div className="flex justify-center mt-8">
-          <TriamOPHMap className="max-h-[64rem]" />
-        </div>
+        <TransformWrapper initialScale={1} initialPositionX={200} initialPositionY={100}>
+          {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+            <div className="flex flex-col items-center mt-8">
+              <div className="tools">
+                <button onClick={() => zoomIn()}>+</button>
+                <button onClick={() => zoomOut()}>-</button>
+                <button onClick={() => resetTransform()}>x</button>
+              </div>
+
+              <TransformComponent>
+                <TriamOPHMap className="cursor-grab max-h-[64rem]" />
+              </TransformComponent>
+            </div>
+          )}
+        </TransformWrapper>
       </div>
     </main>
   )
