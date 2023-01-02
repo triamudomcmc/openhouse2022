@@ -43,7 +43,7 @@ const Page = () => {
           <div className="relative">
             {/* Profile Container */}
             <div className="absolute top-[124px] -right-[12px]">
-              <Image src={"/assets/images/profile/cat.png"} width={200} height={200} />
+              <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? 'cat'}.png`} width={200} height={200} />
             </div>
             {/*Ticket description*/}
             <div className="flex flex-col absolute top-[169px] left-[28px] text-purple">
