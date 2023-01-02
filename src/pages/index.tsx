@@ -273,7 +273,7 @@ export default function Home() {
           <div className="w-[1000px] h-[559px] absolute bottom-0 -translate-x-1/2 left-1/2">
             <div className="w-[636px] bg-[#BCC2EB] mx-auto">
               <p className="organization-text text-white text-center font-[600] text-[60px] leading-[84px] ">
-                หน่วยงานนักเรียน
+                องค์กรนักเรียน
               </p>
             </div>
             <Organization classname="absolute -z-20" />
@@ -302,7 +302,7 @@ export default function Home() {
         ) : (
           <div className="w-[325px] mx-auto relative pt-[150px]">
             <div className="w-[333px] bg-[#BCC2EB]">
-              <p className="organization-text text-center font-[600] text-[34px] leading-[47px] ">หน่วยงานนักเรียน</p>
+              <p className="organization-text text-center font-[600] text-[34px] leading-[47px] ">องค์กรนักเรียน</p>
             </div>
             <div className="mt-[50px] h-[1006px]">
               <OrganizationPhone />
