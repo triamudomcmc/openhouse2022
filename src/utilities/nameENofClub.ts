@@ -5,6 +5,22 @@ const getNameOfClub = (clubId: string) => {
 export default getNameOfClub
 
 const data = {
+    "tucmc": "คณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.)",
+    "tusc": "คณะกรรมการนักเรียน (กน.)",
+    "tupro": "นักเรียนผู้ช่วยงานประชาสัมพันธ์ (ปชส.)",
+    "aic": "กลุ่มนักเรียนเอไอซี (กอ.)",
+    "sci-math": "สายการเรียน วิทยาศาสตร์-คณิตศาสตร์",
+    "arts-math": "สายการเรียน ภาษา-คณิตศาสตร์",
+    "arts-german": "สายการเรียน ภาษา-ภาษาเยอรมัน",
+    "arts-french": "สายการเรียน ภาษา-ภาษาฝรั่งเศส",
+    "arts-chinese": "สายการเรียน ภาษา-ภาษาจีน",
+    "arts-espanol": "สายการเรียน ภาษา-ภาษาสเปน",
+    "arts-japanese": "สายการเรียน ภาษา-ภาษาญี่ปุ่น",
+    "arts-korean": "สายการเรียน ภาษา-ภาษาเกาหลี",
+    "gifted-science": "โครงการ Gifted Science",
+    "gifted-math": "โครงการ Gifted Math",
+    "gifted-english": "โครงการ Gifted English",
+    "gifted-thai": "โครงการ Gifted Thai",
     "ก30901": "คณิตศาสตร์",
     "ก30901-1": "คณิตศาสตร์ (A-Math)",
     "ก30901-2": "คณิตศาสตร์ (E-Sport)",
