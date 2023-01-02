@@ -90,7 +90,7 @@ export default function QrGen() {
         <div className="flex flex-col items-center text-deep-turquoise">
           <h3 className="text-2xl font-bold mt-10">Scan here</h3>
           <p className="font-bold -mt-2">เพื่อสะสมแสตมป์จากซุ้มต่าง ๆ</p>
-          <div className="rounded-lg my-10 w-48 h-48 rounded-2xl bg-gray-300">
+          <div className="rounded-lg my-10 w-48 h-48 rounded-2xl bg-white">
             <div className="mt-[6px] ml-[6px]">
               <QRCode
                 text={user?.uid}
@@ -102,7 +102,7 @@ export default function QrGen() {
                   width: 180,
                   color: {
                     dark: "#000000",
-                    light: "#D9D9D9",
+                    light: "#FFFFFF",
                   },
                 }}
               />

@@ -48,7 +48,6 @@ const Page = () => {
             {/*Ticket description*/}
             <div className="flex flex-col absolute top-[169px] left-[28px] text-purple">
               <span className="font-bold text-[28px]">{accountData?.Info?.username}</span>
-              <span className="font-bold text-xl -mt-1">ขนมจีนน้ำยา</span>
               <div className="flex flex-col mt-4 font-medium">
                 <span className="leading-4">{accountData?.Info?.firstname}</span>
                 <span className="leading-4 mt-[2px]">{accountData?.Info?.lastname}</span>
