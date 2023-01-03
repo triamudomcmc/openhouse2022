@@ -115,48 +115,27 @@ export default function Home() {
 
   
       <section className="relative min-h-screen bg-[#F9DBC4]" >
-        {/* <div className="min-h-screen ">
-          <RomanTowerClubs classname="h-full -translate-x-1/3 lg:translate-x-0 "/>
-        </div>
-        <div className="flex flex-col items-center w-3/4 lg:w-10/12 lg:justify-evenly lg:items-start lg:flex-row lg:mt-[20px] xl:mb-[100px] ">
-          <div className="flex flex-row w-full justify-evenly mt-[10px] lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
-            <Programme width="220" height="280" className="z-10 mx-auto" name={"sci-math"} thainame={"วิทย์-คณิต"} />
-            <Programme width="244" height="253" className="z-10 mx-auto" name={"arts-math"} thainame={"ภาษา-คณิต"} />
-          </div>
-          <div className="flex flex-row w-full justify-evenly mt-[10px] lg:flex-col lg:space-y-20 lg:space-x-0">
-            <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] lg:mt-0" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
-            <Programme width="235" height="303" className="z-10 mx-auto mt-[-20px] lg:mt-0" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
-          </div>
-          <div className="flex flex-row w-full justify-evenly mt-[10px] lg:flex-col lg:space-y-20 lg:space-x-0">
-            <Programme width="241" height="290" className="z-10 mx-auto mt-[-60px] lg:mt-0" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
-            <Programme width="385" height="212" className="z-10 mx-auto" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
-          </div>
-          <div className="flex flex-row w-full justify-evenly mt-[10px] lg:flex-col lg:space-y-20 lg:mt-20 lg:space-x-0">
-            <Programme width="247" height="208" className="z-10 mx-auto" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
-            <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px] lg:mt-0" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
-          </div>
-        </div> */}
         {width >= LG ? (
         <div className="relative min-h-screen w-screen bg-[#F9DBC4] flex justify-between">
           <div className="min-h-screen ">
-            <RomanTowerClubs classname="h-full translate-x-0 "/>
+            <RomanTowerClubs classname="h-full -translate-x-1/3 xl:translate-x-0 "/>
           </div>
-          <div className="flex w-11/12 justify-evenly items-start min-h-screen ml-[-50px] flex-row xl:mb-[100px] ">
+          <div className="flex w-11/12 justify-evenly items-start min-h-screen xl:ml-[150px] flex-row xl:mb-[100px] ">
             <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
-              <Programme width="220" height="280" className="z-10 mx-auto" name={"sci-math"} thainame={"วิทย์-คณิต"} />
-              <Programme width="244" height="253" className="z-10 mx-auto" name={"arts-math"} thainame={"ภาษา-คณิต"} />
+              <Programme width="220" height="280" className="z-10 mx-auto w-[175px] xl:w-[200px]" name={"sci-math"} thainame={"วิทย์-คณิต"} />
+              <Programme width="244" height="253" className="z-10 mx-auto ml-[20px] w-[175px] xl:w-[200px]" name={"arts-math"} thainame={"ภาษา-คณิต"} />
             </div>
             <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
-              <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] lg:mt-0" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
-              <Programme width="235" height="303" className="z-10 mx-auto mt-[-20px] lg:mt-0" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
+              <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] lg:mt-[50px] w-[225px] xl:w-[250px]" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
+              <Programme width="235" height="303" className="z-10 mx-auto mt-[-20px] lg:mt-0 w-[175px] xl:w-[200px]" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
             </div>
             <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
-              <Programme width="241" height="290" className="z-10 mx-auto mt-[-60px] lg:mt-0" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
-              <Programme width="385" height="212" className="z-10 mx-auto" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
+              <Programme width="241" height="290" className="z-10 mx-auto mt-[-60px] lg:mt-0 w-[175px] xl:w-[200px]" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
+              <Programme width="385" height="212" className="z-10 mx-auto w-[225px] xl:w-[250px]" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
             </div>
             <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
-              <Programme width="247" height="208" className="z-10 mx-auto" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
-              <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px] lg:mt-0" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
+              <Programme width="247" height="208" className="z-10 mx-auto w-[225px] lg:mt-[50px] xl:w-[225px]" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
+              <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px] w-[175px] lg:mt-0 xl:w-[200px]" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
             </div>
           </div> 
         </div>
@@ -165,29 +144,30 @@ export default function Home() {
             <div className="min-h-screen ">
               <RomanTowerClubs classname="h-full -translate-x-1/3 "/>
             </div>
-            <div className="flex flex-col items-center w-3/4 mt-[20px]">
+            <div className="flex flex-col items-center justify-center w-4/5 lg:w-11/12 my-[50px] lg:mb-[90px]">
               <div className="flex flex-row w-full justify-evenly mt-[10px]">
-                <Programme width="220" height="280" className="z-10 mx-auto" name={"sci-math"} thainame={"วิทย์-คณิต"} />
-                <Programme width="244" height="253" className="z-10 mx-auto" name={"arts-math"} thainame={"ภาษา-คณิต"} />
+                <Programme width="220" height="280" className="z-10 mx-auto w-[125px] lg:w-[175px] mt-[20px]" name={"sci-math"} thainame={"วิทย์-คณิต"} />
+                <Programme width="244" height="253" className="z-10 mx-auto  w-[125px] lg:w-[175px]" name={"arts-math"} thainame={"ภาษา-คณิต"} />
               </div>
               <div className="flex flex-row w-full justify-evenly mt-[10px]">
-                <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] " name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
-                <Programme width="235" height="303" className="z-10 mx-auto mt-[-20px] " name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
+                <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] w-[150px] lg:w-[225px]" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
+                <Programme width="235" height="303" className="z-10 mx-auto mt-[-40px] w-[125px] lg:w-[175px]" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
               </div>
               <div className="flex flex-row w-full justify-evenly mt-[10px]">
-                <Programme width="241" height="290" className="z-10 mx-auto mt-[-60px]" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
-                <Programme width="385" height="212" className="z-10 mx-auto" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
+                <Programme width="241" height="290" className="z-10 mx-auto mt-[-30px] sm:mt-[-40px] w-[125px] lg:w-[175px]" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
+                <Programme width="385" height="212" className="z-10 mx-auto w-[150px] lg:w-[215px]" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
               </div>
               <div className="flex flex-row w-full justify-evenly mt-[10px]">
-                <Programme width="247" height="208" className="z-10 mx-auto" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
-                <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px]" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
+                <Programme width="247" height="208" className="z-10 mx-auto w-[125px] lg:w-[175px]" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
+                <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px] w-[125px] lg:w-[165px]" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
               </div>
             </div> 
           </div>
         )}
-        <div className="absolute bottom-0">
-          <Student classname="w-screen" />
-        </div>
+
+          <div className="absolute bottom-0">
+            <Student classname="w-screen" />
+          </div>
       </section>
       
       <section className="relative w-screen ">
@@ -280,22 +260,22 @@ export default function Home() {
             <WinkWink classname="absolute -z-10 w-[150px] -right-8 top-8" />
             <Link href={"/organization/tucmc"}>
               <button>
-                <TUCMC classname="w-[236px] hover:w-[240px] absolute left-[70px] hover:left-[68px] top-[120px]" />
+                <TUCMC classname="w-[236px] hover:w-[240px] absolute left-[50px] hover:left-[48px] top-[120px]" />
               </button>
             </Link>
             <Link href={"/organization/tusc"}>
               <button>
-                <TUSC classname="w-[150px] hover:w-[154px] absolute left-[372px] hover:left-[370px] top-[106px]" />
+                <TUSC classname="w-[150px] hover:w-[154px] absolute left-[332px] hover:left-[330px] top-[106px]" />
               </button>
             </Link>
             <Link href={"/organization/tupro"}>
               <button>
-                <TUPRO classname="w-[190px] hover:w-[194px] absolute left-[580px] hover:left-[578px] top-[145px]" />
+                <TUPRO classname="w-[190px] hover:w-[194px] absolute left-[540px] hover:left-[538px] top-[145px]" />
               </button>
             </Link>
             <Link href={"/organization/aic"}>
               <button>
-                <AIC classname="w-[140px] hover:w-[144px] absolute left-[795px] hover:left-[793px] top-[107px]" />
+                <AIC classname="w-[140px] hover:w-[144px] absolute left-[785px] hover:left-[783px] top-[107px]" />
               </button>
             </Link>
           </div>

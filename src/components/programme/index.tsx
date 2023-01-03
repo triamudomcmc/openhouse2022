@@ -9,7 +9,7 @@ export const Programme = ({ name, thainame, width, height,className }: { name: s
       <motion.a
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className={`text-center cursor-pointer ${className} w-[125px]  lg:w-[200px]`}
+        className={`text-center cursor-pointer ${className} `}
       >
         <div>
           <img alt={`${name}`} src={`/assets/programme/${name}.png`} className="mx-auto" />

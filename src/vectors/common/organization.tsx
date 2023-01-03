@@ -16,16 +16,19 @@ export const Organization: FC<{
       fill="none"
       viewBox="0 0 1221 581"
     >
-      <path fill="url(#paint0_linear_903_2540)" d="M78 354H1143V581H78z"></path>
+      <path
+        fill="url(#paint0_linear_1185_3215)"
+        d="M78 354H1143V581H78z"
+      ></path>
       <rect width="1221" height="31" y="332" fill="#FADCC5" rx="7"></rect>
-      <path fill="url(#paint1_linear_903_2540)" fillOpacity="0.5" d="M23 0H1198V330H23z"></path>
-      <rect width="71" height="75" x="62" y="257" fill="#C4BFD7" rx="6"></rect>
-      <rect width="71" height="75" x="377" y="257" fill="#C4BFD7" rx="6"></rect>
-      <rect width="71" height="75" x="645" y="257" fill="#C4BFD7" rx="6"></rect>
-      <rect width="71" height="75" x="919" y="257" fill="#C4BFD7" rx="6"></rect>
+      <path
+        fill="url(#paint1_linear_1185_3215)"
+        fillOpacity="0.5"
+        d="M23 0H1198V330H23z"
+      ></path>
       <defs>
         <linearGradient
-          id="paint0_linear_903_2540"
+          id="paint0_linear_1185_3215"
           x1="610.5"
           x2="610.5"
           y1="354"
@@ -36,7 +39,7 @@ export const Organization: FC<{
           <stop offset="0.625" stopColor="#FADCC5"></stop>
         </linearGradient>
         <linearGradient
-          id="paint1_linear_903_2540"
+          id="paint1_linear_1185_3215"
           x1="610.5"
           x2="610.5"
           y1="0"
