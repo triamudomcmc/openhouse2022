@@ -57,7 +57,7 @@ const ViewArticle = ({ clubId }) => {
           method: "POST",
           body: JSON.stringify({
             executerUid: user?.uid,
-            act: "prodcontent",
+            act: "getContent",
           }),
         })
         dataFetch = await res?.json()

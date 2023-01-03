@@ -64,8 +64,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const objContents = items.map((item) => {
     return {
-      path: `clubs/${item.englishName}`,
-      thumbnail: item.id !== "" ? `/assets/clubs/_thumbnails/${item.id.replace("ก", "")}.jpg` : item.imageURL[0].url,
+      path: `clubs/${item.id}`,
+      thumbnail: item.id !== "" ? item.imageURL[3]?.url ?? `/assets/images/all/${item.id}-thumbnail-default.jpg` : item.imageURL[3]?.url,
       title: item.thaiName,
     }
   })

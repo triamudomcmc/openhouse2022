@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 import { executeOverPerm } from "@handlers/permCheck"
 import { handlers } from "@handlers/gcpHandlers"
 import { getClubPendArticle, getClubProdArticle, updateArticleToPending } from "@lib/dbMethod"
@@ -14,6 +16,9 @@ export default async function apiHandlers(req, res) {
     }
     case "prodcontent": {
       return getProdContent(req, res)
+    }
+    case "getContent": {
+      return getContent(req, res)
     }
     default:
       return res.status(404)
@@ -80,4 +85,32 @@ async function getProdContent(req, res) {
     if (finalData) return res.json(finalData)
   }
   return res.json({ nonexisted: true })
+}
+
+const raw = JSON.parse(fs.readFileSync(`./src/_data/_maps/allMap.json`, {encoding: 'utf-8'}))
+
+async function getContent(req, res) {
+  const { clubId } = req.query
+
+  let finalData = {}
+
+  finalData['Info'] = {nameTH: raw[clubId].thaiName, nameEN: raw[clubId].englishName, member: raw[clubId].count} ?? {}
+  finalData['Contacts'] = raw[clubId].contacts ?? {}
+  finalData['ClubArticle'] = raw[clubId].activity ?? ''
+  finalData['Advantage'] = raw[clubId].benefit ?? ''
+  finalData['Work'] = raw[clubId].portfolio ?? ''
+  finalData['ClubArticleDes'] = raw[clubId].imageURL[0]?.description ?? ''
+  finalData['AdvantageDes'] = raw[clubId].imageURL[1]?.description ?? ''
+  finalData['WorkDes'] = raw[clubId].imageURL[2]?.description ?? ''
+  finalData['Reviews'] = raw[clubId].reviews ?? []
+  finalData['reviewImageUrl'] = raw[clubId].reviewURL ?? {}
+  finalData['imageUrl'] = {
+    'first': raw[clubId].imageURL[0]?.url ?? `/assets/images/all/${clubId}-first-default.jpg`,
+    'second': raw[clubId].imageURL[1]?.url ?? `/assets/images/all/${clubId}-second-default.jpg`,
+    'third': raw[clubId].imageURL[2]?.url ?? `/assets/images/all/${clubId}-third-default.jpg`,
+    'thumbnail': raw[clubId].imageURL[3]?.url ?? `/assets/images/all/${clubId}-thumbnail-default.jpg`
+  }
+
+  if (Object.keys(finalData).length != 0) return res.json(finalData)
+  else return res.json({ nonexisted: true })
 }
