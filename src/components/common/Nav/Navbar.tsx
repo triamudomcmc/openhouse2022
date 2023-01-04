@@ -75,6 +75,9 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
           <div className=" hover:underline">
             <Link href={`/clubs`}>ชมรม</Link>
           </div>
+          <div className="cursor-pointer hover:underline">
+            <Link href={`/directions`}>การเดินทางมาโรงเรียนเตรียมฯ</Link>
+          </div>
           <div className=" hover:underline">
             <Link href={`/directions`}>การเดินทางมาโรงเรียน</Link>
           </div>
@@ -98,7 +101,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
           )}
           {user && (
             <div className="cursor-pointer hover:underline">
-              <Link href={`/account`}>account</Link>
+              <Link href={`/account`}>Account</Link>
             </div>
           )}
         </div>
@@ -180,7 +183,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
               {user && (
                 <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                   <Link href="/account" passHref>
-                    <span>account</span>
+                    <span>Account</span>
                   </Link>
                 </div>
               )}

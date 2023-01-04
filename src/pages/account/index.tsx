@@ -58,9 +58,12 @@ const Page = () => {
             <button className="bg-white rounded-full shadow-lg text-deep-turquoise py-2 w-full">
               <Link href={`/account/ticket`} className="text-lg font-semibold">E-Ticket</Link>
             </button>
-            <button className="bg-white rounded-full shadow-lg text-deep-turquoise py-2 w-full">
+            {!(user?.club || user?.roles?.hasOwnProperty('staff')) &&<button className="bg-white rounded-full shadow-lg text-deep-turquoise py-2 w-full">
               <Link href={`/account/stamp`} className="text-lg font-semibold">สะสมแสตมป์</Link>
-            </button>
+            </button>}
+            {(user?.club && user?.roles?.hasOwnProperty('staff')) && <button className="bg-white rounded-full shadow-lg text-deep-turquoise py-2 w-full">
+              <Link href={`/account/stamp/scanner`} className="text-lg font-semibold">สแกนแสตมป์</Link>
+            </button>}
           </div>
         </div>}
       </PageContainer>

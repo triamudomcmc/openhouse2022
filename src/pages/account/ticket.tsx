@@ -5,6 +5,7 @@ import { useQRCode } from "next-qrcode"
 import { TicketTemplate } from "@vectors/TicketTemplate"
 import { DownloadIcon } from "@heroicons/react/outline"
 import { UserIcon } from "@heroicons/react/solid"
+import InApp from "detect-inapp"
 
 import { useAuth } from "@lib/auth"
 import { IUserData } from "@ctypes/account"
@@ -112,7 +113,7 @@ const Page = () => {
                 }}
               />
             </div>
-            <TicketTemplate />
+            <TicketTemplate width="317" height="564"/>
           </div>
           <button
             className="flex text-white bg-orange rounded-full px-6 items-center py-1.5 space-x-1"

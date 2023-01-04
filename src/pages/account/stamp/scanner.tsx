@@ -53,10 +53,6 @@ const Page = () => {
       setButtonDisable(false)
     }
     if (error) {
-      setUid(null)
-      setUidData(null)
-      setStampPress(false)
-      setButtonNum(1)
     }
   }
 
@@ -77,10 +73,10 @@ const Page = () => {
       if (res) setUidData(await res.json())
     }
     if (uid) getUidData(uid)
+    setButtonNum(1)
   }, [uid, user?.uid])
 
   useEffect(() => {
-    stampit()
     if (uidData?.stamp?.hasOwnProperty(user?.club)) setButtonNum(3)
     if (stampPress) setButtonNum(2)
   // eslint-disable-next-line react-hooks/exhaustive-deps

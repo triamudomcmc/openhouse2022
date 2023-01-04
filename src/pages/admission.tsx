@@ -64,7 +64,7 @@ export default function Admission({ query }: any) {
             เรียกได้ว่าโรงเรียนเตรียมอุดมศึกษาเป็นโรงเรียนที่มีความพร้อมที่จะส่งเสริมศักยภาพของนักเรียนเตรียมฯ ในทุกด้าน
           </p>
           <Link passHref href="/directions">
-            <a className="font-light text-md border border-white hover:bg-white hover:text-slate-600 transition-colors px-8 py-4 rounded-full">
+            <a className="font-light text-md border border-white hover:bg-white hover:text-orange transition-colors px-8 py-4 rounded-full">
               การเดินทางมาโรงเรียนเตรียมฯ <LocationMarkerIcon className="w-5 h-5 inline" />
             </a>
           </Link>
