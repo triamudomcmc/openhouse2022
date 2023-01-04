@@ -77,25 +77,25 @@ export default function Ticket(props: InferGetStaticPropsType<typeof getStaticPr
   if(user && accountData)
     return (
         <div>
-          <div className="w-[317px] h-[546px] relative">
+          <div className="w-[951px] h-[1638px] relative">
             {/* Profile Container */}
-            <div className="absolute top-[124px] -right-[12px]">
-              <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? 'cat'}.png`} width={200} height={200} />
+            <div className="absolute top-[372px] -right-[36px]">
+              <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? 'cat'}.png`} width={600} height={600} />
             </div>
             {/*Ticket description*/}
-            <div className="flex flex-col absolute top-[169px] left-[28px] text-purple">
-              <span className="font-bold text-[28px]">{accountData?.Info?.username}</span>
-              <div className="flex flex-col mt-4 font-medium">
-                <span className="leading-4">{accountData?.Info?.firstname}</span>
-                <span className="leading-4 mt-[2px]">{accountData?.Info?.lastname}</span>
+            <div className="flex flex-col absolute top-[507px] left-[84px] text-purple">
+              <span className="font-bold text-[84px]">{accountData?.Info?.username}</span>
+              <div className="flex flex-col mt-12 font-medium">
+                <span className="leading-[48px] text-[45px]">{accountData?.Info?.firstname}</span>
+                <span className="leading-[48px] text-[45px] mt-[6px]">{accountData?.Info?.lastname}</span>
               </div>
-              <div className="flex items-center mt-1 mb-12 space-x-1 text-purple">
-                <UserIcon className="w-4 h-4" />
-                <span className="mt-1 text-sm font-medium">{accountData?.Info?.status}</span>
+              <div className="flex items-center mt-[12px] mb-36 space-x-3 text-purple">
+                <UserIcon className="w-12 h-12" />
+                <span className="mt-3 text-[48px] leading-[81px] font-medium">{accountData?.Info?.status}</span>
               </div>
             </div>
             {/* QR Container */}
-            <div className="absolute w-[104px] h-[104px] left-[30px] bottom-[28px] bg-gray-300 rounded-lg">
+            <div className="absolute w-[312px] h-[312px] left-[90px] bottom-[84px] rounded-3xl">
               <QRcode
                 text={user?.uid}
                 options={{
@@ -103,7 +103,7 @@ export default function Ticket(props: InferGetStaticPropsType<typeof getStaticPr
                   quality: 0.5,
                   level: "M",
                   scale: 4,
-                  width: 104,
+                  width: 312,
                   color: {
                     dark: "#000000",
                     light: "#FFFFFF",
