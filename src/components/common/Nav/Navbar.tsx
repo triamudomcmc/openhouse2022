@@ -75,19 +75,22 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
           <div className=" hover:underline">
             <Link href={`/clubs`}>ชมรม</Link>
           </div>
-          <div className="cursor-pointer hover:underline">
-            <Link href={`/moreInfo`}>ข้อมูลเพิ่มเติม</Link>
+          <div className=" hover:underline">
+            <Link href={`/directions`}>การเดินทางมาโรงเรียน</Link>
           </div>
-          {user?.roles?.hasOwnProperty("tucmc") && (
+          {/* <div className="cursor-pointer hover:underline">
+            <Link href={`/moreInfo`}>ข้อมูลเพิ่มเติม</Link>
+          </div> */}
+          {/* {user?.roles?.hasOwnProperty("tucmc") && (
             <div className=" hover:underline">
               <Link href={`/admin`}>ตรวจสอบข้อมูลหน่วยงาน</Link>
             </div>
-          )}
-          {user?.roles?.hasOwnProperty("clubPresident") && (
+          )} */}
+          {/* {user?.roles?.hasOwnProperty("clubPresident") && (
             <div className=" hover:underline">
               <Link href={`/clubs/${[user?.club]}`}>ข้อมูลหน่วยงาน</Link>
             </div>
-          )}
+          )} */}
           {!user && (
             <div className="cursor-pointer hover:underline">
               <Link href={`/auth`}>Sign in</Link>
@@ -154,21 +157,26 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
                   <span>ขมรม</span>
                 </Link>
               </div>
-              {user?.roles?.hasOwnProperty("tucmc") && (
+              <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
+                <Link href="/diractions" passHref>
+                  <span>การเดินทางมาโรงเรียน</span>
+                </Link>
+              </div>
+              {/* {user?.roles?.hasOwnProperty("tucmc") && (
                 <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                   <Link href={`/admin`}>แก้ไขข้อมูลหน่วยงาน</Link>
                 </div>
-              )}
-              {user?.roles?.hasOwnProperty("clubPresident") && (
+              )} */}
+              {/* {user?.roles?.hasOwnProperty("clubPresident") && (
                 <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                   <Link href={`/clubs/${[user?.club]}/edit`}>แก้ไขข้อมูลหน่วยงาน</Link>
                 </div>
-              )}
-              <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
+              )} */}
+              {/* <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                 <Link href="/moreInfo" passHref>
                   <span>ข้อมูลเพิ่มเดิม</span>
                 </Link>
-              </div>
+              </div> */}
               {user && (
                 <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                   <Link href="/account" passHref>

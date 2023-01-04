@@ -98,28 +98,33 @@ export const Footer: FC<{ theme?: string }> = ({ theme }) => {
             <Link passHref href="/">
               <a className="hover:underline">หน้าแรก</a>
             </Link>
-            <Link passHref href="/records">
+            {/* <Link passHref href="/records">
               <a className="hover:underline">รายการย้อนหลัง</a>
-            </Link>
-            <Link passHref href="/programmes">
+            </Link> */}
+            {/* <Link passHref href="/programmes">
               <a className="hover:underline">สายการเรียน</a>
-            </Link>
+            </Link> */}
             <Link passHref href="/clubs">
               <a className="hover:underline">ชมรม</a>
-            </Link>
-          </div>
-          <div className="flex flex-col mt-2 space-y-2 text-center sm:text-right sm:mt-0 font-display">
-            <Link passHref href="/map">
-              <a className="hover:underline">แผนผัง</a>
-            </Link>
-            <Link passHref href="/admission">
-              <a className="hover:underline">การสอบเข้า</a>
             </Link>
             {user?.uid && (
               <Link passHref href="account/ticket">
                 <a className="hover:underline">บัตรของคุณ</a>
               </Link>
             )}
+          </div>
+          <div className="flex flex-col mt-2 space-y-2 text-center sm:text-right sm:mt-0 font-display">
+            {/* <Link passHref href="/map">
+              <a className="hover:underline">แผนผัง</a>
+            </Link> */}
+            <Link passHref href="/admission">
+              <a className="hover:underline">การสอบเข้า</a>
+            </Link>
+            {/* {user?.uid && (
+              <Link passHref href="account/ticket">
+                <a className="hover:underline">บัตรของคุณ</a>
+              </Link>
+            )} */}
             <Link passHref href="/directions">
               <a className="hover:underline">การเดินทาง</a>
             </Link>
