@@ -80,8 +80,10 @@ const Page = () => {
   }, [uid, user?.uid])
 
   useEffect(() => {
+    stampit()
     if (uidData?.stamp?.hasOwnProperty(user?.club)) setButtonNum(3)
     if (stampPress) setButtonNum(2)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uidData, stampPress, user?.club])
 
   const descriptionVariants: ReactNode[] = [

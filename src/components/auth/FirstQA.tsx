@@ -19,6 +19,7 @@ export const FirstQA: FC<{
           firstname: data.firstname,
           lastname: data.lastname,
           status: data.status,
+          otherStatus: data?.otherStatus ?? '',
           school: data?.school ?? "",
           grade: data?.grade ?? "",
         }}
@@ -62,11 +63,18 @@ export const FirstQA: FC<{
                       ${errors.prefix ? "border-orange" : "border-white"}
                       border block w-full bg-white p-3 focus:outline-none rounded-md
                     `}
+                component='select'
                 id="prefix"
                 name="prefix"
                 placeholder="ด.ช./ด.ญ."
                 type="text"
-              />
+              >
+                <option value="ด.ช.">เด็กชาย</option>
+                <option value="ด.ญ.">เด็กหญิง</option>
+                <option value="นาย">นาย</option>
+                <option value="นาง">นาง</option>
+                <option value="นางสาว">นางสาว</option>
+              </Field>
               {errors.prefix ? (
                 <p className="mt-1 text-orange mb-6">{errors.prefix}</p>
               ) : (
@@ -156,16 +164,34 @@ export const FirstQA: FC<{
                   ผู้ปกครอง
                 </label>
                 <label className="flex items-center my-1 font-display">
-                  <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
-                    name="status"
-                    type="radio"
-                    value="other"
-                  />
-                  อื่น ๆ
+                <div>
+                    <Field
+                      className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none "
+                      name="status"
+                      type="radio"
+                      value="other"
+                    />
+                  </div>
+                  <div className="flex flex-col w-full">
+                    <span>อื่น ๆ โปรดระบุ :</span>
+                    {values.status?.includes("other") && (
+                        <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+                          <Field
+                            className={`
+                                ${errors.status ? "border-orange" : "border-white"}
+                                border block w-full bg-white p-3 focus:outline-none rounded-md
+                              `}
+                            id="otherStatus"
+                            name="otherStatus"
+                            type="text"
+                            placeholder="ระบุสถานภาพของท่าน"
+                          />
+                        </motion.div>
+                    )}
+                  </div>
                 </label>
               </div>
-              {errors.status ? (
+              {errors.otherStatus ? (
                 <p className="mt-1 text-orange mb-6">{errors.status}</p>
               ) : (
                 <div className="h-6" aria-hidden></div>
@@ -274,6 +300,12 @@ const validate = (values: IUserQuestionData) => {
     }
   }
 
+  if (values.status?.includes("other")) {
+    if (!values.otherStatus) {
+      errors.otherStatus = "จำเป็นต้องระบุ"
+    }
+  }
+
   return errors
 }
 
@@ -288,6 +320,11 @@ const formatData: (data: any) => IUserQuestionData = (data) => {
   // not student
   if (data.status !== "student") {
     _data.grade = null
+  }
+
+  if (data.status.includes("other")) {
+    _data.status = data.otherStatus
+    _data.otherStatus = null
   }
 
   return filterNullProperties(_data) as IUserQuestionData

@@ -5,7 +5,8 @@ export default async function getInfo(req, res) {
   if (req.headers.req_uid && req.headers.req_uid == uid) {
     const uidData = await getUserData(uid)
 
-    if (uidData) return res.json(uidData)
+    if (uidData.Info) return res.json(uidData)
+    else if (uidData) return res.status(304).json(uidData)
   }
-  return res.send(`Access Denied, query id: ${uid}`)
+  return res.status(304)
 }

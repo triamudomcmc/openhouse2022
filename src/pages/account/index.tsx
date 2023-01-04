@@ -14,7 +14,7 @@ const Page = () => {
   const { user } = useAuth()
   const router = useRouter()
   const [loading, setLoading] = useState<boolean>(true)
-  const [accountData, setAccountData] = useState<IUserData>()
+  const [accountData, setAccountData] = useState<IUserData | null>(null)
 
   const toAuth = () => {
     if (router) router.push("/auth")
@@ -27,7 +27,7 @@ const Page = () => {
           req_uid: user?.uid,
         },
       })
-      if (res) {
+      if (res.status != 304) {
         setAccountData(await res.json())
         setLoading(false)
       }
@@ -36,10 +36,11 @@ const Page = () => {
     // else router.push({pathname: `/auth`})
   }, [router, user?.uid])
 
-  if (accountData)
-    return (
+  if (accountData?.Info) return (
       <PageContainer>
-        <div className="flex flex-col items-center mt-14">
+        {loading
+        ? <div>Loading...</div>
+        : <div className="flex flex-col items-center mt-14">
           <div className="flex justify-end bg-[#D9D9D9] rounded-full w-[176px] h-[176px] sm:w-[194px] sm:h-[194px]">
             <Image src={`/assets/images/profile/${accountData?.Info?.profileIcon}.png`} height={194} width={194} />
           </div>
@@ -61,12 +62,9 @@ const Page = () => {
               <Link href={`/account/stamp`} className="text-lg font-semibold">สะสมแสตมป์</Link>
             </button>
           </div>
-        </div>
+        </div>}
       </PageContainer>
     )
-  else if (loading) return <div>Loading...</div>
-
-  return toAuth()
 }
 
 export default Page

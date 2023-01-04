@@ -25,6 +25,7 @@ export interface IUserQuestionData {
   firstname?: string
   lastname?: string
   status?: string
+  otherStatus?: string
   school?: string
   grade?: string
   news?: string[]

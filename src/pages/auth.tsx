@@ -20,7 +20,6 @@ import { sendSignInLinkToEmail } from "firebase/auth"
 import { SelectProfile } from "@components/auth/selectProfile"
 
 function combineObjects(obj1: Record<string, any>, obj2: Record<string, any>) {
-  console.log({ ...obj1, ...obj2 })
   return { ...obj1, ...obj2 }
 }
 
@@ -34,7 +33,7 @@ export default function Auth() {
     prefix: "",
     firstname: "",
     lastname: "",
-    status: "",
+    status: "student",
     school: "",
     grade: "",
     news: [],
