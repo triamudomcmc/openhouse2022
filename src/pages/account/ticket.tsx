@@ -17,6 +17,7 @@ const Page = () => {
   const QRcode = useQRCode().Image
   const [loading, setLoading] = useState<boolean>(true)
   const [accountData, setAccountData] = useState<IUserData>()
+  const [imgLoading, setImgLoading] = useState(false)
 
   useEffect(() => {
     const fetcher = async () => {
@@ -34,6 +35,43 @@ const Page = () => {
     // else router.push({pathname: `/auth`, query: { method: 'email' }})
   }, [router, user?.uid])
 
+  const downloadImg = async () => {
+    if (imgLoading) return
+    const imgUrl = `/api/ticket?uid=${encodeURIComponent(user?.uid as string)}`
+
+    setImgLoading(true)
+
+    const res = await fetch(imgUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+
+    if (res.ok) {
+      const inapp = new InApp(navigator.userAgent || navigator.vendor)
+
+      if (inapp.browser === "line" || inapp.browser === "messenger" || inapp.browser === "facebook") {
+        const a = document.createElement("a")
+        a.href = imgUrl
+        a.download = `ticket.png`
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+      } else {
+        const a = document.createElement("a")
+        a.href = window.URL.createObjectURL(await res.blob())
+        a.download = `ticket.png`
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+      }
+    }
+
+    setImgLoading(false)
+  }
+
   if (loading) return <div>Loading...</div>
 
   if (accountData)
@@ -43,7 +81,7 @@ const Page = () => {
           <div className="relative">
             {/* Profile Container */}
             <div className="absolute top-[124px] -right-[12px]">
-              <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? 'cat'}.png`} width={200} height={200} />
+              <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? "cat"}.png`} width={200} height={200} />
             </div>
             {/*Ticket description*/}
             <div className="flex flex-col absolute top-[169px] left-[28px] text-purple">
@@ -76,7 +114,10 @@ const Page = () => {
             </div>
             <TicketTemplate />
           </div>
-          <button className="flex text-white bg-orange rounded-full px-6 items-center py-1.5 space-x-1">
+          <button
+            className="flex text-white bg-orange rounded-full px-6 items-center py-1.5 space-x-1"
+            onClick={downloadImg}
+          >
             <DownloadIcon className="w-4 h-4" />
             <span>Download</span>
           </button>
