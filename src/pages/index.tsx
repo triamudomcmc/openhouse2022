@@ -103,12 +103,17 @@ export default function Home() {
           <div className="relative w-full -z-10 -left-1/3 lg:left-0">
             <StairPrograammes className="object-cover h-full min-h-screen overflow-x-hidden bg-landing-programme" />
           </div>
-          <div className="absolute flex left-[20px] lg:left-[82px] top-[100px]">
-            <BigFrame classname="lg:w-[282px] w-[190px]"/>
+          <div className="absolute flex left-[20px] lg:left-[82px] max-lg:top-[150px] lg:mt-[-200px] ">
+            <BigFrame classname="lg:w-[302px] w-[190px]"/>
             <div className="font-[700] text-[50px] leading-[55px] lg:text-[85px] lg:leading-[90px] mt-[50px] lg:mt-[50px] text-[#404E81]">
               <p>สาย</p>
               <p>การ</p>
               <p>เรียน</p>
+            </div>
+          </div>
+          <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] lg:bottom-[120px]">
+            <div className="text-[16px] leading-[24px] text-right lg:text-[24px] lg:leading-[38px] text-black">
+              <p>เลื่อนลงเพื่ออ่านข้อมูลสายการเรียนที่สนใจ</p>
             </div>
           </div>
       </section> 
@@ -171,18 +176,18 @@ export default function Home() {
       </section>
       
       <section className="relative w-screen ">
-        <div className=" min-w-screen">
-          <GiftedBg classname="absolute -z-10" />
+        <div className="">
+          <GiftedBg classname="absolute min-w-screen -z-10" />
         </div>
         <div className="">
         <div className=" flex items-center justify-center rounded-[6px] w-[125px] h-[40px] lg:w-[333px] lg:h-[111px] gifted mx-auto">
-          <div className="text-[15px] lg:text-[40px] text-[#332B73]  font-[700] text-center">
+          <div className="text-[15px] font-texts lg:text-[48px] leading-[0.89] text-[#332B73]  font-[700] text-center">
             <p>Gifted</p>
             <p>Program</p>
           </div>
         </div>
 
-        <div className="lg:flex lg:items-end lg:min-h-screen lg:w-screen ">
+        <div className="flex flex-col lg:mt-[-111px] lg:flex-row lg:items-end lg:min-h-screen lg:w-screen ">
           <div className="flex mx-auto lg:w-1/2 ">
             <div className="flex items-end w-screen">
               <Link href={'/programmes/gifted-science'}>
@@ -228,14 +233,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative flex justify-center w-screen h-screen bg-clubs">
-        <div className="relative w-full max-sm:hidden">
+      <section className="relative flex justify-center w-screen min-h-screen bg-clubs">
+        <div className="relative w-full max-sm:hidden lg:mt-[100px] ">
           <ClubsBg classname="object-cover h-full min-h-screen overflow-x-hidden bg-clubs " />
         </div>
-        <div className="absolute flex items-end justify-center h-full">
+        <div className="absolute flex items-end justify-center h-full ">
           <ClubsGate classname="h-5/6 sm:h-screen" />
         </div>
-        <div className="absolute flex items-center justify-center w-screen h-screen">
+        <div className="absolute flex items-center justify-center w-screen h-screen lg:mt-[100px]">
           <Link href={"/clubs"}>
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Sun classname="w-[350px] sm:w-[500px]" />
@@ -260,22 +265,22 @@ export default function Home() {
             <WinkWink classname="absolute -z-10 w-[150px] -right-8 top-8" />
             <Link href={"/organization/tucmc"}>
               <button>
-                <TUCMC classname="w-[236px] hover:w-[240px] absolute left-[50px] hover:left-[48px] top-[120px]" />
+                <TUCMC classname="w-[236px] hover:w-[240px] absolute left-[50px] hover:left-[48px] top-[120px] hover:top-[118px]" />
               </button>
             </Link>
             <Link href={"/organization/tusc"}>
               <button>
-                <TUSC classname="w-[150px] hover:w-[154px] absolute left-[332px] hover:left-[330px] top-[106px]" />
+                <TUSC classname="w-[150px] hover:w-[154px] absolute left-[332px] hover:left-[330px] top-[106px] hover:top-[104px]" />
               </button>
             </Link>
             <Link href={"/organization/tupro"}>
               <button>
-                <TUPRO classname="w-[190px] hover:w-[194px] absolute left-[540px] hover:left-[538px] top-[145px]" />
+                <TUPRO classname="w-[190px] hover:w-[194px] absolute left-[540px] hover:left-[538px] top-[145px] hover:top-[143px]" />
               </button>
             </Link>
             <Link href={"/organization/aic"}>
               <button>
-                <AIC classname="w-[140px] hover:w-[144px] absolute left-[785px] hover:left-[783px] top-[107px]" />
+                <AIC classname="w-[140px] hover:w-[144px] absolute left-[785px] hover:left-[783px] top-[107px] hover:top-[105px]" />
               </button>
             </Link>
           </div>
@@ -288,22 +293,22 @@ export default function Home() {
               <OrganizationPhone />
               <Link href={"/organization/tucmc"}>
                 <button>
-                  <TUCMC classname="w-[179px] pr-[27px] active:w-[175px] absolute left-1/2 -translate-x-1/2 top-[290px]" />
+                  <TUCMC classname="w-[179px] pr-[27px] active:w-[175px] absolute left-1/2 -translate-x-1/2 top-[290px] hover:top-[292px]" />
                 </button>
               </Link>
               <Link href={"/organization/tusc"}>
                 <button>
-                  <TUSC classname="w-[100px] active:w-[96px] absolute left-1/2 -translate-x-1/2 top-[505px]" />
+                  <TUSC classname="w-[100px] active:w-[96px] absolute left-1/2 -translate-x-1/2 top-[505px] hover:top-[507px]" />
                 </button>
               </Link>
               <Link href={"/organization/tupro"}>
                 <button>
-                  <TUPRO classname="w-[155px] active:w-[151px] absolute left-1/2 -translate-x-1/2 top-[728px]" />
+                  <TUPRO classname="w-[155px] active:w-[151px] absolute left-1/2 -translate-x-1/2 top-[728px] hover:top-[726px]" />
                 </button>
               </Link>
               <Link href={"/organization/aic"}>
                 <button>
-                  <AIC classname="w-[100px] active:w-[96px] absolute left-1/2 -translate-x-1/2 top-[950px]" />
+                  <AIC classname="w-[100px] active:w-[96px] absolute left-1/2 -translate-x-1/2 top-[950px] hover:top-[948px]" />
                 </button>
               </Link>
             </div>
@@ -319,12 +324,8 @@ export default function Home() {
         <div className="flex justify-center w-screen h-screen ">
           <div className="relative top-0 z-10 h-3/4">
             <MoreInfoFlag classname="w-full h-full" />
-            {/* <div className="h-full text-center -translate-y-1/2 absolue top-1/2">
-              <p>More</p>
-              <p>Info</p>
-            </div> */}
-          <div className="z-10 text-white lg:text-[30px] text-[24px] my-auto lg:leading-[65px] leading-[43px] text-center mt-[40px] min-[1025px]:hidden">
-            <div>
+            <div className="z-10 text-white lg:text-[30px] text-[24px] my-auto lg:leading-[65px] leading-[43px] text-center mt-[40px] min-[1025px]:hidden">
+              <div>
                   <Link href={'/admission'}>
                     <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -339,22 +340,22 @@ export default function Home() {
                     className="lg:w-[460px] w-[350px] rounded-[45px] moreInfo-button"><p>การเดินทางมาโรงเรียน</p></motion.button></Link>
                 </div>
             </div>
-        </div>
+          </div>
         <div className="z-10 flex items-center h-sceen">
-          <div className="z-10 text-white lg:text-[30px] text-[24px] lg:leading-[65px] leading-[43px] text-center my-auto max-[1025px]:hidden">
+          <div className="z-10 text-white text-[30px] leading-[60px] mt-[-200px] ml-[30px] text-center max-[1025px]:hidden">
               <div>
                 <Link href={'/admission'}>
                   <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }} 
-                  className="lg:w-[324px] w-[218px] rounded-[45px] moreInfo-button"><p className="">การสอบเข้าม.4</p></motion.button></Link>
+                  className="w-[320px] ml-[-85px] rounded-[45px] moreInfo-button"><p className="">การสอบเข้าม.4</p></motion.button></Link>
               </div>
-              <div className="mt-[20px]">
+              <div className="mt-[40px]">
                 <Link href={'/directions'}>
                   <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }} 
-                  className="lg:w-[460px] w-[350px] rounded-[45px] moreInfo-button"><p>การเดินทางมาโรงเรียน</p></motion.button></Link>
+                  className="w-[405px] rounded-[45px] moreInfo-button"><p>การเดินทางมาโรงเรียน</p></motion.button></Link>
               </div>
             </div>
           </div>
