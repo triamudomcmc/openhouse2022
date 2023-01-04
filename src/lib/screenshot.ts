@@ -22,5 +22,5 @@ export default async function screenshot(url: string, width: number = 951, heigh
   const page = await browser.newPage()
   await page.setViewport({ width, height })
   await page.goto(url, { waitUntil: "networkidle2" })
-  return await page.screenshot({ type: "png" })
+  return await page.screenshot({ type: "jpeg", quality: 80 })
 }

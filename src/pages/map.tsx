@@ -13,7 +13,12 @@ export default function Map() {
           <p className="text-xl font-bold text-blue-text text-center">Triam Udom Open House 2023</p>
         </div>
 
-        <TransformWrapper initialScale={1} initialPositionX={200} initialPositionY={100}>
+        <TransformWrapper
+          initialScale={1}
+          initialPositionX={0}
+          initialPositionY={0}
+          velocityAnimation={{ sensitivity: 0.02 }}
+        >
           {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
             <div className="flex flex-col items-center mt-8">
               <div className="tools">
@@ -23,7 +28,7 @@ export default function Map() {
               </div>
 
               <TransformComponent>
-                <TriamOPHMap className="cursor-grab max-h-[64rem]" />
+                <TriamOPHMap className="cursor-grab w-full h-[64rem]" />
               </TransformComponent>
             </div>
           )}
