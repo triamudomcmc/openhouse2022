@@ -132,7 +132,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="student"
+                    value="Student"
                   />
                   นักเรียน
                 </label>
@@ -141,7 +141,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="teacher"
+                    value="Teacher"
                   />
                   ครู / บุคลากรโรงเรียน
                 </label>
@@ -150,7 +150,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="alumni"
+                    value="Alumni"
                   />
                   นักเรียนเก่าโรงเรียนเตรียมฯ
                 </label>
@@ -159,7 +159,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="parent"
+                    value="Parent"
                   />
                   ผู้ปกครอง
                 </label>
