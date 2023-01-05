@@ -44,14 +44,12 @@ export default function Admission({ query }: any) {
   const { width } = useWindowDimensions()
 
   return (
-    <main className="min-h-screen w-full flex flex-col pt-[6.5rem] pb-[2rem] items-center text-white bg-normal-gradient">
+    <main className="min-h-screen w-full flex flex-col pt-[6.5rem] pb-[2rem] justify-center items-center text-white bg-normal-gradient">
       <div className="px-4 mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl">
-          การสอบเข้าศึกษาต่อ
-          <br />
-          ระดับมัธยมศึกษาปีที่ 4{" "}
+          พบกับกำหนดการสอบเข้าเร็วๆนี้...
         </h1>
-        <p className="mt-4 text-xl sm:text-2xl">โรงเรียนเตรียมอุดมศึกษา</p>
+        {/* <p className="mt-4 text-xl sm:text-2xl">โรงเรียนเตรียมอุดมศึกษา</p>
         <p className="mt-4 text-lg font-light">ปีการศึกษา 2565</p>
       </div>
       <div className="flex flex-col items-center w-full px-4 space-y-12 lg:px-12 ">
@@ -68,7 +66,7 @@ export default function Admission({ query }: any) {
               การเดินทางมาโรงเรียนเตรียมฯ <LocationMarkerIcon className="inline w-5 h-5" />
             </a>
           </Link>
-        </div>
+        </div> */}
         {/* <div className="flex flex-col w-full">
           <h2 className="mb-6 text-2xl font-semibold text-center">กำหนดการสอบเข้า</h2>
           <p className="text-center">รอติดตามข้อมูล</p>
@@ -163,11 +161,11 @@ export default function Admission({ query }: any) {
             loading="lazy"
           ></iframe>
         </div> */}
-        <div className="flex flex-col items-center">
+        {/* <div className="flex flex-col items-center">
           <h2 className="mt-6 mb-4 text-2xl font-semibold text-center">ข้อมูลสายการเรียนที่เปิดรับ</h2>
           <article className="flex flex-col w-full max-w-[1260px] xl:space-x-8 xl:flex-row justify-center items-center">
             <div className="w-[300px] xl:w-[1024px] sm:min-w-[400px]">
-              {/* <Chart className="w-full lg:w-[270px]" /> */}
+              {/* <Chart className="w-full lg:w-[270px]" /> 
               <Image
                 src="/assets/admission/chart.png"
                 alt="programmes chart"
@@ -276,7 +274,7 @@ export default function Admission({ query }: any) {
               </div>
             </div>
           </article>
-        </div>
+        </div> */}
       </div>
     </main>
   )
