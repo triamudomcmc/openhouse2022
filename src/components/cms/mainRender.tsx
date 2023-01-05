@@ -66,8 +66,8 @@ export const MainRenderer: FC<{
   // }
 
   return (
-    <div className="mb-[86px] z-10">
-      <div className="mx-auto mt-[18px] w-[308px] lg:w-[771px] lg:mt-[27px]">
+    <div className="mb-[86px] z-10 w-screen">
+      <div className="mx-auto mt-[18px] max-w-[750px] px-8 lg:mt-[27px]">
         <div className="text-center lg:mb-[41px]">
           <div className="mt-[20px] lg:mt-[29px]">
             <h1 className="text-xl lg:text-[64px] lg:leading-[77.45px] text-blue-text"> {info.nameTH}</h1>
@@ -84,7 +84,7 @@ export const MainRenderer: FC<{
             )}
           </div>
           <ContactRenderer
-            classname="mt-[3px] ml-[44px] mb-[22px] w-[207px] lg:w-[280px] lg:mx-auto lg:mt-[5px] text-gray-500"
+            classname="mt-[3px] mx-auto mb-[22px] w-[207px] sm:w-[280px] lg:mt-[5px] text-gray-500"
             rawData={contacts}
             editable={false}
           />
@@ -92,7 +92,7 @@ export const MainRenderer: FC<{
         <hr className="border-gray-500 lg:border-[1px]" />
         <div>
           <div
-            className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] 
+            className={`flex mt-[45px] lg:mt-[55px] -ml-3 lg:-ml-6 
                 ${
                   page == "admin"
                     ? ""
@@ -113,7 +113,7 @@ export const MainRenderer: FC<{
             {/* <p className='text-[23px] leading-[28px] lg:text-[40px] lg:leading-[48.5px] font-[900] text-blue-text ml-[9px] lg:ml-[18px] my-auto'>?</p> */}
           </div>
           <div className="w-full mx-auto">
-            <div className="lg:w-[771px] lg:h-[420px] w-[308px] h-[168px] rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]">
+            <div className="sm:max-w-[771px] w-full rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]">
               {/* <ImageUploader
                 editable={false}
                 className="rounded-[15.5px] lg:rounded-[31.2px]"
@@ -140,7 +140,7 @@ export const MainRenderer: FC<{
         </div>
         <div>
           <div
-            className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] 
+            className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:-ml-6
                 ${
                   page == "admin"
                     ? ""
@@ -148,7 +148,7 @@ export const MainRenderer: FC<{
                     ? "w-[194px] lg:w-[346px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]"
                     : type == "programmes"
                     ? "w-[279px] lg:w-[504px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]"
-                    : "w-[194px] lg:w-[576px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]"
+                    : "w-[325px] lg:w-[576px] shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]"
                 } h-[39px] l lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px] `}
           >
             {page != "admin" && (
@@ -160,7 +160,7 @@ export const MainRenderer: FC<{
             <h1 className="font-display lg:text-[36px] font-[800] text-blue-text ml-[10px] my-auto">{text[1]}</h1>
           </div>
           <div className="w-full mx-auto">
-            <div className="lg:w-[771px] lg:h-[420px] w-[308px] h-[168px] rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]">
+            <div className="sm:max-w-[771px] w-full rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]">
               {/* <ImageUploader
                 editable={false}
                 className="rounded-[15.5px] lg:rounded-[31.2px]"
@@ -187,7 +187,7 @@ export const MainRenderer: FC<{
         </div>
         <div>
           <div
-            className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px]
+            className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:-ml-6
                 ${
                   page == "admin"
                     ? ""
@@ -207,7 +207,7 @@ export const MainRenderer: FC<{
             <h1 className="font-display lg:text-[36px] font-[800] text-blue-text ml-[10px] my-auto">{text[2]}</h1>
           </div>
           <div className="w-full mx-auto">
-            <div className="lg:w-[771px] lg:h-[420px] w-[308px] h-[168px] rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]">
+            <div className="lg:max-w-[771px] w-full rounded-[6px] lg:rounded-[15px] mx-auto mt-[21px] lg:mt-[36px]">
               {/* <ImageUploader
                 editable={false}
                 className="rounded-[15.5px] lg:rounded-[31.2px]"
@@ -231,9 +231,9 @@ export const MainRenderer: FC<{
           <QuillEditor className="lg:mt-[46px] mt-[21px] lg:backdrop-blur-[4px]" value={work} readOnly={true} />
         </div>
       </div>
-      <div className="mx-auto w-[325px] lg:w-[901px]">
+      <div className="mx-auto w-full px-10 max-w-[901px]">
         <div
-          className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:ml-[-50px] 
+          className={`flex mt-[45px] lg:mt-[55px] ml-[-15px] lg:-ml-6
                 ${
                   page == "admin" ? "" : "shadow-[1.175px_2.35px_2.35px_rgba(0,0,0,0.25)]"
                 } flex mt-[45px] lg:mt-[55px] w-[153px] h-[39px] lg:w-[292px] lg:h-[68px] bg-white rounded-r-[21.5px] lg:rounded-r-[36.5px]`}

@@ -79,7 +79,7 @@ const ReviewCard: FC<{
   }
 
   return (
-    <div className="lg:flex mt-[26px] lg:mt-[41px]">
+    <div className="lg:flex mt-[26px] lg:mt-[41px] max-w-[850px] w-full">
       {index % 2 == 0 ? (
         <div className="max-lg:hidden">
           <div className="flex lg:flex-col mt-[30px] lg:mt-0 ">
@@ -159,8 +159,8 @@ const ReviewCard: FC<{
       ) : null}
       <div
         className={` ${
-          editable == false ? " border-white bg-white bg-opacity-50" : ""
-        } border border-1 rounded-[22.55px] lg:rounded-[28.84px] w-[325px] lg:w-[703px]`}
+          editable == false ? " border-white bg-white bg-opacity-50 backdrop-blur-md" : ""
+        } border border-1 rounded-[22.55px] lg:rounded-[28.84px] w-full max-w-[703px]`}
       >
         <QuillEditor
           value={review}
