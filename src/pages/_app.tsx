@@ -13,11 +13,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       <link rel="icon" href="/favicon.ico" />
-       {!(router.pathname.includes('/ticket/')) && <Navbar classname=" z-[99]" />}
+      {router?.pathname !== "/ticket" && <Navbar classname=" z-[99]" />}
       <Component {...pageProps} />
       {!(router.pathname.includes('/ticket/')) && <Footer />}
     </AuthProvider>
   )
 }
+
+// {!(router?.pathname.includes('/ticket') && !(router?.pathname.includes('/account/ticket'))) && <Navbar classname=" z-[99]" />}
 
 export default MyApp

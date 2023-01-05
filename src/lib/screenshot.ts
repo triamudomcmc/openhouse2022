@@ -17,10 +17,10 @@ export default async function screenshot(url: string, width: number = 951, heigh
             ? "/usr/bin/google-chrome"
             : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
       }
-  console.log(process.env.AWS_REGION)
+
   const browser = await puppeteer.launch(options)
   const page = await browser.newPage()
   await page.setViewport({ width, height })
   await page.goto(url, { waitUntil: "networkidle2" })
-  return await page.screenshot({ type: "jpeg", quality: 80 })
+  return await page.screenshot({ type: "png" })
 }

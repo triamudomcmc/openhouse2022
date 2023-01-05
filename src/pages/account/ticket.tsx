@@ -38,17 +38,11 @@ const Page = () => {
 
   const downloadImg = async () => {
     if (imgLoading) return
-    const imgUrl = `/api/ticket?uid=${encodeURIComponent(user?.uid as string)}`
+    const imgUrl = `/api/ticket/${encodeURIComponent(user?.uid as string)}`
 
     setImgLoading(true)
 
-    const res = await fetch(imgUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    const res = await fetch(imgUrl)
 
     if (res.ok) {
       const inapp = new InApp(navigator.userAgent || navigator.vendor)
