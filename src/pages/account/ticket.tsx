@@ -8,6 +8,7 @@ import { UserIcon } from "@heroicons/react/solid"
 import InApp from "detect-inapp"
 
 import { useAuth } from "@lib/auth"
+import { getUserData } from "@lib/clientDB"
 import { IUserData } from "@ctypes/account"
 
 import { PageContainer } from "@components/account/PageContainer"
@@ -38,11 +39,24 @@ const Page = () => {
 
   const downloadImg = async () => {
     if (imgLoading) return
-    const imgUrl = `/api/ticket/${encodeURIComponent(user?.uid as string)}`
+
+    const userData = await getUserData(user?.uid)
+
+    const imgUrl = `/api/ticket`
 
     setImgLoading(true)
 
-    const res = await fetch(imgUrl)
+    const res = await fetch(imgUrl, {
+      method: 'POST',
+      body: JSON.stringify({
+        uid: userData?.uid,
+        profileIcon: userData?.Info?.profileIcon,
+        username: userData?.Info?.username,
+        firstname: userData?.Info?.firstname,
+        lastname: userData?.Info?.lastname,
+        status: userData?.Info?.status
+      })
+    })
 
     if (res.ok) {
       const inapp = new InApp(navigator.userAgent || navigator.vendor)
