@@ -104,6 +104,9 @@ const Page = () => {
                 <span className="text-sm font-medium mt-1">{accountData?.Info?.status}</span>
               </div>
             </div>
+            <div className="absolute bottom-[196px] left-0 w-full flex justify-center">
+              <span className="font-semibold text-purple">{user?.uid.slice(4, 12).toUpperCase()}</span>
+            </div>
             {/* QR Container */}
             <div className="absolute w-[104px] h-[104px] left-[28px] bottom-[45px] bg-gray-300 rounded-lg">
               <QRcode
@@ -116,7 +119,7 @@ const Page = () => {
                   width: 104,
                   color: {
                     dark: "#000000",
-                    light: "#D9D9D9",
+                    light: "#ffffff",
                   },
                 }}
               />

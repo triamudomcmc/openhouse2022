@@ -14,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <AuthProvider>
       <link rel="icon" href="/favicon.ico" />
       {router?.pathname !== "/ticket" && <Navbar classname=" z-[99]" />}
-      <Component {...pageProps} />
+      <div className="min-h-screen w-full">
+        <Component {...pageProps} />
+      </div>
       {!(router.pathname.includes('/ticket/')) && <Footer />}
     </AuthProvider>
   )

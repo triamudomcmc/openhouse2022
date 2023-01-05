@@ -104,7 +104,7 @@ const Page = ({ contents }: { contents: any }) => {
   }, [searchContext, contents])
 
   return (
-    <main className="text-white px-8 pt-[6.5rem] pb-[2rem] min-h-full bg-normal-gradient">
+    <main className="text-white px-8 pt-[6.5rem] pb-[2rem] min-h-screen bg-normal-gradient">
       <div className="max-w-6xl mx-auto">
         <div
           onClick={() => {

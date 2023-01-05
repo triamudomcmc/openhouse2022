@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useRouter } from "next/router"
+import Router, { useRouter } from "next/router"
 
 import { ArrowCircleLeftIcon } from "@heroicons/react/outline"
 import Image from "next/image"
@@ -58,11 +58,11 @@ const Page = () => {
             <button className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
               <Link href={`/account/ticket`} className="text-lg font-semibold">E-Ticket</Link>
             </button>
-            {!(user?.club || user?.roles?.hasOwnProperty('staff')) &&<button className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
-              <Link href={`/account/stamp`} className="text-lg font-semibold">สะสมแสตมป์</Link>
+            {!(user?.club || user?.roles?.hasOwnProperty('staff')) &&<button onClick={() => {Router.push("/account/stamp")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
+              <span className="text-lg font-semibold">สะสมแสตมป์</span>
             </button>}
-            {(user?.club && user?.roles?.hasOwnProperty('staff')) && <button className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
-              <Link href={`/account/stamp/scanner`} className="text-lg font-semibold">สแกนแสตมป์</Link>
+            {(user?.club && user?.roles?.hasOwnProperty('staff')) && <button onClick={() => {Router.push("/account/stamp/scanner")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
+              <span className="text-lg font-semibold">สแกนแสตมป์</span>
             </button>}
             {/* <button onClick={signout} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
               <p className="text-lg font-semibold">Sign out</p>
