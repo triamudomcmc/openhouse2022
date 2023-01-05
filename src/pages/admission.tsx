@@ -45,33 +45,34 @@ export default function Admission({ query }: any) {
 
   return (
     <main className="min-h-screen w-full flex flex-col pt-[6.5rem] pb-[2rem] items-center text-white bg-normal-gradient">
-      <div className="text-center mb-8 px-4">
+      <div className="px-4 mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl">
           การสอบเข้าศึกษาต่อ
           <br />
           ระดับมัธยมศึกษาปีที่ 4{" "}
         </h1>
         <p className="mt-4 text-xl sm:text-2xl">โรงเรียนเตรียมอุดมศึกษา</p>
-        <p className="font-light mt-4 text-lg">ปีการศึกษา 2565</p>
+        <p className="mt-4 text-lg font-light">ปีการศึกษา 2565</p>
       </div>
-      <div className="px-4 md:px-12 lg:px-48 flex flex-col space-y-12 w-full items-center">
+      <div className="flex flex-col items-center w-full px-4 space-y-12 lg:px-12 ">
         <div className="bg-[#e9ceaf] max-w-[600px] rounded-2xl bg-opacity-40 px-8 py-8 flex flex-col items-center">
-          <h2 className="font-semibold text-2xl mb-4 text-center">เกี่ยวกับโรงเรียนเตรียมอุดมศึกษา</h2>
-          <p className="indent-4 mb-6 leading-loose font-texts text-justify">
+          <h2 className="mb-4 text-2xl font-semibold text-center">เกี่ยวกับโรงเรียนเตรียมอุดมศึกษา</h2>
+          <p className="mb-6 leading-loose text-justify indent-4 font-texts">
             โรงเรียนเตรียมอุดมศึกษา เป็นโรงเรียนมัธยมปลายขนาดใหญ่พิเศษ มีทำเลที่ตั้งอยู่ใจกลางเมือง ติด BTS สถานีสยาม
             เดินทางสะดวก บรรยากาศโดยรอบโรงเรียนมีสีสัน
             รายล้อมไปด้วยห้างสรรพสินค้าและสถานที่สำหรับอ่านหนังสือที่สามารถมาได้ทุกเวลาหลังเลิกเรียน
             เรียกได้ว่าโรงเรียนเตรียมอุดมศึกษาเป็นโรงเรียนที่มีความพร้อมที่จะส่งเสริมศักยภาพของนักเรียนเตรียมฯ ในทุกด้าน
           </p>
           <Link passHref href="/directions">
-            <a className="font-light text-md border border-white hover:bg-white hover:text-orange transition-colors px-8 py-4 rounded-full">
-              การเดินทางมาโรงเรียนเตรียมฯ <LocationMarkerIcon className="w-5 h-5 inline" />
+            <a className="px-8 py-4 font-light transition-colors border border-white rounded-full text-md hover:bg-white hover:text-orange">
+              การเดินทางมาโรงเรียนเตรียมฯ <LocationMarkerIcon className="inline w-5 h-5" />
             </a>
           </Link>
         </div>
-        <div className="flex flex-col w-full">
-          <h2 className="font-semibold text-2xl mb-6 text-center">กำหนดการสอบเข้า</h2>
-          <div className="flex flex-col space-y-4 lg:flex-row lg:space-x-4 lg:space-y-0 w-full items-center justify-center">
+        {/* <div className="flex flex-col w-full">
+          <h2 className="mb-6 text-2xl font-semibold text-center">กำหนดการสอบเข้า</h2>
+          <p className="text-center">รอติดตามข้อมูล</p>
+          <div className={`flex flex-col items-center justify-center w-full space-y-4 ${width > LG ? "flex-row space-x-4 space-y-0" : ""}`}>
             <Milestone data={{ date: "19-23", month: "ก.พ. 65", event: "เปิดรับสมัคร" }} />
             {width > LG ? (
               <ArrowRightIcon className="w-5 h-5 text-white" />
@@ -98,19 +99,19 @@ export default function Admission({ query }: any) {
             )}
             <Milestone data={{ date: "21", month: "มี.ค. 65", event: "วันมอบตัว" }} />
           </div>
-        </div>
-        <div className="flex flex-col justify-center items-center px-4 mt-4 w-full">
-          <h2 className="font-semibold text-xl mb-4 text-center">
+        </div> */}
+        {/* <div className="flex flex-col items-center justify-center w-full px-4 mt-4">
+          <h2 className="mb-4 text-xl font-semibold text-center">
             รายละเอียดในการรับสมัครนักเรียนชั้นมัธยมศึกษาปีที่ 4 ปีการศึกษา 2565
           </h2>
-          <p className="text-center sm:text-left text-sm font-light mb-6">
+          <p className="mb-6 text-sm font-light text-center sm:text-left">
             ท่านรองฯ ทรงเกียรติ เทพประเสนกล่าวถึงข้อมูลเกี่ยวกับการสอบเข้า, แนวทางการจัดการเรียนสอน, และอื่น ๆ อีกมากมาย
           </p>
-          <div className="flex sm:flex-row flex-col sm:space-y-0 space-y-2 space-x-0 sm:space-x-4 mb-6">
+          <div className="flex flex-col mb-6 space-x-0 space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4">
             {"back" in query && (
               <motion.a
                 whileHover={{ scale: 1.05 }}
-                className="font-light text-md border border-white text-white hover:text-slate-700 hover:bg-white hover:opacity-90 transition-opacity px-10 py-4 rounded-full"
+                className="px-10 py-4 font-light text-white transition-opacity border border-white rounded-full text-md hover:text-slate-700 hover:bg-white hover:opacity-90"
                 href="https://triamudom.ac.th/website"
                 rel="noreferrer"
                 onClick={() => {
@@ -130,14 +131,14 @@ export default function Admission({ query }: any) {
             )}
             <motion.a
               whileHover={{ scale: 1.05 }}
-              className="font-light text-center text-md bg-white text-blue-text hover:opacity-90 transition-opacity px-12 py-4 rounded-full"
+              className="px-12 py-4 font-light text-center transition-opacity bg-white rounded-full text-md text-blue-text hover:opacity-90"
               href="https://admission.triamudom.ac.th"
               rel="noreferrer"
             >
               สมัครสอบเลย !
             </motion.a>
           </div>
-          {/* <div className="">
+          <div className="">
             <iframe
               width="560"
               height="315"
@@ -148,10 +149,10 @@ export default function Admission({ query }: any) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </div> */}
-        </div>
-        <div className="flex flex-col itesm-center">
-          <h2 className="font-semibold text-2xl mt-6 mb-4 text-center">การเดินทางมาสถานที่สอบ</h2>
+          </div>
+        </div> */}
+        {/* <div className="flex flex-col itesm-center">
+          <h2 className="mt-6 mb-4 text-2xl font-semibold text-center">การเดินทางมาสถานที่สอบ</h2>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.768954036868!2d100.5455547146062!3d13.912753890243433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2830b0b06eef3%3A0x5ade5eb90113ca18!2sIMPACT!5e0!3m2!1sen!2sth!4v1642815661950!5m2!1sen!2sth"
             width="600"
@@ -161,9 +162,9 @@ export default function Admission({ query }: any) {
             allowFullScreen
             loading="lazy"
           ></iframe>
-        </div>
+        </div> */}
         <div className="flex flex-col items-center">
-          <h2 className="font-semibold text-2xl mt-6 mb-4 text-center">ข้อมูลสายการเรียนที่เปิดรับ</h2>
+          <h2 className="mt-6 mb-4 text-2xl font-semibold text-center">ข้อมูลสายการเรียนที่เปิดรับ</h2>
           <article className="flex flex-col w-full max-w-[1260px] xl:space-x-8 xl:flex-row justify-center items-center">
             <div className="w-[300px] xl:w-[1024px] sm:min-w-[400px]">
               {/* <Chart className="w-full lg:w-[270px]" /> */}
@@ -175,7 +176,7 @@ export default function Admission({ query }: any) {
                 className="w-full"
               />
             </div>
-            <div className="mt-6 flex flex-col space-y-4">
+            <div className="flex flex-col mt-6 space-y-4">
               <div>
                 <motion.a
                   href="https://www.triamudom.ac.th/website/images/65/02/Admission4-65.pdf"
@@ -195,43 +196,43 @@ export default function Admission({ query }: any) {
                 <span className="font-semibold">ภาษา-ภาษา สอบ 3 วิขา :</span> ภาษาไทย สังคมศึกษา ภาษาอังกฤษ
               </div>
               <div className="bg-[#C0AFE9] rounded-xl inline bg-opacity-40 px-6 py-8">
-                <h3 className="text-2xl font-bold mb-4">สิ่งที่ควรรู้ในวันสอบ</h3>
-                <ul className="leading-loose flex flex-col space-y-4">
+                <h3 className="mb-4 text-2xl font-bold">สิ่งที่ควรรู้ในวันสอบ</h3>
+                <ul className="flex flex-col space-y-4 leading-loose">
                   <li>
-                    <span className="font-semibold text-lg">
+                    <span className="text-lg font-semibold">
                       <LocationMarkerIcon className="inline w-8 h-8" /> สถานที่สอบ - อิมแพ็ค เมืองทองธานี จ.นนทบุรี
                     </span>
                   </li>
                   <li>
-                    <span className="font-semibold text-lg">
+                    <span className="text-lg font-semibold">
                       <PencilAltIcon className="inline w-8 h-8" /> สิ่งที่สามารถนำเข้าห้องสอบได้
                     </span>
-                    <div className="flex flex-col xl:flex-row xl:space-x-16 ml-10 mt-2 py-2">
+                    <div className="flex flex-col py-2 mt-2 ml-10 xl:flex-row xl:space-x-16">
                       <div className="flex flex-col space-y-6">
                         <ul>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> บัตรประจำตัวผู้สอบ
+                              <CheckCircleIcon className="inline w-5 h-5" /> บัตรประจำตัวผู้สอบ
                             </span>
                           </li>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> บัตรประจำตัวประชาชน
+                              <CheckCircleIcon className="inline w-5 h-5" /> บัตรประจำตัวประชาชน
                             </span>
                           </li>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> ดินสอ 2B
+                              <CheckCircleIcon className="inline w-5 h-5" /> ดินสอ 2B
                             </span>
                           </li>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> ยางลบดินสอ
+                              <CheckCircleIcon className="inline w-5 h-5" /> ยางลบดินสอ
                             </span>
                           </li>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> กบเหลาดินสอ
+                              <CheckCircleIcon className="inline w-5 h-5" /> กบเหลาดินสอ
                             </span>
                           </li>
                         </ul>
@@ -240,22 +241,22 @@ export default function Admission({ query }: any) {
                         <ul>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> ปากกาสีน้ำเงิน
+                              <CheckCircleIcon className="inline w-5 h-5" /> ปากกาสีน้ำเงิน
                             </span>
                           </li>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> เสื้อกันหนาว
+                              <CheckCircleIcon className="inline w-5 h-5" /> เสื้อกันหนาว
                             </span>
                           </li>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> นาฬิกาชนิดเข็ม
+                              <CheckCircleIcon className="inline w-5 h-5" /> นาฬิกาชนิดเข็ม
                             </span>
                           </li>
                           <li>
                             <span className="font-light">
-                              <CheckCircleIcon className="w-5 h-5 inline" /> หน้ากากอนามัย
+                              <CheckCircleIcon className="inline w-5 h-5" /> หน้ากากอนามัย
                             </span>
                           </li>
                         </ul>
@@ -263,7 +264,7 @@ export default function Admission({ query }: any) {
                     </div>
                     <div>
                       <span className="font-light">
-                        <ExclamationIcon className="w-5 h-5 inline" /> นอกเหนือจากที่กล่าวไปข้างต้น
+                        <ExclamationIcon className="inline w-5 h-5" /> นอกเหนือจากที่กล่าวไปข้างต้น
                         ไม่สามารถนำเข้าห้องสอบได้ เช่น เงิน อาหาร น้ำดื่ม ช้อน ลิขวิดเปเปอร์ ถุงพลาสติก วงเวียน
                         ไม้บรรทัด ปากกาหลากสียกเว้นสีน้ำเงิน หมวก แว่นดำ หน้ากากผ้าลวดลาย โทรศัพท์ ผ้าห่ม ผ้าพันคอ
                         นาฬิกาปลุกหรือนาฬิกาตั้งโต๊ะ ทิชชู่ กระดาษอย่างอื่นนอกเหนือจากบัตรประจำตัวสอบ และอื่น ๆ
