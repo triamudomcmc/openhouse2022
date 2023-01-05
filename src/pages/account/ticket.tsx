@@ -123,13 +123,13 @@ const Page = () => {
             </div>
             <TicketTemplate width="317" height="564"/>
           </div>
-          <button
+          {/* <button
             className="flex text-white bg-orange rounded-full px-6 items-center py-1.5 space-x-1"
             onClick={downloadImg}
           >
             <DownloadIcon className="w-4 h-4" />
             <span>Download</span>
-          </button>
+          </button> */}
         </div>
       </PageContainer>
     )
