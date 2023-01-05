@@ -197,7 +197,7 @@ export const FirstQA: FC<{
                 <div className="h-6" aria-hidden></div>
               )}
             </motion.div>
-            {["student", "teacher"].includes(values.status) && (
+            {["Student", "Teacher"].includes(values.status) && (
               <>
                 {/* <hr className="text-white my-2 h-4" /> */}
                 <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} layout="position">
@@ -220,7 +220,7 @@ export const FirstQA: FC<{
                     <div className="h-6" aria-hidden></div>
                   )}
                 </motion.div>
-                {values.status === "student" && (
+                {values.status === "Student" && (
                   <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} layout="position">
                     <label className="block my-1 text-blue-text" htmlFor="grade">
                       ระดับชั้น
