@@ -181,7 +181,7 @@ export default function Home() {
           <GiftedBg classname="absolute min-w-screen -z-10" />
         </div>
         <div className="">
-          <div className="relative z-[99] flex items-center justify-center rounded-[6px] w-[125px] h-[40px] lg:w-[333px] lg:h-[111px] gifted mx-auto">
+          <div className="relative z-20 flex items-center justify-center rounded-[6px] w-[125px] h-[40px] lg:w-[333px] lg:h-[111px] gifted mx-auto">
             <div className="text-[15px] font-texts lg:text-[48px] leading-[0.89] text-[#332B73] font-[700] text-center">
               <p>Gifted</p>
               <p>Program</p>
