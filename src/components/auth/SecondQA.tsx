@@ -48,7 +48,7 @@ export const SecondQA: FC<{
               <div className=" flex flex-col space-y-4" role="group" aria-labelledby="news-group">
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="news"
                     type="checkbox"
                     value="facebook"
@@ -57,7 +57,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none unc"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none unc"
                     name="news"
                     type="checkbox"
                     value="instagram"
@@ -66,7 +66,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none unc"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none unc"
                     name="news"
                     type="checkbox"
                     value="twitter"
@@ -75,7 +75,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none unc"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none unc"
                     name="news"
                     type="checkbox"
                     value="tiktok"
@@ -84,7 +84,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="news"
                     type="checkbox"
                     value="studygram"
@@ -93,7 +93,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="news"
                     type="checkbox"
                     value="education pages"
@@ -102,7 +102,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="news"
                     type="checkbox"
                     value="triam student"
@@ -111,7 +111,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="news"
                     type="checkbox"
                     value="friends"
@@ -120,7 +120,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="news"
                     type="checkbox"
                     value="parents"
@@ -129,7 +129,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="news"
                     type="checkbox"
                     value="school"
@@ -171,7 +171,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="ishrink-0 nline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="purpose"
                     type="checkbox"
                     value="watch activity"
