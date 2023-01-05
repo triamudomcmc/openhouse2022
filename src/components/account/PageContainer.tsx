@@ -6,8 +6,8 @@ import Router from "next/router"
 
 export const PageContainer: FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className="min-h-screen w-full bg-cream py-28">
-      <div className="max-w-4xl mx-auto px-10">
+    <div className="min-h-screen flex items-center w-full bg-cream py-28">
+      <div className="max-w-4xl mx-auto px-10 w-full">
         <div
           onClick={() => {
             Router.back()
