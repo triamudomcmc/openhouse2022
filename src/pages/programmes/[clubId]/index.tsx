@@ -110,7 +110,7 @@ const LandingEdit = ({ clubId, finalData }) => {
       <div className='flex flex-col overflow-hidden max-lg:bg-gradient-edit lg:bg-cream'>
           <ArticleBackground classname='max-lg:hidden' />
           <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[175px] flex max-[1080px]:ml-[30px] z-10 '>
-              <Link href={`/clubs`}>
+              <Link href={`/`}>
                   <button className='flex'>
                       <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />
                       <p className='text-xs leading-[15px] ml-[3.68px] lg:ml-[7.25px] lg:text-xl lg:leading-[29px]'>ย้อนกลับ</p>
@@ -120,7 +120,7 @@ const LandingEdit = ({ clubId, finalData }) => {
           
           <MainRenderer
               // editable={false}
-              type="programme"
+              type="programmes"
               info={info}
               contacts={contacts}
               clubArticle={clubArticle}

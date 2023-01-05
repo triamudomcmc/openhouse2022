@@ -43,7 +43,7 @@ export const MainRenderer: FC<{
   if (type == "organization") {
     text = ["องค์กรนี้ทำอะไร ?", "ตำแหน่งหน้าที่", "ผลงานขององค์กร"]
   } else if (type == "programmes") {
-    text = ["การรับสมัครและการสอบเข้า", "วิชาหรือหลักสูตรเพิ่มเติมที่เรียน", "ความน่าสนใจของสายการเรียน"]
+  text = ["การรับสมัครและการสอบเข้า", "วิชาหรือหลักสูตรเพิ่มเติมที่เรียน", "ความน่าสนใจของสายการเรียน"]
   } else {
     text = ["ชมรมนี้ทำอะไร ?", "ประโยชน์ที่ได้รับจากการเข้าชมรม", "ผลงานของชมรม"]
   }
@@ -71,9 +71,9 @@ export const MainRenderer: FC<{
         <div className="text-center lg:mb-[41px]">
           <div className="mt-[20px] lg:mt-[29px]">
             <h1 className="text-xl lg:text-[64px] lg:leading-[77.45px] text-blue-text"> {info.nameTH}</h1>
-            <h2 className="font-[400px] text-md lg:text-[45px] lg:leading-[54.5px] text-black opacity-60">
+            {/* <h2 className="font-[400px] text-md lg:text-[45px] lg:leading-[54.5px] text-black opacity-60">
               {info.nameEN}
-            </h2>
+            </h2> */}
             {info?.nameEN?.includes("AIC") ||
             info?.nameEN?.includes("TUCMC") ||
             info?.nameEN?.includes("TUSC") ||
