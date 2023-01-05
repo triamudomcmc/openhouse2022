@@ -30,6 +30,9 @@ const TicketGen = () => {
                   <span className="mt-3 text-[48px] leading-[81px] font-medium">{props?.status}</span>
                 </div>
               </div>
+              <div className="absolute bottom-[588px] left-0 w-full flex justify-center">
+               <span className="font-semibold text-purple text-[48px]">{props?.account_id}</span>
+              </div>
               {/* QR Container */}
               <div className="absolute w-[312px] h-[312px] left-[90px] bottom-[84px] rounded-3xl">
                 <QRcode

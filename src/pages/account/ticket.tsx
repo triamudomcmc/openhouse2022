@@ -55,7 +55,8 @@ const Page = () => {
         username: userData?.Info?.username,
         firstname: userData?.Info?.firstname,
         lastname: userData?.Info?.lastname,
-        status: userData?.Info?.status
+        status: userData?.Info?.status,
+        account_id: userData?.account_id
       })
     })
 
@@ -106,7 +107,7 @@ const Page = () => {
               </div>
             </div>
             <div className="absolute bottom-[196px] left-0 w-full flex justify-center">
-              <span className="font-semibold text-purple">{user?.uid.slice(4, 12).toUpperCase()}</span>
+              <span className="font-semibold text-purple">{accountData?.account_id}</span>
             </div>
             {/* QR Container */}
             <div className="absolute w-[104px] h-[104px] left-[28px] bottom-[45px] bg-gray-300 rounded-lg">
