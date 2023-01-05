@@ -87,7 +87,7 @@ async function getProdContent(req, res) {
   return res.json({ nonexisted: true })
 }
 
-const raw = JSON.parse(fs.readFileSync(`./src/_data/_maps/allMap.json`, {encoding: 'utf-8'}))
+const raw = JSON.parse(fs.readFileSync(`/src/_data/_maps/allMap.json`, {encoding: 'utf-8'}))
 
 async function getContent(req, res) {
   const { clubId } = req.query
