@@ -21,6 +21,7 @@ export default async function screenshot(url: string, width: number = 911, heigh
   const browser = await puppeteer.launch(options)
   const page = await browser.newPage()
   await page.evaluate(() => document.body.style.background = 'transparent');
+  await page.evaluateHandle('document.fonts.ready')
   await page.setViewport({ width, height })
   await page.goto(url, { waitUntil: "networkidle2" })
   return await page.screenshot({ type: "png",omitBackground: true})
