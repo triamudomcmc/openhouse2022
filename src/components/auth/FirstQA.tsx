@@ -150,7 +150,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="alumini"
+                    value="alumni"
                   />
                   นักเรียนเก่าโรงเรียนเตรียมฯ
                 </label>
