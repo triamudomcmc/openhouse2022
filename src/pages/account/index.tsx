@@ -55,8 +55,8 @@ const Page = () => {
             <span className="mt-1 text-sm font-medium">{accountData?.Info?.status}</span>
           </div>
           <div className="w-full max-w-[220px] mx-auto flex flex-col space-y-4">
-            <button className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
-              <Link href={`/account/ticket`} className="text-lg font-semibold">E-Ticket</Link>
+            <button onClick={() => {Router.push("/account/ticket")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
+              <span className="text-lg font-semibold">E-Ticket</span>
             </button>
             {!(user?.club || user?.roles?.hasOwnProperty('staff')) &&<button onClick={() => {Router.push("/account/stamp")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
               <span className="text-lg font-semibold">สะสมแสตมป์</span>
