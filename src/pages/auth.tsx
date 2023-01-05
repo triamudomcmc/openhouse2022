@@ -154,7 +154,7 @@ export default function Auth() {
                     onClick={() => signinWithGoogle("/account")}
                     className="w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]"
                   >
-                    <div className="flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center">
+                    <div className="flex flex-row mx-auto w-[170px] lg:w-[240px] relative items-center">
                       <GoogleIcon classname="max-lg:hidden" width="30" height="30" />
                       <GoogleIcon classname="lg:hidden" width="24" height="24" />
                       <p className="text-[14px] ml-[10px] lg:ml-[20px] lg:text-[20px] font-500 text-[#37498B]">
@@ -171,7 +171,7 @@ export default function Auth() {
                     onClick={() => setMethod("email")}
                     className="w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]"
                   >
-                    <div className="flex flex-row mx-auto w-[155px] lg:w-[225px] relative items-center">
+                    <div className="flex flex-row mx-auto w-[165px] lg:w-[225px]  relative items-center">
                       <MailIcon className="max-lg:hidden" width="30" height="30" />
                       <MailIcon className="lg:hidden" width="24" height="24" />
                       <p className="text-[14px] ml-[10px] lg:ml-[20px] lg:text-[20px] font-500 text-[#37498B]">
