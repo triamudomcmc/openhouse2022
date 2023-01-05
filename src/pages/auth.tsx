@@ -114,7 +114,9 @@ export default function Auth() {
         {user?.uid ? (
           <div>
             <p className="text-[28px] lg:text-[40px] font-[700] text-[#37498B]">Sign out / ออกจากระบบ</p>
-            <motion.div whileHover={{ scale: 1.05 }}>
+            <motion.div 
+            className="flex justify-center"
+            whileHover={{ scale: 1.05 }}>
               <button
                 onClick={signout}
                 className="w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-cream rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]"
@@ -141,10 +143,12 @@ export default function Auth() {
           </div>
         ) : (
           <div>
-            <p className="text-[28px] lg:text-[40px] font-[700] text-[#37498B]">Register / ลงทะเบียน</p>
+            <p className="text-[28px] text-center lg:text-[40px] font-[700] text-[#37498B]">Register / ลงทะเบียน</p>
             {method == "all" ? (
               <div>
-                <motion.div whileHover={{ scale: 1.05 }}>
+                <motion.div 
+                className="flex justify-center"
+                whileHover={{ scale: 1.05 }}>
                   <button
                     onClick={() => signinWithGoogle("/account")}
                     className="w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]"
@@ -159,7 +163,9 @@ export default function Auth() {
                   </button>
                 </motion.div>
 
-                <motion.div whileHover={{ scale: 1.05 }}>
+                <motion.div 
+                className="flex justify-center"
+                whileHover={{ scale: 1.05 }}>
                   <button
                     onClick={() => setMethod("email")}
                     className="w-[200px] h-[40px] lg:w-[340px] lg:h-[65px] bg-white rounded-[112px] lg:rounded-[53px] mt-[15px] lg:mt-[30px] shadow-[2px_4px_4px_rgba(0,0,0,0.25)]"
@@ -174,17 +180,17 @@ export default function Auth() {
                   </button>
                 </motion.div>
                 <div className="text-blue-text text-center w-full font-display mt-[25px]">
-                  <p className="leading-2">
+                  <p className="leading-2 px-[50px]">
                     การลงทะเบียนถือว่ายอมรับ
                     <Link href="/privacy-policy" passHref>
-                      <a target="_blank" className="text-orange underline mx-1 whitespace-nowrap">
+                      <a target="_blank" className="mx-1 underline text-orange whitespace-nowrap">
                         นโยบายความเป็นส่วนตัว
                       </a>
                     </Link>
                     <br />
                     และ
                     <Link href="/tos" passHref>
-                      <a target="_blank" className="text-orange underline mx-1">
+                      <a target="_blank" className="mx-1 underline text-orange">
                         ข้อตกลงการใช้งาน
                       </a>
                     </Link>
@@ -194,10 +200,10 @@ export default function Auth() {
             ) : (
               <div>
                 <a
-                  className="font-display text-black text-center pb-2 hover:opacity-80 transition-opacity cursor-pointer"
+                  className="pb-2 text-center text-black transition-opacity cursor-pointer font-display hover:opacity-80"
                   onClick={() => setMethod("all")}
                 >
-                  <ArrowLeftIcon className="w-4 h-4 text-black inline mr-2" />
+                  <ArrowLeftIcon className="inline w-4 h-4 mr-2 text-black" />
                   ย้อนกลับ
                 </a>
                 <Formik
@@ -256,7 +262,7 @@ export default function Auth() {
                       </>
                       {/* submit */}
                       <div className="py-6 text-white">
-                        <button className="w-full p-3 mb-3 bg-orange rounded-full" type="submit">
+                        <button className="w-full p-3 mb-3 rounded-full bg-orange" type="submit">
                           ยืนยันอีเมล
                         </button>
                       </div>

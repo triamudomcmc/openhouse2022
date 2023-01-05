@@ -111,21 +111,22 @@ export default function Home() {
               <p>เรียน</p>
             </div>
           </div>
-          <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] lg:bottom-[120px]">
-            <div className="text-[16px] leading-[24px] text-right lg:text-[24px] lg:leading-[38px] text-black">
-              <p>เลื่อนลงเพื่ออ่านข้อมูลสายการเรียนที่สนใจ</p>
+          <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] max-lg:w-[193px] max-lg:h-[65px] max-lg:backdrop-blur-lg max-lg:bg-[#FADCC5] max-lg:rounded-xl max-lg:bg-opacity-70 lg:bottom-[120px]">
+            <div className="text-[16px] leading-[24px] lg:text-[24px] flex flex-col items-center justify-center lg:leading-[38px] text-black">
+              <p>เลื่อนลงเพื่ออ่านข้อมูล</p>
+              <p>สายการเรียนที่สนใจ</p>
             </div>
           </div>
       </section> 
 
   
-      <section className="relative min-h-screen bg-[#F9DBC4]" >
+      <section className="relative lg:min-h-[1024px] bg-[#F9DBC4]" >
         {width >= LG ? (
-        <div className="relative min-h-screen w-screen bg-[#F9DBC4] flex justify-between">
-          <div className="min-h-screen ">
+        <div className="relative w-screen bg-[#F9DBC4] flex justify-between">
+          <div className="lg:min-h-[1024px]">
             <RomanTowerClubs classname="h-full -translate-x-1/3 xl:translate-x-0 "/>
           </div>
-          <div className="flex w-11/12 justify-evenly items-start min-h-screen xl:ml-[150px] flex-row xl:mb-[100px] ">
+          <div className="flex w-11/12 justify-evenly items-start xl:ml-[150px] flex-row xl:mb-[100px] ">
             <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
               <Programme width="220" height="280" className="z-10 mx-auto w-[175px] xl:w-[200px]" name={"sci-math"} thainame={"วิทย์-คณิต"} />
               <Programme width="244" height="253" className="z-10 mx-auto ml-[20px] w-[175px] xl:w-[200px]" name={"arts-math"} thainame={"ภาษา-คณิต"} />
@@ -145,8 +146,8 @@ export default function Home() {
           </div> 
         </div>
         ):(
-          <div className="relative min-h-screen w-screen bg-[#F9DBC4] flex justify-between">
-            <div className="min-h-screen ">
+          <div className="relative w-screen bg-[#F9DBC4] flex justify-between">
+            <div className="">
               <RomanTowerClubs classname="h-full -translate-x-1/3 "/>
             </div>
             <div className="flex flex-col items-center justify-center w-4/5 lg:w-11/12 my-[50px] lg:mb-[90px]">
@@ -170,12 +171,12 @@ export default function Home() {
           </div>
         )}
 
-          <div className="absolute bottom-0">
+          <div className="absolute bottom-[-1px]">
             <Student classname="w-screen" />
           </div>
       </section>
       
-      <section className="relative w-screen ">
+      <section className="relative w-screen">
         <div className="">
           <GiftedBg classname="absolute min-w-screen -z-10" />
         </div>
@@ -187,7 +188,7 @@ export default function Home() {
             </div>
         </div>
 
-        <div className="flex flex-col z-0 lg:mt-[-91px] lg:flex-row lg:items-end lg:min-h-screen lg:w-screen ">
+        <div className="flex flex-col lg:mt-[-91px] lg:flex-row lg:items-end lg:min-h-screen lg:w-screen ">
           <div className="flex mx-auto lg:w-1/2 ">
             <div className="flex items-end w-screen">
               <Link href={'/programmes/gifted-science'}>
@@ -253,7 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative bg-[#1D0C55] min-h-screen">
+      <section className="relative bg-[#1D0C55] min-h-[800px] xl:min-h-screen">
         {width >= LG ? (
           <div className="w-[1000px] h-[559px] absolute bottom-0 -translate-x-1/2 left-1/2">
             <div className="w-[636px] bg-[#BCC2EB] mx-auto">

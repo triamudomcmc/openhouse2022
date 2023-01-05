@@ -139,17 +139,27 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
         >
           <div className={`flex flex-col w-full text-black bg-white bg-opacity-80 font-display ${classname}`}>
             <>
-              <Link href="/" passHref>
-                <div className={`flex flex-shrink-0 bg-white bg-opacity-590 cursor-pointer ${classname}`}>
-                  <OPHLogo classname="w-[60px] mb-[-10px]" />
-                  <div className="flex flex-col items-center justify-center">
-                    <p className="font-[700] text-[14px] leading-[17px]">
-                      TRIAM UDOM
-                      <span className="font-[400] block text-[10px] leading-[13px]">ONLINE OPEN HOUSE 2023</span>
-                    </p>
+            <div className="flex justify-between">
+                <Link href="/" passHref>
+                  <div className={`flex flex-shrink-0 bg-white bg-opacity-590 cursor-pointer ${classname}`}>
+                    <OPHLogo classname="w-[60px] mb-[-10px]" />
+                    <div className="flex flex-col items-center justify-center">
+                      <p className="font-[700] text-[14px] leading-[17px]">
+                        TRIAM UDOM
+                        <span className="font-[400] block text-[10px] leading-[13px]">ONLINE OPEN HOUSE 2023</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+                <HamburgerButton
+                classname="lg:hidden"
+                ref={buttonRef}
+                reveal={reveal}
+                toggle={() => {
+                  setReveal(!reveal)
+                }}
+              />
+              </div>
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                 <Link href="/" passHref>
                   <span>หน้าแรก</span>
@@ -161,7 +171,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
                 </Link>
               </div>
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
-                <Link href="/diractions" passHref>
+                <Link href="/directions" passHref>
                   <span>การเดินทางมาโรงเรียน</span>
                 </Link>
               </div>
