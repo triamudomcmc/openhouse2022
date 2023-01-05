@@ -85,7 +85,7 @@ const Page = () => {
 
   if (loading) return <div>Loading...</div>
 
-  if (accountData)
+  if (user?.uid && accountData)
     return (
       <PageContainer>
         <div className="flex flex-col items-center mt-12 space-y-4">

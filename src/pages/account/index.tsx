@@ -36,7 +36,7 @@ const Page = () => {
     // else router.push({pathname: `/auth`})
   }, [router, user?.uid])
 
-  if (accountData?.Info) return (
+  if (user?.uid && accountData?.Info) return (
       <PageContainer>
         {loading
         ? <div>Loading...</div>
