@@ -111,7 +111,7 @@ export default function Home() {
               <p>เรียน</p>
             </div>
           </div>
-          <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] max-lg:w-[193px] max-lg:h-[65px] max-lg:backdrop-blur-lg max-lg:bg-[#FADCC5] max-lg:rounded-xl max-lg:bg-opacity-70 lg:bottom-[120px]">
+          <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] max-lg:w-[193px] max-lg:h-[65px] max-xl:backdrop-blur-lg max-xl:bg-[#FADCC5] max-xl:rounded-xl max-xl:bg-opacity-70 lg:bottom-[120px]">
             <div className="text-[16px] leading-[24px] lg:text-[24px] flex flex-col items-center justify-center lg:leading-[38px] text-black">
               <p>เลื่อนลงเพื่ออ่านข้อมูล</p>
               <p>สายการเรียนที่สนใจ</p>
