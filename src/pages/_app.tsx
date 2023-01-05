@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <div className="min-h-screen w-full">
         <Component {...pageProps} />
       </div>
-      {!(router.pathname.includes('/ticket/')) && <Footer />}
+      {!(router.pathname === "/ticket") && <Footer />}
     </AuthProvider>
   )
 }

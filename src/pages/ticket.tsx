@@ -13,7 +13,7 @@ const TicketGen = () => {
 
     return (
         <div>
-            <div className="w-[951px] h-[1638px] relative">
+            <div className="w-[951px] h-[1638px] relative overflow-x-clip">
               {/* Profile Container */}
               <div className="absolute top-[340px] -right-[30px]">
                 <Image src={`/assets/images/profile/${props?.profileIcon ?? "cat"}.png`} width={600} height={600} />
