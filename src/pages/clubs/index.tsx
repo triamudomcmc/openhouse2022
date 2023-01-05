@@ -21,7 +21,7 @@ const Club = ({ data }: { data: any }) => {
         //   background:
         //     "linear-gradient(241.39deg, rgba(255, 255, 255, 0.4) 18.81%, rgba(255, 255, 255, 0) 100.07%)",
         // }}
-        className="bg-[#FFF6E8] text-[#2F24AE] text-center w-[350px] sm:w-[212px] cursor-pointer rounded-lg mr-6 mt-6 backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
+        className="bg-[#FFF6E8] text-[#2F24AE] text-center w-[300px] sm:w-[212px] cursor-pointer rounded-lg sm:mr-6 mt-6 backdrop-blur-lg backdrop-filter pb-[10px] border border-white border-opacity-20"
       >
         <div>
           <div className="relative">
@@ -37,7 +37,7 @@ const Club = ({ data }: { data: any }) => {
             />
           </div>
           <div className="px-2">
-            <div className="flex items-start justify-center space-x-1 py-2">
+            <div className="flex items-start justify-center py-2 space-x-1">
               <h1 className="text-[15px] text-center font-light h-[45px]">{data.title}</h1>
             </div>
           </div>
@@ -110,30 +110,30 @@ const Page = ({ contents }: { contents: any }) => {
           onClick={() => {
             router.push("/")
           }}
-          className="absolute flex items-center space-x-2 -mt-16 ml-6 sm:mt-0 cursor-pointer"
+          className="absolute flex items-center ml-3 -mt-16 space-x-2 cursor-pointer sm:mt-0"
         >
           <ArrowCircleLeftIcon className="w-7 h-7" />
           <span className="text-lg">ย้อนกลับ</span>
         </div>
-        <div className="mx-auto max-w-5xl mt-16 mb-24">
+        <div className="max-w-5xl mx-auto mt-16 mb-24">
           <div className="flex flex-col items-center">
             <h1 className="text-5xl">ชมรม</h1>
-            <div className="px-10 w-full max-w-[500px]">
+            <div className="px-5 sm:px-10 w-full max-w-[500px]">
               <div className="relative mt-4">
-                <div className="absolute top-0 left-0 h-full flex items-center ml-6">
+                <div className="absolute top-0 left-0 flex items-center h-full ml-6">
                   <SearchIcon className="w-6 h-6" />
                 </div>
                 <input
                   onChange={(e) => {
                     setTimeout(() => setSearchContext(e.target.value))
                   }}
-                  className="border bg-white bg-opacity-20 rounded-full placeholder:text-white py-2 pl-14 w-full border-opacity-40 pr-4"
+                  className="w-full py-2 pr-4 bg-white border rounded-full bg-opacity-20 placeholder:text-white pl-14 border-opacity-40"
                   placeholder="ค้นหาชมรม..."
                 />
               </div>
             </div>
           </div>
-          <div className="flex justify-center flex-wrap mt-14 ml-2">
+          <div className="flex flex-wrap justify-center ml-2 mt-14">
             {searching ? (
               <div className="h-[350px] flex justify-center items-center">
                 <p>Loading...</p>

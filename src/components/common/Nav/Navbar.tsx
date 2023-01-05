@@ -167,7 +167,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
               </div>
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                 <Link href="/clubs" passHref>
-                  <span>ขมรม</span>
+                  <span>ชมรม</span>
                 </Link>
               </div>
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">

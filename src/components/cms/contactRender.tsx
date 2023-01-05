@@ -9,9 +9,9 @@ const ContactRenderer: FC<{
   return (
     <div className={classname}>
       <ContactCard
-        first={rawData.First ?? "IG: XXXXXXXXXXXXXXX"}
-        second={rawData.Second ?? "FB: XXXXXXXXXXXXXXX"}
-        third={rawData.Third ?? "อื่นๆ XXXXXXXXXXXXXXX"}
+        first={rawData.First ?? ""}
+        second={rawData.Second ?? ""}
+        third={rawData.Third ?? ""}
         setContacts={setContacts}
         editable={editable}
       />
