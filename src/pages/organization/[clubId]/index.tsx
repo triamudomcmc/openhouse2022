@@ -59,14 +59,14 @@ const LandingEdit = ({ clubId }) => {
       setWorkDes(dataFetch?.WorkDes)
       setReviews(dataFetch?.Reviews != null ? dataFetch.Reviews : [])
     }
-    if ((user?.uid && user?.club == clubId) || user?.roles?.hasOwnProperty("tucmc")) fetchInitialData()
+    fetchInitialData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.uid])
 
   if (info) return (
     <div className='flex flex-col overflow-hidden max-lg:bg-gradient-edit lg:bg-cream'>
         <ArticleBackground classname='max-lg:hidden' />
-        <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[305px] flex max-[1080px]:ml-[30px] z-10 '>
+        <div className='mx-auto mt-[104px] w-[311px] lg:w-[1000px] lg:mt-[175px] flex max-[1080px]:ml-[30px] z-10 '>
             <Link href={`/clubs`}>
                 <button className='flex'>
                     <ArrowCircleLeftIcon className='h-[15px] w-[15px] lg:h-[30px] lg:w-[30px]' />

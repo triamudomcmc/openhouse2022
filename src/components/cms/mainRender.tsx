@@ -66,7 +66,7 @@ export const MainRenderer: FC<{
   // }
 
   return (
-    <div className="mb-[86px] z-10 w-screen">
+    <div className="z-10 w-screen">
       <div className="mx-auto mt-[18px] max-w-[750px] px-8 lg:mt-[27px]">
         <div className="text-center lg:mb-[41px]">
           <div className="mt-[20px] lg:mt-[29px]">
@@ -136,7 +136,7 @@ export const MainRenderer: FC<{
               {clubArticleDes}
             </p> */}
           </div>
-          <QuillEditor className="lg:mt-[46px] mt-[21px] lg:backdrop-blur-[4px]" value={clubArticle} readOnly={true} />
+          <QuillEditor className="mt-[21px] lg:backdrop-blur-[4px]" value={clubArticle} readOnly={true} />
         </div>
         <div>
           <div
@@ -183,7 +183,7 @@ export const MainRenderer: FC<{
               {advantageDes}
             </p> */}
           </div>
-          <QuillEditor className="lg:mt-[46px] mt-[21px] lg:backdrop-blur-[4px]" value={advantage} readOnly={true} />
+          <QuillEditor className=" mt-[21px] lg:backdrop-blur-[4px]" value={advantage} readOnly={true} />
         </div>
         <div>
           <div
@@ -228,7 +228,7 @@ export const MainRenderer: FC<{
             </div>
             {/* <p className="text-center font-texts font-[300] text-xs lg:text-sm lg:leading-[20px] mt-[4px]">{workDes}</p> */}
           </div>
-          <QuillEditor className="lg:mt-[46px] mt-[21px] lg:backdrop-blur-[4px]" value={work} readOnly={true} />
+          <QuillEditor className="mt-[21px] lg:backdrop-blur-[4px]" value={work} readOnly={true} />
         </div>
       </div>
       <div className="mx-auto w-full px-10 max-w-[901px]">

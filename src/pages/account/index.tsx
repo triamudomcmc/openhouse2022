@@ -11,7 +11,7 @@ import { IUserData } from "@ctypes/account"
 import Link from "next/link"
 
 const Page = () => {
-  const { user } = useAuth()
+  const { user, signout } = useAuth()
   const router = useRouter()
   const [loading, setLoading] = useState<boolean>(true)
   const [accountData, setAccountData] = useState<IUserData | null>(null)
@@ -42,28 +42,31 @@ const Page = () => {
         ? <div>Loading...</div>
         : <div className="flex flex-col items-center mt-14">
           <div className="flex justify-end bg-[#D9D9D9] rounded-full w-[176px] h-[176px] sm:w-[194px] sm:h-[194px]">
-            <Image src={`/assets/images/profile/${accountData?.Info?.profileIcon}.png`} height={194} width={194} />
+            {/* <Image src={`/assets/images/profile/${accountData?.Info?.profileIcon}.png`} height={194} width={194} /> */}
           </div>
-          <div className="flex flex-col items-center text-purple mt-4">
+          <div className="flex flex-col items-center mt-4 text-purple">
             <span className="font-bold text-[28px] tracking-wide">{accountData?.Info?.username}</span>
-            <span className="font-medium text-sm -mt-2">
+            <span className="-mt-2 text-sm font-medium">
               {accountData?.Info?.firstname} {accountData?.Info?.lastname}
             </span>
           </div>
-          <div className="flex items-center space-x-1 mt-1 mb-12 text-purple">
+          <div className="flex items-center mt-1 mb-12 space-x-1 text-purple">
             <UserIcon className="w-4 h-4" />
-            <span className="text-sm font-medium mt-1">{accountData?.Info?.status}</span>
+            <span className="mt-1 text-sm font-medium">{accountData?.Info?.status}</span>
           </div>
           <div className="w-full max-w-[220px] mx-auto flex flex-col space-y-4">
-            <button className="bg-white rounded-full shadow-lg text-deep-turquoise py-2 w-full">
+            <button className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
               <Link href={`/account/ticket`} className="text-lg font-semibold">E-Ticket</Link>
             </button>
-            {!(user?.club || user?.roles?.hasOwnProperty('staff')) &&<button className="bg-white rounded-full shadow-lg text-deep-turquoise py-2 w-full">
+            {!(user?.club || user?.roles?.hasOwnProperty('staff')) &&<button className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
               <Link href={`/account/stamp`} className="text-lg font-semibold">สะสมแสตมป์</Link>
             </button>}
-            {(user?.club && user?.roles?.hasOwnProperty('staff')) && <button className="bg-white rounded-full shadow-lg text-deep-turquoise py-2 w-full">
+            {(user?.club && user?.roles?.hasOwnProperty('staff')) && <button className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
               <Link href={`/account/stamp/scanner`} className="text-lg font-semibold">สแกนแสตมป์</Link>
             </button>}
+            {/* <button onClick={signout} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
+              <p className="text-lg font-semibold">Sign out</p>
+            </button> */}
           </div>
         </div>}
       </PageContainer>
