@@ -23,5 +23,6 @@ export default async function screenshot(url: string, width: number = 911, heigh
   await page.evaluate(() => document.body.style.background = 'transparent');
   await page.setViewport({ width, height })
   await page.goto(url, { waitUntil: "networkidle2" })
+  await page.waitForTimeout(3000)
   return await page.screenshot({ type: "png",omitBackground: true})
 }

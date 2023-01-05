@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useQRCode } from "next-qrcode"
 import { TicketTemplate } from "@vectors/TicketTemplate"
 import { DownloadIcon } from "@heroicons/react/outline"
-import { UserIcon } from "@heroicons/react/solid"
+import {RefreshIcon, UserIcon} from "@heroicons/react/solid"
 import InApp from "detect-inapp"
 
 import { useAuth } from "@lib/auth"
@@ -12,6 +12,7 @@ import { getUserData } from "@lib/clientDB"
 import { IUserData } from "@ctypes/account"
 
 import { PageContainer } from "@components/account/PageContainer"
+import classnames from "classnames"
 
 const Page = () => {
   const { user } = useAuth()
@@ -127,10 +128,12 @@ const Page = () => {
             <TicketTemplate width="317" height="564"/>
           </div>
            <button
-            className="flex text-white bg-orange rounded-full px-6 items-center py-1.5 space-x-1"
+            className={classnames("flex text-white rounded-full px-6 items-center py-1.5 space-x-1", imgLoading ? "cursor-wait bg-gray-500" : "cursor-pointer bg-orange")}
             onClick={downloadImg}
           >
-            <DownloadIcon className="w-4 h-4" />
+             {
+               imgLoading ? <RefreshIcon className="w-4 h-4 animate-spin"/> :             <DownloadIcon className="w-4 h-4" />
+             }
             <span>Download</span>
           </button>
         </div>
