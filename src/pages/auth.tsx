@@ -33,7 +33,7 @@ export default function Auth() {
     prefix: "",
     firstname: "",
     lastname: "",
-    status: "student",
+    status: "Student",
     school: "",
     grade: "",
     news: [],

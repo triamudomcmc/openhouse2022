@@ -162,7 +162,7 @@ export const SecondQA: FC<{
               <div className=" flex flex-col space-y-4" role="group" aria-labelledby="purpose-group">
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="purpose"
                     type="checkbox"
                     value="find info"
@@ -171,7 +171,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="ishrink-0 nline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="purpose"
                     type="checkbox"
                     value="watch activity"
@@ -180,7 +180,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="purpose"
                     type="checkbox"
                     value="watch booth"
@@ -189,7 +189,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="purpose"
                     type="checkbox"
                     value="find info (considers joining)"
@@ -198,7 +198,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="purpose"
                     type="checkbox"
                     value="inspiration"
@@ -207,7 +207,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="purpose"
                     type="checkbox"
                     value="consultation"
@@ -216,7 +216,7 @@ export const SecondQA: FC<{
                 </label>
                 <label className="flex items-center my-1 font-display">
                   <Field
-                    className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
+                    className="shrink-0 inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] cursor-pointer focus:outline-none"
                     name="purpose"
                     type="checkbox"
                     value="watch view"
