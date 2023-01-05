@@ -180,14 +180,14 @@ export default function Home() {
           <GiftedBg classname="absolute min-w-screen -z-10" />
         </div>
         <div className="">
-        <div className=" flex items-center justify-center rounded-[6px] w-[125px] h-[40px] lg:w-[333px] lg:h-[111px] gifted mx-auto">
-          <div className="text-[15px] font-texts lg:text-[48px] leading-[0.89] text-[#332B73]  font-[700] text-center">
-            <p>Gifted</p>
-            <p>Program</p>
-          </div>
+          <div className="relative z-[99] flex items-center justify-center rounded-[6px] w-[125px] h-[40px] lg:w-[333px] lg:h-[111px] gifted mx-auto">
+            <div className="text-[15px] font-texts lg:text-[48px] leading-[0.89] text-[#332B73] font-[700] text-center">
+              <p>Gifted</p>
+              <p>Program</p>
+            </div>
         </div>
 
-        <div className="flex flex-col lg:mt-[-111px] lg:flex-row lg:items-end lg:min-h-screen lg:w-screen ">
+        <div className="flex flex-col z-0 lg:mt-[-91px] lg:flex-row lg:items-end lg:min-h-screen lg:w-screen ">
           <div className="flex mx-auto lg:w-1/2 ">
             <div className="flex items-end w-screen">
               <Link href={'/programmes/gifted-science'}>

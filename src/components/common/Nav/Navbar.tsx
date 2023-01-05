@@ -66,7 +66,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
           className={`flex items-center w-full justify-evenly ${
             user?.roles?.hasOwnProperty("tucmc") || user?.roles?.hasOwnProperty("clubPresident")
               ? "max-w-[600px]"
-              : "max-w-[500px]"
+              : "max-w-[600px]"
           }`}
         >
           <div className=" px-full hover:underline">
@@ -79,7 +79,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
             <Link href={`/directions`}>การเดินทางมาโรงเรียนเตรียมฯ</Link>
           </div>
           <div className=" hover:underline">
-            <Link href={`/directions`}>การเดินทางมาโรงเรียน</Link>
+            <Link href={`/admission`}>การสอบเข้าม.4</Link>
           </div>
           {/* <div className="cursor-pointer hover:underline">
             <Link href={`/moreInfo`}>ข้อมูลเพิ่มเติม</Link>
@@ -135,7 +135,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
           ref={panel}
           animate={reveal ? "open" : "close"}
           variants={variants}
-          className="items-start right-full fixed top-0  min-w-[295px] h-full z-[99] "
+          className="items-start right-full fixed top-0  w-full h-full z-[99] "
         >
           <div className={`flex flex-col w-full text-black bg-white bg-opacity-80 font-display ${classname}`}>
             <>
@@ -163,6 +163,11 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                 <Link href="/diractions" passHref>
                   <span>การเดินทางมาโรงเรียน</span>
+                </Link>
+              </div>
+              <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
+                <Link href="/admission" passHref>
+                  <span>การสอบเข้าม.4</span>
                 </Link>
               </div>
               {/* {user?.roles?.hasOwnProperty("tucmc") && (
