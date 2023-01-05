@@ -6,14 +6,6 @@
 @import "~quill/dist/quill.bubble.css";
 
 @layer base {
-  @font-face {
-    font-family: "Bai Jamjuree";
-    src: url("/public/fonts/BaiJamjuree-Medium.ttf");
-  }
-  @font-face {
-    font-family: "NotoSansThai";
-    src: url("/public/fonts/NotoSansThai-VariableFont_wdth\,wght.ttf");
-  }
 
   div {
     @apply font-display;

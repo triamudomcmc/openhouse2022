@@ -12,6 +12,11 @@ export default class Document extends NextDocument {
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />
+          <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500&display=swap" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap"
+            rel="stylesheet"
+          />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-GX1MR96R9D"></script>
           <script
             dangerouslySetInnerHTML={{
