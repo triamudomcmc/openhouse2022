@@ -85,13 +85,14 @@ const ReviewCard: FC<{
           <div className="flex lg:flex-col mt-[30px] lg:mt-0 ">
             <div className="flex lg:flex-col lg:w-[170px]">
               <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
-                <ImageUploader
+                {/* <ImageUploader
                   editable={false}
                   className="rounded-[9.2px] lg:rounded-[24.3px]"
                   // uploadFunction={reviewDoUpload}
                   // purpose={`profile-${index}`}
                   link={reviewImagesLink ?? false ? reviewImagesLink[index] ?? null : null}
-                />
+                /> */}
+                <img src={reviewImagesLink[index]} className="rounded-[9.2px] lg:rounded-[24.3px]" />
               </div>
               <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
                 <p
@@ -180,13 +181,14 @@ const ReviewCard: FC<{
           <div className="flex lg:flex-col mt-[30px] lg:mt-0 lg:ml-[30px] ">
             <div className="flex lg:flex-col lg:w-[170px]">
               <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
-                <ImageUploader
+                {/* <ImageUploader
                   editable={editable}
                   className="rounded-[9.2px] lg:rounded-[24.3px]"
                   uploadFunction={reviewDoUpload}
                   purpose={`profile-${index}`}
                   link={reviewImagesLink ?? false ? reviewImagesLink[index] ?? null : null}
-                />
+                /> */}
+                <img src={reviewImagesLink[index]} className="rounded-[9.2px] lg:rounded-[24.3px]" />
               </div>
               <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
                 <p
@@ -257,13 +259,14 @@ const ReviewCard: FC<{
         <div className="flex lg:flex-col mt-[30px] lg:mt-0 ">
           <div className="flex lg:flex-col lg:w-[170px]">
             <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
-              <ImageUploader
+              {/* <ImageUploader
                 editable={editable}
                 className="rounded-[9.2px] lg:rounded-[24.3px]"
                 uploadFunction={reviewDoUpload}
                 purpose={`profile-${index}`}
                 link={reviewImagesLink ?? false ? reviewImagesLink[index] ?? null : null}
-              />
+              /> */}
+                <img src={reviewImagesLink[index]} className="rounded-[9.2px] lg:rounded-[24.3px]" />
             </div>
             <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
               <p
