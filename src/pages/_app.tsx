@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       <Head>
-        <title>Triamudom Openhouse 2023</title>
+        <title>Triamudom Open House 2023</title>
         <meta
           name="description"
           content="งานนิทรรศการประจำปีของโรงเรียนเตรียมอุดมศึกษา พบกับกิจกรรมที่น่าสนใจจากนักเรียนโรงเรียนเตรียมอุดมศึกษา อาทิ แนะแนวการศึกษาต่อ แนะนำสายการเรียน และกิจกรรมจากชมรมต่าง ๆ"
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <link rel="icon" href="/favicon.ico" />
       {router?.pathname !== "/ticket" && <Navbar classname=" z-[99]" />}
-      <div className="min-h-screen w-full">
+      <div className="w-full min-h-screen">
         <Component {...pageProps} />
       </div>
       {!(router.pathname === "/ticket") && <Footer />}
