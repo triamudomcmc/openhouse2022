@@ -10,7 +10,7 @@ import getNameOfClub from "@utilities/nameENofClub"
 
 const FocusRing = () => {
   return (
-    <svg width="144.6" height="142.8" viewBox="0 0 241 238" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="200" height="200" viewBox="0 0 241 238" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M34.0939 3C20.3234 2.99999 1.38818 5.34239 3.10953 37.5487"
         stroke="white"
@@ -108,18 +108,18 @@ const Page = () => {
         <div className="flex flex-col items-center mt-10">
           <div
             style={{ background: "linear-gradient(180deg, #8087CD 0%, #E29E78 100%)" }}
-            className="flex items-center justify-center h-[191.4px] w-[191.4px] rounded-[26.9px]"
+            className="flex items-center justify-center h-[250px] w-[250px] rounded-[26.9px]"
           >
-            <div className="h-[165.6px] w-[165.6px] bg-[#130D03] relative rounded-[25.56px]">
+            <div className="h-[220px] w-[220px] bg-[#130D03] relative rounded-[25.56px]">
               <QrReader
-                className="absolute w-[165.6px]"
+                className="absolute w-[220px]"
                 onResult={(result, error) => {
                   handleQrUid(result, error)
                 }}
                 constraints={{ facingMode: "environment" }}
                 containerStyle={{ "border-radius": "25.56px" }}
               />
-              <div className="w-full h-full flex justify-center items-center absolute">
+              <div className="absolute flex items-center justify-center w-full h-full">
                 <FocusRing />
               </div>
             </div>
