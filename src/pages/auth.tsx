@@ -146,7 +146,7 @@ export default function Auth() {
             <p className="text-[28px] text-center lg:text-[40px] font-[700] text-[#37498B]">Register / ลงทะเบียน</p>
             {method == "all" ? (
               <div>
-                <div><p className=" text-orange text-center lg:mt-[30px] mt-[15px] text-sm px-[50px] lg:text-xl">* หมายเหตุ : แนะนำให้ลงทะเบียนด้วยบัญชี Google &#40;Sign up with Google&#41; *</p></div>
+                {/* <div><p className=" text-orange text-center lg:mt-[30px] mt-[15px] text-sm px-[50px] lg:text-xl">* หมายเหตุ : แนะนำให้ลงทะเบียนด้วยบัญชี Google &#40;Sign up with Google&#41; *</p></div> */}
                 <motion.div 
                 className="flex justify-center"
                 whileHover={{ scale: 1.05 }}>
@@ -164,7 +164,7 @@ export default function Auth() {
                   </button>
                 </motion.div>
 
-                <motion.div 
+                {/* <motion.div 
                 className="flex justify-center"
                 whileHover={{ scale: 1.05 }}>
                   <button
@@ -179,7 +179,7 @@ export default function Auth() {
                       </p>
                     </div>
                   </button>
-                </motion.div>
+                </motion.div> */}
                 <div className="text-blue-text text-center w-full font-display mt-[25px]">
                   <p className="leading-2 px-[50px]">
                     การลงทะเบียนถือว่ายอมรับ
