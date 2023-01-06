@@ -110,7 +110,7 @@ const ReviewCard: FC<{
                   {name}
                 </p>
                 <div className="flex font-display text-xs font-[400] lg:text-md">
-                  <p>เตรียมอุดม</p>
+                  <p>เตรียมอุดม&nbsp;</p>
                   <p
                     suppressContentEditableWarning={true}
                     contentEditable={editable}
@@ -206,7 +206,7 @@ const ReviewCard: FC<{
                   {name}
                 </p>
                 <div className="flex font-display text-xs font-[400] lg:text-md">
-                  <p>เตรียมอุดม</p>
+                  <p>เตรียมอุดม&nbsp;</p>
                   <p
                     suppressContentEditableWarning={true}
                     contentEditable={editable}
@@ -284,7 +284,7 @@ const ReviewCard: FC<{
                 {name}
               </p>
               <div className="flex font-display text-xs font-[400] lg:text-md">
-                <p>เตรียมอุดม</p>
+                <p>เตรียมอุดม&nbsp;</p>
                 <p
                   suppressContentEditableWarning={true}
                   contentEditable={editable}
@@ -311,7 +311,7 @@ const ReviewCard: FC<{
                   })
                 }}
               >
-                {social}
+              {social}
               </p>
             </div>
           </div>
