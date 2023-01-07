@@ -64,9 +64,9 @@ const Page = () => {
             {(user?.club && user?.roles?.hasOwnProperty('staff')) && <button onClick={() => {Router.push("/account/stamp/scanner")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
               <span className="text-lg font-semibold">สแกนแสตมป์</span>
             </button>}
-            {/* <button onClick={signout} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
+            <button onClick={signout} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
               <p className="text-lg font-semibold">Sign out</p>
-            </button> */}
+            </button>
           </div>
         </div>}
       </PageContainer>
