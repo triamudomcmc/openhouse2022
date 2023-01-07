@@ -7,10 +7,10 @@ export default async function getInfo(req, res) {
     return await executeOverPerm(
       req,
       res,
-      ["tucmc", "aic", "tusc", "teacher"],
+      ["tucmc", "tusc", "clubPresident", "clubStaff", "teacher"],
       async (req, res) => {
-        const marked = await markOnsite(uid)
-        return res.json(marked)
+        const uidData = await getUserData(uid)
+        if (uidData) return res.json(uidData)
       }
     )
   }

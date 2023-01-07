@@ -61,11 +61,14 @@ const Page = () => {
                 <button onClick={() => {Router.push("/account/ticket")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
                   <span className="text-lg font-semibold">E-Ticket</span>
                 </button>
-                {!(user?.club || user?.roles?.hasOwnProperty('staff')) &&<button onClick={() => {Router.push("/account/stamp")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
-                  <span className="text-lg font-semibold">สะสมแสตมป์</span>
+                {(user?.roles?.hasOwnProperty('tucmc') || user?.roles?.hasOwnProperty('aic')) && <button onClick={() => {Router.push("/account/scanner")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
+                  <span className="text-lg font-semibold">Ticket marker</span>
                 </button>}
                 {(user?.club && user?.roles?.hasOwnProperty('staff')) && <button onClick={() => {Router.push("/account/stamp/scanner")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
                   <span className="text-lg font-semibold">สแกนแสตมป์</span>
+                </button>}
+                {!(user?.club || user?.roles?.hasOwnProperty('staff')) &&<button onClick={() => {Router.push("/account/stamp")}} className="w-full py-2 bg-white rounded-full shadow-lg text-deep-turquoise">
+                  <span className="text-lg font-semibold">สะสมแสตมป์</span>
                 </button>}
                 <button onClick={signout} className="w-full py-2 bg-gray rounded-full shadow-lg text-orange">
                   <p className="text-lg font-semibold">ออกจากระบบ</p>

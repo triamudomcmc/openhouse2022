@@ -52,19 +52,19 @@ const Page = () => {
       setUid(result.text)
       setButtonDisable(false)
     }
-    if (error) {
-    }
   }
 
   function stampit() {
-    setStampPress(true)
-    const clubName = getNameOfClub(user?.club)
-    stamp(user?.club, clubName, uid)
+    if (uid) {
+      setStampPress(true)
+      const clubName = getNameOfClub(user?.club)
+      stamp(user?.club, clubName, uid)
+    }
   }
 
   useEffect(() => {
     const getUidData = async (uid) => {
-      const res = await fetch(`/api/qrinfo/onsite/${uid}`, {
+      const res = await fetch(`/api/qrinfo/booth/${uid}`, {
         method: "POST",
         body: JSON.stringify({
           executerUid: user?.uid,
@@ -89,7 +89,6 @@ const Page = () => {
     <div
       key="stamp"
       className="bg-bright-orange font-semibold text-white py-0.5 px-5 rounded-full"
-      aria-disabled={buttonDisable}
       onClick={stampit}
     >
       <span>STAMP</span>
@@ -125,7 +124,7 @@ const Page = () => {
             </div>
           </div>
           <div className="flex flex-col items-center mt-4 w-[191px]">
-            <div className="mb-2">{descriptionVariants[buttonNum]}</div>
+            <div className={`mb-2 ${buttonDisable ? 'cursor-not-allowed' : 'cursor-pointer'}`} aria-disabled={buttonDisable}>{descriptionVariants[buttonNum]}</div>
             <div className="flex flex-col text-[#37498B] text-lg w-full">
               <span className="font-semibold">
                 ชื่อ :{" "}
