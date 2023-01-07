@@ -174,11 +174,11 @@ export const FirstQA: FC<{
                   </div>
                   <div className="flex flex-col w-full">
                     <span>อื่น ๆ โปรดระบุ :</span>
-                    {values.status?.includes("other") && (
+                    {values.otherStatus?.includes("other") && (
                         <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
                           <Field
                             className={`
-                                ${errors.status ? "border-orange" : "border-white"}
+                                ${errors.otherStatus ? "border-orange" : "border-white"}
                                 border block w-full bg-white p-3 focus:outline-none rounded-md
                               `}
                             id="otherStatus"
@@ -192,7 +192,7 @@ export const FirstQA: FC<{
                 </label>
               </div>
               {errors.otherStatus ? (
-                <p className="mt-1 text-orange mb-6">{errors.status}</p>
+                <p className="mt-1 text-orange mb-6">{errors.otherStatus}</p>
               ) : (
                 <div className="h-6" aria-hidden></div>
               )}
