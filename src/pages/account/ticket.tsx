@@ -13,6 +13,7 @@ import { IUserData } from "@ctypes/account"
 
 import { PageContainer } from "@components/account/PageContainer"
 import classnames from "classnames"
+import noAuth from "@pages/noAuth"
 
 const Page = () => {
   const { user } = useAuth()
@@ -92,7 +93,7 @@ const Page = () => {
           <div className="relative">
             {/* Profile Container */}
             <div className="absolute top-[124px] -right-[12px]">
-              <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? "cat"}.png`} width={200} height={200} />
+              <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? "cat"}.png`} width={200} height={200} alt="QR-code"/>
             </div>
             {/*Ticket description*/}
             <div className="flex flex-col absolute top-[169px] left-[28px] text-purple">
@@ -140,6 +141,8 @@ const Page = () => {
         </div>
       </PageContainer>
     )
+
+    return noAuth()
 }
 
 export default Page

@@ -5,8 +5,8 @@ import { useAuth } from "@lib/auth"
 import { stamp } from "@lib/clientDB"
 
 import { PageContainer } from "@components/account/PageContainer"
-import notFound from "@pages/404"
 import getNameOfClub from "@utilities/nameENofClub"
+import noAuth from "@pages/noAuth"
 
 const FocusRing = () => {
   return (
@@ -102,7 +102,7 @@ const Page = () => {
     </span>,
   ]
 
-  if (user?.club)
+  if (user?.club && user?.roles?.hasOwnProperty('staff'))
     return (
       <PageContainer>
         <div className="flex flex-col items-center mt-10">
@@ -142,7 +142,7 @@ const Page = () => {
       </PageContainer>
     )
 
-  return notFound()
+  return noAuth()
 }
 
 export default Page

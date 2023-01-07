@@ -94,20 +94,7 @@ function useProvideAuth() {
     const response = await signInWithPopup(auth, new GoogleAuthProvider())
     const handleStatus = await handleUser(response.user)
 
-    if (handleStatus ?? false ? handleStatus?.club : false) {
-      if (handleStatus?.club.includes("ก"))
-        Router.push({ pathname: `/clubs/${handleStatus?.club}`, query: { onLoad: true } })
-      else if (
-        handleStatus?.club.includes("sci") ||
-        handleStatus?.club.includes("arts") ||
-        handleStatus?.club.includes("gifted")
-      )
-        Router.push(`/programmes/${handleStatus?.club}`)
-      else if (handleStatus?.club.includes("tu") || handleStatus?.club == "aic")
-        Router.push(`/organization/${handleStatus?.club}`)
-      else false
-    }
-    else if (handleStatus?.qa) {
+    if (handleStatus?.qa) {
       Router.push(`/auth`)
     }
     else if (redirect) {
@@ -119,6 +106,7 @@ function useProvideAuth() {
     setLoading(true)
     await handleUser(null)
     await signOut(auth)
+    Router.push('/auth')
   }
 
   return {

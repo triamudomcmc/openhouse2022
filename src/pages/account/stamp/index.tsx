@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react"
 import { useQRCode } from "next-qrcode"
-import Router from "next/router"
-import Link from "next/link"
 import NextImage from "next/image"
 import { motion } from "framer-motion"
 
 import { useAuth } from "@lib/auth"
 import { PageContainer } from "@components/account/PageContainer"
 import { groupByN } from "@utilities/array"
+import noAuth from "@pages/noAuth"
+import notFound from "@pages/404"
 
 interface StampType {
   id: string
@@ -84,13 +84,15 @@ export default function QrGen() {
     }
   }, [uidData?.stamp])
 
+  if (user?.uid && (user?.club || user?.roles?.hasOwnProperty('staff'))) return notFound()
+
   if (user?.uid) {
     return (
       <PageContainer>
         <div className="flex flex-col items-center text-deep-turquoise">
           <h3 className="text-2xl font-bold mt-10">Scan here</h3>
           <p className="font-bold -mt-2">เพื่อสะสมแสตมป์จากซุ้มต่าง ๆ</p>
-          <div className="rounded-lg my-10 w-48 h-48 rounded-2xl bg-white">
+          <div className="rounded-lg my-10 w-48 h-48 bg-white">
             <div className="mt-[6px] ml-[6px]">
               <QRCode
                 text={user?.uid}
@@ -137,12 +139,5 @@ export default function QrGen() {
       </PageContainer>
     )
   }
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full">
-      <h3>Please sign up to view your QR code</h3>
-      <Link href="@pages/auth">
-        <u>Click here to Sign Up</u>
-      </Link>
-    </div>
-  )
+  return noAuth()
 }
