@@ -174,7 +174,7 @@ export const FirstQA: FC<{
                   </div>
                   <div className="flex flex-col w-full">
                     <span>อื่น ๆ โปรดระบุ :</span>
-                    {values.otherStatus?.includes("other") && (
+                    {values.status?.includes("other") && (
                         <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
                           <Field
                             className={`
