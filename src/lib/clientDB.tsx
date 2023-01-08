@@ -75,7 +75,7 @@ export const getCurrentUserId = async (uid: string): Promise<string> => {
     await updateDoc(ref, { current: pcurr })
 
     const prefix = "TU8699"
-    const account_id = prefix + ("0000" + pcurr).slice(-4)
+    const account_id = prefix + ("00000" + pcurr).slice(-5)
 
     return account_id
   }
