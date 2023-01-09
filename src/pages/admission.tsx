@@ -47,7 +47,7 @@ export default function Admission({ query }: any) {
     <main className="min-h-screen w-full flex flex-col pt-[6.5rem] pb-[2rem] justify-center items-center text-white bg-normal-gradient">
       <div className="px-4 mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl">
-          พบกับกำหนดการสอบเข้าเร็วๆนี้...
+          พบกับกำหนดการสอบเข้าเร็ว ๆ นี้...
         </h1>
         {/* <p className="mt-4 text-xl sm:text-2xl">โรงเรียนเตรียมอุดมศึกษา</p>
         <p className="mt-4 text-lg font-light">ปีการศึกษา 2565</p>
