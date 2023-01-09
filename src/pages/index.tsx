@@ -14,22 +14,14 @@ import RomanLanding from "@vectors/background/RomanLanding"
 import StairPrograammes from "@vectors/background/StairProgramme"
 import BigFrame from "@vectors/common/bigFrame"
 import { Footer } from "@components/common/Footer"
-import {
-  AIC,
-  Organization,
-  OrganizationPhone,
-  TUCMC,
-  TUPRO,
-  TUSC,
-  WinkWink,
-} from "@vectors/common/organization";
+import { AIC, Organization, OrganizationPhone, TUCMC, TUPRO, TUSC, WinkWink } from "@vectors/common/organization"
 import { LG, MD } from "@utilities/breakpoints"
 import { useWindowDimensions } from "@utilities/useWindowDimensions"
 // import { ArtsChinese, ArtsEspanol, ArtsFrench, ArtsGerman, ArtsJapanese, ArtsKorean, ArtsMath, SciMath } from "@vectors/icons/programmes";
-import { Programme } from "@components/programme";
-import RomanTower, { RomanTowerClubs } from "@vectors/romanTower";
-import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate";
-import { MoreInfoBg, MoreInfoFlag, MoreInfoRight } from "@vectors/background/MoreInfo";
+import { Programme } from "@components/programme"
+import RomanTower, { RomanTowerClubs } from "@vectors/romanTower"
+import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate"
+import { MoreInfoBg, MoreInfoFlag, MoreInfoRight } from "@vectors/background/MoreInfo"
 import { GiftedBg, GiftedEng, GiftedMath, GiftedSci, GiftedSciMath, GiftedThai, Student } from "@vectors/icons/gifted"
 
 const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0)
@@ -100,82 +92,177 @@ export default function Home() {
       </main>
 
       <section className="relative flex items-center justify-center w-screen">
-          <div className="relative w-full -z-10 -left-1/3 lg:left-0">
-            <StairPrograammes className="object-cover h-full min-h-screen overflow-x-hidden bg-landing-programme" />
-          </div>
-          <div className="absolute flex left-[20px] lg:left-[82px] max-lg:top-[150px] lg:mt-[-200px] ">
-            <BigFrame classname="lg:w-[302px] w-[190px]"/>
-            <div className="font-[700] text-[50px] leading-[55px] lg:text-[85px] lg:leading-[90px] mt-[50px] lg:mt-[50px] text-[#404E81]">
-              <p>สาย</p>
-              <p>การ</p>
-              <p>เรียน</p>
-            </div>
-          </div>
-          <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] max-lg:w-[193px] max-lg:h-[65px] max-lg:backdrop-blur-lg max-lg:bg-[#FADCC5] max-lg:rounded-xl max-lg:bg-opacity-70 lg:bottom-[120px]">
-            <div className="text-[16px] leading-[24px] lg:text-[24px] flex flex-col items-center justify-center lg:leading-[38px] text-black">
-              <p>เลื่อนลงเพื่ออ่านข้อมูล</p>
-              <p>สายการเรียนที่สนใจ</p>
-            </div>
-          </div>
-      </section> 
-
-  
-      <section className="relative lg:min-h-[1024px] bg-[#F9DBC4]" >
-        {width >= LG ? (
-        <div className="relative w-screen bg-[#F9DBC4] flex justify-between">
-          <div className="lg:min-h-[1024px]">
-            <RomanTowerClubs classname="h-full -translate-x-1/3 xl:translate-x-0 "/>
-          </div>
-          <div className="flex w-11/12 justify-evenly items-start xl:ml-[150px] flex-row xl:mb-[100px] ">
-            <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
-              <Programme width="220" height="280" className="z-10 mx-auto w-[175px] xl:w-[200px]" name={"sci-math"} thainame={"วิทย์-คณิต"} />
-              <Programme width="244" height="253" className="z-10 mx-auto ml-[20px] w-[175px] xl:w-[200px]" name={"arts-math"} thainame={"ภาษา-คณิต"} />
-            </div>
-            <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
-              <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] lg:mt-[50px] w-[225px] xl:w-[250px]" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
-              <Programme width="235" height="303" className="z-10 mx-auto mt-[-20px] lg:mt-0 w-[175px] xl:w-[200px]" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
-            </div>
-            <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
-              <Programme width="241" height="290" className="z-10 mx-auto mt-[-60px] lg:mt-0 w-[175px] xl:w-[200px]" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
-              <Programme width="385" height="212" className="z-10 mx-auto w-[225px] xl:w-[250px]" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
-            </div>
-            <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
-              <Programme width="247" height="208" className="z-10 mx-auto w-[225px] lg:mt-[50px] xl:w-[225px]" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
-              <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px] w-[175px] lg:mt-0 xl:w-[200px]" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
-            </div>
-          </div> 
+        <div className="relative w-full -z-10 -left-1/3 lg:left-0">
+          <StairPrograammes className="object-cover h-full min-h-screen overflow-x-hidden bg-landing-programme" />
         </div>
-        ):(
+        <div className="absolute flex left-[20px] lg:left-[82px] max-lg:top-[150px] lg:mt-[-200px] ">
+          <BigFrame classname="lg:w-[302px] w-[190px]" />
+          <div className="font-[700] text-[50px] leading-[55px] lg:text-[85px] lg:leading-[90px] mt-[50px] lg:mt-[50px] text-[#404E81]">
+            <p>สาย</p>
+            <p>การ</p>
+            <p>เรียน</p>
+          </div>
+        </div>
+        <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] max-lg:w-[193px] max-lg:h-[65px] max-lg:backdrop-blur-lg max-lg:bg-[#FADCC5] max-lg:rounded-xl max-lg:bg-opacity-70 lg:bottom-[120px]">
+          <div className="text-[16px] leading-[24px] lg:text-[24px] flex flex-col items-center justify-center lg:leading-[38px] text-black">
+            <p>เลื่อนลงเพื่ออ่านข้อมูล</p>
+            <p>สายการเรียนที่สนใจ</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative lg:min-h-[1024px] bg-[#F9DBC4]">
+        {width >= LG ? (
+          <div className="relative w-screen bg-[#F9DBC4] flex justify-between">
+            <div className="lg:min-h-[1024px]">
+              <RomanTowerClubs classname="h-full -translate-x-1/3 xl:translate-x-0 " />
+            </div>
+            <div className="flex w-11/12 justify-evenly items-start xl:ml-[150px] flex-row xl:mb-[100px] ">
+              <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
+                <Programme
+                  width="220"
+                  height="280"
+                  className="z-10 mx-auto w-[175px] xl:w-[200px]"
+                  name={"sci-math"}
+                  thainame={"วิทย์-คณิต"}
+                />
+                <Programme
+                  width="244"
+                  height="253"
+                  className="z-10 mx-auto ml-[20px] w-[175px] xl:w-[200px]"
+                  name={"arts-math"}
+                  thainame={"ภาษา-คณิต"}
+                />
+              </div>
+              <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
+                <Programme
+                  width="327"
+                  height="176"
+                  className="z-10 mx-auto mt-[10px] lg:mt-[50px] w-[225px] xl:w-[250px]"
+                  name={"arts-chinese"}
+                  thainame={"ภาษา-ภาษาจีน"}
+                />
+                <Programme
+                  width="235"
+                  height="303"
+                  className="z-10 mx-auto mt-[-20px] lg:mt-0 w-[175px] xl:w-[200px]"
+                  name={"arts-espanol"}
+                  thainame={"ภาษา-ภาษาสเปน"}
+                />
+              </div>
+              <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
+                <Programme
+                  width="241"
+                  height="290"
+                  className="z-10 mx-auto mt-[-60px] lg:mt-0 w-[175px] xl:w-[200px]"
+                  name={"arts-japanese"}
+                  thainame={"ภาษา-ภาษาญี่ปุ่น"}
+                />
+                <Programme
+                  width="385"
+                  height="212"
+                  className="z-10 mx-auto w-[225px] xl:w-[250px]"
+                  name={"arts-french"}
+                  thainame={"ภาษา-ภาษาฝรั่งเศส"}
+                />
+              </div>
+              <div className="flex flex-col w-full mt-20 space-x-0 space-y-20 justify-evenly">
+                <Programme
+                  width="247"
+                  height="208"
+                  className="z-10 mx-auto w-[225px] lg:mt-[50px] xl:w-[225px]"
+                  name={"arts-korean"}
+                  thainame={"ภาษา-ภาษาเกาหลี"}
+                />
+                <Programme
+                  width="235"
+                  height="354"
+                  className="z-10 mx-auto mt-[-20px] w-[175px] lg:mt-0 xl:w-[200px]"
+                  name={"arts-german"}
+                  thainame={"ภาษา-ภาษาเยอรมัน"}
+                />
+              </div>
+            </div>
+          </div>
+        ) : (
           <div className="relative w-screen bg-[#F9DBC4] flex justify-between">
             <div className="">
-              <RomanTowerClubs classname="h-full -translate-x-1/3 "/>
+              <RomanTowerClubs classname="h-full -translate-x-1/3 " />
             </div>
             <div className="flex flex-col items-center justify-center w-4/5 lg:w-11/12 my-[50px] lg:mb-[90px]">
               <div className="flex flex-row w-full justify-evenly mt-[10px]">
-                <Programme width="220" height="280" className="z-10 mx-auto w-[125px] lg:w-[175px] mt-[20px]" name={"sci-math"} thainame={"วิทย์-คณิต"} />
-                <Programme width="244" height="253" className="z-10 mx-auto  w-[125px] lg:w-[175px]" name={"arts-math"} thainame={"ภาษา-คณิต"} />
+                <Programme
+                  width="220"
+                  height="280"
+                  className="z-10 mx-auto w-[125px] lg:w-[175px] mt-[20px]"
+                  name={"sci-math"}
+                  thainame={"วิทย์-คณิต"}
+                />
+                <Programme
+                  width="244"
+                  height="253"
+                  className="z-10 mx-auto  w-[125px] lg:w-[175px]"
+                  name={"arts-math"}
+                  thainame={"ภาษา-คณิต"}
+                />
               </div>
               <div className="flex flex-row w-full justify-evenly mt-[10px]">
-                <Programme width="327" height="176" className="z-10 mx-auto mt-[10px] w-[150px] lg:w-[225px]" name={"arts-chinese"} thainame={"ภาษา-ภาษาจีน"} />
-                <Programme width="235" height="303" className="z-10 mx-auto mt-[-40px] w-[125px] lg:w-[175px]" name={"arts-espanol"} thainame={"ภาษา-ภาษาสเปน"} />
+                <Programme
+                  width="327"
+                  height="176"
+                  className="z-10 mx-auto mt-[10px] w-[150px] lg:w-[225px]"
+                  name={"arts-chinese"}
+                  thainame={"ภาษา-ภาษาจีน"}
+                />
+                <Programme
+                  width="235"
+                  height="303"
+                  className="z-10 mx-auto mt-[-40px] w-[125px] lg:w-[175px]"
+                  name={"arts-espanol"}
+                  thainame={"ภาษา-ภาษาสเปน"}
+                />
               </div>
               <div className="flex flex-row w-full justify-evenly mt-[10px]">
-                <Programme width="241" height="290" className="z-10 mx-auto mt-[-30px] sm:mt-[-40px] w-[125px] lg:w-[175px]" name={"arts-japanese"} thainame={"ภาษา-ภาษาญี่ปุ่น"} />
-                <Programme width="385" height="212" className="z-10 mx-auto w-[150px] lg:w-[215px]" name={"arts-french"} thainame={"ภาษา-ภาษาฝรั่งเศส"} />
+                <Programme
+                  width="241"
+                  height="290"
+                  className="z-10 mx-auto mt-[-30px] sm:mt-[-40px] w-[125px] lg:w-[175px]"
+                  name={"arts-japanese"}
+                  thainame={"ภาษา-ภาษาญี่ปุ่น"}
+                />
+                <Programme
+                  width="385"
+                  height="212"
+                  className="z-10 mx-auto w-[150px] lg:w-[215px]"
+                  name={"arts-french"}
+                  thainame={"ภาษา-ภาษาฝรั่งเศส"}
+                />
               </div>
               <div className="flex flex-row w-full justify-evenly mt-[10px]">
-                <Programme width="247" height="208" className="z-10 mx-auto w-[125px] lg:w-[175px]" name={"arts-korean"} thainame={"ภาษา-ภาษาเกาหลี"} />
-                <Programme width="235" height="354" className="z-10 mx-auto mt-[-20px] w-[125px] lg:w-[165px]" name={"arts-german"} thainame={"ภาษา-ภาษาเยอรมัน"} />
+                <Programme
+                  width="247"
+                  height="208"
+                  className="z-10 mx-auto w-[125px] lg:w-[175px]"
+                  name={"arts-korean"}
+                  thainame={"ภาษา-ภาษาเกาหลี"}
+                />
+                <Programme
+                  width="235"
+                  height="354"
+                  className="z-10 mx-auto mt-[-20px] w-[125px] lg:w-[165px]"
+                  name={"arts-german"}
+                  thainame={"ภาษา-ภาษาเยอรมัน"}
+                />
               </div>
-            </div> 
+            </div>
           </div>
         )}
 
-          <div className="absolute bottom-[-1px]">
-            <Student classname="w-screen" />
-          </div>
+        <div className="absolute bottom-[-1px]">
+          <Student classname="w-screen" />
+        </div>
       </section>
-      
+
       <section className="relative w-screen">
         <div className="">
           <GiftedBg classname="absolute min-w-screen -z-10" />
@@ -186,51 +273,39 @@ export default function Home() {
               <p>Gifted</p>
               <p>Program</p>
             </div>
-        </div>
-
-        <div className="flex flex-col lg:mt-[-91px] lg:flex-row lg:items-end lg:min-h-screen lg:w-screen ">
-          <div className="flex mx-auto lg:w-1/2 ">
-            <div className="flex items-end w-screen">
-              <Link href={'/programmes/gifted-science'}>
-                <motion.button 
-                className="w-1/2 "
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }} >
-                <GiftedSci classname="w-full " />
-                </motion.button>
-              </Link>
-              <Link href={'/programmes/gifted-math'}>
-                <motion.button 
-                className="w-1/2 "
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }} >
-                <GiftedMath classname="w-full" />
-                </motion.button>
-              </Link>
-            </div>
           </div>
 
-          <div className="flex mx-auto lg:w-1/2 ">
-            <div className="flex w-screen">
-              <Link href={'/programmes/gifted-english'}>
-                <motion.button 
-                className="w-1/2 "
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }} >
-                <GiftedEng classname="w-full" />
-                </motion.button>
-              </Link>
-              <Link href={'/programmes/gifted-thai'}>
-                <motion.button 
-                className="w-1/2 "
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }} >
-                <GiftedThai classname="w-full" />
-                </motion.button>
-              </Link>
+          <div className="flex flex-col lg:mt-[-91px] lg:flex-row lg:items-end lg:min-h-screen lg:w-screen ">
+            <div className="flex mx-auto lg:w-1/2 ">
+              <div className="flex items-end w-screen">
+                <Link href={"/programmes/gifted-science"}>
+                  <motion.button className="w-1/2 " whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <GiftedSci classname="w-full " />
+                  </motion.button>
+                </Link>
+                <Link href={"/programmes/gifted-math"}>
+                  <motion.button className="w-1/2 " whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <GiftedMath classname="w-full" />
+                  </motion.button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex mx-auto lg:w-1/2 ">
+              <div className="flex w-screen">
+                <Link href={"/programmes/gifted-english"}>
+                  <motion.button className="w-1/2 " whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <GiftedEng classname="w-full" />
+                  </motion.button>
+                </Link>
+                <Link href={"/programmes/gifted-thai"}>
+                  <motion.button className="w-1/2 " whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <GiftedThai classname="w-full" />
+                  </motion.button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
 
@@ -318,8 +393,8 @@ export default function Home() {
       </section>
 
       <section className="relative h-full min-h-screen bg-moreInfo">
-        <div className="z-0" >
-          <MoreInfoBg classname="absolute right-0 h-full min-h-screen xl:left-0"/>
+        <div className="z-0">
+          <MoreInfoBg classname="absolute right-0 h-full min-h-screen xl:left-0" />
           <MoreInfoRight classname="absolute right-0 -translate-y-1/2 h-4/6 top-1/2 max-[1024px]:hidden" />
         </div>
         <div className="flex justify-center w-screen h-screen ">
@@ -327,36 +402,52 @@ export default function Home() {
             <MoreInfoFlag classname="w-full h-full" />
             <div className="z-10 text-white lg:text-[30px] text-[24px] my-auto lg:leading-[65px] leading-[43px] text-center mt-[40px] min-[1025px]:hidden">
               <div>
-                  <Link href={'/admission'}>
-                    <motion.button
+                <Link href={"/admission"}>
+                  <motion.button
                     whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }} 
-                    className="lg:w-[324px] w-[218px] rounded-[45px] moreInfo-button"><p className="">การสอบเข้าม.4</p></motion.button></Link>
-                </div>
-                <div className="mt-[20px]">
-                  <Link href={'/directions'}>
-                    <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="lg:w-[324px] w-[218px] rounded-[45px] moreInfo-button"
+                  >
+                    <p className="">การสอบเข้า ม.4</p>
+                  </motion.button>
+                </Link>
+              </div>
+              <div className="mt-[20px]">
+                <Link href={"/directions"}>
+                  <motion.button
                     whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }} 
-                    className="lg:w-[460px] w-[350px] rounded-[45px] moreInfo-button"><p>การเดินทางมาโรงเรียน</p></motion.button></Link>
-                </div>
+                    whileTap={{ scale: 0.95 }}
+                    className="lg:w-[460px] w-[350px] rounded-[45px] moreInfo-button"
+                  >
+                    <p>การเดินทางมาโรงเรียน</p>
+                  </motion.button>
+                </Link>
+              </div>
             </div>
           </div>
-        <div className="z-10 flex items-center h-sceen">
-          <div className="z-10 text-white text-[30px] leading-[60px] mt-[-200px] ml-[30px] text-center max-[1025px]:hidden">
+          <div className="z-10 flex items-center h-sceen">
+            <div className="z-10 text-white text-[30px] leading-[60px] mt-[-200px] ml-[30px] text-center max-[1025px]:hidden">
               <div>
-                <Link href={'/admission'}>
+                <Link href={"/admission"}>
                   <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }} 
-                  className="w-[320px] ml-[-85px] rounded-[45px] moreInfo-button"><p className="">การสอบเข้าม.4</p></motion.button></Link>
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-[320px] ml-[-85px] rounded-[45px] moreInfo-button"
+                  >
+                    <p className="">การสอบเข้า ม.4</p>
+                  </motion.button>
+                </Link>
               </div>
               <div className="mt-[40px]">
-                <Link href={'/directions'}>
+                <Link href={"/directions"}>
                   <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }} 
-                  className="w-[405px] rounded-[45px] moreInfo-button"><p>การเดินทางมาโรงเรียน</p></motion.button></Link>
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-[405px] rounded-[45px] moreInfo-button"
+                  >
+                    <p>การเดินทางมาโรงเรียน</p>
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </div>

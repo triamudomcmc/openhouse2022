@@ -79,7 +79,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
             <Link href={`/directions`}>การเดินทางมาโรงเรียนเตรียมฯ</Link>
           </div>
           <div className=" hover:underline">
-            <Link href={`/admission`}>การสอบเข้าม.4</Link>
+            <Link href={`/admission`}>การสอบเข้า ม.4</Link>
           </div>
           {/* <div className="cursor-pointer hover:underline">
             <Link href={`/moreInfo`}>ข้อมูลเพิ่มเติม</Link>
@@ -139,7 +139,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
         >
           <div className={`flex flex-col w-full text-black bg-white bg-opacity-80 font-display ${classname}`}>
             <>
-            <div className="flex justify-between">
+              <div className="flex justify-between">
                 <Link href="/" passHref>
                   <div className={`flex flex-shrink-0 bg-white bg-opacity-590 cursor-pointer ${classname}`}>
                     <OPHLogo classname="w-[60px] mb-[-10px]" />
@@ -152,13 +152,13 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
                   </div>
                 </Link>
                 <HamburgerButton
-                classname="lg:hidden"
-                ref={buttonRef}
-                reveal={reveal}
-                toggle={() => {
-                  setReveal(!reveal)
-                }}
-              />
+                  classname="lg:hidden"
+                  ref={buttonRef}
+                  reveal={reveal}
+                  toggle={() => {
+                    setReveal(!reveal)
+                  }}
+                />
               </div>
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                 <Link href="/" passHref>
@@ -177,7 +177,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
               </div>
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                 <Link href="/admission" passHref>
-                  <span>การสอบเข้าม.4</span>
+                  <span>การสอบเข้า ม.4</span>
                 </Link>
               </div>
               {/* {user?.roles?.hasOwnProperty("tucmc") && (
