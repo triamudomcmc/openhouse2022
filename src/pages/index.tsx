@@ -30,7 +30,7 @@ import { Programme } from "@components/programme";
 import RomanTower, { RomanTowerClubs } from "@vectors/romanTower";
 import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate";
 import { MoreInfoBg, MoreInfoFlag, MoreInfoRight } from "@vectors/background/MoreInfo";
-import { GiftedBg, GiftedEng, GiftedMath, GiftedSci, GiftedSciMath, GiftedThai, Student } from "@vectors/icons/gifted"
+import { GiftedBg, GiftedEng, GiftedMath, GiftedSci, GiftedThai, Student } from "@vectors/icons/gifted"
 
 const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0)
 
@@ -176,7 +176,7 @@ export default function Home() {
           </div>
       </section>
       
-      <section className="relative w-screen">
+      <section className="relative w-screen mb-[-3px]">
         <div className="">
           <GiftedBg classname="absolute min-w-screen -z-10" />
         </div>
