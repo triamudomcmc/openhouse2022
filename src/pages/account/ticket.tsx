@@ -92,9 +92,16 @@ const Page = () => {
         <div className="flex flex-col items-center mt-12 space-y-4">
           <div className="relative">
             {/* Profile Container */}
-            <div className="absolute top-[124px] -right-[12px]">
-              <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? "cat"}.png`} width={200} height={200} alt="QR-code"/>
-            </div>
+            {user?.Info?.profileIcon != "ceo" ? (
+              <div className="absolute top-[124px] -right-[12px]">
+                <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? "cat"}.png`} width={200} height={200} alt="QR-code"/>
+              </div>
+              ):(
+                <div className="absolute top-[103px] -right-5">
+                  <Image src={`/assets/images/profile/${user?.Info?.profileIcon ?? "cat"}.png`} width={220} height={220} alt="QR-code"/>
+                </div>
+              )
+            }
             {/*Ticket description*/}
             <div className="flex flex-col absolute top-[169px] left-[28px] text-purple">
               <span className="font-bold text-[28px]">{accountData?.Info?.username}</span>
