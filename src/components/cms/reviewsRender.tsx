@@ -84,15 +84,11 @@ const ReviewCard: FC<{
         <div className="max-lg:hidden">
           <div className="flex lg:flex-col mt-[30px] lg:mt-0 ">
             <div className="flex lg:flex-col lg:w-[170px]">
-              <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
-                <ImageUploader
-                  editable={false}
-                  className="rounded-[9.2px] lg:rounded-[24.3px]"
-                  // uploadFunction={reviewDoUpload}
-                  // purpose={`profile-${index}`}
-                  link={reviewImagesLink ?? false ? reviewImagesLink[index] ?? null : null}
-                />
+            {reviewImagesLink[index] != "" &&
+              <div className="w-[51px] h-[51px] lg:h-[135px] lg:w-[135px] ">
+                  <img width="100" height="100" src={reviewImagesLink[index]} className="object-cover w-full h-full  rounded-[7px] lg:rounded-[27px]" />
               </div>
+            }
               <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
                 <p
                   className="text-[15px] leading-[18.15px] font-[900] font-display lg:text-xl"
@@ -109,7 +105,7 @@ const ReviewCard: FC<{
                   {name}
                 </p>
                 <div className="flex font-display text-xs font-[400] lg:text-md">
-                  <p>เตรียมอุดม</p>
+                  <p>เตรียมอุดม&nbsp;</p>
                   <p
                     suppressContentEditableWarning={true}
                     contentEditable={editable}
@@ -179,15 +175,11 @@ const ReviewCard: FC<{
         <div className="max-lg:hidden">
           <div className="flex lg:flex-col mt-[30px] lg:mt-0 lg:ml-[30px] ">
             <div className="flex lg:flex-col lg:w-[170px]">
-              <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
-                <ImageUploader
-                  editable={editable}
-                  className="rounded-[9.2px] lg:rounded-[24.3px]"
-                  uploadFunction={reviewDoUpload}
-                  purpose={`profile-${index}`}
-                  link={reviewImagesLink ?? false ? reviewImagesLink[index] ?? null : null}
-                />
+            {reviewImagesLink[index] != "" &&
+              <div className="w-[51px] h-[51px] lg:h-[135px] lg:w-[135px] ">
+                  <img width="100" height="100" src={reviewImagesLink[index]} className="object-cover w-full h-full  rounded-[7px] lg:rounded-[27px]" />
               </div>
+            }
               <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
                 <p
                   className="text-[15px] leading-[18.15px] font-[900] font-display lg:text-xl"
@@ -204,7 +196,7 @@ const ReviewCard: FC<{
                   {name}
                 </p>
                 <div className="flex font-display text-xs font-[400] lg:text-md">
-                  <p>เตรียมอุดม</p>
+                  <p>เตรียมอุดม&nbsp;</p>
                   <p
                     suppressContentEditableWarning={true}
                     contentEditable={editable}
@@ -256,15 +248,11 @@ const ReviewCard: FC<{
       <div className="lg:hidden">
         <div className="flex lg:flex-col mt-[30px] lg:mt-0 ">
           <div className="flex lg:flex-col lg:w-[170px]">
-            <div className="bg-gray-300 w-[51px] h-[51px] rounded-[7px] lg:h-[135px] lg:w-[135px] lg:rounded-[27px]">
-              <ImageUploader
-                editable={editable}
-                className="rounded-[9.2px] lg:rounded-[24.3px]"
-                uploadFunction={reviewDoUpload}
-                purpose={`profile-${index}`}
-                link={reviewImagesLink ?? false ? reviewImagesLink[index] ?? null : null}
-              />
-            </div>
+          {reviewImagesLink[index] != "" &&
+              <div className="w-[51px] h-[51px] lg:h-[135px] lg:w-[135px] ">
+                  <img width="100" height="100" src={reviewImagesLink[index]} className="object-cover w-full h-full  rounded-[7px] lg:rounded-[27px]" />
+              </div>
+            }
             <div className="ml-[7px] lg:ml-0 lg:mt-[21px] w-[190px]">
               <p
                 className="text-[15px] leading-[18.15px] font-[900] font-display lg:text-xl"
@@ -281,7 +269,7 @@ const ReviewCard: FC<{
                 {name}
               </p>
               <div className="flex font-display text-xs font-[400] lg:text-md">
-                <p>เตรียมอุดม</p>
+                <p>เตรียมอุดม&nbsp;</p>
                 <p
                   suppressContentEditableWarning={true}
                   contentEditable={editable}
@@ -308,7 +296,7 @@ const ReviewCard: FC<{
                   })
                 }}
               >
-                {social}
+              {social}
               </p>
             </div>
           </div>

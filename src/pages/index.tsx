@@ -22,7 +22,7 @@ import { Programme } from "@components/programme"
 import RomanTower, { RomanTowerClubs } from "@vectors/romanTower"
 import { ClubsBg, ClubsGate, Sun } from "@vectors/background/clubsGate"
 import { MoreInfoBg, MoreInfoFlag, MoreInfoRight } from "@vectors/background/MoreInfo"
-import { GiftedBg, GiftedEng, GiftedMath, GiftedSci, GiftedSciMath, GiftedThai, Student } from "@vectors/icons/gifted"
+import { GiftedBg, GiftedEng, GiftedMath, GiftedSci, GiftedThai, Student } from "@vectors/icons/gifted"
 
 const OpeningTime = +new Date(2023, 0, 13, 9, 0, 0, 0)
 
@@ -103,7 +103,7 @@ export default function Home() {
             <p>เรียน</p>
           </div>
         </div>
-        <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] max-lg:w-[193px] max-lg:h-[65px] max-lg:backdrop-blur-lg max-lg:bg-[#FADCC5] max-lg:rounded-xl max-lg:bg-opacity-70 lg:bottom-[120px]">
+        <div className="absolute flex w-[193px] items-center justify-center lg:w-[240px] lg:right-[100px] bottom-[50px] ml-[20px] max-lg:w-[193px] max-lg:h-[65px] max-xl:backdrop-blur-lg max-xl:bg-[#FADCC5] max-xl:rounded-xl max-xl:bg-opacity-70 lg:bottom-[120px]">
           <div className="text-[16px] leading-[24px] lg:text-[24px] flex flex-col items-center justify-center lg:leading-[38px] text-black">
             <p>เลื่อนลงเพื่ออ่านข้อมูล</p>
             <p>สายการเรียนที่สนใจ</p>
@@ -408,7 +408,7 @@ export default function Home() {
                     whileTap={{ scale: 0.95 }}
                     className="lg:w-[324px] w-[218px] rounded-[45px] moreInfo-button"
                   >
-                    <p className="">การสอบเข้า ม.4</p>
+                    <p className="">การสอบเข้าม.4</p>
                   </motion.button>
                 </Link>
               </div>
@@ -434,7 +434,7 @@ export default function Home() {
                     whileTap={{ scale: 0.95 }}
                     className="w-[320px] ml-[-85px] rounded-[45px] moreInfo-button"
                   >
-                    <p className="">การสอบเข้า ม.4</p>
+                    <p className="">การสอบเข้าม.4</p>
                   </motion.button>
                 </Link>
               </div>

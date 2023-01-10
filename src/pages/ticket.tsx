@@ -13,11 +13,17 @@ const TicketGen = () => {
 
     return (
         <div>
-            <div className="w-[951px] h-[1638px] relative">
-              {/* Profile Container */}
+            <div className="w-[951px] h-[1638px] relative overflow-x-clip">
+              {props?.profileIcon != "ceo" ? (
               <div className="absolute top-[340px] -right-[30px]">
-                <Image src={`/assets/images/profile/${props?.profileIcon ?? "cat"}.png`} width={600} height={600} />
+                <Image src={`/assets/images/profile/${props?.profileIcon ?? "cat"}.png`} width={600} height={600} alt="QR-code"/>
               </div>
+              ):(
+                <div className="absolute top-[300px] -right-[60px]">
+                  <Image src={`/assets/images/profile/${props?.profileIcon ?? "cat"}.png`} width={660} height={660} alt="QR-code"/>
+                </div>
+              )
+            }
               {/*Ticket description*/}
               <div className="flex flex-col absolute top-[507px] left-[84px] text-purple">
                 <span className="font-bold text-[84px]">{props?.username}</span>
@@ -29,6 +35,9 @@ const TicketGen = () => {
                   <UserIcon className="w-12 h-12" />
                   <span className="mt-3 text-[48px] leading-[81px] font-medium">{props?.status}</span>
                 </div>
+              </div>
+              <div className="absolute bottom-[588px] left-0 w-full flex justify-center">
+               <span className="font-semibold text-purple text-[48px]">{props?.account_id}</span>
               </div>
               {/* QR Container */}
               <div className="absolute w-[312px] h-[312px] left-[90px] bottom-[84px] rounded-3xl">

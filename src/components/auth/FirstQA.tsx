@@ -132,7 +132,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="student"
+                    value="Student"
                   />
                   นักเรียน
                 </label>
@@ -141,7 +141,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="teacher"
+                    value="Teacher"
                   />
                   ครู / บุคลากรโรงเรียน
                 </label>
@@ -150,7 +150,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="alumini"
+                    value="Alumni"
                   />
                   นักเรียนเก่าโรงเรียนเตรียมฯ
                 </label>
@@ -159,7 +159,7 @@ export const FirstQA: FC<{
                     className="inline mr-3 text-black font-display w-[1.15rem] h-[1.15rem] focus:outline-none"
                     name="status"
                     type="radio"
-                    value="parent"
+                    value="Parent"
                   />
                   ผู้ปกครอง
                 </label>
@@ -178,7 +178,7 @@ export const FirstQA: FC<{
                         <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
                           <Field
                             className={`
-                                ${errors.status ? "border-orange" : "border-white"}
+                                ${errors.otherStatus ? "border-orange" : "border-white"}
                                 border block w-full bg-white p-3 focus:outline-none rounded-md
                               `}
                             id="otherStatus"
@@ -192,12 +192,12 @@ export const FirstQA: FC<{
                 </label>
               </div>
               {errors.otherStatus ? (
-                <p className="mt-1 text-orange mb-6">{errors.status}</p>
+                <p className="mt-1 text-orange mb-6">{errors.otherStatus}</p>
               ) : (
                 <div className="h-6" aria-hidden></div>
               )}
             </motion.div>
-            {["student", "teacher"].includes(values.status) && (
+            {["Student", "Teacher"].includes(values.status) && (
               <>
                 {/* <hr className="text-white my-2 h-4" /> */}
                 <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} layout="position">
@@ -220,7 +220,7 @@ export const FirstQA: FC<{
                     <div className="h-6" aria-hidden></div>
                   )}
                 </motion.div>
-                {values.status === "student" && (
+                {values.status === "Student" && (
                   <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} layout="position">
                     <label className="block my-1 text-blue-text" htmlFor="grade">
                       ระดับชั้น
@@ -288,13 +288,13 @@ const validate = (values: IUserQuestionData) => {
     errors.status = "จำเป็นต้องเลือกสถานะ"
   }
 
-  if (["teacher", "student"].includes(values.status) && !values.school) {
+  if (["Teacher", "Student"].includes(values.status) && !values.school) {
     errors.school = "จำเป็นต้องระบุ"
   }
 
-  if (values.status === "student" && !values.grade) {
+  if (values.status === "Student" && !values.grade) {
     errors.grade = "จำเป็นต้องระบุ"
-  } else if (values.status === "student" && values.grade) {
+  } else if (values.status === "Student" && values.grade) {
     if (values.grade.length > 16) {
       errors.grade = "ความยาวต้องไม่เกิน 16 ตัวอักษร"
     }
@@ -313,12 +313,12 @@ const formatData: (data: any) => IUserQuestionData = (data) => {
   const _data: any = data
 
   // not status that requires school
-  if (!["student", "teacher"].includes(data.status)) {
+  if (!["Student", "Teacher"].includes(data.status)) {
     _data.school = null
   }
 
   // not student
-  if (data.status !== "student") {
+  if (data.status !== "Student") {
     _data.grade = null
   }
 

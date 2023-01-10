@@ -56,7 +56,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
             <div className="flex flex-col justify-center">
               <p className="font-[700] text-[20px] leading-[24px]">
                 TRIAM UDOM
-                <span className="font-[400] block text-[15px] leading-[18px]">ONLINE OPEN HOUSE 2023</span>
+                <span className="font-[400] block text-[15px] leading-[18px]">OPEN HOUSE 2023</span>
               </p>
             </div>
           </div>
@@ -96,12 +96,12 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
           )} */}
           {!user && (
             <div className="cursor-pointer hover:underline">
-              <Link href={`/auth`}>Sign in</Link>
+              <Link href={`/auth`}>เข้าสู่ระบบ</Link>
             </div>
           )}
           {user && (
             <div className="cursor-pointer hover:underline">
-              <Link href={`/account`}>Account</Link>
+              <Link href={`/account`}>บัญชี</Link>
             </div>
           )}
         </div>
@@ -115,7 +115,7 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
               <div className="flex flex-col items-center justify-center">
                 <p className="font-[700] text-[14px] leading-[17px]">
                   TRIAM UDOM
-                  <span className="font-[400] block text-[10px] leading-[13px]">ONLINE OPEN HOUSE 2023</span>
+                  <span className="font-[400] block text-[10px] leading-[13px]">OPEN HOUSE 2023</span>
                 </p>
               </div>
             </div>
@@ -198,14 +198,14 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
               {user && (
                 <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                   <Link href="/account" passHref>
-                    <span>Account</span>
+                    <span>บัญชี</span>
                   </Link>
                 </div>
               )}
               {!user && (
                 <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                   <Link href="/auth" passHref>
-                    <span>Sign in</span>
+                    <span>เข้าสู่ระบบ</span>
                   </Link>
                 </div>
               )}

@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react"
 import { useQRCode } from "next-qrcode"
-import Router from "next/router"
-import Link from "next/link"
 import NextImage from "next/image"
 import { motion } from "framer-motion"
 
 import { useAuth } from "@lib/auth"
 import { PageContainer } from "@components/account/PageContainer"
 import { groupByN } from "@utilities/array"
+import noAuth from "@pages/noAuth"
+import notFound from "@pages/404"
 
 interface StampType {
   id: string
@@ -84,13 +84,15 @@ export default function QrGen() {
     }
   }, [uidData?.stamp])
 
+  if (user?.uid && (user?.club || user?.roles?.hasOwnProperty('staff'))) return notFound()
+
   if (user?.uid) {
     return (
       <PageContainer>
         <div className="flex flex-col items-center text-deep-turquoise">
-          <h3 className="text-2xl font-bold mt-10">Scan here</h3>
-          <p className="font-bold -mt-2">เพื่อสะสมแสตมป์จากซุ้มต่าง ๆ</p>
-          <div className="rounded-lg my-10 w-48 h-48 rounded-2xl bg-white">
+          <h3 className="mt-10 text-2xl font-bold">Scan here</h3>
+          <p className="-mt-2 font-bold">เพื่อสะสมแสตมป์จากซุ้มต่าง ๆ</p>
+          <div className="w-48 h-48 my-10 bg-white rounded-lg">
             <div className="mt-[6px] ml-[6px]">
               <QRCode
                 text={user?.uid}
@@ -109,7 +111,7 @@ export default function QrGen() {
             </div>
           </div>
           <div className="flex flex-col items-center bg-white rounded-3xl py-6 w-full max-w-[380px] shadow-lg">
-            <span className="font-bold text-xl mb-6 mt-4">แสตมป์ของ {user?.Info?.username}</span>
+            <span className="mt-4 mb-6 text-xl font-bold">แสตมป์ของ {user?.Info?.username}</span>
             <div className="flex flex-col space-y-3">
               {groupByN(3, stampData).map((group, index) => (
                 <div key={index} className="grid grid-cols-3 gap-2">
@@ -129,20 +131,13 @@ export default function QrGen() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-500 text-center leading-5 mt-7 mb-2">
-              สะสมสแตมป์ให้ครบเพื่อแลกรับรางวัลพิเศษ <br />ณ ซุ้มคณะกรรมการกิจกรรมพัฒนาผู้เรียน (กช.)
+            <p className="mb-2 leading-5 text-center text-gray-500 mt-7">
+              สะสมแสตมป์ให้ครบเพื่อแลกรับรางวัลพิเศษ <br />ณ ซุ้มคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.)
             </p>
           </div>
         </div>
       </PageContainer>
     )
   }
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full">
-      <h3>Please sign up to view your QR code</h3>
-      <Link href="@pages/auth">
-        <u>Click here to Sign Up</u>
-      </Link>
-    </div>
-  )
+  return noAuth()
 }

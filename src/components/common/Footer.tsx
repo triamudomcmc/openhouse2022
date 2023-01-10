@@ -47,7 +47,7 @@ export const Footer: FC<{ theme?: string }> = ({ theme }) => {
         <div className="flex justify-center">
           <div className="space-y-5 text-center sm:text-left">
             <div className={`${theme == "light" ? "text-[#37498B]" : "text-white"} font-semibold font-sans`}>
-              <p>TRIAM UDOM ONLINE</p>
+              <p>TRIAM UDOM</p>
               <p className="-mt-1">OPEN HOUSE 2023</p>
             </div>
             <div className="flex space-x-3">

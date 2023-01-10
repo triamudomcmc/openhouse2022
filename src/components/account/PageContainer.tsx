@@ -6,16 +6,16 @@ import Router from "next/router"
 
 export const PageContainer: FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className="min-h-screen w-full bg-cream py-28">
-      <div className="max-w-4xl mx-auto px-10">
+    <div className="flex items-center w-full min-h-screen bg-cream py-28">
+      <div className="w-full max-w-4xl px-10 mx-auto">
         <div
           onClick={() => {
             Router.back()
           }}
-          className="text-bright-orange flex space-x-1 items-center cursor-pointer"
+          className="flex items-center space-x-1 cursor-pointer text-bright-orange"
         >
           <ArrowCircleLeftIcon className="w-5 h-5" />
-          <h1 className="text-sm mt-1 font-normal">ย้อนกลับ</h1>
+          <h1 className="mt-1 text-sm font-normal">ย้อนกลับ</h1>
         </div>
         {children}
       </div>
