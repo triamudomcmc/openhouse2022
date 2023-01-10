@@ -14,10 +14,16 @@ const TicketGen = () => {
     return (
         <div>
             <div className="w-[951px] h-[1638px] relative overflow-x-clip">
-              {/* Profile Container */}
+              {props?.profileIcon != "ceo" ? (
               <div className="absolute top-[340px] -right-[30px]">
-                <Image src={`/assets/images/profile/${props?.profileIcon ?? "cat"}.png`} width={600} height={600} />
+                <Image src={`/assets/images/profile/${props?.profileIcon ?? "cat"}.png`} width={600} height={600} alt="QR-code"/>
               </div>
+              ):(
+                <div className="absolute top-[300px] -right-[60px]">
+                  <Image src={`/assets/images/profile/${props?.profileIcon ?? "cat"}.png`} width={660} height={660} alt="QR-code"/>
+                </div>
+              )
+            }
               {/*Ticket description*/}
               <div className="flex flex-col absolute top-[507px] left-[84px] text-purple">
                 <span className="font-bold text-[84px]">{props?.username}</span>
