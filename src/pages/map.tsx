@@ -21,11 +21,11 @@ export default function Map() {
         >
           {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
             <div className="flex flex-col items-center mt-8">
-              <div className="tools">
+              {/* <div className="tools">
                 <button onClick={() => zoomIn()}>+</button>
                 <button onClick={() => zoomOut()}>-</button>
                 <button onClick={() => resetTransform()}>x</button>
-              </div>
+              </div> */}
 
               <TransformComponent>
                 <TriamOPHMap className="cursor-grab w-full h-[64rem]" />
