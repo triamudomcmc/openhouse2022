@@ -10,6 +10,7 @@ import {
   deleteDoc,
   FieldValue,
   Firestore,
+  serverTimestamp,
 } from "firebase/firestore"
 
 import { getFirestore as getDB } from "./firebase-admin"
@@ -99,4 +100,19 @@ export const movePendToProd = async (clubId: string): Promise<void> => {
 
 export const declinePend = async (clubId: string): Promise<void> => {
   await adminDb.collection("pendingAppr").doc(clubId).set({ declined: true }, { merge: true })
+}
+
+export const markOnsite = async (uid: string): Promise<void | DocumentData> => {
+  const marked = { onSite: true }
+  const userRef = await adminDb.collection('account').doc(uid)
+  await userRef.set(marked, { merge: true })
+  if ((await userRef.get()).exists) return (await userRef.get()).data
+}
+
+export const stamp = async (club: string, clubName: string, uid: string, scannerUid: string): Promise<void | DocumentData | boolean> => {
+  const dataToPush = { [club]: { 'timestamp': firestore.Timestamp.now(), 'nameTH': clubName, 'scannerUid': scannerUid } }
+  const userRef = await adminDb.collection('account').doc(uid)
+
+  await userRef.set({'stamp': dataToPush}, { merge: true })
+  return true
 }

@@ -10,24 +10,20 @@ import {
   deleteDoc,
   serverTimestamp,
 } from "firebase/firestore"
-import firebaseApp from "./firebase"
 
-const db = getFirestore(firebaseApp)
+
 export const getUserRef = (uid: string) => {
+  const db = getFirestore()
   return doc(db, "account", uid)
 }
 
-export const stamp = async (club: string, clubName: string, uid: string): Promise<void> => {
-  const userRef = getUserRef(uid)
-
-  return await updateDoc(userRef, { [`stamp.${club}`]: { timestamp: serverTimestamp(), nameTH: clubName } })
-}
-
 export const getClubProdRef = (clubId: string) => {
+  const db = getFirestore()
   return doc(db, "prodAppr", clubId)
 }
 
 export const getClubPendRef = (clubId: string) => {
+  const db = getFirestore()
   return doc(db, "pendingAppr", clubId)
 }
 
@@ -35,13 +31,6 @@ export const updateUser = (uid: string, data: DocumentData): Promise<void> => {
   const userRef = getUserRef(uid)
 
   return updateDoc(userRef, data)
-}
-
-export const markOnsite = async (uid: string): Promise<void> => {
-  const marked = { onSite: true }
-  const userRef = getUserRef(uid)
-
-  return await updateDoc(userRef, marked)
 }
 
 export const createUser = async (uid: string, data: DocumentData): Promise<void> => {
@@ -63,6 +52,7 @@ export const getUserData = async (uid: string): Promise<null | DocumentData> => 
   return null
 }
 export const getCurrentUserId = async (uid: string): Promise<string> => {
+  const db = getFirestore()
   const ref = doc(db, "account", "count")
   const curr = (await getDoc(ref)).data().current
 

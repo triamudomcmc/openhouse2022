@@ -7,6 +7,9 @@ import { Navbar } from "@components/common/Nav/Navbar"
 import { useRouter } from "next/router"
 import { Footer } from "@components/common/Footer"
 import Head from "next/head"
+import { useEffect } from "react"
+import { initializeApp } from "firebase/app"
+import { fireConfig } from "@config/fireConfig"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()

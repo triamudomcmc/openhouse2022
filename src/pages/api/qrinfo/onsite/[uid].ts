@@ -1,4 +1,5 @@
-import { getUserData, markOnsite } from "@lib/clientDB"
+import { getUserData } from "@lib/clientDB"
+import { markOnsite } from "@lib/dbMethod"
 import { executeOverPerm } from "@handlers/permCheck"
 
 export default async function getInfo(req, res) {

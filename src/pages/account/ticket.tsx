@@ -25,15 +25,9 @@ const Page = () => {
 
   useEffect(() => {
     const fetcher = async () => {
-      const res = await fetch(`/api/qrinfo/${user?.uid}`, {
-        headers: {
-          req_uid: user?.uid,
-        },
-      })
-      if (res) {
-        setAccountData(await res.json())
+      const uidData = await getUserData(user?.uid)
+      setAccountData(uidData as IUserData)
         setLoading(false)
-      }
     }
     if (user?.uid) fetcher()
     // else router.push({pathname: `/auth`, query: { method: 'email' }})
