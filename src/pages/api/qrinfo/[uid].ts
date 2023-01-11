@@ -1,4 +1,4 @@
-import { getUserData, markOnsite } from "@lib/clientDB"
+import { getUserData } from "@lib/clientDB"
 
 export default async function getInfo(req, res) {
   const { uid } = req.query
