@@ -76,7 +76,7 @@ const Page = () => {
               </div>
             </div>}
           </div>
-        : null}
+        : noAuth()}
       </PageContainer>
     )
 
