@@ -9,6 +9,8 @@ import { PageContainer } from "@components/account/PageContainer"
 import { groupByN } from "@utilities/array"
 import noAuth from "@pages/noAuth"
 import notFound from "@pages/404"
+import { getUserData } from "@lib/clientDB"
+import { IUserData } from "@ctypes/account"
 
 interface StampType {
   id: string
@@ -49,15 +51,8 @@ export default function QrGen() {
 
   async function getUidData(fetchUid: string): Promise<void> {
     if (fetchUid) {
-      const res = await fetch(`/api/qrinfo/${fetchUid}`, {
-        headers: {
-          req_uid: user?.uid,
-        },
-      })
-      const tmp = await res.json()
-      if (tmp) {
-        setUidData(tmp)
-      }
+      const uidData = await getUserData(user?.uid)
+      setUidData(uidData as IUserData)
     }
   }
 
@@ -124,7 +119,7 @@ export default function QrGen() {
             <span className="mt-4 mb-6 text-xl font-bold text-center">แสตมป์ของ {user?.Info?.username}</span>
             <div className="flex flex-col space-y-3">
               {groupByN(3, stampData).map((group, index) => (
-                <div>
+                <div key={index}>
                   {index <= 3 &&
                   <div key={index} className="grid grid-cols-3 gap-2">
                     {group.map((stamp) => (

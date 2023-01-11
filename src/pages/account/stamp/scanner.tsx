@@ -2,11 +2,11 @@ import { useEffect, useState, ReactNode } from "react"
 import { QrReader } from "react-qr-reader"
 
 import { useAuth } from "@lib/auth"
-import { stamp } from "@lib/clientDB"
 
 import { PageContainer } from "@components/account/PageContainer"
 import getNameOfClub from "@utilities/nameENofClub"
 import noAuth from "@pages/noAuth"
+import { getUserData } from "@lib/clientDB"
 
 const FocusRing = () => {
   return (
@@ -54,23 +54,31 @@ const Page = () => {
     }
   }
 
-  function stampit() {
+  async function stampit() {
     if (uid) {
-      setStampPress(true)
       const clubName = getNameOfClub(user?.club)
-      stamp(user?.club, clubName, uid)
+      const res = await fetch(`/api/qrinfo/booth/stamp`, {
+        method: "POST",
+        body: JSON.stringify({
+          executerUid: user?.uid,
+          club: user?.club,
+          clubName: clubName,
+          uid: uid,
+        }),
+      })
+      if (res?.ok) setStampPress(true)
     }
   }
 
   useEffect(() => {
-    const getUidData = async (uid) => {
-      const res = await fetch(`/api/qrinfo/booth/${uid}`, {
+    const getUidData = async (uid: string) => {
+      const res = await fetch(`/api/qrinfo/onsite/${uid}`, {
         method: "POST",
         body: JSON.stringify({
           executerUid: user?.uid,
         }),
       })
-      if (res) setUidData(await res.json())
+      if (res) setUidData(await getUserData(uid))
     }
     if (uid) getUidData(uid)
     setButtonNum(1)

@@ -44,6 +44,7 @@ export default function Scan() {
   const { user } = useAuth()
   const [uid, setUid] = useState<string | null>(null)
   const [FDVariant, setFDVariant] = useState<number>(0)
+  const [marked, setMarked] = useState<boolean>(true)
 
   const descriptionVariants: ReactNode[] = [
     <span key="marked" className="bg-orange py-0.5 px-14 rounded-full">
@@ -54,22 +55,27 @@ export default function Scan() {
     </div>,
   ]
 
-  useEffect(() => {
-    const getUidData = async (uid) => {
-      const res = await fetch(`/api/qrinfo/onsite/${uid}`, {
-        method: "POST",
-        body: JSON.stringify({
-          executerUid: user?.uid,
-        }),
-      })
+  async function mark(uid: string) {
+    const res = await fetch(`/api/qrinfo/onsite/${uid}`, {
+      method: "POST",
+      body: JSON.stringify({
+        executerUid: user?.uid,
+      }),
+    })
+    if (res) {
+      setMarked(true)
+      setFDVariant(1)
     }
-    if (uid) getUidData(uid)
+  }
+
+  useEffect(() => {
+    if (uid) mark(uid)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uid, user?.uid])
 
   function handleQrUid(result, error) {
     if (result) {
       setUid(result.text)
-      setFDVariant(1)
     }
     if (error) {
       setUid(null)

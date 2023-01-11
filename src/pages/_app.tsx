@@ -7,6 +7,9 @@ import { Navbar } from "@components/common/Nav/Navbar"
 import { useRouter } from "next/router"
 import { Footer } from "@components/common/Footer"
 import Head from "next/head"
+import { useEffect } from "react"
+import { initializeApp } from "firebase/app"
+import { fireConfig } from "@config/fireConfig"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -14,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       <Head>
-        <title>Triamudom Open House 2023</title>
+        <title>Triam Udom Open House 2023</title>
         <meta
           name="description"
           content="งานนิทรรศการประจำปีของโรงเรียนเตรียมอุดมศึกษา พบกับกิจกรรมที่น่าสนใจจากนักเรียนโรงเรียนเตรียมอุดมศึกษา อาทิ แนะแนวการศึกษาต่อ แนะนำสายการเรียน และกิจกรรมจากชมรมต่าง ๆ"
