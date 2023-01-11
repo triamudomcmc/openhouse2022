@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react"
 import Router, { useRouter } from "next/router"
 import {
-  getAuth,
   onAuthStateChanged,
   User,
   signInWithPopup,
@@ -15,11 +14,11 @@ import { createUser, getCurrentUserId, getUserData } from "./clientDB"
 import { IAuthContext, IInitialUserData, IUserData } from "@ctypes/account"
 import { fireConfig } from "@config/fireConfig"
 import { initializeApp } from "@firebase/app"
+import { auth } from "./firebase"
 
 interface actProp {
   children: React.ReactNode
 }
-
 
 const AuthContext = React.createContext<IAuthContext | null>(null)
 
@@ -29,12 +28,11 @@ export const useAuth = () => {
 
 export const AuthProvider: React.FC<actProp> = ({ children }) => {
   initializeApp(fireConfig)
-  
+
   const auther = useProvideAuth()
   const { pathname } = useRouter()
 
   useEffect(() => {
-    const auth = getAuth()
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userData = await getUserData(user.uid)
@@ -44,16 +42,13 @@ export const AuthProvider: React.FC<actProp> = ({ children }) => {
     }) // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-
   return <AuthContext.Provider value={auther}>{children}</AuthContext.Provider>
 }
 
 function useProvideAuth() {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
-  const auth = getAuth()
 
-  
   const handleUser = async (rawUser: User | null) => {
     if (rawUser && user === null) {
       const currentAccountId = await getCurrentUserId(rawUser.uid)
@@ -102,8 +97,7 @@ function useProvideAuth() {
 
     if (handleStatus?.qa) {
       Router.push(`/auth`)
-    }
-    else if (redirect) {
+    } else if (redirect) {
       Router.push(redirect)
     }
   }
@@ -112,7 +106,7 @@ function useProvideAuth() {
     setLoading(true)
     await handleUser(null)
     await signOut(auth)
-    Router.push('/auth')
+    Router.push("/auth")
   }
 
   return {

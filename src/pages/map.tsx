@@ -1,7 +1,11 @@
 import { TriamOPHMap } from "@components/map"
+import classNames from "classnames"
+import { useState } from "react"
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 
 export default function Map() {
+  const [selected, setSelected] = useState<"all" | "program" | "club" | "gifted" | "org">("all")
+
   return (
     <main
       style={{ background: "linear-gradient(131.48deg, #FFF1E1 0%, #CFCCD9 104.77%)" }}
@@ -26,6 +30,48 @@ export default function Map() {
                 <button onClick={() => zoomOut()}>-</button>
                 <button onClick={() => resetTransform()}>x</button>
               </div> */}
+              <div className="flex gap-4">
+                <button
+                  className={classNames(
+                    selected === "all" ? "bg-orange text-white" : "bg-white text-black",
+                    "rounded-md px-6 py-2"
+                  )}
+                >
+                  All
+                </button>
+                <button
+                  className={classNames(
+                    selected === "program" ? "bg-orange text-white" : "bg-white text-black",
+                    "rounded-md px-6 py-2"
+                  )}
+                >
+                  สายการเรียน
+                </button>
+                <button
+                  className={classNames(
+                    selected === "club" ? "bg-orange text-white" : "bg-white text-black",
+                    "rounded-md px-6 py-2"
+                  )}
+                >
+                  ชมรม
+                </button>
+                <button
+                  className={classNames(
+                    selected === "gifted" ? "bg-orange text-white" : "bg-white text-black",
+                    "rounded-md px-6 py-2"
+                  )}
+                >
+                  Gifted
+                </button>
+                <button
+                  className={classNames(
+                    selected === "org" ? "bg-orange text-white" : "bg-white text-black",
+                    "rounded-md px-6 py-2"
+                  )}
+                >
+                  องค์กร
+                </button>
+              </div>
 
               <TransformComponent>
                 <TriamOPHMap className="cursor-grab w-full h-[64rem]" />
