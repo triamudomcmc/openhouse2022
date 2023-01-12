@@ -3,7 +3,7 @@ import { NextApiRequest } from "next"
 
 const allowCors = fn => async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', false)
-  res.setHeader('Access-Control-Allow-Origin', "*");
+  res.setHeader('Access-Control-Allow-Origin', "*")
   res.setHeader('Access-Control-Allow-Methods', 'GET')
   res.setHeader(
     'Access-Control-Allow-Headers',
@@ -27,7 +27,7 @@ async function getTicket(req, res) {
   res.end(file)
 }
 
-export default async allowCors(getTicket);
+export default async allowCors(getTicket)
 
 
 const getProtocol = (req: NextApiRequest) => (req.headers.host?.includes("localhost") ? "http" : "https")
