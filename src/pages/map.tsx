@@ -46,7 +46,7 @@ export default function Map() {
       style={{ background: "linear-gradient(131.48deg, #FFF1E1 0%, #CFCCD9 104.77%)" }}
       className="min-h-screen w-full py-28"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto">
           <h1 className="text-2xl font-bold text-blue-text text-center">แผนผังงาน</h1>
           <p className="text-xl font-bold text-blue-text text-center">Triam Udom Open House 2023</p>
@@ -59,7 +59,7 @@ export default function Map() {
           velocityAnimation={{ sensitivity: 0.02 }}
         >
           {({ zoomIn, zoomOut, resetTransform, zoomToElement }) => (
-            <div className="flex flex-col items-center mt-8">
+            <div className="flex flex-col items-center mt-2 sm:mt-8">
               {/* <div className="tools">
                 <button onClick={() => zoomIn()}>+</button>
                 <button onClick={() => zoomOut()}>-</button>
@@ -75,7 +75,7 @@ export default function Map() {
                     }}
                     className={classNames(
                       selected === button.name ? "bg-orange text-white" : "bg-white text-black",
-                      "rounded-md px-6 py-2"
+                      "text-sm sm:text-base rounded-md px-2 sm:px-6 py-2"
                     )}
                   >
                     {button.text}
@@ -84,7 +84,7 @@ export default function Map() {
               </div>
 
               <TransformComponent>
-                <TriamOPHMap className="cursor-grab w-full h-[64rem]" selected={selected} />
+                <TriamOPHMap className="cursor-grab w-full h-[32rem] sm:h-[64rem]" selected={selected} />
               </TransformComponent>
             </div>
           )}
