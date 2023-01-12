@@ -27,7 +27,7 @@ async function getTicket(req, res) {
   res.end(file)
 }
 
-export default async allowCors(getTicket)
+export default async allowCors(getTicket);
 
 
 const getProtocol = (req: NextApiRequest) => (req.headers.host?.includes("localhost") ? "http" : "https")
