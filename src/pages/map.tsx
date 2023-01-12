@@ -13,7 +13,7 @@ const buttons: { name: ViewMode; text: string }[] = [
   { name: "org", text: "องค์กร" },
 ]
 
-const doZoom = (resetZoom: () => {}, zoomFunc: (anchorId: string) => {}, variant: string) => {
+const doZoom = (resetZoom: () => void, zoomFunc: (anchorId: string) => void, variant: string) => {
   switch (variant) {
     case "all":
       resetZoom()
