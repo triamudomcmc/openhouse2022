@@ -105,8 +105,10 @@ export const declinePend = async (clubId: string): Promise<void> => {
 export const markOnsite = async (uid: string): Promise<void | DocumentData> => {
   const marked = { onSite: true }
   const userRef = await adminDb.collection('account').doc(uid)
-  await userRef.set(marked, { merge: true })
-  if ((await userRef.get()).exists) return (await userRef.get()).data
+  if ((await userRef?.get()).exists) {
+    await userRef?.set(marked, { merge: true })
+    return (await userRef?.get()).data
+  }
 }
 
 export const stamp = async (club: string, clubName: string, uid: string, scannerUid: string): Promise<void | DocumentData | boolean> => {

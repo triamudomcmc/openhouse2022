@@ -67,7 +67,7 @@ export default function Auth() {
     router.push("/register/email/sent")
   }
 
-  if ((user?.qa ?? false) || !(user?.Info ?? false)) {
+  if ((user?.qa ?? false)) {
     return (
       <section className="relative flex flex-col items-center justify-center w-screen overflow-hidden pt-[6.5rem] pb-[2rem] bg-login-edit">
         <div className="">
