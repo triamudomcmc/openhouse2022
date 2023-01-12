@@ -62,7 +62,7 @@ export default function Scan() {
         executerUid: user?.uid,
       }),
     })
-    if (res) {
+    if (res.ok) {
       setMarked(true)
       setFDVariant(1)
     }
