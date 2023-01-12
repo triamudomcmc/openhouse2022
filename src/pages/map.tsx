@@ -13,6 +13,31 @@ const buttons: { name: ViewMode; text: string }[] = [
   { name: "org", text: "องค์กร" },
 ]
 
+const doZoom = (resetZoom: () => {}, zoomFunc: (anchorId: string) => {}, variant: string) => {
+  switch (variant) {
+    case "all":
+      resetZoom()
+      zoomFunc("all-anchor")
+      return
+    case "program":
+      resetZoom()
+      zoomFunc("larnbarnyen-anchor")
+      return
+    case "club":
+      resetZoom()
+      zoomFunc("clubs-anchor")
+      return
+    case "org":
+      resetZoom()
+      zoomFunc("clubs-anchor")
+      return
+    case "gifted":
+      resetZoom()
+      zoomFunc("gifted-anchor")
+      return
+  }
+}
+
 export default function Map() {
   const [selected, setSelected] = useState<ViewMode>(buttons[0].name)
 
@@ -33,7 +58,7 @@ export default function Map() {
           initialPositionY={0}
           velocityAnimation={{ sensitivity: 0.02 }}
         >
-          {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+          {({ zoomIn, zoomOut, resetTransform, zoomToElement }) => (
             <div className="flex flex-col items-center mt-8">
               {/* <div className="tools">
                 <button onClick={() => zoomIn()}>+</button>
@@ -44,7 +69,10 @@ export default function Map() {
                 {buttons.map((button) => (
                   <button
                     key={button.name}
-                    onClick={() => setSelected(button.name)}
+                    onClick={() => {
+                      doZoom(resetTransform, zoomToElement, button.name)
+                      setSelected(button.name)
+                    }}
                     className={classNames(
                       selected === button.name ? "bg-orange text-white" : "bg-white text-black",
                       "rounded-md px-6 py-2"
