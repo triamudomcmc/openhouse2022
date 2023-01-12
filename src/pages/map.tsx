@@ -3,8 +3,18 @@ import classNames from "classnames"
 import { useState } from "react"
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 
+export type ViewMode = "all" | "program" | "club" | "gifted" | "org"
+
+const buttons: { name: ViewMode; text: string }[] = [
+  { name: "all", text: "All" },
+  { name: "program", text: "สายการเรียน" },
+  { name: "club", text: "ชมรม" },
+  { name: "gifted", text: "Gifted" },
+  { name: "org", text: "องค์กร" },
+]
+
 export default function Map() {
-  const [selected, setSelected] = useState<"all" | "program" | "club" | "gifted" | "org">("all")
+  const [selected, setSelected] = useState<ViewMode>(buttons[0].name)
 
   return (
     <main
@@ -30,51 +40,23 @@ export default function Map() {
                 <button onClick={() => zoomOut()}>-</button>
                 <button onClick={() => resetTransform()}>x</button>
               </div> */}
-              <div className="flex gap-4">
-                <button
-                  className={classNames(
-                    selected === "all" ? "bg-orange text-white" : "bg-white text-black",
-                    "rounded-md px-6 py-2"
-                  )}
-                >
-                  All
-                </button>
-                <button
-                  className={classNames(
-                    selected === "program" ? "bg-orange text-white" : "bg-white text-black",
-                    "rounded-md px-6 py-2"
-                  )}
-                >
-                  สายการเรียน
-                </button>
-                <button
-                  className={classNames(
-                    selected === "club" ? "bg-orange text-white" : "bg-white text-black",
-                    "rounded-md px-6 py-2"
-                  )}
-                >
-                  ชมรม
-                </button>
-                <button
-                  className={classNames(
-                    selected === "gifted" ? "bg-orange text-white" : "bg-white text-black",
-                    "rounded-md px-6 py-2"
-                  )}
-                >
-                  Gifted
-                </button>
-                <button
-                  className={classNames(
-                    selected === "org" ? "bg-orange text-white" : "bg-white text-black",
-                    "rounded-md px-6 py-2"
-                  )}
-                >
-                  องค์กร
-                </button>
+              <div className="flex mb-8 gap-4">
+                {buttons.map((button) => (
+                  <button
+                    key={button.name}
+                    onClick={() => setSelected(button.name)}
+                    className={classNames(
+                      selected === button.name ? "bg-orange text-white" : "bg-white text-black",
+                      "rounded-md px-6 py-2"
+                    )}
+                  >
+                    {button.text}
+                  </button>
+                ))}
               </div>
 
               <TransformComponent>
-                <TriamOPHMap className="cursor-grab w-full h-[64rem]" />
+                <TriamOPHMap className="cursor-grab w-full h-[64rem]" selected={selected} />
               </TransformComponent>
             </div>
           )}
