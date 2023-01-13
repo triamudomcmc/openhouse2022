@@ -69,7 +69,7 @@ export default function QrGen() {
       const data = []
       let index = 0
       for (let [key, value] of Object.entries(uidStamp)) {
-        const struct: {[key: string]: string} = {}
+        const struct: { [key: string]: string } = {}
         struct.id = index.toString()
         // @ts-ignore
         struct.name = value?.nameTH
@@ -79,10 +79,9 @@ export default function QrGen() {
       setStampData(data)
       // if(stampData.length >= 12) setIsFull(true)
     }
-    
   }, [uidData?.stamp])
 
-  if (user?.uid && (user?.club || user?.roles?.hasOwnProperty('staff'))) return notFound()
+  if (user?.uid && (user?.club || user?.roles?.hasOwnProperty("staff"))) return notFound()
 
   if (user?.uid) {
     return (
@@ -108,27 +107,35 @@ export default function QrGen() {
               />
             </div>
           </div>
-          <div className={`flex flex-col relative items-center bg-white rounded-3xl py-6 w-full max-w-[380px] shadow-lg `}>
-                {stampData.length >= 12 && 
-                  <div className="absolute z-50 flex flex-col items-center justify-center w-full h-full -mt-6 bg-[#000000] bg-opacity-50 rounded-3xl">
-                    <h1 className="text-white text-[30px] lg:text-[40px]">สะสมครบแล้ว !</h1>
-                    <p className="px-[30px] mt-3 lg:mt-5 text-white">มาแลกรับของรางวัลสุดพิเศษ</p>
-                    <p className="px-[30px] text-white">ได้ที่ซุ้ม กช. บริเวณข้างตึก 81 ปีได้เลย</p>
-                  </div>
-                }
+          <div
+            className={`flex flex-col relative items-center bg-white rounded-3xl py-6 w-full max-w-[380px] shadow-lg `}
+          >
+            {/* {stampData.length >= 12 &&  */}
+            <div className="absolute z-50 flex flex-col items-center justify-center w-full h-full -mt-6 bg-[#000000] bg-opacity-50 rounded-3xl">
+              <h1 className="text-white text-[30px] lg:text-[40px]">สะสมครบแล้ว !</h1>
+              {/* <p className="px-[30px] mt-3 lg:mt-5 text-white">มาแลกรับของรางวัลสุดพิเศษ</p> */}
+              <p className="px-[30px] mt-3 lg:mt-5 text-white text-center">
+                ของรางวัลสำหรับวันนี้ได้ถูกแลกครบแล้ว
+                <br />
+                ขอบคุณที่มาร่วมกิจกรรม
+              </p>
+              {/* <p className="px-[30px] text-white">ได้ที่ซุ้ม กช. บริเวณข้างตึก 81 ปีได้เลย</p> */}
+            </div>
+            {/* } */}
             <span className="mt-4 mb-6 text-xl font-bold text-center">แสตมป์ของ {user?.Info?.username}</span>
             <div className="flex flex-col space-y-3">
               {groupByN(3, stampData).map((group, index) => (
                 <div key={index}>
-                  {index <= 3 &&
-                  <div key={index} className="grid grid-cols-3 gap-2">
-                    {group.map((stamp) => (
-                      <Stamp name={stamp.name} key={stamp.id} />
-                    ))}
-                    {Array.from({ length: 3 - group.length }).map((_, index) => (
-                      <BlankStamp key={index} />
-                    ))}
-                  </div>}
+                  {index <= 3 && (
+                    <div key={index} className="grid grid-cols-3 gap-2">
+                      {group.map((stamp) => (
+                        <Stamp name={stamp.name} key={stamp.id} />
+                      ))}
+                      {Array.from({ length: 3 - group.length }).map((_, index) => (
+                        <BlankStamp key={index} />
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
               {Array.from({ length: 4 - Math.ceil(stampData.length / 3) }).map((_, index) => (
