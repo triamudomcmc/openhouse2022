@@ -113,13 +113,13 @@ export default function QrGen() {
             {/* {stampData.length >= 12 &&  */}
             <div className="absolute z-50 flex flex-col items-center justify-center w-full h-full -mt-6 bg-[#000000] bg-opacity-50 rounded-3xl">
               <h1 className="text-white text-[30px] lg:text-[40px]">สะสมครบแล้ว !</h1>
-              <p className="px-[30px] mt-3 lg:mt-5 text-white">มาแลกรับของรางวัลสุดพิเศษ</p>
-              {/* <p className="px-[30px] mt-3 lg:mt-5 text-white text-center">
+              {/* <p className="px-[30px] mt-3 lg:mt-5 text-white">มาแลกรับของรางวัลสุดพิเศษ</p> */}
+              <p className="px-[30px] mt-3 lg:mt-5 text-white text-center">
                 ของรางวัลสำหรับวันนี้ได้ถูกแลกครบแล้ว
                 <br />
                 ขอบคุณที่มาร่วมกิจกรรม
-              </p> */}
-              <p className="px-[30px] text-white">ได้ที่ซุ้ม กช. บริเวณข้างตึก 81 ปีได้เลย</p>
+              </p>
+              {/* <p className="px-[30px] text-white">ได้ที่ซุ้ม กช. บริเวณข้างตึก 81 ปีได้เลย</p> */}
             </div>
             {/* } */}
             <span className="mt-4 mb-6 text-xl font-bold text-center">แสตมป์ของ {user?.Info?.username}</span>
