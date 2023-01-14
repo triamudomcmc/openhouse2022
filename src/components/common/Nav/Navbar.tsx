@@ -78,6 +78,9 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
           <div className="cursor-pointer hover:underline">
             <Link href={`/directions`}>การเดินทางมาโรงเรียนเตรียมฯ</Link>
           </div>
+          <div className="cursor-pointer hover:underline">
+            <Link href={`/map`}>แผนผังงาน</Link>
+          </div>
           <div className=" hover:underline">
             <Link href={`/admission`}>การสอบเข้า ม.4</Link>
           </div>
@@ -173,6 +176,11 @@ export const Navbar: FC<{ classname?: string }> = ({ classname }) => {
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
                 <Link href="/directions" passHref>
                   <span>การเดินทางมาโรงเรียน</span>
+                </Link>
+              </div>
+              <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
+                <Link href="/map" passHref>
+                  <span>แผนผังงาน</span>
                 </Link>
               </div>
               <div className="flex flex-row items-center py-2 pl-4 pr-8 space-x-4 text-[14px]">
