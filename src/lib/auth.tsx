@@ -130,23 +130,23 @@ export const AuthProvider: React.FC = ({ children }) => {
       }
       // onboard
       else if (pathname === "/register/onboard") {
-        if (noAuth) Router.push("/stream")
-        else if (registeredNoGame) Router.push("/stream")
-        else if (playedGame) Router.push("/stream")
-        // if (noAuth) Router.push("/register")
-        // else if (registeredNoGame) Router.push("/game")
-        // else if (playedGame) Router.push("/ticket")
+        // if (noAuth) Router.push("/stream")
+        // else if (registeredNoGame) Router.push("/stream")
+        // else if (playedGame) Router.push("/stream")
+        if (noAuth) Router.push("/register")
+        else if (registeredNoGame) Router.push("/game")
+        else if (playedGame) Router.push("/ticket")
       }
       // login
       else if (pathname === "/login") {
         if (authNoRegistered) Router.push("/register/onboard")
-        else if (registered) Router.push("/stream")
-        else if (registeredNoGame) Router.push("/stream")
-        else if (playedGame) Router.push("/stream")
-        // if (authNoRegistered) Router.push("/register/onboard")
-        // else if (registered) Router.push("/")
-        // else if (registeredNoGame) Router.push("/game")
-        // else if (playedGame) Router.push("/ticket")
+        // else if (registered) Router.push("/stream")
+        // else if (registeredNoGame) Router.push("/stream")
+        // else if (playedGame) Router.push("/stream")
+        if (authNoRegistered) Router.push("/register/onboard")
+        else if (registered) Router.push("/")
+        else if (registeredNoGame) Router.push("/game")
+        else if (playedGame) Router.push("/ticket")
       }
       // login
       else if (pathname === "/stream") {
